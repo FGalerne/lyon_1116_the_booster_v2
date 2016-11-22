@@ -1,0 +1,113 @@
+BoosterBundle\Entity\Booster:
+    type: entity
+    table: booster
+    uniqueConstraints:
+        id_UNIQUE:
+            columns:
+                - id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        photo:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        city:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        zipCode:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: zip_code
+        birthDate:
+            type: date
+            nullable: true
+            column: birth_date
+        workStatus:
+            type: string
+            nullable: true
+            length: 150
+            options:
+                fixed: false
+            column: work_status
+        competence1:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: competence_1
+        competence2:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: competence_2
+        competence3:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: competence_3
+        competence4:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: competence_4
+        competence5:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: competence_5
+        competence6:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: competence_6
+        presentation:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        hoursGiven:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: hours_given
+        projectDoneNumber:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: project_done_number
+        averageNotation:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: average_notation
+    lifecycleCallbacks: {  }
