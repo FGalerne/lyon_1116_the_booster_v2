@@ -6,13 +6,6 @@
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Jquery google CDN 3.1.0 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-    <!-- SmoothScroll script for index -->
-    <script src="{{ asset('js/smoothscroll.js')}}"></script>
 
     <!-- Fichier CSS custom -->
     <link rel="stylesheet" href="{{ asset('/css/main.css')}}" >
@@ -36,64 +29,71 @@
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
-
-<header>
-    <nav class="navbar navbar-fixed-top">
-        <div class="container-fluid nav_container">
-            <div class="navbar-header" id="navbar-logo">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href=""><img src="{{ asset('/img/logo-booster-det.png')}}" alt="The Booster logo"></a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li><a href="">Je donne</a></li>
-                    <li><a href="">Je propose</a></li>
-                </ul>
-                <div class="aboutus">
-                    <ul class="nav navbar-nav nav-social" id="nav_aboutus">
-                        <li><a href="">Qui sommes-nous ?</a></li>
+    <header>
+        <nav class="navbar navbar-fixed-top">
+            <div class="container-fluid nav_container">
+                <div class="navbar-header" id="navbar-logo">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href=""><img src="{{ asset('/img/logo-booster-det.png')}}" alt="The Booster logo"></a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="">Je donne</a></li>
+                        <li><a href="">Je propose</a></li>
                     </ul>
-                </div>
+                    <div class="aboutus">
+                        <ul class="nav navbar-nav nav-social" id="nav_aboutus">
+                            <li><a href="">Qui sommes-nous ?</a></li>
+                        </ul>
+                    </div>
 
-                <div class="nav navbar-nav navbar-right nav-social nav_networks">
-                    <a href="https://www.facebook.com/The-Booster-1775588599376645/" target="_blank"><img src="{{ asset('/img/facebook-tb-black.png')}}" alt="facebook"></a>
-                    <a href="https://twitter.com/ZeBooster" target="_blank"><img src="{{ asset('/img/twitter-the-booster-black.png')}}" alt="twitter"></a>
-                    <a href="https://fr.linkedin.com/in/the-booster-059bb1130" target="_blank"><img src="{{ asset('/img/linkedin-the-booster-black.png')}}" alt="linkedin"></a>
-                </div>
+                    <div class="nav navbar-nav navbar-right nav-social nav_networks">
+                        <a href="https://www.facebook.com/The-Booster-1775588599376645/" target="_blank"><img src="{{ asset('/img/facebook-tb-black.png')}}" alt="facebook"></a>
+                        <a href="https://twitter.com/ZeBooster" target="_blank"><img src="{{ asset('/img/twitter-the-booster-black.png')}}" alt="twitter"></a>
+                        <a href="https://fr.linkedin.com/in/the-booster-059bb1130" target="_blank"><img src="{{ asset('/img/linkedin-the-booster-black.png')}}" alt="linkedin"></a>
+                    </div>
 
+                </div>
             </div>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
 
 {% block body %}{% endblock %}
 
-<footer>
-    <div class="container-fluid center-block" id="foo_list">
-        <div class="row visible-xs visible-sm foo_social">
-            <a href="https://www.facebook.com/The-Booster-1775588599376645/" target="_blank">
-                <img src="{{ asset('img/facebook-tb-white.png')}}" alt="facebook">
-            </a>
-            <a href="https://twitter.com/ZeBooster" target="_blank">
-                <img  src="{{ asset('/img/twitter-the-booster-white.png')}}" alt="twitter">
-            </a>
-            <a href="https://fr.linkedin.com/in/the-booster-059bb1130" target="_blank">
-                <img  src="{{ asset('/img/linkedin-the-booster-white.png')}}" alt="linkedin">
-            </a>
+    <footer>
+        <div class="container-fluid center-block" id="foo_list">
+            <div class="row visible-xs visible-sm foo_social">
+                <a href="https://www.facebook.com/The-Booster-1775588599376645/" target="_blank">
+                    <img src="{{ asset('img/facebook-tb-white.png')}}" alt="facebook">
+                </a>
+                <a href="https://twitter.com/ZeBooster" target="_blank">
+                    <img  src="{{ asset('/img/twitter-the-booster-white.png')}}" alt="twitter">
+                </a>
+                <a href="https://fr.linkedin.com/in/the-booster-059bb1130" target="_blank">
+                    <img  src="{{ asset('/img/linkedin-the-booster-white.png')}}" alt="linkedin">
+                </a>
+            </div>
+            <div class="row foo_mention">
+                <p><a href="">Nous contacter</a></p>
+                <p><a href="" id="foo_mentionsl">Mentions légales</a> | <a href="" id="foo_sitemap">Plan du site</a> </p>
+                <p class="foo_copyright"><small>Copyright © 2016 - The Booster. Tous droits réservés.<br/>Réalisé par les élèves de la <a href="{{ 'http://www.wildcodeschool.fr' }}" target="_blank"> Wild Code School.</a></small></p>
+            </div>
         </div>
-        <div class="row foo_mention">
-            <p><a href="">Nous contacter</a></p>
-            <p><a href="" id="foo_mentionsl">Mentions légales</a> | <a href="" id="foo_sitemap">Plan du site</a> </p>
-            <p class="foo_copyright"><small>Copyright © 2016 - The Booster. Tous droits réservés.<br/>Réalisé par les élèves de la <a href="{{ 'http://www.wildcodeschool.fr' }}" target="_blank"> Wild Code School.</a></small></p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 {% block javascripts %}{% endblock %}
+
+    <!-- Jquery google CDN 3.1.0 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- SmoothScroll script for index -->
+    <script src="{{ asset('js/smoothscroll.js')}}"></script>
 
 </body>
 </html>
