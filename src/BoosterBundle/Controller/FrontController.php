@@ -22,7 +22,7 @@ class FrontController extends Controller
     {
         return $this->render('BoosterBundle:Front:charte.html.twig');
     }
-    public function mentions_legales_Action()
+    public function mentionsLegalesAction()
     {
         return $this->render('BoosterBundle:Front:mentions_legales.html.twig');
     }
@@ -33,5 +33,9 @@ class FrontController extends Controller
     public function contactAction()
     {
         return $this->render('BoosterBundle:Front:contact.html.twig');
+    }
+    public function commentCaMarcheAction()
+    {
+        return $this->render('BoosterBundle:Front:comment_ca_marche.html.twig');
     }
 }

@@ -1,1 +1,50 @@
-Hello equipe
+{% extends 'base.html.twig' %}
+{%  block title %}L'équipe | The Booster{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="row all_blsp_xs all_blsp_sm all_blsp_md"></div>
+
+        <div class="row all_blsp">
+            <div class="who_bltxt col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
+                <h1 class="h1_toppage" id="whoh1_toppage">QUI SOMMES-NOUS ?</h1>
+                <hr>
+            </div>
+        </div>
+        <div class="row who_blocimg">
+            <div class="col-xs-offset-3 col-xs-6 col-sm-offset-2 col-sm-3 col-md-offset-3 col-md-2" id="who_blocimg_pic1">
+                <img src="{{ asset('/img/the-booster-guylaine-antonini.png')}}" class="img-responsive who_img_portrait" alt="Guylaine Antonini cofondatrice The Booster">
+                <div class="who_blocsoc">
+                    <h2>Guylaine Antonini</h2>
+                    <div>
+                        <a href="https://twitter.com/Guyylaine" target="_blank"><img src="{{ asset('/img/twitter-the-booster-black.png')}}" alt="Twitter guylaine The Booster"></a>
+                        <a href="https://fr.linkedin.com/in/guylaineantonini" target="_blank"><img src="{{ asset('/img/linkedin-the-booster-black.png')}}" alt="Linkedin Guylaine The Booster"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-offset-3 col-xs-6 col-sm-offset-2 col-sm-3 col-md-offset-2 col-md-2" id="who_blocimg_pic2">
+                <img src="{{ asset('/img/the-booster-nicolas-antonini.png')}}" class="img-responsive who_img_portrait" alt="Nicolas Antonini cofondateur The Booster">
+                <div class="who_blocsoc">
+                    <h2>Nicolas Antonini</h2>
+                    <div>
+                        <a href="https://twitter.com/nicolasantonini" target="_blank"><img src="{{ asset('/img/twitter-the-booster-black.png')}}" alt="Twitter Nicolas The Booster"></a>
+                        <a href="https://fr.linkedin.com/in/nicolasantonini" target="_blank"><img src="{{ asset('/img/linkedin-the-booster-black.png')}}" alt="Linkedin Nicolas The Booster"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row who_bltxt" id="who_bltxt_ext">
+            <div class=" who_bltxt col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8" id="who_bltxt_int">
+
+                <h2 class="h2_toppage">The Booster est la 1<span class="sup">ère</span> plateforme de Crowdfunding de compétences.</h2>
+                <p> Notre sommes partis d'un constat simple, pour Entreprendre deux ressources sont essentielles : l'argent et les compétences. Or, l'Entrepreneur, même s'il a suffisamment d'argent ne peut acquérir l'ensemble des compétences nécessaires à sa réussite.
+                    D'autre part, nous possédons toutes et tous des compétences qu'il est possible d'associer à une ressource universelle, inépuisable et peu valorisée : le Temps Libre.
+                    Enfin, nous sommes convaincus, comme le dit l'adage, que "le temps c'est de l'argent".<br/><br> The Booster est donc la plateforme qui permet aux Entrepreneurs, les "Boostés", d'être mis en relation avec des personnes désireuses de faire don de leur "temps libre" et de leurs compétences, les "Boosters".<br><br>
+                    Étudiants, Salariés, Entrepreneurs, Entre deux jobs, Indépendants ou Séniors, tout le monde donne du temps afin d'aider concrètement des projets à émerger ou à se réaliser.
+                    Grâce à The Booster, n'investissez pas, investissez-vous.<br/>
+                    The Booster c'est une façon inédite et concrète de donner du sens à son temps libre. <br><br>En aidant réellement des Entrepreneurs je valorise mes compétences, j'accède à une multitude d'opportunités et je fais avancer l'Économie.
+                </p>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
