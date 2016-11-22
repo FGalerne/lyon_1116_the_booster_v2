@@ -1,13 +1,99 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-type" content="text/html" charset="utf-8" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Fichier CSS custom -->
+    <link rel="stylesheet" href="{{ asset('/css/main.css')}}" >
+
+    <!-- Google Font title ROBOTO -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+
+    <!-- Google Font paragraphes et boutons SOURCE SANS PRO -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/the-booster-favicon-ico.ico')}}" />
+    <link rel="icon" type="image/png" href="{{ asset('img/the-booster-favicon-16X16.png')}}" />
+
+
+    <link href="{{ asset('css/main.css')}}">
+
+    <title>{% block title %}The Booster | Première plateforme de crowdfunding de compétences.{% endblock %}</title>
+    <meta name="description" content="{% block pageDescription %}{% endblock %}"/>
+
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-fixed-top">
+            <div class="container-fluid nav_container">
+                <div class="navbar-header" id="navbar-logo">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href=""><img src="{{ asset('/img/logo-booster-det.png')}}" alt="The Booster logo"></a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="">Je donne</a></li>
+                        <li><a href="">Je propose</a></li>
+                    </ul>
+                    <div class="aboutus">
+                        <ul class="nav navbar-nav nav-social" id="nav_aboutus">
+                            <li><a href="">Qui sommes-nous ?</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="nav navbar-nav navbar-right nav-social nav_networks">
+                        <a href="https://www.facebook.com/The-Booster-1775588599376645/" target="_blank"><img src="{{ asset('/img/facebook-tb-black.png')}}" alt="facebook"></a>
+                        <a href="https://twitter.com/ZeBooster" target="_blank"><img src="{{ asset('/img/twitter-the-booster-black.png')}}" alt="twitter"></a>
+                        <a href="https://fr.linkedin.com/in/the-booster-059bb1130" target="_blank"><img src="{{ asset('/img/linkedin-the-booster-black.png')}}" alt="linkedin"></a>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+{% block body %}{% endblock %}
+
+    <footer>
+        <div class="container-fluid center-block" id="foo_list">
+            <div class="row visible-xs visible-sm foo_social">
+                <a href="https://www.facebook.com/The-Booster-1775588599376645/" target="_blank">
+                    <img src="{{ asset('img/facebook-tb-white.png')}}" alt="facebook">
+                </a>
+                <a href="https://twitter.com/ZeBooster" target="_blank">
+                    <img  src="{{ asset('/img/twitter-the-booster-white.png')}}" alt="twitter">
+                </a>
+                <a href="https://fr.linkedin.com/in/the-booster-059bb1130" target="_blank">
+                    <img  src="{{ asset('/img/linkedin-the-booster-white.png')}}" alt="linkedin">
+                </a>
+            </div>
+            <div class="row foo_mention">
+                <p><a href="">Nous contacter</a></p>
+                <p><a href="" id="foo_mentionsl">Mentions légales</a> | <a href="" id="foo_sitemap">Plan du site</a> </p>
+                <p class="foo_copyright"><small>Copyright © 2016 - The Booster. Tous droits réservés.<br/>Réalisé par les élèves de la <a href="{{ 'http://www.wildcodeschool.fr' }}" target="_blank"> Wild Code School.</a></small></p>
+            </div>
+        </div>
+    </footer>
+
+{% block javascripts %}{% endblock %}
+
+    <!-- Jquery google CDN 3.1.0 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- SmoothScroll script for index -->
+    <script src="{{ asset('js/smoothscroll.js')}}"></script>
+
+</body>
 </html>
