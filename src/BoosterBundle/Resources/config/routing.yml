@@ -1,3 +1,24 @@
 booster_homepage:
     path:     /
-    defaults: { _controller: BoosterBundle:Default:index }
+    defaults: { _controller: BoosterBundle:Front:index }
+booster_cgv:
+    path:     /cgv
+    defaults: { _controller: BoosterBundle:Front:cgv }
+booster_faq:
+    path:     /faq
+    defaults: { _controller: BoosterBundle:Front:faq }
+booster_charte:
+    path:     /charte
+    defaults: { _controller: BoosterBundle:Front:charte }
+booster_mentions_legales:
+    path:     /mentions_legales
+    defaults: { _controller: BoosterBundle:Front:mentions_legales }
+booster_equipe:
+    path:     /equipe
+    defaults: { _controller: BoosterBundle:Front:equipe }
+booster_contact:
+    path:     /contact
+    defaults: { _controller: BoosterBundle:Front:contact }
+booster_contact:
+    path:     /contact
+    defaults: { _controller: BoosterBundle:Front:contact }
