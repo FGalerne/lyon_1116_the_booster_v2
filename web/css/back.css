@@ -1,0 +1,57 @@
+
+/* CSS BACK */
+
+.navbar {
+    background-color: lightgrey;
+    box-shadow: 0 3px 0px rgba(105,105,105,1);
+}
+
+.navbar-collapse{
+    background-color: lightgrey;
+}
+
+.nav_container{
+    background-color: lightgrey;
+}
+
+h1{
+    margin-top:5vh;
+    font-size: 37px;
+    letter-spacing: -2px;
+}
+
+hr {
+    border:none;
+    display: inline-block;
+    width:90px;
+    height:8px;
+    background: darkgrey;
+    margin: auto 10px;
+}
+
+.admin_list{
+    text-align: center;
+}
+
+table {
+    width:90%;
+    margin-left:5%;
+    margin-right:5%;
+}
+
+th, td {
+    width: 10%;
+}
+
+tr {
+    border: solid black 1px;
+}
+
+label {
+    width: 100px;
+}
+
+.navbar {
+    background-color: black;
+}
+

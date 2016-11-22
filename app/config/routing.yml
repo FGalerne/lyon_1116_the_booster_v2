@@ -1,0 +1,5 @@
+booster:
+    resource: "@BoosterBundle/Resources/config/routing.yml"
+    prefix:   /
+
+

@@ -1,0 +1,43 @@
+
+/* CSS LOGIN */
+
+.navbar {
+    background-color: lightgrey;
+    box-shadow: 0 3px 0px rgba(105,105,105,1);
+}
+
+.navbar-collapse {
+    background-color: lightgrey;
+}
+
+.row{
+    padding: 60px;
+    text-align: center;
+}
+
+.input {
+    margin-bottom:30px ;
+}
+
+h1{
+    margin-top:5vh;
+    font-size: 37px;
+    letter-spacing: -2px;
+}
+
+.block_admin{
+    text-align: center;
+}
+
+hr{
+    border:none;
+    display: inline-block;
+    width:90px;
+    height:8px;
+    background: darkgrey;
+    margin-bottom: 50px;
+}
+
+.login_button {
+    margin-top: 40px;
+}
