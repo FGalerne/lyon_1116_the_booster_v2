@@ -192,7 +192,6 @@ class User extends BaseUser
         $this->tvaintranumber = $tvaintranumber;
     }
 
-
     /**
      * @return boolean
      */

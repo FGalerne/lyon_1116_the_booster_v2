@@ -9,7 +9,7 @@ BoosterBundle\Entity\User:
     fields:
         title:
             type: string
-            length: '5'
+            length: '3'
             nullable: false
         lastname:
             type: string
