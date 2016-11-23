@@ -8,7 +8,7 @@ BoosterBundle\Entity\Project:
             generator:
                 strategy: AUTO
     fields:
-        title:
+        projectName:
             type: string
             nullable: false
             length: 255
@@ -43,16 +43,16 @@ BoosterBundle\Entity\Project:
             type: datetime
             nullable: true
             column: end_time
-        boosterComentaries:
+        boosterCommentaries:
             type: string
             nullable: true
             length: 255
-            column: booster_comentaries
-        socityComentaries:
+            column: booster_commentaries
+        societyCommentaries:
             type: string
             nullable: true
             length: 255
-            column: socity_comentaries
+            column: society_commentaries
         boosterNote:
             type: integer
             nullable: true
@@ -64,9 +64,9 @@ BoosterBundle\Entity\Project:
     manyToOne:
         society:
             targetEntity: Society
-            mappedBy: society
+            inversedBy: societyName
     oneToMany:
         project_subscriptions:
-            targetEntity: ProjectSubscribtion
-            inversedBy: project_subscription
+            targetEntity: BoosterBundle\Entity\ProjectSubscribtion
+            mappedBy: booster
     lifecycleCallbacks: {  }

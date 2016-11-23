@@ -1,9 +1,9 @@
-BoosterBundle\Entity\ProjectSubsciption:
+BoosterBundle\Entity\ProjectSubscription:
     type: entity
     table: project_subscription
     id:
         id:
-         type: integer
+            type: integer
             id: true
             generator:
                 strategy: AUTO
@@ -18,9 +18,9 @@ BoosterBundle\Entity\ProjectSubsciption:
             length: 45
     manyToOne:
         booster:
-            targetEntity: Booster
-            inversedBy: booster
+            targetEntity: BoosterBundle\Entity\Booster
+            inversedBy: id
         project:
-            targetEntity: Project
-            inversedBy: project
+            targetEntity: BoosterBundle\Entity\Project
+            inversedBy: id
     lifecycleCallbacks: {  }

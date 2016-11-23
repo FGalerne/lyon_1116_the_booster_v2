@@ -32,6 +32,6 @@ BoosterBundle\Entity\Transaction:
             length: 45
     manyToOne:
         society:
-            targetEntity: Society
-            mappedBy: society
+            targetEntity: BoosterBundle\Entity\Society
+            mappedBy: societyName
     lifecycleCallbacks: {  }

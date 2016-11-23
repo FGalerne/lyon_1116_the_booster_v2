@@ -12,11 +12,11 @@ BoosterBundle\Entity\Society:
             type: string
             nullable: true
             length: 255
-        projectName:
+        societyName:
             type: string
             nullable: false
             length: 255
-            column: project_name
+            column: society_name
         punchLine:
             type: string
             nullable: false
@@ -63,7 +63,7 @@ BoosterBundle\Entity\Society:
             nullable: true
             column: denied_boosters
         oneToMany:
-            projects:
-                targetEntity: Project
-                mappedBy: project
+            project_names:
+                targetEntity: BoosterBundle\Entity\Project
+                mappedBy: projectName
     lifecycleCallbacks: {  }
