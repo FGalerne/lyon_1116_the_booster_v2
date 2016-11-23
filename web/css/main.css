@@ -879,6 +879,7 @@ hr{
 	background-color: white;
 	margin-top: -50px;
 	border: 1px solid gainsboro;
+	padding-bottom: 20px;
 
 }
 
@@ -970,8 +971,8 @@ hr{
 		border-radius: 15px;
 		right: 2%;
 		top: 28%;
-		width: 38%;
-		height: 15%;
+		width: 29%;
+		height: auto;
 	}
 
 	.home_carousel_jedonne-over {
@@ -1194,3 +1195,81 @@ and (-webkit-min-device-pixel-ratio: 1) {
     .block_error{
         text-align: center;
     }
+
+/* Video */
+#videointro{
+	position : relative;
+	width : 100%;
+	height: 80vh;
+	object-fit: cover;
+	background-size: cover;
+	z-index: -1;
+}
+
+.videointro {
+	position : relative;
+	width : 100%;
+	height: 80vh;
+	background: url(../img/office-336368_1920.jpg) no-repeat center center fixed;
+	background-size: cover;
+	z-index: -2;
+}
+
+@media screen and (max-width: 300px){
+	.videointro {
+		height: 80vh;
+	}
+}
+
+#title-video{
+	font-size : 20px;
+	text-align: center;
+}
+
+#sign-in p{
+	text-align: center;
+}
+
+@media (max-width: 1075px) {
+	.navbar-header {
+		float: none;
+	}
+	.navbar-left,.navbar-right {
+		float: none !important;
+	}
+	.navbar-toggle {
+		display: block;
+	}
+
+	.navbar-fixed-top {
+		top: 0;
+		border-width: 0 0 1px;
+	}
+	.navbar-collapse.collapse {
+		display: none!important;
+	}
+	.navbar-nav {
+		float: none!important;
+
+	}
+	.navbar-nav>li {
+		float: none;
+	}
+	.navbar-nav>li>a {
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	.collapse.in{
+		display:block !important;
+	}
+	.nav_networks {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		margin-right: 20px;
+	}
+	.navbar-collapse.in {
+		overflow-y: unset;
+		padding-bottom: 3vh;
+	}
+}
