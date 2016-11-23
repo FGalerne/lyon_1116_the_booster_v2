@@ -59,6 +59,11 @@ class User extends BaseUser
     private $siretnumber;
 
     /**
+     * @var string
+     */
+    private $tvaintranumber;
+
+    /**
      * @var boolean
      */
     private $typeproject;
@@ -170,6 +175,23 @@ class User extends BaseUser
     {
         $this->siretnumber = $siretnumber;
     }
+
+    /**
+     * @return string
+     */
+    public function getTvaintranumber()
+    {
+        return $this->tvaintranumber;
+    }
+
+    /**
+     * @param string $tvaintranumber
+     */
+    public function setTvaintranumber($tvaintranumber)
+    {
+        $this->tvaintranumber = $tvaintranumber;
+    }
+
 
     /**
      * @return boolean

@@ -44,8 +44,15 @@ BoosterBundle\Entity\User:
             column: type_society
         siretnumber:
             type: integer
+            lenght: 14
             nullable: false
             unique: true
             column: siret_number
+        tvaintranumber:
+            type: string
+            lenght: 11
+            nullable: false
+            unique: true
+            column: tvaintra_number
 
     lifecycleCallbacks: {  }
