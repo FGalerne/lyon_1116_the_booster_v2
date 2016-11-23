@@ -13,12 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
 
 
 /**
- * Class UserAdmin
+ * Class User
  * @package BoosterBundle\Entity
  * @ORM\Entity
- * @ORM\Table(name="user_admin")
+ * @ORM\Table(name="user")
  */
-class UserAdmin extends BaseUser
+class User extends BaseUser
 {
     /**
      * @var integer
