@@ -31,47 +31,47 @@ class User extends BaseUser
     /**
      * @var integer
      */
-    private $title;
+    protected $title;
 
     /**
      * @var string
      */
-    private $lastname;
+    protected $lastname;
 
     /**
      * @var string
      */
-    private $firstname;
+    protected $firstname;
 
     /**
      * @var integer
      */
-    private $phone;
+    protected $phone;
 
     /**
      * @var integer
      */
-    private $createtime;
+    protected $createtime;
 
     /**
      * @var integer
      */
-    private $siretnumber;
+    protected $siretnumber;
 
     /**
      * @var string
      */
-    private $tvaintranumber;
+    protected $tvaintranumber;
 
     /**
      * @var boolean
      */
-    private $typeproject;
+    protected $typeproject;
 
     /**
      * @var boolean
      */
-    private $typesociety;
+    protected $typesociety;
 
 
     public function __construct()
