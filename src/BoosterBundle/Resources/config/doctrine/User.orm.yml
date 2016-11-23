@@ -6,3 +6,46 @@ BoosterBundle\Entity\User:
             type: integer
             generator:
                 strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: '5'
+            nullable: false
+        lastname:
+            type: string
+            length: '50'
+            nullable: false
+            column: last_name
+        firstname:
+            type: string
+            length: '50'
+            nullable: false
+            column: first_name
+        phone:
+            type: integer
+            lenght: '10'
+            nullable: false
+            unique: true
+        createtime:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+            column: create_time
+        typeproject:
+            type: boolean
+            nullable: false
+            unique: true
+            column: type_project
+        typesociety:
+            type: boolean
+            nullage: false
+            unique: true
+            column: type_society
+        siretnumber:
+            type: integer
+            nullable: false
+            unique: true
+            column: siret_number
+
+    lifecycleCallbacks: {  }

@@ -28,8 +28,180 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @var integer
+     */
+    private $title;
+
+    /**
+     * @var string
+     */
+    private $lastname;
+
+    /**
+     * @var string
+     */
+    private $firstname;
+
+    /**
+     * @var integer
+     */
+    private $phone;
+
+    /**
+     * @var integer
+     */
+    private $createtime;
+
+    /**
+     * @var integer
+     */
+    private $siretnumber;
+
+    /**
+     * @var boolean
+     */
+    private $typeproject;
+
+    /**
+     * @var boolean
+     */
+    private $typesociety;
+
+
     public function __construct()
     {
         parent::__construct();
     }
+
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * @param string $laststname
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * @param string $firstname
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param string $phone
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getCreatetime()
+    {
+        return $this->createtime;
+    }
+
+    /**
+     * @param integer $createtime
+     */
+    public function setCreatetime($createtime)
+    {
+        $this->createtime = $createtime;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getSiretnumber()
+    {
+        return $this->siretnumber;
+    }
+
+    /**
+     * @param integer $siretnumber
+     */
+    public function setSiretnumber($siretnumber)
+    {
+        $this->siretnumber = $siretnumber;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getTypeproject()
+    {
+        return $this->typeproject;
+    }
+
+    /**
+     * @param boolean $typeproject
+     */
+    public function setTypeproject($typeproject)
+    {
+        $this->typeproject = $typeproject;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getTypesociety()
+    {
+        return $this->typesociety;
+    }
+
+    /**
+     * @param boolean $typesociety
+     */
+    public function setTypesociety($typesociety)
+    {
+        $this->typesociety = $typesociety;
+    }
+
+
 }
