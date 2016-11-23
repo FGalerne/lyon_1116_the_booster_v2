@@ -57,16 +57,16 @@ BoosterBundle\Entity\Project:
             type: integer
             nullable: true
             column: booster_note
-        socityNote:
+        societyNote:
             type: integer
             nullable: true
-            column: socity_note
+            column: society_note
     manyToOne:
         society:
             targetEntity: Society
             inversedBy: societyName
     oneToMany:
         project_subscriptions:
-            targetEntity: BoosterBundle\Entity\ProjectSubscribtion
+            targetEntity: BoosterBundle\Entity\ProjectSubscription
             mappedBy: booster
     lifecycleCallbacks: {  }

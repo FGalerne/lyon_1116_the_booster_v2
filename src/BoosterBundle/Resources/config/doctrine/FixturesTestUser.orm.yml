@@ -1,0 +1,62 @@
+BoosterBundle\Entity\FixturesTestUser:
+    type: entity
+    table: null
+    repositoryClass: BoosterBundle\Repository\FixturesTestUserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+            nullable: true
+        familyName:
+            type: string
+            length: 255
+            column: family_name
+            nullable: true
+        surname:
+            type: string
+            length: 255
+            nullable: true
+        email:
+            type: string
+            length: 255
+            nullable: true
+        password:
+            type: string
+            length: 255
+            nullable: true
+        phoneNumber:
+            type: string
+            length: 255
+            column: phone_number
+            nullable: true
+        function:
+            type: string
+            length: 255
+            nullable: true
+        createTime:
+            type: datetime
+            column: create_time
+            nullable: true
+        projectType:
+            type: boolean
+            column: project_type
+            nullable: true
+        siret:
+            type: string
+            length: 14
+            nullable: true
+        projectName:
+            type: string
+            length: 255
+            column: project_name
+            nullable: true
+        role:
+            type: boolean
+            nullable: true
+    lifecycleCallbacks: {  }
