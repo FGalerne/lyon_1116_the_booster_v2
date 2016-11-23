@@ -203,5 +203,4 @@ class User extends BaseUser
         $this->typesociety = $typesociety;
     }
 
-
 }
