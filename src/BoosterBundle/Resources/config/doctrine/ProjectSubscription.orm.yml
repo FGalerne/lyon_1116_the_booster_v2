@@ -1,0 +1,26 @@
+BoosterBundle\Entity\ProjectSubsciption:
+    type: entity
+    table: project_subscription
+    id:
+        id:
+         type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        message:
+            type: string
+            nullable: false
+            length: 45
+        status:
+            type: string
+            nullable: false
+            length: 45
+    manyToOne:
+        booster:
+            targetEntity: Booster
+            inversedBy: booster
+        project:
+            targetEntity: Project
+            inversedBy: project
+    lifecycleCallbacks: {  }

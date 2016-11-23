@@ -1,102 +1,69 @@
 BoosterBundle\Entity\Society:
     type: entity
     table: society
-    uniqueConstraints:
-        id_UNIQUE:
-            columns:
-                - id
-        project_name_UNIQUE:
-            columns:
-                - project_name
     id:
         id:
             type: integer
-            nullable: false
-            options:
-                unsigned: false
             id: true
             generator:
-                strategy: IDENTITY
+                strategy: AUTO
     fields:
         photo:
             type: string
             nullable: true
             length: 255
-            options:
-                fixed: false
         projectName:
             type: string
             nullable: false
             length: 255
-            options:
-                fixed: false
             column: project_name
         punchLine:
             type: string
             nullable: false
             length: 140
-            options:
-                fixed: false
             column: punch_line
         presentation:
             type: text
             nullable: false
-            length: 65535
-            options:
-                fixed: false
         linkedin:
             type: string
             nullable: true
             length: 255
-            options:
-                fixed: false
         facebook:
             type: string
             nullable: true
             length: 255
-            options:
-                fixed: false
         twitter:
             type: string
             nullable: true
             length: 255
-            options:
-                fixed: false
         youtube:
             type: string
             nullable: true
             length: 255
-            options:
-                fixed: false
         websiteLink:
             type: string
             nullable: true
             length: 255
-            options:
-                fixed: false
             column: website_link
         hoursTaken:
             type: integer
             nullable: true
-            options:
-                unsigned: false
             column: hours_taken
         averageNotation:
             type: integer
             nullable: true
-            options:
-                unsigned: false
             column: average_notation
         projectDoneNumber:
             type: integer
             nullable: true
-            options:
-                unsigned: false
             column: project_done_number
         deniedBoosters:
             type: integer
             nullable: true
-            options:
-                unsigned: false
             column: denied_boosters
+        oneToMany:
+            projects:
+                targetEntity: Project
+                mappedBy: project
     lifecycleCallbacks: {  }

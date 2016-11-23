@@ -1,58 +1,37 @@
 BoosterBundle\Entity\Project:
     type: entity
     table: project
-    indexes:
-        fk_project_society1_idx:
-            columns:
-                - society_id
-    uniqueConstraints:
-        id_UNIQUE:
-            columns:
-                - id
     id:
         id:
             type: integer
-            nullable: false
-            options:
-                unsigned: false
             id: true
+            generator:
+                strategy: AUTO
     fields:
         title:
             type: string
             nullable: false
             length: 255
-            options:
-                fixed: false
         category:
             type: string
             nullable: false
             length: 100
-            options:
-                fixed: false
         description:
             type: string
             nullable: false
             length: 200
-            options:
-                fixed: false
         creationStatus:
             type: string
             nullable: false
             length: 15
-            options:
-                fixed: false
             column: creation_status
         status:
             type: string
             nullable: false
             length: 255
-            options:
-                fixed: false
         givenTime:
             type: integer
             nullable: false
-            options:
-                unsigned: false
             column: given_time
         createTime:
             type: datetime
@@ -68,37 +47,26 @@ BoosterBundle\Entity\Project:
             type: string
             nullable: true
             length: 255
-            options:
-                fixed: false
             column: booster_comentaries
         socityComentaries:
             type: string
             nullable: true
             length: 255
-            options:
-                fixed: false
             column: socity_comentaries
         boosterNote:
             type: integer
             nullable: true
-            options:
-                unsigned: false
             column: booster_note
         socityNote:
             type: integer
             nullable: true
-            options:
-                unsigned: false
             column: socity_note
-    oneToOne:
+    manyToOne:
         society:
             targetEntity: Society
-            cascade: {  }
-            fetch: LAZY
-            mappedBy: null
-            inversedBy: null
-            joinColumns:
-                society_id:
-                    referencedColumnName: id
-            orphanRemoval: false
+            mappedBy: society
+    oneToMany:
+        project_subscriptions:
+            targetEntity: ProjectSubscribtion
+            inversedBy: project_subscription
     lifecycleCallbacks: {  }
