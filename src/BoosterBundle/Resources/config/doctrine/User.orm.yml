@@ -11,12 +11,12 @@ BoosterBundle\Entity\User:
             type: string
             length: '3'
             nullable: false
-        lastname:
+        lastName:
             type: string
             length: '50'
             nullable: false
             column: last_name
-        firstname:
+        firstName:
             type: string
             length: '50'
             nullable: false
@@ -26,33 +26,38 @@ BoosterBundle\Entity\User:
             lenght: '10'
             nullable: false
             unique: true
-        createtime:
+        createTime:
             type: datetime
             nullable: false
             options:
                 default: CURRENT_TIMESTAMP
             column: create_time
-        typeproject:
+        typeProject:
             type: boolean
             nullable: false
             unique: true
             column: type_project
-        typesociety:
+        typeSociety:
             type: boolean
             nullage: false
             unique: true
             column: type_society
-        siretnumber:
-            type: integer
+        siretNumber:
+            type: string
             lenght: 14
             nullable: false
             unique: true
             column: siret_number
-        tvaintranumber:
+        tvaIntraNumber:
             type: string
             lenght: 11
             nullable: false
             unique: true
-            column: tvaintra_number
-
+            column: tva_intra_number
+        professionalFunction:
+            type: string
+            lenght: 100
+            nullable: false
+            unique: false
+            column: professional_function
     lifecycleCallbacks: {  }

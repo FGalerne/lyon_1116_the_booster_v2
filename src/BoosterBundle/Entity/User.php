@@ -15,16 +15,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Class User
  * @package BoosterBundle\Entity
- * @ORM\Entity
- * @ORM\Table(name="user")
  */
 class User extends BaseUser
 {
     /**
      * @var integer
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
@@ -36,12 +31,12 @@ class User extends BaseUser
     /**
      * @var string
      */
-    protected $lastname;
+    protected $lastName;
 
     /**
      * @var string
      */
-    protected $firstname;
+    protected $firstName;
 
     /**
      * @var integer
@@ -51,27 +46,32 @@ class User extends BaseUser
     /**
      * @var integer
      */
-    protected $createtime;
-
-    /**
-     * @var integer
-     */
-    protected $siretnumber;
+    protected $createTime;
 
     /**
      * @var string
      */
-    protected $tvaintranumber;
+    protected $siretNumber;
+
+    /**
+     * @var string
+     */
+    protected $tvaIntraNumber;
 
     /**
      * @var boolean
      */
-    protected $typeproject;
+    protected $typeProject;
 
     /**
      * @var boolean
      */
-    protected $typesociety;
+    protected $typeSociety;
+
+    /**
+     * @var string
+     */
+    protected $professionalFunction;
 
 
     public function __construct()
@@ -99,33 +99,33 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getLastname()
+    public function getLastName()
     {
-        return $this->lastname;
+        return $this->lastName;
     }
 
     /**
-     * @param string $laststname
+     * @param string $lastName
      */
-    public function setLastname($lastname)
+    public function setLastName($lastName)
     {
-        $this->lastname = $lastname;
+        $this->lastName = $lastName;
     }
 
     /**
      * @return string
      */
-    public function getFirstname()
+    public function getFirstName()
     {
-        return $this->firstname;
+        return $this->firstName;
     }
 
     /**
-     * @param string $firstname
+     * @param string $firstName
      */
-    public function setFirstname($firstname)
+    public function setFirstName($firstName)
     {
-        $this->firstname = $firstname;
+        $this->firstName = $firstName;
     }
 
     /**
@@ -147,81 +147,97 @@ class User extends BaseUser
     /**
      * @return integer
      */
-    public function getCreatetime()
+    public function getCreateTime()
     {
-        return $this->createtime;
+        return $this->createTime;
     }
 
     /**
-     * @param integer $createtime
+     * @param integer $createTime
      */
-    public function setCreatetime($createtime)
+    public function setCreateTime($createTime)
     {
-        $this->createtime = $createtime;
+        $this->createTime = $createTime;
     }
 
     /**
      * @return integer
      */
-    public function getSiretnumber()
+    public function getSiretNumber()
     {
-        return $this->siretnumber;
+        return $this->siretNumber;
     }
 
     /**
-     * @param integer $siretnumber
+     * @param integer $siretNumber
      */
-    public function setSiretnumber($siretnumber)
+    public function setSiretNumber($siretNumber)
     {
-        $this->siretnumber = $siretnumber;
+        $this->siretNumber = $siretNumber;
     }
 
     /**
      * @return string
      */
-    public function getTvaintranumber()
+    public function getTvaIntraNumber()
     {
-        return $this->tvaintranumber;
+        return $this->tvaIntraNumber;
     }
 
     /**
      * @param string $tvaintranumber
      */
-    public function setTvaintranumber($tvaintranumber)
+    public function setTvaIntraNumber($tvaIntraNumber)
     {
-        $this->tvaintranumber = $tvaintranumber;
+        $this->tvaIntraNumber = $tvaIntraNumber;
     }
 
     /**
      * @return boolean
      */
-    public function getTypeproject()
+    public function getTypeProject()
     {
-        return $this->typeproject;
+        return $this->typeProject;
     }
 
     /**
      * @param boolean $typeproject
      */
-    public function setTypeproject($typeproject)
+    public function setTypeProject($typeProject)
     {
-        $this->typeproject = $typeproject;
+        $this->typeProject = $typeProject;
     }
 
     /**
      * @return boolean
      */
-    public function getTypesociety()
+    public function getTypeSociety()
     {
-        return $this->typesociety;
+        return $this->typeSociety;
     }
 
     /**
-     * @param boolean $typesociety
+     * @param boolean $typeSociety
      */
-    public function setTypesociety($typesociety)
+    public function setTypeSociety($typeSociety)
     {
-        $this->typesociety = $typesociety;
+        $this->typeSociety = $typeSociety;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProfessionalFunction()
+    {
+        return $this->professionalFunction;
+    }
+
+    /**
+     * @param string $professionalFunction
+     */
+    public function setProfessionalFunction($professionalFunction)
+    {
+        $this->professionalFunction = $professionalFunction;
     }
 
 }
