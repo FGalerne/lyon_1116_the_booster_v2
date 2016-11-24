@@ -54,11 +54,6 @@ class User extends BaseUser
     protected $siretNumber;
 
     /**
-     * @var string
-     */
-    protected $tvaIntraNumber;
-
-    /**
      * @var boolean
      */
     protected $typeProject;
@@ -174,22 +169,6 @@ class User extends BaseUser
     public function setSiretNumber($siretNumber)
     {
         $this->siretNumber = $siretNumber;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTvaIntraNumber()
-    {
-        return $this->tvaIntraNumber;
-    }
-
-    /**
-     * @param string $tvaIntraNumber
-     */
-    public function setTvaIntraNumber($tvaIntraNumber)
-    {
-        $this->tvaIntraNumber = $tvaIntraNumber;
     }
 
     /**

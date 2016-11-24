@@ -34,9 +34,6 @@ class RegistrationType extends AbstractType
             ->add('siretnumber', 'text', array(
                 'label' => 'Numéro de Siret'
             ))
-            ->add('tvaintranumber', 'text', array(
-                'label' => 'Numéro de TVA intracommunautaire'
-            ))
             ->add('typeproject', 'text', array(
                 'label' => 'Porteur de projet'
             ))
