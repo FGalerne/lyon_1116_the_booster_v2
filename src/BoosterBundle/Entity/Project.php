@@ -446,4 +446,3 @@ class Project
         return $this->society;
     }
 }
-

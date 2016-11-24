@@ -74,7 +74,7 @@ fos_user:
     registration:
         form:
             type: BoosterBundle\Form\RegistrationType
-
+            validation_groups: [BoosterRegistration]
 easy_admin:
     design:
         brand_color: 'rgba(230,15,51,1)'

@@ -9,7 +9,7 @@ BoosterBundle\Entity\User:
     fields:
         title:
             type: string
-            length: '3'
+            length: '4'
             nullable: false
         lastName:
             type: string
@@ -28,25 +28,25 @@ BoosterBundle\Entity\User:
             unique: true
         createTime:
             type: datetime
-            nullable: false
+            nullable: true
             options:
                 default: CURRENT_TIMESTAMP
             column: create_time
         typeProject:
             type: boolean
             nullable: false
-            unique: true
+            unique: false
             column: type_project
         typeSociety:
             type: boolean
             nullage: false
-            unique: true
+            unique: false
             column: type_society
         siretNumber:
             type: string
             lenght: 14
             nullable: false
-            unique: true
+            unique: false
             column: siret_number
         professionalFunction:
             type: string
