@@ -2,9 +2,9 @@
 
 namespace BoosterBundle\Controller;
 
-use BoosterBundle\Entity\Contact;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use BoosterBundle\Repository\SendMessageRepository;
 
 class FrontController extends Controller
 {
@@ -42,47 +42,28 @@ class FrontController extends Controller
     }
     public function contactSendMailAction(Request $request)
     {
-     /*$recaptcha = new ReCaptcha('6LdkigoUAAAAAJrqN9Eyl48CMqbEqWczvPmzDXw8');
-     $resp = $recaptcha->verify($request->request->get('g-recaptcha-response'), $request->getClientIp());
-     /*if (!$resp->isSuccess()) {
-          verified!
-     } else {*/
+        $send = "Un problème est survenu lors de l'envoie de votre email";
 
          if ($request->getMethod() == "POST") {
 
              $name = $request->get("name");
              $surname = $request->get("surname");
 
-             //change mail here ///////////////////////////////////////////
-             $To = 'teamthebooster@gmail.com'; //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-             //change mail here ///////////////////////////////////////////
+             $To = 'teamthebooster@gmail.com';
 
              $email = $request->get("email");
              $subject = $request->get("subject");
              $message = $request->get("message");
-
-             //$mailer = $this->container->get('mailer');
-             $sendMessage = \Swift_Message::newInstance()
-                 ->setSubject($subject)
-                 ->setFrom($email)
-                 ->setTo($To)
-                 ->setBody('<html>' .
-                     '<head></head>' .
-                     '<body>' .
-                     '<h4>Demande de contact'.
-                     '</h4>' .
-                     '<p>Nom et prénom : '.$name.' '.$surname .
-                     '<br>Mail de contact : '. $email.
-                     '<br><br>Sujet : '.$subject.
-                     '<br>Message :<br>'.
-                     $message.
-                     '</body>' .
-                     '</html>',
-                     'text/html');
+             $type = $request->get("type");
+             $sendMessage = new SendMessageRepository();
+             $sendMessage = $sendMessage->contact($name, $surname, $To, $email, $subject, $message, $type);
 
              $this->get('mailer')->send($sendMessage);
-             return $this->render('BoosterBundle:Front:contact.html.twig');
-         //}
+             $send = 'Votre message à été envoyé avec succès.';
+            //}
          }
+
+        return $this->redirectToRoute('booster_contact', array('send' => $send));
+
     }
 }
