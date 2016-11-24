@@ -71,5 +71,3 @@ easy_admin:
         brand_color: 'rgba(230,15,51,1)'
     entities:
         - BoosterBundle\Entity\Booster
-        - BoosterBundle\Entity\Project
-        - BoosterBundle\Entity\Society

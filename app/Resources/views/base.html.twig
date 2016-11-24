@@ -30,7 +30,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-fixed-top">
+        <nav  role="navigation" class="navbar navbar-fixed-top">
             <div class="container-fluid nav_container">
                 <div class="navbar-header" id="navbar-logo">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -42,20 +42,21 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="">Je donne</a></li>
-                        <li><a href="">Je propose</a></li>
+                        <li><a href="">Proposer un projet</a></li>
+                        <li><a href="">Liste des sociétés</a></li>
+                        <li><a href="">Comment ça marche</a></li>
                     </ul>
-                    <div class="aboutus">
-                        <ul class="nav navbar-nav nav-social" id="nav_aboutus">
-                            <li><a href="">Qui sommes-nous ?</a></li>
-                        </ul>
-                    </div>
 
-                    <div class="nav navbar-nav navbar-right nav-social nav_networks">
-                        <a href="https://www.facebook.com/The-Booster-1775588599376645/" target="_blank"><img src="{{ asset('/img/facebook-tb-black.png')}}" alt="facebook"></a>
-                        <a href="https://twitter.com/ZeBooster" target="_blank"><img src="{{ asset('/img/twitter-the-booster-black.png')}}" alt="twitter"></a>
-                        <a href="https://fr.linkedin.com/in/the-booster-059bb1130" target="_blank"><img src="{{ asset('/img/linkedin-the-booster-black.png')}}" alt="linkedin"></a>
-                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="">Connexion</a></li>
+                        <li>
+                            <div class="nav navbar-nav navbar-right nav-social nav_networks">
+                                <a href="https://www.facebook.com/The-Booster-1775588599376645/" target="_blank"><img src="{{ asset('/img/facebook-tb-black.png')}}" alt="facebook"></a>
+                                <a href="https://twitter.com/ZeBooster" target="_blank"><img src="{{ asset('/img/twitter-the-booster-black.png')}}" alt="twitter"></a>
+                                <a href="https://fr.linkedin.com/in/the-booster-059bb1130" target="_blank"><img src="{{ asset('/img/linkedin-the-booster-black.png')}}" alt="linkedin"></a>
+                            </div>
+                        </li>
+                    </ul>
 
                 </div>
             </div>

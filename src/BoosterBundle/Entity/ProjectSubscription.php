@@ -44,6 +44,16 @@ class ProjectSubscription
     }
 
     /**
+     * Get message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
+    /**
      * Set message
      *
      * @param string $message
@@ -58,13 +68,13 @@ class ProjectSubscription
     }
 
     /**
-     * Get message
+     * Get status
      *
      * @return string
      */
-    public function getMessage()
+    public function getStatus()
     {
-        return $this->message;
+        return $this->status;
     }
 
     /**
@@ -82,13 +92,13 @@ class ProjectSubscription
     }
 
     /**
-     * Get status
+     * Get booster
      *
-     * @return string
+     * @return \BoosterBundle\Entity\Booster
      */
-    public function getStatus()
+    public function getBooster()
     {
-        return $this->status;
+        return $this->booster;
     }
 
     /**
@@ -106,13 +116,13 @@ class ProjectSubscription
     }
 
     /**
-     * Get booster
+     * Get project
      *
-     * @return \BoosterBundle\Entity\Booster
+     * @return \BoosterBundle\Entity\Project
      */
-    public function getBooster()
+    public function getProject()
     {
-        return $this->booster;
+        return $this->project;
     }
 
     /**
@@ -127,15 +137,5 @@ class ProjectSubscription
         $this->project = $project;
 
         return $this;
-    }
-
-    /**
-     * Get project
-     *
-     * @return \BoosterBundle\Entity\Project
-     */
-    public function getProject()
-    {
-        return $this->project;
     }
 }
