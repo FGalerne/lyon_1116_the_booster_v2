@@ -11,7 +11,7 @@ parameters:
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["fr"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -65,3 +65,11 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+easy_admin:
+    design:
+        brand_color: 'rgba(230,15,51,1)'
+    entities:
+        - BoosterBundle\Entity\Booster
+        - BoosterBundle\Entity\Project
+        - BoosterBundle\Entity\Society
