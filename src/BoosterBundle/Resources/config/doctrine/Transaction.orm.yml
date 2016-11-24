@@ -1,37 +1,26 @@
 BoosterBundle\Entity\Transaction:
     type: entity
     table: transaction
-    indexes:
-        fk_transaction_society1_idx:
-            columns:
-                - society_id
-    uniqueConstraints:
-        id_UNIQUE:
-            columns:
-                - id
     id:
         id:
             type: integer
-            nullable: false
-            options:
-                unsigned: false
             id: true
+            generator:
+                strategy: AUTO
     fields:
         createTime:
             type: datetime
             nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
             column: create_time
         projectLeft:
             type: integer
             nullable: false
-            options:
-                unsigned: false
             column: project_left
         projectMonthLeft:
             type: integer
             nullable: false
-            options:
-                unsigned: false
             column: project_month_left
         validityDate:
             type: datetime
@@ -41,17 +30,8 @@ BoosterBundle\Entity\Transaction:
             type: string
             nullable: false
             length: 45
-            options:
-                fixed: false
-    oneToOne:
+    manyToOne:
         society:
-            targetEntity: Society
-            cascade: {  }
-            fetch: LAZY
-            mappedBy: null
-            inversedBy: null
-            joinColumns:
-                society_id:
-                    referencedColumnName: id
-            orphanRemoval: false
+            targetEntity: BoosterBundle\Entity\Society
+            mappedBy: societyName
     lifecycleCallbacks: {  }
