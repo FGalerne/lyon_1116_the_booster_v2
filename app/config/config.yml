@@ -11,11 +11,7 @@ parameters:
 
 framework:
     #esi:             ~
-<<<<<<< HEAD
-    translator:       ~
-=======
     translator:      { fallbacks: ["fr"] }
->>>>>>> 5c53eda8e50967eb6efc9c47091113c69651e105
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -81,6 +77,3 @@ easy_admin:
         brand_color: 'rgba(230,15,51,1)'
     entities:
         - BoosterBundle\Entity\Booster
-        - BoosterBundle\Entity\Project
-        - BoosterBundle\Entity\Society
-

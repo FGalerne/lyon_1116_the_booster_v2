@@ -48,12 +48,6 @@ BoosterBundle\Entity\User:
             nullable: false
             unique: true
             column: siret_number
-        tvaIntraNumber:
-            type: string
-            lenght: 11
-            nullable: false
-            unique: true
-            column: tva_intra_number
         professionalFunction:
             type: string
             lenght: 100
