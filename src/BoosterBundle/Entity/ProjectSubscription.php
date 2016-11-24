@@ -3,9 +3,9 @@
 namespace BoosterBundle\Entity;
 
 /**
- * ProjectSubsciption
+ * ProjectSubscription
  */
-class ProjectSubsciption
+class ProjectSubscription
 {
     /**
      * @var integer
@@ -34,20 +34,6 @@ class ProjectSubsciption
 
 
     /**
-     * Set id
-     *
-     * @param integer $id
-     *
-     * @return ProjectSubsciption
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
      * Get id
      *
      * @return integer
@@ -62,7 +48,7 @@ class ProjectSubsciption
      *
      * @param string $message
      *
-     * @return ProjectSubsciption
+     * @return ProjectSubscription
      */
     public function setMessage($message)
     {
@@ -86,7 +72,7 @@ class ProjectSubsciption
      *
      * @param string $status
      *
-     * @return ProjectSubsciption
+     * @return ProjectSubscription
      */
     public function setStatus($status)
     {
@@ -110,7 +96,7 @@ class ProjectSubsciption
      *
      * @param \BoosterBundle\Entity\Booster $booster
      *
-     * @return ProjectSubsciption
+     * @return ProjectSubscription
      */
     public function setBooster(\BoosterBundle\Entity\Booster $booster = null)
     {
@@ -134,7 +120,7 @@ class ProjectSubsciption
      *
      * @param \BoosterBundle\Entity\Project $project
      *
-     * @return ProjectSubsciption
+     * @return ProjectSubscription
      */
     public function setProject(\BoosterBundle\Entity\Project $project = null)
     {
@@ -153,4 +139,3 @@ class ProjectSubsciption
         return $this->project;
     }
 }
-
