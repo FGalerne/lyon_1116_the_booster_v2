@@ -71,6 +71,9 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: BoosterBundle\Entity\User
+    registration:
+        form:
+            type: BoosterBundle\Form\RegistrationType
 
 easy_admin:
     design:

@@ -40,6 +40,7 @@ class RegistrationType extends AbstractType
             ->add('typesociety', 'text', array(
                 'label' => 'Société'
             ));
+
     }
 
     public function getParent()
