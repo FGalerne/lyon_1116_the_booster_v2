@@ -72,4 +72,3 @@ easy_admin:
     entities:
         - BoosterBundle\Entity\Booster
         - BoosterBundle\Entity\Project
-        - BoosterBundle\Entity\Society
