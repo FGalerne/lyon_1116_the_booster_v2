@@ -153,7 +153,7 @@ class User extends BaseUser
     }
 
     /**
-     * @param integer $createTime
+     * @param integer $createtime
      */
     public function setCreateTime($createTime)
     {
@@ -169,7 +169,7 @@ class User extends BaseUser
     }
 
     /**
-     * @param integer $siretNumber
+     * @param integer $siretnumber
      */
     public function setSiretNumber($siretNumber)
     {
@@ -185,7 +185,7 @@ class User extends BaseUser
     }
 
     /**
-     * @param string $tvaintranumber
+     * @param string $tvaIntraNumber
      */
     public function setTvaIntraNumber($tvaIntraNumber)
     {
