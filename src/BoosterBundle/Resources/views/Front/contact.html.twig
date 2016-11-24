@@ -1,6 +1,46 @@
 {% extends 'base.html.twig' %}
 {%  block title %}Contact | The Booster{% endblock %}
 {% block body %}
-    <br/>
-    Contact
+    <div class="row who_form_ext">
+        <div class="who_form_int col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-lg-offset-3 col-lg-6" id="who_form">
+            <h2 class="text-center who_h2" id="contactus">Contactez-nous !</h2>
+            <h3 class="who_h3">Vous avez des questions ? Vous voulez nous rencontrer, prendre un café ?</h3>
+        </div>
+        <div class="who_form_int col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
+
+            <form method="POST" action="{{ path ('contact_send_mail') }}">
+                <div class="form-group">Nom:
+                    <input type="text" placeholder="Nom" class="form-control" name="name" required/>
+                </div>
+                <div>Prénom:
+                    <input type="text" placeholder="Prénom" class="form-control" name="surname" required/>
+                </div>
+                <div>Email:
+                    <input type="email" placeholder="Email" class="form-control" name="email" required/>
+                </div>
+                <div>Type de demande:
+                    <label class="labelwidth">
+                        <select name="type_de_demande" >
+                            <option value="value1" selected>Press</option>
+                            <option value="value2">RH</option>
+                            <option value="value3">Infos générales</option>
+                            <option value="value4">Problème de paiement</option>
+                            <option value="value5">Problème technique</option>
+                        </select>
+                    </label>
+                </div>
+                <div>Sujet:
+                    <input type="text" placeholder="Sujet" class="form-control" name="subject" required/>
+                </div>
+                <div>Message:
+                    <textarea class="form-control" placeholder="Votre message" name="message" required></textarea>
+                    <!--<div class="g-recaptcha" data-sitekey="6LdkigoUAAAAAMKcVAglm3Ve403815BaTAyzgN85" data-callback="enableBtn"></div>-->
+                    <div class="row all_blsp_xs"></div>
+                    <button type="submit" class="btn btn-submit">Envoyer</button>
+                </div>
+            </form>
+            <div>{{ app.request.get('send') }}</div>
+            <div class="row all_blsp"></div>
+        </div>
+    </div>
 {% endblock %}

@@ -22,3 +22,6 @@ booster_contact:
 booster_comment_ca_marche:
     path:     /comment_ca_marche
     defaults: { _controller: BoosterBundle:Front:commentCaMarche }
+contact_send_mail:
+    path:     /send_mail
+    defaults: { _controller: BoosterBundle:Front:contactSendMail }
