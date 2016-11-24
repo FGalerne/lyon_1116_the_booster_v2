@@ -1,0 +1,69 @@
+BoosterBundle\Entity\Society:
+    type: entity
+    table: society
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        photo:
+            type: string
+            nullable: true
+            length: 255
+        societyName:
+            type: string
+            nullable: false
+            length: 255
+            column: society_name
+        punchLine:
+            type: string
+            nullable: false
+            length: 140
+            column: punch_line
+        presentation:
+            type: text
+            nullable: false
+        linkedin:
+            type: string
+            nullable: true
+            length: 255
+        facebook:
+            type: string
+            nullable: true
+            length: 255
+        twitter:
+            type: string
+            nullable: true
+            length: 255
+        youtube:
+            type: string
+            nullable: true
+            length: 255
+        websiteLink:
+            type: string
+            nullable: true
+            length: 255
+            column: website_link
+        hoursTaken:
+            type: integer
+            nullable: true
+            column: hours_taken
+        averageNotation:
+            type: integer
+            nullable: true
+            column: average_notation
+        projectDoneNumber:
+            type: integer
+            nullable: true
+            column: project_done_number
+        deniedBoosters:
+            type: integer
+            nullable: true
+            column: denied_boosters
+        oneToMany:
+            project_names:
+                targetEntity: BoosterBundle\Entity\Project
+                mappedBy: projectName
+    lifecycleCallbacks: {  }
