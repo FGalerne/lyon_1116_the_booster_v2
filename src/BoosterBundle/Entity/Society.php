@@ -94,6 +94,16 @@ class Society
     }
 
     /**
+     * Get photo
+     *
+     * @return string
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
      * Set photo
      *
      * @param string $photo
@@ -108,13 +118,13 @@ class Society
     }
 
     /**
-     * Get photo
+     * Get societyName
      *
      * @return string
      */
-    public function getPhoto()
+    public function getSocietyName()
     {
-        return $this->photo;
+        return $this->societyName;
     }
 
     /**
@@ -132,13 +142,13 @@ class Society
     }
 
     /**
-     * Get societyName
+     * Get punchLine
      *
      * @return string
      */
-    public function getSocietyName()
+    public function getPunchLine()
     {
-        return $this->societyName;
+        return $this->punchLine;
     }
 
     /**
@@ -156,13 +166,13 @@ class Society
     }
 
     /**
-     * Get punchLine
+     * Get presentation
      *
      * @return string
      */
-    public function getPunchLine()
+    public function getPresentation()
     {
-        return $this->punchLine;
+        return $this->presentation;
     }
 
     /**
@@ -180,13 +190,13 @@ class Society
     }
 
     /**
-     * Get presentation
+     * Get linkedin
      *
      * @return string
      */
-    public function getPresentation()
+    public function getLinkedin()
     {
-        return $this->presentation;
+        return $this->linkedin;
     }
 
     /**
@@ -204,13 +214,13 @@ class Society
     }
 
     /**
-     * Get linkedin
+     * Get facebook
      *
      * @return string
      */
-    public function getLinkedin()
+    public function getFacebook()
     {
-        return $this->linkedin;
+        return $this->facebook;
     }
 
     /**
@@ -228,13 +238,13 @@ class Society
     }
 
     /**
-     * Get facebook
+     * Get twitter
      *
      * @return string
      */
-    public function getFacebook()
+    public function getTwitter()
     {
-        return $this->facebook;
+        return $this->twitter;
     }
 
     /**
@@ -252,13 +262,13 @@ class Society
     }
 
     /**
-     * Get twitter
+     * Get youtube
      *
      * @return string
      */
-    public function getTwitter()
+    public function getYoutube()
     {
-        return $this->twitter;
+        return $this->youtube;
     }
 
     /**
@@ -276,13 +286,13 @@ class Society
     }
 
     /**
-     * Get youtube
+     * Get websiteLink
      *
      * @return string
      */
-    public function getYoutube()
+    public function getWebsiteLink()
     {
-        return $this->youtube;
+        return $this->websiteLink;
     }
 
     /**
@@ -300,13 +310,13 @@ class Society
     }
 
     /**
-     * Get websiteLink
+     * Get hoursTaken
      *
-     * @return string
+     * @return integer
      */
-    public function getWebsiteLink()
+    public function getHoursTaken()
     {
-        return $this->websiteLink;
+        return $this->hoursTaken;
     }
 
     /**
@@ -324,13 +334,13 @@ class Society
     }
 
     /**
-     * Get hoursTaken
+     * Get averageNotation
      *
      * @return integer
      */
-    public function getHoursTaken()
+    public function getAverageNotation()
     {
-        return $this->hoursTaken;
+        return $this->averageNotation;
     }
 
     /**
@@ -348,13 +358,13 @@ class Society
     }
 
     /**
-     * Get averageNotation
+     * Get projectDoneNumber
      *
      * @return integer
      */
-    public function getAverageNotation()
+    public function getProjectDoneNumber()
     {
-        return $this->averageNotation;
+        return $this->projectDoneNumber;
     }
 
     /**
@@ -372,13 +382,13 @@ class Society
     }
 
     /**
-     * Get projectDoneNumber
+     * Get deniedBoosters
      *
      * @return integer
      */
-    public function getProjectDoneNumber()
+    public function getDeniedBoosters()
     {
-        return $this->projectDoneNumber;
+        return $this->deniedBoosters;
     }
 
     /**
@@ -396,13 +406,13 @@ class Society
     }
 
     /**
-     * Get deniedBoosters
+     * Get oneToMany
      *
-     * @return integer
+     * @return string
      */
-    public function getDeniedBoosters()
+    public function getOneToMany()
     {
-        return $this->deniedBoosters;
+        return $this->oneToMany;
     }
 
     /**
@@ -417,15 +427,5 @@ class Society
         $this->oneToMany = $oneToMany;
 
         return $this;
-    }
-
-    /**
-     * Get oneToMany
-     *
-     * @return string
-     */
-    public function getOneToMany()
-    {
-        return $this->oneToMany;
     }
 }
