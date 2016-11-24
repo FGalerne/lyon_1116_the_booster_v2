@@ -99,6 +99,16 @@ class Booster
     }
 
     /**
+     * Get photo
+     *
+     * @return string
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
      * Set photo
      *
      * @param string $photo
@@ -113,13 +123,13 @@ class Booster
     }
 
     /**
-     * Get photo
+     * Get city
      *
      * @return string
      */
-    public function getPhoto()
+    public function getCity()
     {
-        return $this->photo;
+        return $this->city;
     }
 
     /**
@@ -137,13 +147,13 @@ class Booster
     }
 
     /**
-     * Get city
+     * Get zipCode
      *
-     * @return string
+     * @return integer
      */
-    public function getCity()
+    public function getZipCode()
     {
-        return $this->city;
+        return $this->zipCode;
     }
 
     /**
@@ -161,13 +171,13 @@ class Booster
     }
 
     /**
-     * Get zipCode
+     * Get birthDate
      *
-     * @return integer
+     * @return \DateTime
      */
-    public function getZipCode()
+    public function getBirthDate()
     {
-        return $this->zipCode;
+        return $this->birthDate;
     }
 
     /**
@@ -185,13 +195,13 @@ class Booster
     }
 
     /**
-     * Get birthDate
+     * Get workStatus
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getBirthDate()
+    public function getWorkStatus()
     {
-        return $this->birthDate;
+        return $this->workStatus;
     }
 
     /**
@@ -209,13 +219,13 @@ class Booster
     }
 
     /**
-     * Get workStatus
+     * Get competence1
      *
      * @return string
      */
-    public function getWorkStatus()
+    public function getCompetence1()
     {
-        return $this->workStatus;
+        return $this->competence1;
     }
 
     /**
@@ -233,13 +243,13 @@ class Booster
     }
 
     /**
-     * Get competence1
+     * Get competence2
      *
      * @return string
      */
-    public function getCompetence1()
+    public function getCompetence2()
     {
-        return $this->competence1;
+        return $this->competence2;
     }
 
     /**
@@ -257,13 +267,13 @@ class Booster
     }
 
     /**
-     * Get competence2
+     * Get competence3
      *
      * @return string
      */
-    public function getCompetence2()
+    public function getCompetence3()
     {
-        return $this->competence2;
+        return $this->competence3;
     }
 
     /**
@@ -281,13 +291,13 @@ class Booster
     }
 
     /**
-     * Get competence3
+     * Get competence4
      *
      * @return string
      */
-    public function getCompetence3()
+    public function getCompetence4()
     {
-        return $this->competence3;
+        return $this->competence4;
     }
 
     /**
@@ -305,13 +315,13 @@ class Booster
     }
 
     /**
-     * Get competence4
+     * Get competence5
      *
      * @return string
      */
-    public function getCompetence4()
+    public function getCompetence5()
     {
-        return $this->competence4;
+        return $this->competence5;
     }
 
     /**
@@ -329,13 +339,13 @@ class Booster
     }
 
     /**
-     * Get competence5
+     * Get competence6
      *
      * @return string
      */
-    public function getCompetence5()
+    public function getCompetence6()
     {
-        return $this->competence5;
+        return $this->competence6;
     }
 
     /**
@@ -353,13 +363,13 @@ class Booster
     }
 
     /**
-     * Get competence6
+     * Get presentation
      *
      * @return string
      */
-    public function getCompetence6()
+    public function getPresentation()
     {
-        return $this->competence6;
+        return $this->presentation;
     }
 
     /**
@@ -377,13 +387,13 @@ class Booster
     }
 
     /**
-     * Get presentation
+     * Get hoursGiven
      *
-     * @return string
+     * @return integer
      */
-    public function getPresentation()
+    public function getHoursGiven()
     {
-        return $this->presentation;
+        return $this->hoursGiven;
     }
 
     /**
@@ -401,13 +411,13 @@ class Booster
     }
 
     /**
-     * Get hoursGiven
+     * Get projectDoneNumber
      *
      * @return integer
      */
-    public function getHoursGiven()
+    public function getProjectDoneNumber()
     {
-        return $this->hoursGiven;
+        return $this->projectDoneNumber;
     }
 
     /**
@@ -425,13 +435,13 @@ class Booster
     }
 
     /**
-     * Get projectDoneNumber
+     * Get averageNotation
      *
      * @return integer
      */
-    public function getProjectDoneNumber()
+    public function getAverageNotation()
     {
-        return $this->projectDoneNumber;
+        return $this->averageNotation;
     }
 
     /**
@@ -446,15 +456,5 @@ class Booster
         $this->averageNotation = $averageNotation;
 
         return $this;
-    }
-
-    /**
-     * Get averageNotation
-     *
-     * @return integer
-     */
-    public function getAverageNotation()
-    {
-        return $this->averageNotation;
     }
 }

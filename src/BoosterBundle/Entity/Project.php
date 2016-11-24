@@ -101,6 +101,16 @@ class Project
     }
 
     /**
+     * Get projectName
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->projectName;
+    }
+
+    /**
      * Set projectName
      *
      * @param string $projectName
@@ -115,13 +125,13 @@ class Project
     }
 
     /**
-     * Get projectName
+     * Get category
      *
      * @return string
      */
-    public function getProjectName()
+    public function getCategory()
     {
-        return $this->projectName;
+        return $this->category;
     }
 
     /**
@@ -139,13 +149,13 @@ class Project
     }
 
     /**
-     * Get category
+     * Get description
      *
      * @return string
      */
-    public function getCategory()
+    public function getDescription()
     {
-        return $this->category;
+        return $this->description;
     }
 
     /**
@@ -163,13 +173,13 @@ class Project
     }
 
     /**
-     * Get description
+     * Get creationStatus
      *
      * @return string
      */
-    public function getDescription()
+    public function getCreationStatus()
     {
-        return $this->description;
+        return $this->creationStatus;
     }
 
     /**
@@ -187,13 +197,13 @@ class Project
     }
 
     /**
-     * Get creationStatus
+     * Get status
      *
      * @return string
      */
-    public function getCreationStatus()
+    public function getStatus()
     {
-        return $this->creationStatus;
+        return $this->status;
     }
 
     /**
@@ -211,13 +221,13 @@ class Project
     }
 
     /**
-     * Get status
+     * Get givenTime
      *
-     * @return string
+     * @return integer
      */
-    public function getStatus()
+    public function getGivenTime()
     {
-        return $this->status;
+        return $this->givenTime;
     }
 
     /**
@@ -235,13 +245,13 @@ class Project
     }
 
     /**
-     * Get givenTime
+     * Get createTime
      *
-     * @return integer
+     * @return \DateTime
      */
-    public function getGivenTime()
+    public function getCreateTime()
     {
-        return $this->givenTime;
+        return $this->createTime;
     }
 
     /**
@@ -259,13 +269,13 @@ class Project
     }
 
     /**
-     * Get createTime
+     * Get endTime
      *
      * @return \DateTime
      */
-    public function getCreateTime()
+    public function getEndTime()
     {
-        return $this->createTime;
+        return $this->endTime;
     }
 
     /**
@@ -283,13 +293,13 @@ class Project
     }
 
     /**
-     * Get endTime
+     * Get boosterCommentaries
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getEndTime()
+    public function getBoosterCommentaries()
     {
-        return $this->endTime;
+        return $this->boosterCommentaries;
     }
 
     /**
@@ -307,13 +317,13 @@ class Project
     }
 
     /**
-     * Get boosterCommentaries
+     * Get societyCommentaries
      *
      * @return string
      */
-    public function getBoosterCommentaries()
+    public function getSocietyCommentaries()
     {
-        return $this->boosterCommentaries;
+        return $this->societyCommentaries;
     }
 
     /**
@@ -331,13 +341,13 @@ class Project
     }
 
     /**
-     * Get societyCommentaries
+     * Get boosterNote
      *
-     * @return string
+     * @return integer
      */
-    public function getSocietyCommentaries()
+    public function getBoosterNote()
     {
-        return $this->societyCommentaries;
+        return $this->boosterNote;
     }
 
     /**
@@ -355,13 +365,13 @@ class Project
     }
 
     /**
-     * Get boosterNote
+     * Get societyNote
      *
      * @return integer
      */
-    public function getBoosterNote()
+    public function getSocietyNote()
     {
-        return $this->boosterNote;
+        return $this->societyNote;
     }
 
     /**
@@ -376,16 +386,6 @@ class Project
         $this->societyNote = $societyNote;
 
         return $this;
-    }
-
-    /**
-     * Get societyNote
-     *
-     * @return integer
-     */
-    public function getSocietyNote()
-    {
-        return $this->societyNote;
     }
 
     /**
@@ -423,6 +423,16 @@ class Project
     }
 
     /**
+     * Get society
+     *
+     * @return \BoosterBundle\Entity\Society
+     */
+    public function getSociety()
+    {
+        return $this->society;
+    }
+
+    /**
      * Set society
      *
      * @param \BoosterBundle\Entity\Society $society
@@ -434,15 +444,5 @@ class Project
         $this->society = $society;
 
         return $this;
-    }
-
-    /**
-     * Get society
-     *
-     * @return \BoosterBundle\Entity\Society
-     */
-    public function getSociety()
-    {
-        return $this->society;
     }
 }
