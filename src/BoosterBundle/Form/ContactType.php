@@ -3,6 +3,7 @@
 namespace BoosterBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -21,15 +22,24 @@ class ContactType extends AbstractType
         $builder
             ->add('name', TextType::class, array(
                 'label' => 'Nom: ',
-                'attr' => array('class' => 'form-control form-group'),
+                'attr' => array(
+                    'class' => 'form-control form-group',
+                    'placeholder' => 'Nom'
+                ),
             ))
             ->add('surname', TextType::class, array(
                 'label' => 'Prénom: ',
-                'attr' => array('class' => 'form-control form-group'),
+                'attr' => array(
+                    'class' => 'form-control form-group',
+                    'placeholder' => 'Prénom'
+                ),
             ))
-            ->add('email', TextType::class, array(
+            ->add('email', EmailType::class, array(
                 'label' => 'Email: ',
-                'attr' => array('class' => 'form-control form-group'),
+                'attr' => array(
+                    'class' => 'form-control form-group',
+                    'placeholder' => 'Email'
+                ),
             ))
             ->add('type', ChoiceType::class, array(
                 'label' => 'Type de demande: ',
@@ -42,14 +52,20 @@ class ContactType extends AbstractType
                     'Problème technique' => 'Problème technique',
                 ),))
             ->add('subject', TextType::class, array(
-                'label' => 'sujet: ',
-                'attr' => array('class' => 'form-control form-group'),
+                'label' => 'Sujet: ',
+                'attr' => array(
+                    'class' => 'form-control form-group',
+                    'placeholder' => 'Sujet'
+                ),
             ))
             ->add('message', TextareaType::class, array(
                 'label' => 'Message: ',
-                'attr' => array('class' => 'WYSIWYG form-control form-group'),
+                'attr' => array(
+                    'class' => 'WYSIWYG form-control form-group',
+                    'placeholder' => 'Message'
+                ),
                 'required'    => false,
-
+                'empty_data'  => "L'utilisateur n'a pas laissé de message"
             ))
             ->add('save', SubmitType::class, array(
                 'label' => 'Envoyer',
