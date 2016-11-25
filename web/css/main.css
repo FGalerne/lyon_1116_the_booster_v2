@@ -650,8 +650,22 @@ hr{
 #who_h3_je_donne{
 	margin-bottom: 70px;
 }
-
-
+.form-submit-right{
+	float: right;
+	margin-top: 20px;
+	width: 30%;
+	height: 75px;
+}
+@media (max-width: 770px) {
+	.form-submit-right {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	.form-captcha-margin{
+		height: 20vh;
+		min-height: 100px;
+	}
+}
 /* HOW */
 
 .how_je_donne {
@@ -1317,6 +1331,4 @@ and (-webkit-min-device-pixel-ratio: 1) {
 #background-thebooster{
 	background-color: white;
 }
-.labelwidth{
-	width: 100%;
-}
+
