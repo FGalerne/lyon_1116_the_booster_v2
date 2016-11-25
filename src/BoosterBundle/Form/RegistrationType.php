@@ -35,10 +35,10 @@ class RegistrationType extends AbstractType
             ->add('siretnumber', 'text', array(
                 'label' => 'Numéro de Siret'
             ))
-            ->add('typeproject', 'text', array(
+            ->add('typeproject', 'checkbox', array(
                 'label' => 'Porteur de projet'
             ))
-            ->add('typesociety', 'text', array(
+            ->add('typesociety', 'checkbox', array(
                 'label' => 'Société'
             ))
             ->remove('username');
