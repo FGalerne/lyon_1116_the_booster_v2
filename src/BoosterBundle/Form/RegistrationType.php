@@ -9,6 +9,7 @@
 namespace BoosterBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class RegistrationType extends AbstractType
@@ -17,29 +18,39 @@ class RegistrationType extends AbstractType
     {
         parent::buildForm($builder, $options);
         $builder
-            ->add('title', 'text', array(
-                'label' => "Civilité"
+            ->add('title', ChoiceType::class, array(
+                'label'   => 'Civilité ',
+                'required'=> true,
+                'choices' => array('Mr'=>'Mr', 'Mme'=>'Mme')
             ))
             ->add('firstname', 'text', array(
-                'label' => "Nom"
+                'label' => "Nom",
+                'required'=> true
             ))
             ->add('lastname', 'text', array(
-                'label' => "Prénom"
+                'label' => "Prénom",
+                'required'=> true
             ))
             ->add('professionalfunction', 'text', array(
-                'label' => 'Fonction'
+                'label' => 'Fonction',
+                'required'=> true
+            ))
+            ->add('nameproject', 'text', array(
+                'label' => 'Nom du projet/société',
+                'required'=> true
+            ))
+            ->add('typeproject', 'choice', array(
+                'label'     => 'Vous êtes :',
+                'choices'  => array(1=>'Un porteur de projet', 0 =>'Une société'),
+                'expanded' => true,
+                'multiple' => false,
+                'required' => true
             ))
             ->add('phone', 'text', array(
                 'label' => 'Téléphone portable'
             ))
             ->add('siretnumber', 'text', array(
                 'label' => 'Numéro de Siret'
-            ))
-            ->add('typeproject', 'checkbox', array(
-                'label' => 'Porteur de projet'
-            ))
-            ->add('typesociety', 'checkbox', array(
-                'label' => 'Société'
             ))
             ->remove('username');
 

@@ -37,11 +37,6 @@ BoosterBundle\Entity\User:
             nullable: false
             unique: false
             column: type_project
-        typeSociety:
-            type: boolean
-            nullage: false
-            unique: false
-            column: type_society
         siretNumber:
             type: string
             lenght: 14
@@ -54,4 +49,10 @@ BoosterBundle\Entity\User:
             nullable: false
             unique: false
             column: professional_function
+        nameProject:
+            type: string
+            lenght: 100
+            nullable: false
+            unique: false
+            column: project_name
     lifecycleCallbacks: {  }

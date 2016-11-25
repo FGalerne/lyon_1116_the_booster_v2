@@ -68,6 +68,11 @@ class User extends BaseUser
      */
     protected $professionalFunction;
 
+    /**
+     * @var
+     */
+    protected $nameProject;
+
 
     public function __construct()
     {
@@ -187,21 +192,6 @@ class User extends BaseUser
         $this->typeProject = $typeProject;
     }
 
-    /**
-     * @return boolean
-     */
-    public function getTypeSociety()
-    {
-        return $this->typeSociety;
-    }
-
-    /**
-     * @param boolean $typeSociety
-     */
-    public function setTypeSociety($typeSociety)
-    {
-        $this->typeSociety = $typeSociety;
-    }
 
     /**
      * @return string
@@ -218,6 +208,24 @@ class User extends BaseUser
     {
         $this->professionalFunction = $professionalFunction;
     }
+
+    /**
+     * @param string $nameProject
+     */
+    public function setNameProject($nameProject)
+    {
+        $this->nameProject = $nameProject;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNameProject()
+    {
+        return $this->nameProject;
+    }
+
+
 
     /**
      * @param string $email
