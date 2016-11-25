@@ -7,14 +7,19 @@ fos_user:
 
 fos_user_register:
     resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /booster/register
+    prefix: /booste/register
 
 register:
     path: /register
     defaults: { _controller: FOS:Registration:register}
 
+booster_user:
+    resource: "@BoosterBundle/Controller/"
+    type: annotation
+    prefix: /
+
 easy_admin_bundle:
-    resource: "@EasyAdminBundle/Controller/"
+    resource: "@EasyAdminBundle/Controller"
     type:     annotation
     prefix:   /admin
 

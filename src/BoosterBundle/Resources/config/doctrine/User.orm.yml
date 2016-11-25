@@ -24,7 +24,7 @@ BoosterBundle\Entity\User:
         phone:
             type: integer
             lenght: '10'
-            nullable: false
+            nullable: true
             unique: true
         createTime:
             type: datetime
@@ -34,25 +34,25 @@ BoosterBundle\Entity\User:
             column: create_time
         typeProject:
             type: boolean
-            nullable: false
+            nullable: true
             unique: false
             column: type_project
         siretNumber:
             type: string
             lenght: 14
-            nullable: false
+            nullable: true
             unique: false
             column: siret_number
         professionalFunction:
             type: string
             lenght: 100
-            nullable: false
+            nullable: true
             unique: false
             column: professional_function
         nameProject:
             type: string
             lenght: 100
-            nullable: false
+            nullable: true
             unique: false
             column: project_name
     lifecycleCallbacks: {  }
