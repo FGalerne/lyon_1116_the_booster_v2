@@ -1,5 +1,12 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 
+{% block h1 %}
+    <div class="text-center">
+        <h1>Connexion</h1>
+        <hr class="hr_video_hp">
+    </div>
+
+{% endblock %}
 {% block fos_user_content %}
     {{ include('FOSUserBundle:Security:login_content.html.twig') }}
 {% endblock fos_user_content %}

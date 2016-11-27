@@ -19,17 +19,17 @@ class RegistrationType extends AbstractType
         parent::buildForm($builder, $options);
         $builder
             ->add('title', ChoiceType::class, array(
-                'label'   => 'Civilité ',
-                'required'=> true,
-                'choices' => array('Mr'=>'Mr', 'Mme'=>'Mme')
+                'label'         => 'Civilité ',
+                'required'      => true,
+                'choices'       => array('Mr'=>'Mr', 'Mme'=>'Mme')
             ))
             ->add('firstname', 'text', array(
-                'label' => "Nom",
-                'required'=> true
+                'label'         => "Nom",
+                'required'      => true,
             ))
             ->add('lastname', 'text', array(
-                'label' => "Prénom",
-                'required'=> true
+                'label'         => "Prénom",
+                'required'      => true,
             ))
             ->add('professionalfunction', 'text', array(
                 'label' => 'Fonction',
@@ -53,7 +53,6 @@ class RegistrationType extends AbstractType
                 'label' => 'Numéro de Siret'
             ))
             ->remove('username');
-
     }
 
 
