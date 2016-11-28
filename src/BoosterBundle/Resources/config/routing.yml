@@ -30,10 +30,10 @@ booster_comment_ca_marche:
     path:     /comment_ca_marche
     defaults: { _controller: BoosterBundle:Front:commentCaMarche }
 
-booster_dashboard_society:
+dashboard_society:
     path:     /dashboard-booste
     defaults: { _controller: BoosterBundle:Dashboard:society }
 
-booster_dashboard_booster:
+dashboard_booster:
     path:     /dashboard-booster
     defaults: { _controller: BoosterBundle:Dashboard:booster }

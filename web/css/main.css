@@ -933,6 +933,58 @@ hr{
 }
 
 
+/*********************** DASHBOARD BOOSTER ***********************/
+
+.global-presentation {
+	margin-top: 35px;
+	margin-bottom: 35px;
+}
+
+.avatar img {
+	width: 200px;
+	display: block;
+	margin: 0 auto;
+}
+
+#statistic-booster ul {
+	padding: 0;
+}
+
+#statistic-booster ul li {
+	list-style: none;
+	display: inline-block;
+}
+
+
+.dashboard-separation {
+	width: 60%;
+	display: block;
+	margin: 0 auto;
+	height: 2px;
+	background-color: #808080;
+}
+
+#navbar-dashboard ul {
+	text-align: center;
+}
+
+#navbar-dashboard ul li {
+	display: inline-block;
+	list-style: none;
+	text-align: center;
+}
+
+#navbar-dashboard a {
+	line-height: 7vh;
+	padding: 10px;
+	color: black;
+	text-decoration: none;
+}
+
+#navbar-dashboard li:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
 /* CAROUSEL */
 
 

@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <section class="container-fluid global-presentation">
+        <div class="container">
+            <div class="col-md-3 avatar">
+                <img src="{{ asset('img/avatar-test.jpg') }}" alt="photo-avatar" />
+            </div>
+
+            <div class="col-md-2">
+                <p>Civilité :</p>
+                <p>Prénom :</p>
+                <p>Nom :</p>
+                <p>Email :</p>
+                <p>N° de tel :</p>
+            </div>
+
+            <div class="col-md-3 col-md-offset-4" id="statistic-booster">
+                <p>Nb d'heure donnée: </p>
+                <p>Nb de projets réalisé: </p>
+                <p>Note des boostés: </p>
+                <ul>
+                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <hr class="dashboard-separation">
+
+    <section class="container-fluid">
+        <div class="container">
+            <div class="col-xs-12" id="navbar-dashboard">
+                <ul>
+                    <li><a href="#">Acceuil</a></li>
+                    <li><a href="#">Projets en cours</a></li>
+                    <li><a href="#">Projets réalisés</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="dashboard-separation">
+    </section>
+
+{% endblock %}

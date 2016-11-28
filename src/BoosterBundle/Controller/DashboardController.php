@@ -8,11 +8,11 @@ class DashboardController extends Controller
 {
     public function societyAction()
     {
-        return $this->render('BoosterBundle:Dashboard:dashboardbooste.html.twig');
+        return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig');
     }
 
     public function boosterAction()
     {
-        return $this->render('BoosterBundle:Dashboard:dashboardbooster.html.twig');
+        return $this->render('BoosterBundle:Dashboard:dashboard-booster.html.twig');
     }
 }
