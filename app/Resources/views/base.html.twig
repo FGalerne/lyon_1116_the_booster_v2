@@ -38,7 +38,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href=""><img src="{{ asset('/img/logo-booster-det.png')}}" alt="The Booster logo"></a>
+                    <a class="navbar-brand" href="/"><img src="{{ asset('/img/logo-booster-det.png')}}" alt="The Booster logo"></a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
@@ -48,7 +48,7 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="">Connexion</a></li>
+                        <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
                         <li>
                             <div class="nav navbar-nav navbar-right nav-social nav_networks">
                                 <a href="https://www.facebook.com/The-Booster-1775588599376645/" target="_blank"><img src="{{ asset('/img/facebook-tb-black.png')}}" alt="facebook"></a>
@@ -80,7 +80,7 @@
                 </a>
             </div>
             <div class="row foo_mention">
-                <p><a href="{{ path('booster_comment_ca_marche') }}">Comment ça marche?</a> |
+                <p><a href="{{ path('booster_comment_ca_marche') }}">Comment ça marche</a> |
                 <a href="{{ path('booster_cgv') }}">CGV/CGU</a> |
                 <a href="{{ path('booster_faq') }}">FAQ</a> |
                 <a href="{{ path('booster_charte') }}">La charte</a>
