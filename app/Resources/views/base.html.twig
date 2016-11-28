@@ -48,7 +48,14 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+                        <li>{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                <a href="{{ path('fos_user_profile_show') }}" class="log-nav" >{{ app.user.username }}</a>
+                                <a href="{{ path('fos_user_security_logout') }}" class="log-nav">
+                                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                </a>
+                            {% else %}
+                                <a href="{{ path('fos_user_security_login') }}" class="login-index">Je me connecte</a>
+                            {% endif %}</li>
                         <li>
                             <div class="nav navbar-nav navbar-right nav-social nav_networks">
                                 <a href="https://www.facebook.com/The-Booster-1775588599376645/" target="_blank"><img src="{{ asset('/img/facebook-tb-black.png')}}" alt="facebook"></a>

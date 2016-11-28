@@ -70,6 +70,7 @@ span {
 .navbar-nav > li > a {
 	line-height: 7vh;
 	color: black;
+	display: inline-block;
 	text-align: center;
  }
 
@@ -216,6 +217,13 @@ span {
 .foo_mention a:hover  {
 	text-decoration: underline;
 	text-decoration-color: rgba(255,255,255,0.7);
+}
+
+
+/* Button CSS when people are logged */
+
+.navbar-right {
+	display: inline-block;
 }
 
 /* HOME */
