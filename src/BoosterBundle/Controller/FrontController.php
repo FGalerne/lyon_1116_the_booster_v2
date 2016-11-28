@@ -2,14 +2,9 @@
 
 namespace BoosterBundle\Controller;
 
-use BoosterBundle\Entity\SendMessage;
+use BoosterBundle\Entity\Contact;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpFoundation\Request;
-use BoosterBundle\Repository\SendMessageRepository;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class FrontController extends Controller
 {
@@ -39,7 +34,7 @@ class FrontController extends Controller
     }
     public function contactAction(Request $request)
     {
-        $sendMessage = new SendMessage();
+        $sendMessage = new Contact();
         $form = $this->createForm('BoosterBundle\Form\ContactType', $sendMessage);
         $form->handleRequest($request);
 
@@ -54,16 +49,33 @@ class FrontController extends Controller
             $message = $sendMessage->getMessage();
             $type = $sendMessage->getType();
 
-            $sendMessage = new SendMessageRepository();
-            $sendMessage = $sendMessage->contact($name, $surname, $To, $email, $subject, $message, $type);
+            $sendMessage = \Swift_Message::newInstance()
+                ->setSubject($subject)
+                ->setFrom($email)
+                ->setTo($To)
+                ->setBody(
+                    $this->renderView(
+                        'BoosterBundle:Emails:contact_email.html.twig',
+                        array(
+                            'name' => $name,
+                            'surname' => $surname,
+                            'email' => $email,
+                            'subject' => $subject,
+                            'message' => $message,
+                            'type' => $type
+                        )
+                    ),
+                    'text/html'
+                )
+            ;
 
             $this->get('mailer')->send($sendMessage);
             return $this->redirectToRoute('booster_contact', array(
-                'send' => 'Votre message à été envoyé avec succès.'
+                'send' => 2
             ));
         } else if($form->isSubmitted()) {
             return $this->redirectToRoute('booster_contact', array(
-                'send' => "Un problème est survenu lors de l'envoie de votre email"
+                'send' => 1
             ));
         }
 

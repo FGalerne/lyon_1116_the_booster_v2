@@ -50,7 +50,12 @@ class ContactType extends AbstractType
                     'Infos générales' => 'Infos générales',
                     'Problème de paiement' => 'Problème de paiement',
                     'Problème technique' => 'Problème technique',
-                ),))
+                ),
+                'choices_as_values' => true,
+                'choice_label' => function ($currentChoiceKey) {
+                    return $currentChoiceKey;
+                },
+                ))
             ->add('subject', TextType::class, array(
                 'label' => 'Sujet: ',
                 'attr' => array(
@@ -84,13 +89,14 @@ class ContactType extends AbstractType
         ;
     }
 
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BoosterBundle\Entity\SendMessage'
+            'data_class' => 'BoosterBundle\Entity\Contact'
         ));
     }
 
@@ -99,8 +105,6 @@ class ContactType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'BoosterBundle_sendMessage';
+        return 'contactForm';
     }
-
-
 }

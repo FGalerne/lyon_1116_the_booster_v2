@@ -2,7 +2,7 @@
 namespace BoosterBundle\Entity;
 use EWZ\Bundle\RecaptchaBundle\Validator\Constraints as Recaptcha;
 
-class SendMessage
+class Contact
 {
     private $name;
     private $surname;
