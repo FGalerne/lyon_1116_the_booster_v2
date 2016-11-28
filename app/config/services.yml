@@ -10,3 +10,5 @@ services:
      App.user_generator:
         class: BoosterBundle\Services\UserGenerator
         arguments: ['@service_container', 50]
+
+

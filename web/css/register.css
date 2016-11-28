@@ -1,0 +1,66 @@
+/* Page register */
+.ah {
+    color: #E60F33;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.h1_top_page {
+    margin-top:10vh;
+    font-size: 37px;
+    letter-spacing: -1px;
+}
+
+.hr_ {
+    border: none;
+    display: inline-block;
+    width: 90px;
+    height: 8px;
+    background: #E60F33;
+    margin: auto 10px;
+    margin-bottom: 30px;
+}
+
+.block_login {
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 60px;
+}
+
+.h2_login {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.btn_register {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.separation_bar {
+    border: none;
+    display: inline-block;
+    width: 320px;
+    height: 1px;
+    background: lightgrey;
+    margin: auto 10px;
+    margin-bottom: 30px;
+}
+
+
+
+/* Page login */
+
+.btn_login_connect {
+    margin-top: 20px;
+    margin-bottom: 18vh;
+}
+
+.form_log {
+    margin-top: 30px;
+}
+
+.login_checkbox {
+    margin-top: 15px;
+}
