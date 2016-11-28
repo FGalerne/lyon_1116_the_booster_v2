@@ -955,6 +955,10 @@ hr{
 	display: inline-block;
 }
 
+.personnal-information p {
+	font-weight: 900;
+	margin-top: 10px;
+}
 
 .dashboard-separation {
 	width: 60%;
@@ -984,6 +988,7 @@ hr{
 #navbar-dashboard li:hover {
 	background-color: rgba(255, 255, 255, 0.1);
 }
+
 
 /* CAROUSEL */
 
