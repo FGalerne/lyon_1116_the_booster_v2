@@ -27,7 +27,7 @@ class FrontControllerTest extends WebTestCase
         //Header and Footer links//
 
         //'comment ça marche'
-        $link = $crawler->filter('a:contains("Comment ça marche?")')->link();
+        $link = $crawler->filter('a:contains("Comment ça marche")')->link();
         $crawler = $client->click($link);
         $this->assertContains('Comment ça marche?', $client->getResponse()->getContent());
 
