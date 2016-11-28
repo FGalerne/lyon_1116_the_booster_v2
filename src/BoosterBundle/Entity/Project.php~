@@ -70,7 +70,7 @@ class Project
     /**
      * @var integer
      */
-    private $socityNote;
+    private $societyNote;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -365,37 +365,37 @@ class Project
     }
 
     /**
-     * Set socityNote
+     * Set societyNote
      *
-     * @param integer $socityNote
+     * @param integer $societyNote
      *
      * @return Project
      */
-    public function setSocityNote($socityNote)
+    public function setSocietyNote($societyNote)
     {
-        $this->socityNote = $socityNote;
+        $this->societyNote = $societyNote;
 
         return $this;
     }
 
     /**
-     * Get socityNote
+     * Get societyNote
      *
      * @return integer
      */
-    public function getSocityNote()
+    public function getSocietyNote()
     {
-        return $this->socityNote;
+        return $this->societyNote;
     }
 
     /**
      * Add projectSubscription
      *
-     * @param \BoosterBundle\Entity\ProjectSubscribtion $projectSubscription
+     * @param \BoosterBundle\Entity\ProjectSubscription $projectSubscription
      *
      * @return Project
      */
-    public function addProjectSubscription(\BoosterBundle\Entity\ProjectSubscribtion $projectSubscription)
+    public function addProjectSubscription(\BoosterBundle\Entity\ProjectSubscription $projectSubscription)
     {
         $this->project_subscriptions[] = $projectSubscription;
 
@@ -405,9 +405,9 @@ class Project
     /**
      * Remove projectSubscription
      *
-     * @param \BoosterBundle\Entity\ProjectSubscribtion $projectSubscription
+     * @param \BoosterBundle\Entity\ProjectSubscription $projectSubscription
      */
-    public function removeProjectSubscription(\BoosterBundle\Entity\ProjectSubscribtion $projectSubscription)
+    public function removeProjectSubscription(\BoosterBundle\Entity\ProjectSubscription $projectSubscription)
     {
         $this->project_subscriptions->removeElement($projectSubscription);
     }
@@ -445,33 +445,5 @@ class Project
     {
         return $this->society;
     }
-    /**
-     * @var integer
-     */
-    private $societyNote;
-
-
-    /**
-     * Set societyNote
-     *
-     * @param integer $societyNote
-     *
-     * @return Project
-     */
-    public function setSocietyNote($societyNote)
-    {
-        $this->societyNote = $societyNote;
-
-        return $this;
-    }
-
-    /**
-     * Get societyNote
-     *
-     * @return integer
-     */
-    public function getSocietyNote()
-    {
-        return $this->societyNote;
-    }
 }
+

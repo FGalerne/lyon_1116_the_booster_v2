@@ -66,6 +66,17 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+# Fosuser configuration
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: BoosterBundle\Entity\User
+    registration:
+        form:
+            type: BoosterBundle\Form\RegistrationType
+            validation_groups: [BoosterRegistration]
+            type: BoosterBundle\Form\RegistrationBoosterType
+            validation_groups: [BoosterRegistration]
 easy_admin:
     design:
         brand_color: 'rgba(230,15,51,1)'
