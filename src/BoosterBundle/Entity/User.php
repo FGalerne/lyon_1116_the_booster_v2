@@ -210,14 +210,6 @@ class User extends BaseUser
     }
 
     /**
-     * @param string $nameProject
-     */
-    public function setNameProject($nameProject)
-    {
-        $this->nameProject = $nameProject;
-    }
-
-    /**
      * @return string
      */
     public function getNameProject()
@@ -225,7 +217,13 @@ class User extends BaseUser
         return $this->nameProject;
     }
 
-
+    /**
+     * @param string $nameProject
+     */
+    public function setNameProject($nameProject)
+    {
+        $this->nameProject = $nameProject;
+    }
 
     /**
      * @param string $email

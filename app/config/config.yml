@@ -61,6 +61,8 @@ doctrine:
 # Swiftmailer Configuration
 swiftmailer:
     transport: "%mailer_transport%"
+    encryption: ssl
+    auth_mode: login
     host:      "%mailer_host%"
     username:  "%mailer_user%"
     password:  "%mailer_password%"
@@ -82,3 +84,10 @@ easy_admin:
         brand_color: 'rgba(230,15,51,1)'
     entities:
         - BoosterBundle\Entity\Booster
+
+ewz_recaptcha:
+    public_key: 6LenAQsUAAAAADIzPqfQyen9j7GbLkVEXJ0gzBAj
+    private_key: 6LenAQsUAAAAAJyrhrOPHuTt0GBVQqpVFrWwYRwn
+    locale_from_request: true
+    # Not needed as "%kernel.default_locale%" is the default value for the locale key
+    locale_key:  %kernel.default_locale%
