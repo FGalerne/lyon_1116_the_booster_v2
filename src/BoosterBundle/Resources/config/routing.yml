@@ -2,6 +2,11 @@ booster_user:
     resource: "@BoosterBundle/Resources/config/routing/user.yml"
     prefix:   /user
 
+booster_booster:
+    resource: "@BoosterBundle/Resources/config/routing/booster.yml"
+    prefix:   /booster
+
+
 booster_homepage:
     path:     /
     defaults: { _controller: BoosterBundle:Front:index }
@@ -39,5 +44,8 @@ dashboard_society:
     defaults: { _controller: BoosterBundle:Dashboard:society }
 
 dashboard_booster:
-    path:     /dashboard-booster
+    path:     /{id}/dashboard-booster
     defaults: { _controller: BoosterBundle:Dashboard:booster }
+    methods:  GET
+
+
