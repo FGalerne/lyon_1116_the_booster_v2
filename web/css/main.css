@@ -1105,6 +1105,26 @@ and (-webkit-min-device-pixel-ratio: 1) {
 		background-size: cover;
 	}
 }
+
+/* INSCRIPTION CHOIX */
+
+.title_subs {
+	text-align: center;
+}
+.block_subs_b {
+	text-align: center;
+}
+
+.h3_subs {
+	font-weight: 700;
+	margin-top: 35px;
+}
+
+.btn_subs {
+	margin-top: 20px;
+	margin-bottom: 8vh;
+}
+
 /* PLAN DU SITE */
 .menu .list_sm a:hover {
 	text-decoration: underline;
@@ -1166,5 +1186,6 @@ and (-webkit-min-device-pixel-ratio: 1) {
 #background-thebooster{
 	background-color: white;
 }
+
 
 

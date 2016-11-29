@@ -1,6 +1,27 @@
+{% trans_default_domain 'FOSUserBundle' %}
 {% extends 'base.html.twig' %}
 {%  block title %} Inscription | The Booster{% endblock %}
 
 {% block body %}
+    <div class="title_subs">
+        <h1 class="h1_toppage">Je m'inscris</h1>
+        <hr>
+        <h2 class="h2_toppage">Je souhaite rejoindre la communauté The Booster.</h2>
+    </div>
 
+    <div class="container">
+        <div class="row">
+            <div class="block_subs_b col-xs-offset-1 col-xs-10 col-md-offset-1 col-md-4">
+                <h3 class="h3_subs">Je deviens BOOSTER</h3>
+                <p class="txt_subs">J'ai des compétences spécifiques, je souhaite donner de mon temps libre pour aider une entreprise à naître et à grandir</p>
+                <a href="{{ path('booster_user_booster_register') }}" type="button" class="btn_subs btn btn-danger btn-lg">Je m'inscris</a>
+            </div>
+
+            <div class="block_subs_b col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-4">
+                <h3 class="h3_subs">Je deviens BOOSTÉ</h3>
+                <p class="txt_subs">Je suis un entrepreneur, ou une start up, j'ai besoin d'aide pour me lancer, développer mon activité et réaliser mes projets.</p>
+                <a href="{{ path('fos_user_registration_register') }}" type="button" class="btn_subs btn btn-danger btn-lg">Je m'inscris</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}
