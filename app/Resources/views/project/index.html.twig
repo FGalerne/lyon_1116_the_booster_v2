@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Projects list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Projectname</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Creationstatus</th>
+                <th>Status</th>
+                <th>Giventime</th>
+                <th>Createtime</th>
+                <th>Endtime</th>
+                <th>Boostercommentaries</th>
+                <th>Societycommentaries</th>
+                <th>Boosternote</th>
+                <th>Societynote</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for project in projects %}
+            <tr>
+                <td><a href="{{ path('project_show', { 'id': project.id }) }}">{{ project.id }}</a></td>
+                <td>{{ project.projectName }}</td>
+                <td>{{ project.category }}</td>
+                <td>{{ project.description }}</td>
+                <td>{{ project.creationStatus }}</td>
+                <td>{{ project.status }}</td>
+                <td>{{ project.givenTime }}</td>
+                <td>{% if project.createTime %}{{ project.createTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if project.endTime %}{{ project.endTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ project.boosterCommentaries }}</td>
+                <td>{{ project.societyCommentaries }}</td>
+                <td>{{ project.boosterNote }}</td>
+                <td>{{ project.societyNote }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('project_show', { 'id': project.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('project_edit', { 'id': project.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('project_new') }}">Create a new project</a>
+        </li>
+    </ul>
+{% endblock %}
