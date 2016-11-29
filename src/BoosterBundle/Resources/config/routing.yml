@@ -22,3 +22,6 @@ booster_contact:
 booster_comment_ca_marche:
     path:     /comment_ca_marche
     defaults: { _controller: BoosterBundle:Front:commentCaMarche }
+booster_inscription_intermediaire:
+    path:     /inscription
+    defaults: { _controller: BoosterBundle:Front:inscriptionChoix }
