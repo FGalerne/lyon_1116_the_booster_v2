@@ -48,13 +48,19 @@
     margin-bottom: 30px;
 }
 
+.block_subs_forms {
+    border-width: 1px;
+    border-style: solid;
+    border-color: lightgrey;
+    border-radius: 15px;
+    padding: 20px 40px 20px 40px;
+}
 
 
 /* Page login */
 
 .btn_login_connect {
     margin-top: 20px;
-    margin-bottom: 18vh;
 }
 
 .form_log {
@@ -63,4 +69,13 @@
 
 .login_checkbox {
     margin-top: 15px;
+}
+
+.block_connect_form {
+    border-width: 1px;
+    border-style: solid;
+    border-color: lightgrey;
+    border-radius: 15px;
+    padding: 20px 40px 20px 40px;
+    margin-bottom: 10vh;
 }
