@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% for booster in boosters %}
     <section class="container-fluid global-presentation">
         <div class="container">
             <div class="col-md-3 avatar">
@@ -48,29 +47,28 @@
 
     <section class="container-fluid">
         <div class="container">
-            <p>Lieu de résidence : {{ booster.city }}</p>
-            <p>Code Postal : {{ booster.zipCode }}</p>
-            <p>Date de naissance : {{ booster.birthDate|date('Y-m-d') }}</p>
-            <p>Métier : {{ booster.workStatus }}</p>
+            <p>Lieu de résidence :</p>
+            <p>Code Postal :</p>
+            <p>Date de naissance :</p>
+            <p>Métier :</p>
 
             <h3>Mes principales compétences :</h3>
 
-            <div class="col-md-6">
+            <div class="col-md-6 booster-skill">
                 <ul>
-                    <li>{{ booster.competence1 }}</li>
-                    <li>{{ booster.competence2 }}</li>
-                    <li>{{ booster.competence3 }}</li>
+                    <li>Compétence 1</li>
+                    <li>Compétence 2</li>
+                    <li>Compétence 3</li>
                 </ul>
             </div>
             <div class="col-md-6">
                 <ul>
-                    <li>{{ booster.competence4 }}</li>
-                    <li>{{ booster.competence5 }}</li>
-                    <li>{{ booster.competence6 }}</li>
+                    <li>Compétence 4</li>
+                    <li>Compétence 5</li>
+                    <li>Compétence 6</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    {% endfor %}
 {% endblock %}
