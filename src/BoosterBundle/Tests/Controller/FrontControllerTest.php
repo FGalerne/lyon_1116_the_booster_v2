@@ -61,7 +61,7 @@ class FrontControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/comment_ca_marche');
+        $crawler = $client->request('GET', '/comment-ca-marche');
 
         $this->assertContains('Comment ça marche?', $client->getResponse()->getContent());
     }
@@ -116,7 +116,7 @@ class FrontControllerTest extends WebTestCase
         $crawler = $client->submit($form);
         $this->assertTrue(
             $client->getResponse()->isRedirect(
-                '/contact?send=1'
+                '/contact?send=invalide'
             )
         );
 

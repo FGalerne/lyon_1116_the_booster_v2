@@ -11,9 +11,9 @@
                 <!--message after submit-->
                 {% if app.request.get('send') %}
                     <h3 class="who_h3"><em>
-                    {% if app.request.get('send') == 1 %}
+                    {% if app.request.get('send') == 'invalide' %}
                         Un problème est survenu lors de l'envoie de votre email.
-                    {% elseif app.request.get('send') == 2 %}
+                    {% elseif app.request.get('send') == 'valide' %}
                         Merci de nous avoir contacté, <br/>
                         nous vous répondrons dans les plus brefs délais.
                     {% endif %}
@@ -27,4 +27,15 @@
             </div>
         </div>
     </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        tinymce.init({
+            selector:'.WYSIWYG',
+            forced_root_block: false,
+            menubar: 'tools',
+            toolbar: 'undo redo | bold italic underline strikethrough | fontsizeselect',
+            height : 300
+        });
+    </script>
 {% endblock %}

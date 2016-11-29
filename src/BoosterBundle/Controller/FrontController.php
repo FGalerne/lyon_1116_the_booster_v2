@@ -42,7 +42,8 @@ class FrontController extends Controller
             $name = $sendMessage->getName();
             $surname = $sendMessage->getSurname();
 
-            $To = 'teamthebooster@gmail.com';
+            $from = $this->getParameter('mailer_user');
+            $to = $this->getParameter('mailer_to');
 
             $email = $sendMessage->getEmail();
             $subject = $sendMessage->getSubject();
@@ -51,8 +52,8 @@ class FrontController extends Controller
 
             $sendMessage = \Swift_Message::newInstance()
                 ->setSubject($subject)
-                ->setFrom($email)
-                ->setTo($To)
+                ->setFrom($from)
+                ->setTo($to)
                 ->setBody(
                     $this->renderView(
                         'BoosterBundle:Emails:contact_email.html.twig',
@@ -71,11 +72,11 @@ class FrontController extends Controller
 
             $this->get('mailer')->send($sendMessage);
             return $this->redirectToRoute('booster_contact', array(
-                'send' => 2
+                'send' => 'valide'
             ));
         } else if($form->isSubmitted()) {
             return $this->redirectToRoute('booster_contact', array(
-                'send' => 1
+                'send' => 'invalide'
             ));
         }
 
@@ -83,8 +84,8 @@ class FrontController extends Controller
             'form' => $form->createView(),
         ));
     }
-    public function commentCaMarcheAction()
+    public function howItWorksAction()
     {
-        return $this->render('BoosterBundle:Front:comment_ca_marche.html.twig');
+        return $this->render('BoosterBundle:Front:how_it_works.html.twig');
     }
 }
