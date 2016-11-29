@@ -13,7 +13,6 @@ class DashboardController extends Controller
 
     public function boosterAction()
     {
-
         return $this->render('BoosterBundle:Dashboard:dashboard-booster.html.twig');
     }
 }
