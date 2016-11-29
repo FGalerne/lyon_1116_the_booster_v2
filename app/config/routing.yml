@@ -7,7 +7,11 @@ fos_user:
 
 fos_user_register:
     resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /booste/register
+    prefix: /register
+
+fos_user_registration_register:
+    path:      /register/booste
+    defaults:  { _controller: FOSUserBundle:Registration:register }
 
 register:
     path: /register
