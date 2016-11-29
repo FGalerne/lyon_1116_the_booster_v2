@@ -84,6 +84,16 @@ class FixturesTestUser
     }
 
     /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
      * Set title
      *
      * @param string $title
@@ -98,13 +108,13 @@ class FixturesTestUser
     }
 
     /**
-     * Get title
+     * Get familyName
      *
      * @return string
      */
-    public function getTitle()
+    public function getFamilyName()
     {
-        return $this->title;
+        return $this->familyName;
     }
 
     /**
@@ -122,13 +132,13 @@ class FixturesTestUser
     }
 
     /**
-     * Get familyName
+     * Get surname
      *
      * @return string
      */
-    public function getFamilyName()
+    public function getSurname()
     {
-        return $this->familyName;
+        return $this->surname;
     }
 
     /**
@@ -146,13 +156,13 @@ class FixturesTestUser
     }
 
     /**
-     * Get surname
+     * Get email
      *
      * @return string
      */
-    public function getSurname()
+    public function getEmail()
     {
-        return $this->surname;
+        return $this->email;
     }
 
     /**
@@ -170,13 +180,13 @@ class FixturesTestUser
     }
 
     /**
-     * Get email
+     * Get password
      *
      * @return string
      */
-    public function getEmail()
+    public function getPassword()
     {
-        return $this->email;
+        return $this->password;
     }
 
     /**
@@ -194,13 +204,13 @@ class FixturesTestUser
     }
 
     /**
-     * Get password
+     * Get phoneNumber
      *
      * @return string
      */
-    public function getPassword()
+    public function getPhoneNumber()
     {
-        return $this->password;
+        return $this->phoneNumber;
     }
 
     /**
@@ -218,13 +228,13 @@ class FixturesTestUser
     }
 
     /**
-     * Get phoneNumber
+     * Get function
      *
      * @return string
      */
-    public function getPhoneNumber()
+    public function getFunction()
     {
-        return $this->phoneNumber;
+        return $this->function;
     }
 
     /**
@@ -242,13 +252,13 @@ class FixturesTestUser
     }
 
     /**
-     * Get function
+     * Get createTime
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getFunction()
+    public function getCreateTime()
     {
-        return $this->function;
+        return $this->createTime;
     }
 
     /**
@@ -266,13 +276,13 @@ class FixturesTestUser
     }
 
     /**
-     * Get createTime
+     * Get projectType
      *
-     * @return \DateTime
+     * @return bool
      */
-    public function getCreateTime()
+    public function getProjectType()
     {
-        return $this->createTime;
+        return $this->projectType;
     }
 
     /**
@@ -290,13 +300,13 @@ class FixturesTestUser
     }
 
     /**
-     * Get projectType
+     * Get siret
      *
-     * @return bool
+     * @return int
      */
-    public function getProjectType()
+    public function getSiret()
     {
-        return $this->projectType;
+        return $this->siret;
     }
 
     /**
@@ -314,13 +324,13 @@ class FixturesTestUser
     }
 
     /**
-     * Get siret
+     * Get projectName
      *
-     * @return int
+     * @return string
      */
-    public function getSiret()
+    public function getProjectName()
     {
-        return $this->siret;
+        return $this->projectName;
     }
 
     /**
@@ -338,13 +348,13 @@ class FixturesTestUser
     }
 
     /**
-     * Get projectName
+     * Get role
      *
      * @return string
      */
-    public function getProjectName()
+    public function getRole()
     {
-        return $this->projectName;
+        return $this->role;
     }
 
     /**
@@ -359,15 +369,5 @@ class FixturesTestUser
         $this->role = $role;
 
         return $this;
-    }
-
-    /**
-     * Get role
-     *
-     * @return string
-     */
-    public function getRole()
-    {
-        return $this->role;
     }
 }

@@ -54,6 +54,16 @@ class Transaction
     }
 
     /**
+     * Get createTime
+     *
+     * @return \DateTime
+     */
+    public function getCreateTime()
+    {
+        return $this->createTime;
+    }
+
+    /**
      * Set createTime
      *
      * @param \DateTime $createTime
@@ -68,13 +78,13 @@ class Transaction
     }
 
     /**
-     * Get createTime
+     * Get projectLeft
      *
-     * @return \DateTime
+     * @return integer
      */
-    public function getCreateTime()
+    public function getProjectLeft()
     {
-        return $this->createTime;
+        return $this->projectLeft;
     }
 
     /**
@@ -92,13 +102,13 @@ class Transaction
     }
 
     /**
-     * Get projectLeft
+     * Get projectMonthLeft
      *
      * @return integer
      */
-    public function getProjectLeft()
+    public function getProjectMonthLeft()
     {
-        return $this->projectLeft;
+        return $this->projectMonthLeft;
     }
 
     /**
@@ -116,13 +126,13 @@ class Transaction
     }
 
     /**
-     * Get projectMonthLeft
+     * Get validityDate
      *
-     * @return integer
+     * @return \DateTime
      */
-    public function getProjectMonthLeft()
+    public function getValidityDate()
     {
-        return $this->projectMonthLeft;
+        return $this->validityDate;
     }
 
     /**
@@ -140,13 +150,13 @@ class Transaction
     }
 
     /**
-     * Get validityDate
+     * Get status
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getValidityDate()
+    public function getStatus()
     {
-        return $this->validityDate;
+        return $this->status;
     }
 
     /**
@@ -164,13 +174,13 @@ class Transaction
     }
 
     /**
-     * Get status
+     * Get society
      *
-     * @return string
+     * @return \BoosterBundle\Entity\Society
      */
-    public function getStatus()
+    public function getSociety()
     {
-        return $this->status;
+        return $this->society;
     }
 
     /**
@@ -185,15 +195,5 @@ class Transaction
         $this->society = $society;
 
         return $this;
-    }
-
-    /**
-     * Get society
-     *
-     * @return \BoosterBundle\Entity\Society
-     */
-    public function getSociety()
-    {
-        return $this->society;
     }
 }
