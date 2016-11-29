@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Users list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Lastname</th>
+                <th>Firstname</th>
+                <th>Phone</th>
+                <th>Createtime</th>
+                <th>Typeproject</th>
+                <th>Siretnumber</th>
+                <th>Professionalfunction</th>
+                <th>Nameproject</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
+                <td>{{ user.title }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{% if user.createTime %}{{ user.createTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if user.typeProject %}Yes{% else %}No{% endif %}</td>
+                <td>{{ user.siretNumber }}</td>
+                <td>{{ user.professionalFunction }}</td>
+                <td>{{ user.nameProject }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('user_show', { 'id': user.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('user_edit', { 'id': user.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('user_new') }}">Create a new user</a>
+        </li>
+    </ul>
+{% endblock %}

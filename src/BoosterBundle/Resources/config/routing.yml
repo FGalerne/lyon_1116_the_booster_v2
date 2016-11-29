@@ -1,3 +1,7 @@
+booster_user:
+    resource: "@BoosterBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
 booster_homepage:
     path:     /
     defaults: { _controller: BoosterBundle:Front:index }

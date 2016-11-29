@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>User</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ user.title }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ user.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ user.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ user.phone }}</td>
+            </tr>
+            <tr>
+                <th>Createtime</th>
+                <td>{% if user.createTime %}{{ user.createTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Typeproject</th>
+                <td>{% if user.typeProject %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Siretnumber</th>
+                <td>{{ user.siretNumber }}</td>
+            </tr>
+            <tr>
+                <th>Professionalfunction</th>
+                <td>{{ user.professionalFunction }}</td>
+            </tr>
+            <tr>
+                <th>Nameproject</th>
+                <td>{{ user.nameProject }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('user_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('user_edit', { 'id': user.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
