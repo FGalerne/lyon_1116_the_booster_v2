@@ -11,6 +11,7 @@ namespace BoosterBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
+use BoosterBundle\Form\Type\TelType;
 
 class RegistrationType extends AbstractType
 {
@@ -46,11 +47,12 @@ class RegistrationType extends AbstractType
                 'multiple' => false,
                 'required' => true
             ))
-            ->add('phone', 'text', array(
-                'label' => 'Téléphone portable'
+            ->add('phone', new TelType(), array(
+                'label' => 'Téléphone portable',
             ))
             ->add('siretnumber', 'text', array(
-                'label' => 'Numéro de Siret'
+                'label' => 'Numéro de Siret',
+                'pattern' => '[0-9]{14}'
             ))
             ->remove('username');
     }

@@ -11,4 +11,8 @@ services:
         class: BoosterBundle\Services\UserGenerator
         arguments: ['@service_container', 50]
 
+     booster.form.type.tel:
+        class: BoosterBundle\Form\Type\TelType
+        tags:
+            - { name: form.type, alias: tel }
 
