@@ -1,3 +1,7 @@
+booster_project:
+    resource: "@BoosterBundle/Resources/config/routing/project.yml"
+    prefix:   /project
+
 booster_homepage:
     path:     /
     defaults: { _controller: BoosterBundle:Front:index }
@@ -11,7 +15,7 @@ booster_charte:
     path:     /charte
     defaults: { _controller: BoosterBundle:Front:charte }
 booster_mentions_legales:
-    path:     /mentions_legales
+    path:     /mentions-legales
     defaults: { _controller: BoosterBundle:Front:mentionsLegales }
 booster_equipe:
     path:     /equipe
@@ -19,6 +23,9 @@ booster_equipe:
 booster_contact:
     path:     /contact
     defaults: { _controller: BoosterBundle:Front:contact }
-booster_comment_ca_marche:
-    path:     /comment_ca_marche
-    defaults: { _controller: BoosterBundle:Front:commentCaMarche }
+booster_how_it_works:
+    path:     /comment-ca-marche
+    defaults: { _controller: BoosterBundle:Front:howItWorks }
+new_project:
+    path:     /deposer-un-projet
+    defaults: { _controller: BoosterBundle:Project:new }
