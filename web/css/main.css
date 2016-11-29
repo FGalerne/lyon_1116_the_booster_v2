@@ -403,6 +403,7 @@ span {
 .h2_hmpg{
 	font-weight:900;
 	font-size: 37px;
+	margin-top: 6vh;
 }
 
 .h3_hmpg{
@@ -510,7 +511,6 @@ span {
 
 .home_startup_title_img{
 	background-color: #EAEAEA;
-
 	padding-bottom: 15px;
 }
 
