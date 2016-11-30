@@ -10,7 +10,7 @@ namespace BoosterBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints\Regex;
+
 
 /**
  * Class User
@@ -210,14 +210,6 @@ class User extends BaseUser
     }
 
     /**
-     * @param string $nameProject
-     */
-    public function setNameProject($nameProject)
-    {
-        $this->nameProject = $nameProject;
-    }
-
-    /**
      * @return string
      */
     public function getNameProject()
@@ -225,7 +217,13 @@ class User extends BaseUser
         return $this->nameProject;
     }
 
-
+    /**
+     * @param string $nameProject
+     */
+    public function setNameProject($nameProject)
+    {
+        $this->nameProject = $nameProject;
+    }
 
     /**
      * @param string $email
@@ -239,12 +237,34 @@ class User extends BaseUser
 
         return $this;
     }
-	/**
-	 * @Assert\Regex(
-	 *  pattern="/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{7,}/",
-	 *  message="Password must be seven or more characters long and contain at least one digit, one upper- and one lowercase character."
-	 * )
-	 */
-	protected $plainPassword;
 
+    /**
+     * @var \BoosterBundle\Entity\Booster
+     */
+    private $booster;
+
+
+    /**
+     * Set booster
+     *
+     * @param \BoosterBundle\Entity\Booster $booster
+     *
+     * @return User
+     */
+    public function setBooster(\BoosterBundle\Entity\Booster $booster = null)
+    {
+        $this->booster = $booster;
+
+        return $this;
+    }
+
+    /**
+     * Get booster
+     *
+     * @return \BoosterBundle\Entity\Booster
+     */
+    public function getBooster()
+    {
+        return $this->booster;
+    }
 }

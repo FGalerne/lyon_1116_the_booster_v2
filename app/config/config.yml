@@ -84,6 +84,7 @@ easy_admin:
         brand_color: 'rgba(230,15,51,1)'
     entities:
         - BoosterBundle\Entity\Booster
+        - BoosterBundle\Entity\User
 
 ewz_recaptcha:
     public_key: 6LenAQsUAAAAADIzPqfQyen9j7GbLkVEXJ0gzBAj

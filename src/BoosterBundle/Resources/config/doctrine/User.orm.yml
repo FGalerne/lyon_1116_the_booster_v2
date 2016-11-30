@@ -55,4 +55,10 @@ BoosterBundle\Entity\User:
             nullable: true
             unique: false
             column: project_name
+
+    oneToOne:
+        booster:
+            targetEntity: Booster
+            mappedBy: user
+
     lifecycleCallbacks: {  }

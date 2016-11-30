@@ -238,4 +238,33 @@ class User extends BaseUser
         return $this;
     }
 
+    /**
+     * @var \BoosterBundle\Entity\Booster
+     */
+    private $booster;
+
+
+    /**
+     * Set booster
+     *
+     * @param \BoosterBundle\Entity\Booster $booster
+     *
+     * @return User
+     */
+    public function setBooster(\BoosterBundle\Entity\Booster $booster = null)
+    {
+        $this->booster = $booster;
+
+        return $this;
+    }
+
+    /**
+     * Get booster
+     *
+     * @return \BoosterBundle\Entity\Booster
+     */
+    public function getBooster()
+    {
+        return $this->booster;
+    }
 }

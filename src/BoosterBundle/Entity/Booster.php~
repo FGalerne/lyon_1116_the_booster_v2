@@ -457,4 +457,33 @@ class Booster
 
         return $this;
     }
+    /**
+     * @var \BoosterBundle\Entity\User
+     */
+    private $user;
+
+
+    /**
+     * Set user
+     *
+     * @param \BoosterBundle\Entity\User $user
+     *
+     * @return Booster
+     */
+    public function setUser(\BoosterBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \BoosterBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }
