@@ -2,6 +2,11 @@ booster_project:
     resource: "@BoosterBundle/Resources/config/routing/project.yml"
     prefix:   /project
 
+booster_booster:
+    resource: "@BoosterBundle/Resources/config/routing/booster.yml"
+    prefix:   /booster
+
+
 booster_homepage:
     path:     /
     defaults: { _controller: BoosterBundle:Front:index }
