@@ -1141,6 +1141,10 @@ and (-webkit-min-device-pixel-ratio: 1) {
 	margin-bottom: 8vh;
 }
 
+.txt_subs{
+	text-align: center;
+}
+
 /* PLAN DU SITE */
 .menu .list_sm a:hover {
 	text-decoration: underline;
