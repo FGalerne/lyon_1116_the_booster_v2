@@ -55,7 +55,7 @@
                         <li><a href="{{ path('fos_user_security_logout') }}" class="log-nav">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
                         <li><a href="{{ path('fos_user_profile_edit') }}" class="log-nav"><img src="{{ asset('/img/profile-configuration.png')}}" alt="The Booster logo"></a></li>
                             {% else %}
-                               <li><a href="#" class="login-index">Inscription</a>
+                               <li><a href="{{ path('booster_inscription_choix') }}" class="login-index">Inscription</a>
                                <li><a href="{{ path('fos_user_security_login') }}" class="login-index">Connection</a>
                             {% endif %}</li>
                         <li>
