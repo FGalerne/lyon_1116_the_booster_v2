@@ -14,6 +14,7 @@ class BoosterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('user')
             ->add('photo')
             ->add('city')
             ->add('zipCode')
@@ -32,7 +33,6 @@ class BoosterType extends AbstractType
             ->add('hoursGiven')
             ->add('projectDoneNumber')
             ->add('averageNotation')
-            ->add('user')
         ;
     }
     
