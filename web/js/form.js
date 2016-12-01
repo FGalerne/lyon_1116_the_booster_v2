@@ -22,9 +22,11 @@ $('#boosteSiret').css({'border':'1px solid red'}).click(function() {
 function society(){
     $('#phoneGroup').css({'display':''});
     $('#siretGroup').css({'display':'none'});
+    $('#siretGroup input').val("");
     $('#duplicateMessageSiret').css({'display':'none'});
 }
 function project(){
     $('#phoneGroup').css({'display':'none'});
+    $('#phoneGroup input').val("");
     $('#siretGroup').css({'display':''});
 }

@@ -428,4 +428,50 @@ class Society
 
         return $this;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $project_names;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->project_names = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add projectName
+     *
+     * @param \BoosterBundle\Entity\Project $projectName
+     *
+     * @return Society
+     */
+    public function addProjectName(\BoosterBundle\Entity\Project $projectName)
+    {
+        $this->project_names[] = $projectName;
+
+        return $this;
+    }
+
+    /**
+     * Remove projectName
+     *
+     * @param \BoosterBundle\Entity\Project $projectName
+     */
+    public function removeProjectName(\BoosterBundle\Entity\Project $projectName)
+    {
+        $this->project_names->removeElement($projectName);
+    }
+
+    /**
+     * Get projectNames
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProjectNames()
+    {
+        return $this->project_names;
+    }
 }
