@@ -49,10 +49,13 @@ class RegistrationType extends AbstractType
             ))
             ->add('phone', new TelType(), array(
                 'label' => 'Téléphone portable',
+                'required' => false,
+                'pattern' => "^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$"
             ))
             ->add('siretnumber', 'text', array(
                 'label' => 'Numéro de Siret',
-                'pattern' => '[0-9]{14}'
+                'pattern' => '[0-9]{14}',
+                'required' => false
             ))
             ->remove('username');
     }

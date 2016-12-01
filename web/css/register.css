@@ -64,3 +64,18 @@
 .login_checkbox {
     margin-top: 15px;
 }
+
+/* booste form registration */
+#boosteMail, #boosteSiret{
+    border: 1px solid #cbcbcb;
+}
+#boosteMail:focus, #boosteSiret:focus{
+    border: 1px solid #31b0ff;
+}
+#duplicateMessageMail, #duplicateMessageSiret, #required{
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+.validation-height{
+    min-height: 300px;
+}
