@@ -49,7 +49,7 @@
         <div class="container">
             <p>Lieu de résidence : {{ booster.city }} </p>
             <p>Code Postal : {{ booster.zipCode }}</p>
-            <p>Date de naissance : {% if booster.birthDate %}{{ booster.birthDate|date('Y-m-d') }}{% endif %} </p>
+            <p>Date de naissance : {% if booster.birthDate %}{{ booster.birthDate|date('d-m-Y') }}{% endif %} </p>
             <p>Métier : {{ booster.workStatus }}</p>
 
             <h3>Mes principales compétences :</h3>
