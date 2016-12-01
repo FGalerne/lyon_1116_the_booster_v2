@@ -70,6 +70,7 @@ span {
 .navbar-nav > li > a {
 	line-height: 7vh;
 	color: black;
+	display: inline-block;
 	text-align: center;
  }
 
@@ -216,6 +217,13 @@ span {
 .foo_mention a:hover  {
 	text-decoration: underline;
 	text-decoration-color: rgba(255,255,255,0.7);
+}
+
+
+/* Button CSS when people are logged */
+
+.navbar-right {
+	display: inline-block;
 }
 
 /* HOME */
@@ -939,6 +947,136 @@ hr{
 }
 
 
+/*********************** DASHBOARD BOOSTER ***********************/
+
+.global-presentation {
+	margin-top: 35px;
+	margin-bottom: 35px;
+}
+
+.avatar img {
+	width: 200px;
+	display: block;
+	margin: 0 auto;
+}
+
+#statistic-society,
+#statistic-booster {
+	padding: 20px;
+	border: 2px solid #222222;
+}
+
+#statistic-booster ul {
+	padding: 0;
+}
+
+#statistic-booster ul li {
+	list-style: none;
+	display: inline-block;
+}
+
+.personnal-information p {
+	font-weight: 900;
+	margin-top: 10px;
+}
+
+.dashboard-separation {
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+	height: 2px;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+#navbar-dashboard ul {
+	text-align: center;
+}
+
+#navbar-dashboard ul li {
+	display: inline-block;
+	list-style: none;
+	text-align: center;
+	font-size: 1.2em;
+	font-weight: 400;
+
+}
+
+#navbar-dashboard a {
+	line-height: 7vh;
+	padding: 10px;
+	color: black;
+	text-decoration: none;
+}
+
+#navbar-dashboard li:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.presentation-booster {
+	margin-bottom: 60px;
+}
+
+.booster-skill ul {
+	text-align: center;
+	padding: 0;
+}
+
+.booster-skill li {
+	display: inline-block;
+	list-style: none;
+	padding: 15px;
+}
+
+.presentation-text {
+	height: 250px;
+	width: 100%;
+	border-radius: 10px;
+	border: 2px solid rgba(0, 0, 0, 0.2);
+	margin: 0;
+}
+
+/*********************** DASHBOARD BOOSTE "SOCIETY" ***********************/
+
+
+.dashboard-society img {
+	width: 100%;
+}
+
+
+#statistic-society ul {
+	padding: 0;
+}
+
+#statistic-society ul li {
+	list-style: none;
+	display: inline-block;
+}
+
+#add-project a {
+	background-color: rgba(230,15,51,1);
+	margin: 35px auto;
+	display: block;
+	padding: 40px;
+	color: #FFFFFF;
+	text-decoration: none;
+	text-align: center;
+}
+
+#add-project a:hover {
+	background-color: rgba(230,15,51,0.9);
+}
+
+.dashboard-social-media {
+	margin-top: 35px;
+	font-size: 3.5em;
+	padding: 0;
+}
+
+.dashboard-social-media li {
+	list-style: none;
+	display: inline-block;
+}
+
 /* CAROUSEL */
 
 
@@ -1050,6 +1188,7 @@ hr{
 @media only screen
 and (min-device-width: 768px)
 and (max-device-width: 1024px)
+and (max-width: 1075px)
 and (-webkit-min-device-pixel-ratio: 1) {
 
 	.txt_car{
