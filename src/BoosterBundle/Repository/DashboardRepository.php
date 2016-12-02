@@ -4,12 +4,12 @@ namespace BoosterBundle\Repository;
 
 class DashboardRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findDashboardById($id)
+    public function getDashboardById($id)
     {
         $req = $this->createQueryBuilder('d')
-            ->select()
-            ->join('BoosterBundle\Entity\User', 'd', 'WITH', 'd.id = vc.video' )
-            ->where('vc.video = ?1')
+            ->select('d')
+            ->from('booster', 'd')
+            ->where('d.id = ?1')
             ->setParameter(1, $id)
             ->getQuery();
 

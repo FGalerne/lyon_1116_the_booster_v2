@@ -6,7 +6,6 @@ booster_booster:
     resource: "@BoosterBundle/Resources/config/routing/booster.yml"
     prefix:   /booster
 
-
 booster_homepage:
     path:     /
     defaults: { _controller: BoosterBundle:Front:index }
@@ -40,7 +39,7 @@ dashboard_society:
     defaults: { _controller: BoosterBundle:Dashboard:society }
 
 dashboard_booster:
-    path:     /{id}/dashboard-booster
+    path:     /dashboard-booster/{id}
     defaults: { _controller: BoosterBundle:Dashboard:booster }
     methods:  GET
 
