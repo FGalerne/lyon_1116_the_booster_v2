@@ -51,3 +51,7 @@ new_project:
     path:     /deposer-un-projet
     defaults: { _controller: BoosterBundle:Project:new }
 
+list_society:
+    path: /liste_de_societes
+    defaults: { _controller: BoosterBundle:Front:listSociety}
+
