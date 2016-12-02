@@ -411,6 +411,7 @@ span {
 .h2_hmpg{
 	font-weight:900;
 	font-size: 37px;
+	margin-top:8vh;
 }
 
 .h3_hmpg{
@@ -1258,6 +1259,32 @@ and (-webkit-min-device-pixel-ratio: 1) {
 		background-size: cover;
 	}
 }
+
+/* INSCRIPTION CHOIX */
+
+.title_subs {
+	text-align: center;
+}
+.block_subs_b {
+	text-align: center;
+	margin-top: 60px;
+	margin-bottom: 55px;
+}
+
+.h3_subs {
+	font-weight: 700;
+	margin-top: 35px;
+}
+
+.btn_subs {
+	margin-top: 20px;
+	margin-bottom: 8vh;
+}
+
+.txt_subs{
+	text-align: center;
+}
+
 /* PLAN DU SITE */
 .menu .list_sm a:hover {
 	text-decoration: underline;
@@ -1360,3 +1387,4 @@ and (-webkit-min-device-pixel-ratio: 1) {
 		width: 100%;
 	}
 }
+

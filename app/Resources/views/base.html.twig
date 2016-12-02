@@ -45,7 +45,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="">Proposer un projet</a></li>
+                        <li><a href="{{ path('fos_user_registration_register') }}">Proposer un projet</a></li>
                         <li><a href="">Liste des sociétés</a></li>
                         <li><a href="{{ path('booster_how_it_works') }}">Comment ça marche</a></li>
                     </ul>
@@ -55,8 +55,8 @@
                         <li><a href="{{ path('fos_user_security_logout') }}" class="log-nav">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
                         <li><a href="{{ path('fos_user_profile_edit') }}" class="log-nav"><img src="{{ asset('/img/profile-configuration.png')}}" alt="The Booster logo"></a></li>
                             {% else %}
-                               <li><a href="#" class="login-index">Inscription</a>
-                               <li><a href="{{ path('fos_user_security_login') }}" class="login-index">Connection</a>
+                               <li><a href="{{ path('booster_inscription_choix') }}" class="login-index">Inscription</a>
+                               <li><a href="{{ path('fos_user_security_login') }}" class="login-index">Connexion</a>
                             {% endif %}</li>
                         <li>
                             <div class="nav navbar-nav navbar-right nav-social nav_networks">

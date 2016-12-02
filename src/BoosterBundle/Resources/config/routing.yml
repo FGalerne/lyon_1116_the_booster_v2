@@ -34,6 +34,10 @@ booster_contact:
     path:     /contact
     defaults: { _controller: BoosterBundle:Front:contact }
 
+booster_inscription_choix:
+    path:     /inscription
+    defaults: { _controller: BoosterBundle:Front:inscriptionChoix }
+
 dashboard_society:
     path:     /dashboard-booste
     defaults: { _controller: BoosterBundle:Dashboard:society }
@@ -50,3 +54,4 @@ booster_how_it_works:
 new_project:
     path:     /deposer-un-projet
     defaults: { _controller: BoosterBundle:Project:new }
+
