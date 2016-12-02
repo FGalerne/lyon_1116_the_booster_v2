@@ -88,4 +88,9 @@ class FrontController extends Controller
     {
         return $this->render('BoosterBundle:Front:how_it_works.html.twig');
     }
+    public function inscriptionChoixAction()
+    {
+        return $this->render('BoosterBundle:Front:inscription_choix.html.twig');
+    }
+
 }

@@ -16,6 +16,9 @@
     <!-- Google Font paragraphes et boutons SOURCE SANS PRO -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
 
+    <!-- Font-awesome for logo -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/the-booster-favicon-ico.ico')}}" />
     <link rel="icon" type="image/png" href="{{ asset('img/the-booster-favicon-16X16.png')}}" />
@@ -42,13 +45,19 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="">Proposer un projet</a></li>
+                        <li><a href="{{ path('fos_user_registration_register') }}">Proposer un projet</a></li>
                         <li><a href="">Liste des sociétés</a></li>
                         <li><a href="{{ path('booster_how_it_works') }}">Comment ça marche</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+                        <li>{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}<a href="{{ path('fos_user_profile_show') }}" class="log-nav" >{{ app.user.username }}</a></li>
+                        <li><a href="{{ path('fos_user_security_logout') }}" class="log-nav">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+                        <li><a href="{{ path('fos_user_profile_edit') }}" class="log-nav"><img src="{{ asset('/img/profile-configuration.png')}}" alt="The Booster logo"></a></li>
+                            {% else %}
+                               <li><a href="{{ path('booster_inscription_choix') }}" class="login-index">Inscription</a>
+                               <li><a href="{{ path('fos_user_security_login') }}" class="login-index">Connexion</a>
+                            {% endif %}</li>
                         <li>
                             <div class="nav navbar-nav navbar-right nav-social nav_networks">
                                 <a href="https://www.facebook.com/The-Booster-1775588599376645/" target="_blank"><img src="{{ asset('/img/facebook-tb-black.png')}}" alt="facebook"></a>
