@@ -43,7 +43,7 @@ dashboard_society:
     defaults: { _controller: BoosterBundle:Dashboard:society }
 
 dashboard_booster:
-    path:     /dashboard-booster/{id}
+    path:     /dashboard-booster/{id}/
     defaults: { _controller: BoosterBundle:Dashboard:booster }
     methods:  GET
 
