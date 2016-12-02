@@ -100,7 +100,7 @@ easy_admin:
                 fields:
                     - category
                     - description
-                    - { property: 'creation_status', type:'choice', type_options: {choices: {'Accepter':'Accepter', 'Refuser':'Refuser'}}}
+                    - { property: 'creation_status', type:'choice', type_options: {choices: {'Accepte':'Accepté', 'Refuse':'Refusé'}}}
 
 
 
