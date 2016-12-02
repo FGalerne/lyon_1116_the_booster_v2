@@ -62,8 +62,12 @@ BoosterBundle\Entity\Society:
             type: integer
             nullable: true
             column: denied_boosters
-        oneToMany:
-            project_names:
-                targetEntity: BoosterBundle\Entity\Project
-                mappedBy: projectName
+    oneToMany:
+        project_names:
+            targetEntity: BoosterBundle\Entity\Project
+            mappedBy: projectName
+    oneToOne:
+        users:
+            targetEntity: User
+            mappedBy: society
     lifecycleCallbacks: {  }

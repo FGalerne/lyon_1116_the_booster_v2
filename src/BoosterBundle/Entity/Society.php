@@ -428,4 +428,88 @@ class Society
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+    	return strval($this->id);
+    }
+
+    /**
+     * @var \BoosterBundle\Entity\User
+     */
+    private $users;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $project_names;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->project_names = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set users
+     *
+     * @param \BoosterBundle\Entity\User $users
+     *
+     * @return Society
+     */
+    public function setUsers(\BoosterBundle\Entity\User $users = null)
+    {
+        $this->users = $users;
+
+        return $this;
+    }
+
+    /**
+     * Get users
+     *
+     * @return \BoosterBundle\Entity\User
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    /**
+     * Add projectName
+     *
+     * @param \BoosterBundle\Entity\Project $projectName
+     *
+     * @return Society
+     */
+    public function addProjectName(\BoosterBundle\Entity\Project $projectName)
+    {
+        $this->project_names[] = $projectName;
+
+        return $this;
+    }
+
+    /**
+     * Remove projectName
+     *
+     * @param \BoosterBundle\Entity\Project $projectName
+     */
+    public function removeProjectName(\BoosterBundle\Entity\Project $projectName)
+    {
+        $this->project_names->removeElement($projectName);
+    }
+
+    /**
+     * Get projectNames
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProjectNames()
+    {
+        return $this->project_names;
+    }
 }
