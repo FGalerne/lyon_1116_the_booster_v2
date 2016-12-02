@@ -60,7 +60,7 @@ class ProjectController extends Controller
      * Finds and displays a project entity.
      *
      */
-    public function showAction(Project $project)
+    public function showAction (Project $project)
     {
         $deleteForm = $this->createDeleteForm($project);
 
