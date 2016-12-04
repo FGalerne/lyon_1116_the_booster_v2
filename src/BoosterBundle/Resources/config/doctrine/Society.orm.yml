@@ -67,7 +67,10 @@ BoosterBundle\Entity\Society:
             targetEntity: BoosterBundle\Entity\Project
             mappedBy: projectName
     oneToOne:
-        users:
+        user:
             targetEntity: User
-            mappedBy: society
+            inversedBy: society
+            joinColumn:
+                name: id
+                referenceColumnName: id
     lifecycleCallbacks: {  }

@@ -55,11 +55,8 @@ BoosterBundle\Entity\User:
             nullable: true
             unique: false
             column: project_name
-    OneToOne:
+    oneToOne:
         society:
             targetEntity: Society
-            inversedBy: users
-            joinColumn:
-                name: society_id
-                referencedColumnName: id
+            mappedBy: user
     lifecycleCallbacks: {  }

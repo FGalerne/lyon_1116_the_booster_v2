@@ -512,4 +512,33 @@ class Society
     {
         return $this->project_names;
     }
+    /**
+     * @var \BoosterBundle\Entity\User
+     */
+    private $user;
+
+
+    /**
+     * Set user
+     *
+     * @param \BoosterBundle\Entity\User $user
+     *
+     * @return Society
+     */
+    public function setUser(\BoosterBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \BoosterBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }
