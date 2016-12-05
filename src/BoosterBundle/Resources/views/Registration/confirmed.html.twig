@@ -2,8 +2,8 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 {% block h1 %}<h1 class="h1_toppage">Votre compte est maintenant activé</h1>{% endblock %}
-{% block validation_content %}
 
+{% block validation_content %}
     <p class="text-center">{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
     {% if targetUrl %}
     <p class="text-center"><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
