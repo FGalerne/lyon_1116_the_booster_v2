@@ -7,6 +7,7 @@ namespace BoosterBundle\Entity;
  */
 class Society
 {
+
     /**
      * @var integer
      */
@@ -428,6 +429,7 @@ class Society
 
         return $this;
     }
+<<<<<<< HEAD
 
     /**
      * @return string
@@ -442,6 +444,8 @@ class Society
      */
     private $users;
 
+=======
+>>>>>>> 2756e26cfd5fea54bd3c224fea724525c2b345d1
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
@@ -456,6 +460,7 @@ class Society
     }
 
     /**
+<<<<<<< HEAD
      * Set users
      *
      * @param \BoosterBundle\Entity\User $users
@@ -480,6 +485,8 @@ class Society
     }
 
     /**
+=======
+>>>>>>> 2756e26cfd5fea54bd3c224fea724525c2b345d1
      * Add projectName
      *
      * @param \BoosterBundle\Entity\Project $projectName

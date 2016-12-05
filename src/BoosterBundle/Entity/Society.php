@@ -428,7 +428,7 @@ class Society
 
         return $this;
     }
-
+    
     /**
      * @return string
      */
@@ -512,6 +512,7 @@ class Society
     {
         return $this->project_names;
     }
+
     /**
      * @var \BoosterBundle\Entity\User
      */
