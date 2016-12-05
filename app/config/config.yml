@@ -80,11 +80,27 @@ fos_user:
             type: BoosterBundle\Form\RegistrationBoosterType
             validation_groups: [BoosterRegistration]
 easy_admin:
+    site_name: The booster
     design:
         brand_color: 'rgba(230,15,51,1)'
     entities:
-        - BoosterBundle\Entity\Booster
-        - BoosterBundle\Entity\User
+        Utilisateur:
+            class: BoosterBundle\Entity\User
+            label: "Utilisateur"
+        Booster:
+            class: BoosterBundle\Entity\Booster
+            label: "Booster"
+        Booste:
+            class: BoosterBundle\Entity\Society
+            label: "Booste"
+        Project:
+            class: BoosterBundle\Entity\Project
+            label: "Projet"
+            form:
+                fields:
+                    - category
+                    - description
+                    - { property: 'creation_status', type:'choice', type_options: {choices: {'Accepte':'Accepté', 'Refuse':'Refusé'}}}
 
 ewz_recaptcha:
     public_key: 6LenAQsUAAAAADIzPqfQyen9j7GbLkVEXJ0gzBAj
