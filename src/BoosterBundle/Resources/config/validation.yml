@@ -1,0 +1,20 @@
+BoosterBundle\Entity\User:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [email]
+            errorPath: email
+            message: 'Cette adresse email est déja enregistré'
+
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [siretNumber]
+            errorPath: siretnumber
+            message: 'Ce numéro siret est déja enregistré.'
+
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [phone]
+            errorPath: phone
+            message: 'Ce numéro de téléphone est déja enregistré'
+
+
+
+

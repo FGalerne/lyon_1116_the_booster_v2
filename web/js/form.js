@@ -11,19 +11,10 @@ $('#fos_user_registration_form_typeproject_0').click(function() {
 $('#fos_user_registration_form_typeproject_1').click(function() {
     project();
 });
-$('#boosteMail').css({'border':'1px solid red'}).click(function() {
-    $(this).css({'border':''});
-    $('#duplicateMessageMail').css({'display':'none'});
-});
-$('#boosteSiret').css({'border':'1px solid red'}).click(function() {
-    $(this).css({'border':''});
-    $('#duplicateMessageSiret').css({'display':'none'});
-});
 function society(){
     $('#phoneGroup').css({'display':''});
     $('#siretGroup').css({'display':'none'});
     $('#siretGroup input').val("");
-    $('#duplicateMessageSiret').css({'display':'none'});
 }
 function project(){
     $('#phoneGroup').css({'display':'none'});

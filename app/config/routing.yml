@@ -10,8 +10,8 @@ fos_user_register:
     prefix: /register
 
 fos_user_registration_register:
-    path:      /register/booste
-    defaults:  { _controller: FOSUserBundle:Registration:register }
+    path:   /register/booste
+    defaults: { _controller: FOSUserBundle:Registration:register}
 
 register:
     path: /register

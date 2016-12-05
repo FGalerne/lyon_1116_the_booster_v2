@@ -55,7 +55,7 @@ class RegistrationType extends AbstractType
             ->add('siretnumber', 'text', array(
                 'label' => 'Numéro de Siret',
                 'pattern' => '[0-9]{14}',
-                'required' => false
+                'required' => false,
             ))
             ->remove('username');
     }

@@ -85,6 +85,7 @@ class RegistrationController extends BaseController
 
         return $this->render('FOSUserBundle:Registration:register.html.twig', array(
             'form' => $form->createView(),
+            'booster' => true,
         ));
     }
 
@@ -117,20 +118,14 @@ class RegistrationController extends BaseController
 		$form->setData($user);
 
 		$form->handleRequest($request);
-        $uniqueMail = false;
-        $uniqueSiret = false;
         $required = false;
 
 		if ($form->isSubmitted()) {
 			if ($form->isValid()) {
-                $repository = $this->getDoctrine()->getRepository('BoosterBundle:User');
 
-                $mail = $form["email"]->getData();
                 $siret = $form["siretnumber"]->getData();
                 $phone = $form["phone"]->getData();
-                if($repository->findOneByEmail($mail) == null
-                    && $repository->findOneBySiretNumber($siret) == null
-                    && ($phone !== null || $siret !== null)){
+                if($phone !== null || $siret !== null){
                     $event = new FormEvent($form, $request);
                     $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
@@ -144,17 +139,8 @@ class RegistrationController extends BaseController
                     $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
 
                     return $response;
-                } else{
-                    if($repository->findOneByEmail($mail) !== null){
-                        $uniqueMail = true;
-                    }
-                    if($repository->findOneBySiretNumber($siret) !== null){
-                        $uniqueSiret = true;
-                    }
-                    if($phone == null && $siret == null){
+                } else if($phone == null && $siret == null){
                         $required = true;
-                    }
-
                 }
             }
 
@@ -168,9 +154,8 @@ class RegistrationController extends BaseController
 
 		return $this->render('FOSUserBundle:Registration:register.html.twig', array(
 			'form' => $form->createView(),
-            'uniqueMail' => $uniqueMail,
-            'uniqueSiret' => $uniqueSiret,
-            'required' => $required
+            'required' => $required,
+            'booster' => false,
 		));
 	}
 }
