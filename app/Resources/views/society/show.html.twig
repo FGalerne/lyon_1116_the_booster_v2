@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Society</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ society.id }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ society.photo }}</td>
+            </tr>
+            <tr>
+                <th>Societyname</th>
+                <td>{{ society.societyName }}</td>
+            </tr>
+            <tr>
+                <th>Punchline</th>
+                <td>{{ society.punchLine }}</td>
+            </tr>
+            <tr>
+                <th>Presentation</th>
+                <td>{{ society.presentation }}</td>
+            </tr>
+            <tr>
+                <th>Linkedin</th>
+                <td>{{ society.linkedin }}</td>
+            </tr>
+            <tr>
+                <th>Facebook</th>
+                <td>{{ society.facebook }}</td>
+            </tr>
+            <tr>
+                <th>Twitter</th>
+                <td>{{ society.twitter }}</td>
+            </tr>
+            <tr>
+                <th>Youtube</th>
+                <td>{{ society.youtube }}</td>
+            </tr>
+            <tr>
+                <th>Websitelink</th>
+                <td>{{ society.websiteLink }}</td>
+            </tr>
+            <tr>
+                <th>Hourstaken</th>
+                <td>{{ society.hoursTaken }}</td>
+            </tr>
+            <tr>
+                <th>Averagenotation</th>
+                <td>{{ society.averageNotation }}</td>
+            </tr>
+            <tr>
+                <th>Projectdonenumber</th>
+                <td>{{ society.projectDoneNumber }}</td>
+            </tr>
+            <tr>
+                <th>Deniedboosters</th>
+                <td>{{ society.deniedBoosters }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('society_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('society_edit', { 'id': society.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

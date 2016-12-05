@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Societies list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Photo</th>
+                <th>Societyname</th>
+                <th>Punchline</th>
+                <th>Presentation</th>
+                <th>Linkedin</th>
+                <th>Facebook</th>
+                <th>Twitter</th>
+                <th>Youtube</th>
+                <th>Websitelink</th>
+                <th>Hourstaken</th>
+                <th>Averagenotation</th>
+                <th>Projectdonenumber</th>
+                <th>Deniedboosters</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for society in societies %}
+            <tr>
+                <td><a href="{{ path('society_show', { 'id': society.id }) }}">{{ society.id }}</a></td>
+                <td>{{ society.photo }}</td>
+                <td>{{ society.societyName }}</td>
+                <td>{{ society.punchLine }}</td>
+                <td>{{ society.presentation }}</td>
+                <td>{{ society.linkedin }}</td>
+                <td>{{ society.facebook }}</td>
+                <td>{{ society.twitter }}</td>
+                <td>{{ society.youtube }}</td>
+                <td>{{ society.websiteLink }}</td>
+                <td>{{ society.hoursTaken }}</td>
+                <td>{{ society.averageNotation }}</td>
+                <td>{{ society.projectDoneNumber }}</td>
+                <td>{{ society.deniedBoosters }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('society_show', { 'id': society.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('society_edit', { 'id': society.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('society_new') }}">Create a new society</a>
+        </li>
+    </ul>
+{% endblock %}

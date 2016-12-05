@@ -51,3 +51,7 @@ new_project:
     path:     /deposer-un-projet
     defaults: { _controller: BoosterBundle:Project:new }
 
+booster_society:
+    resource: "@BoosterBundle/Resources/config/routing/society.yml"
+    prefix:   /society
+

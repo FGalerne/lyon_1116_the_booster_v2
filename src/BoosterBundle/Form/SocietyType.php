@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: LaurieGandon
- * Date: 04/12/2016
- * Time: 6:31 PM
- */
 
 namespace BoosterBundle\Form;
 
@@ -15,30 +9,29 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class SocietyType extends AbstractType
 {
     /**
-     * @param FormBuilderInterface $builder
-     * @param array $options
+     * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
-        $builder
-            ->add('photo')
-            ->add('societyName')
-            ->add('punchLine')
-            ->add('presentation')
-            ->add('linkedin')
-            ->add('facebook')
-            ->add('twitter')
-            ->add('youtube')
-            ->add('websiteLink')
-            ->add('hoursTaken')
-            ->add('averageNotation')
-            ->add('projectDoneNumber')
+        $builder->add('photo')
+                ->add('societyName')
+                ->add('punchLine')
+                ->add('presentation')
+                ->add('linkedin')
+                ->add('facebook')
+                ->add('twitter')
+                ->add('youtube')
+                ->add('websiteLink')
+                ->add('hoursTaken')
+                ->add('averageNotation')
+                ->add('projectDoneNumber')
+                ->add('deniedBoosters')
+                ->add('user')
         ;
     }
-
+    
     /**
-     * @param OptionsResolver $resolver
+     * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
@@ -48,11 +41,12 @@ class SocietyType extends AbstractType
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getBlockPrefix()
     {
         return 'boosterbundle_society';
     }
+
 
 }
