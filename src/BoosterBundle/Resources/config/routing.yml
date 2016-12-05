@@ -52,6 +52,6 @@ new_project:
     defaults: { _controller: BoosterBundle:Project:new }
 
 list_society:
-    path: /liste_de_societes
+    path: /liste-de-societes
     defaults: { _controller: BoosterBundle:Front:listSociety}
 
