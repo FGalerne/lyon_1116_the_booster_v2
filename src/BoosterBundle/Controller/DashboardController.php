@@ -9,9 +9,11 @@ class DashboardController extends Controller
     public function societyAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $boosters = $em->getRepository('BoosterBundle:Booster')->findAll();
+        $societies = $em->getRepository('BoosterBundle:Society')->findAll();
 
-        return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig');
+        return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
+            'societies' => $societies,
+        ));
     }
 
     public function boosterAction()

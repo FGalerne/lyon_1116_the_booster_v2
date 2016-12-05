@@ -19,7 +19,6 @@ class SocietyController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $societies = $em->getRepository('BoosterBundle:Society')->findAll();
 
         return $this->render('society/index.html.twig', array(
