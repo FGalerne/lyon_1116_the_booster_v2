@@ -8,7 +8,7 @@
                 <img src="{{ asset('img/avatar-test.jpg') }}" alt="photo-avatar" />
             </div>
 
-            <div class="col-md-2 personnal-information">
+            <div class="col-md-3 personnal-information">
                 <p>Civilité : {{ booster.user.title }}</p>
                 <p>Prénom : {{ booster.user.firstName }}</p>
                 <p>Nom : {{ booster.user.lastName }}</p>
@@ -16,7 +16,7 @@
                 <p>N° de tel: {{ booster.user.phone }}</p>
             </div>
 
-            <div class="col-md-3 col-md-offset-4" id="statistic-booster">
+            <div class="col-md-3 col-md-offset-3" id="statistic-booster">
                 <p>Heures données : {{ booster.hoursGiven }}</p>
                 <p>Projets soutenus : {{ booster.projectDoneNumber }}</p>
                 <p>Note des boostés : {{ booster.averageNotation }}</p>

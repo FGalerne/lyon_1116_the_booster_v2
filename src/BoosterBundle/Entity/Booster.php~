@@ -460,8 +460,8 @@ class Booster
     /**
      * @var \BoosterBundle\Entity\User
      */
-    private $user;
 
+    private $user;
 
     /**
      * Set user
@@ -473,7 +473,6 @@ class Booster
     public function setUser(\BoosterBundle\Entity\User $user = null)
     {
         $this->user = $user;
-
         return $this;
     }
 
@@ -485,5 +484,10 @@ class Booster
     public function getUser()
     {
         return $this->user;
+    }
+
+    public function __toString()
+    {
+        return strval($this->id);
     }
 }
