@@ -7,6 +7,11 @@ namespace BoosterBundle\Entity;
  */
 class Society
 {
+	public function __toString()
+	{
+		return strval($this->id);
+	}
+
     /**
      * @var integer
      */
