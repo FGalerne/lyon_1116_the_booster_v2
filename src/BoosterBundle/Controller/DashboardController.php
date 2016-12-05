@@ -11,11 +11,11 @@ class DashboardController extends Controller
         return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig');
     }
 
-    public function boosterAction()
+    public function boosterAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $boosters = $em->getRepository('BoosterBundle:Booster')->findAll();
+        $boosters = $em->getRepository('BoosterBundle:Booster')->getDashboardById($id);
 
         return $this->render('BoosterBundle:Dashboard:dashboard-booster.html.twig', array(
             'boosters' => $boosters,
