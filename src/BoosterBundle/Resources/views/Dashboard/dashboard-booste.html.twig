@@ -7,9 +7,9 @@
             <div class="container">
                 <div class="col-xs-12 col-md-8 dashboard-society">
                     <h1>{{ society.societyName }}</h1>
-                    <h2>{{ society.websiteLink }}</h2>
+                    <h2><a href="{{ society.websiteLink }}" target="_blank">Site internet</a></h2>
                     <div class="row">
-                        <img src="{{ asset('img/food&you.jpg') }}" alt="photo couverture société" />
+                        <img src="{{ society.photo }}" alt="photo couverture société" />
                     </div>
                     <h2>{{ society.punchLine }}</h2>
                     <div class="col-xs-12" id="navbar-dashboard">
