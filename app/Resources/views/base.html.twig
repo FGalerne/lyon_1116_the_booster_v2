@@ -51,7 +51,7 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li>{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} <a href="{{ path('fos_user_profile_show') }}" class="log-nav" >{{ app.user.username }}</a></li>
+                        <li>{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} <a href="{{ path('dashboard_booster',{'id':app.user.id}) }}" class="log-nav" >{{ app.user.username }}</a></li>
                         <li><a href="{{ path('fos_user_security_logout') }}" class="log-nav">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
                         <li><a href="{{ path('fos_user_profile_edit') }}" class="log-nav"><img src="{{ asset('/img/profile-configuration.png')}}" alt="The Booster logo"></a></li>
                             {% else %}
