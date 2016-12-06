@@ -137,7 +137,45 @@ class RegistrationController extends BaseController
                     }
 
                     $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+                    if ($siret !== null){
 
+                        //envoie d'un mail pour prevenir qu'un nouveau boosté attend une validation
+                        $title = $form["title"]->getData();
+                        $name = $form["firstname"]->getData();
+                        $surname = $form["lastname"]->getData();
+                        $siret = $form["siretnumber"]->getData();
+
+                        $from = $this->getParameter('mailer_user');
+                        $to = $this->getParameter('mailer_to');
+
+                        $projectName = $form["nameproject"]->getData();
+                        $subject = $projectName.': validation du n° siret';
+
+                        $sendMessage = \Swift_Message::newInstance()
+                            ->setSubject($subject)
+                            ->setFrom($from)
+                            ->setTo($to)
+                            ->setBody(
+                                $this->renderView(
+                                    'BoosterBundle:Emails:validation_siret_email.html.twig',
+                                    array(
+                                        'title' => $title,
+                                        'name' => $name,
+                                        'surname' => $surname,
+                                        'projectName' => $projectName,
+                                        'siret' => $siret,
+                                    )
+                                ),
+                                'text/html'
+                            )
+                        ;
+
+                        $this->get('mailer')->send($sendMessage);
+
+                        /**/
+
+
+                    }
                     return $response;
                 } else if($phone == null && $siret == null){
                         $required = true;
