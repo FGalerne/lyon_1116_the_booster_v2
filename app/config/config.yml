@@ -99,6 +99,7 @@ easy_admin:
                     - createTime
                     - username
                     - roles
+                    - validationsociety
                     - firstname
                     - lastname
         Booster:

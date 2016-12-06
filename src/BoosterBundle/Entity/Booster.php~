@@ -459,4 +459,3 @@ class Booster
         return $this->averageNotation;
     }
 }
-
