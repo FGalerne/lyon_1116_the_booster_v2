@@ -13,8 +13,8 @@ class SocietyRepository extends \Doctrine\ORM\EntityRepository
 {
     public function getDashboardById($id)
     {
-        $req = $this->createQueryBuilder('a')
-            ->where('a.id = :id')
+        $req = $this->createQueryBuilder('s')
+            ->where('s.id = :id')
             ->setParameter('id', $id)
             ->getQuery();
         return $req->getResult();

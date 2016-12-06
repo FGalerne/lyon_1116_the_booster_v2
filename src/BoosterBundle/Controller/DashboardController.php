@@ -2,6 +2,7 @@
 
 namespace BoosterBundle\Controller;
 
+use BoosterBundle\Entity\Society;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DashboardController extends Controller
@@ -10,10 +11,19 @@ class DashboardController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $societies = $em->getRepository('BoosterBundle:Society')->getDashboardById($id);
-
-        return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
-            'societies' => $societies,
-        ));
+        /**
+         * @var Society $user
+         */
+        $user = $this->getUser();
+        if ($user != null) {
+            if ($user->getId() == $id) {
+                return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
+                    'societies' => $societies,
+                    'user' => $user,
+                ));
+            }
+        }
+        return $this->redirectToRoute('booster_charte');
     }
 
     public function boosterAction()
