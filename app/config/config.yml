@@ -94,6 +94,13 @@ easy_admin:
         Utilisateur:
             class: BoosterBundle\Entity\User
             label: "Utilisateur"
+            list:
+                fields:
+                    - createTime
+                    - username
+                    - roles
+                    - firstname
+                    - lastname
         Booster:
             class: BoosterBundle\Entity\Booster
             label: "Booster"

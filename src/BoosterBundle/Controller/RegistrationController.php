@@ -115,6 +115,7 @@ class RegistrationController extends BaseController
 		}
 
 		$form = $formFactory->createForm();
+
 		$form->setData($user);
 
 		$form->handleRequest($request);
@@ -128,7 +129,6 @@ class RegistrationController extends BaseController
                 if($phone !== null || $siret !== null){
                     $event = new FormEvent($form, $request);
                     $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
-
                     $userManager->updateUser($user);
 
                     if (null === $response = $event->getResponse()) {
@@ -137,9 +137,11 @@ class RegistrationController extends BaseController
                     }
 
                     $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+
+                    //envoie d'un mail pour prevenir qu'un nouveau boosté attend une validation
+
                     if ($siret !== null){
 
-                        //envoie d'un mail pour prevenir qu'un nouveau boosté attend une validation
                         $title = $form["title"]->getData();
                         $name = $form["firstname"]->getData();
                         $surname = $form["lastname"]->getData();
