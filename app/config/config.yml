@@ -108,9 +108,6 @@ easy_admin:
                     - description
                     - { property: 'creation_status', type:'choice', type_options: {choices: {'Accepte':'Accepté', 'Refuse':'Refusé'}}}
 
-
-
-
 ewz_recaptcha:
     public_key: 6LenAQsUAAAAADIzPqfQyen9j7GbLkVEXJ0gzBAj
     private_key: 6LenAQsUAAAAAJyrhrOPHuTt0GBVQqpVFrWwYRwn
