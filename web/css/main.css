@@ -1045,11 +1045,13 @@ hr{
 	margin-top: 25px;
 }
 
-
+.project-in-progress,
 .project-done {
-	border: 1px solid grey;
+	border-radius: 10px;
+	border: 2px solid rgba(0, 0, 0, 0.2);
 }
 
+.project-in-progress p,
 .project-done p {
 	text-align: center;
 	padding-top: 5px;
