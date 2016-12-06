@@ -96,6 +96,10 @@ easy_admin:
             label: "Utilisateur"
             list:
                 fields:
+                    - firstName
+                    - { property: 'firstName', label: 'Prénom' }
+                    - lastName
+                    - { property: 'lastName', label: 'Nom' }
                     - createTime
                     - { property: 'createTime', label: 'Création' }
                     - username
@@ -106,10 +110,6 @@ easy_admin:
                     - { property: 'siretNumber', label: 'Siret' }
                     - validationSociety
                     - { property: 'validationSociety', label: 'Validation',  type: 'toggle' }
-                    - firstName
-                    - { property: 'firstName', label: 'Prénom' }
-                    - lastName
-                    - { property: 'lastName', label: 'Nom' }
                     - enabled
         Booster:
             class: BoosterBundle\Entity\Booster
