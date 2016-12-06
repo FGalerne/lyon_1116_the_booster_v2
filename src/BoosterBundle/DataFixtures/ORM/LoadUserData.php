@@ -36,8 +36,8 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, c
 
             $userEntity->setEnabled(1);
 
-            $role = rand(0, 1); //role (0 = booster, 1 = project)
-            if ($role == 0){
+            $randRole = rand(0, 1); //role (0 = booster, 1 = project)
+            if ($randRole == 0){
                 $role = 'ROLE_BOOSTER';
 
                 $boosterEntity->setPhoto($user->picture->medium);
@@ -52,8 +52,9 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, c
                 $boosterEntity->setCompetence5($random->randomComp());
                 $boosterEntity->setCompetence6($random->randomComp());
                 $boosterEntity->setPresentation('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at purus nibh. Cras metus nulla, vestibulum in auctor ac, fermentum vitae tellus. Donec sed aliquam nisl. Sed eu leo id est pretium euismod. Nulla id justo at mi venenatis volutpat. Fusce nisi leo, placerat id condimentum a, accumsan vitae tortor. Nunc magna nunc, venenatis nec elementum eu, ultrices in sem. Maecenas tincidunt semper');
-                $boosterEntity->setHoursGiven(0);
-                $boosterEntity->setProjectDoneNumber(0);
+                $boosterEntity->setHoursGiven(rand(0, 500));
+                $boosterEntity->setProjectDoneNumber(rand(0, 20));
+                $boosterEntity->setAverageNotation(rand(0, 5));
                 $manager->persist($boosterEntity);
                 unset($boosterEntity);
 
@@ -69,9 +70,10 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, c
                 $societyEntity->setTwitter('https://twitter.com/');
                 $societyEntity->setYoutube('https://www.youtube.com/');
                 $societyEntity->setWebsiteLink('https://www.codingame.com');
-                $societyEntity->setHoursTaken(0);
-                $societyEntity->setProjectDoneNumber(0);
-                $societyEntity->setDeniedBoosters(0);
+                $societyEntity->setHoursTaken(rand(0, 500));
+                $societyEntity->setProjectDoneNumber(rand(0, 20));
+                $societyEntity->setDeniedBoosters(rand(0, 50));
+                $societyEntity->setAverageNotation(rand(0, 5));
                 $manager->persist($societyEntity);
                 unset($societyEntity);
 
@@ -82,9 +84,15 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, c
 
                 $projectEntity->setCreationStatus($random->randomCreationStatus());
 
-                $projectEntity->setStatus($random->randomProjectStatus());
-                $projectEntity->setGivenTime(0);
+                $projectEntity->setGivenTime(rand(0, 500));
                 $projectEntity->setCreateTime($random->randomDate());
+                $status = $random->randomProjectStatus();
+                $projectEntity->setStatus($status);
+                if ($status == "Finalisé"){
+                    $projectEntity->setEndTime($random->randomDate());
+                    $projectEntity->setBoosterNote(rand(0, 5));
+                    $projectEntity->setSocietyNote(rand(0, 5));
+                }
 
                 $manager->persist($projectEntity);
                 unset($projectEntity);
@@ -102,7 +110,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, c
             $userEntity->setCreateTime($random->randomDate());          //creation time
 
             ////////////////////////  SOCIETY  ////////////////////////////////////
-            if($role === 1){
+            if($randRole === 1){
 
                 $userEntity->setProfessionalFunction($random->randomFunction());  //function
 
@@ -117,7 +125,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, c
                     $userEntity->setPhone(str_replace("-", "", $user->phone));    //phone_number
                 }
                 $userEntity->setNameProject($user->login->password);        //project_name
-
+                $userEntity->setValidationSociety(0); //pending status for siret or phone validation
             }
             $manager->persist($userEntity);
             unset($userEntity);
