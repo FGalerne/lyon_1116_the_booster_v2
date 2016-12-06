@@ -238,4 +238,33 @@ class User extends BaseUser
         return $this;
     }
 
+    /**
+     * @var \BoosterBundle\Entity\Society
+     */
+    private $society;
+
+
+    /**
+     * Set society
+     *
+     * @param \BoosterBundle\Entity\Society $society
+     *
+     * @return User
+     */
+    public function setSociety(\BoosterBundle\Entity\Society $society = null)
+    {
+        $this->society = $society;
+
+        return $this;
+    }
+
+    /**
+     * Get society
+     *
+     * @return \BoosterBundle\Entity\Society
+     */
+    public function getSociety()
+    {
+        return $this->society;
+    }
 }

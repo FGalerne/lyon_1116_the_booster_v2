@@ -6,10 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DashboardController extends Controller
 {
-    public function societyAction()
+    public function societyAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $societies = $em->getRepository('BoosterBundle:Society')->findAll();
+        $societies = $em->getRepository('BoosterBundle:Society')->getDashboardById($id);
 
         return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
             'societies' => $societies,

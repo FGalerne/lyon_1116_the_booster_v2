@@ -7,7 +7,6 @@ namespace BoosterBundle\Entity;
  */
 class Society
 {
-
     /**
      * @var integer
      */
@@ -429,8 +428,7 @@ class Society
 
         return $this;
     }
-<<<<<<< HEAD
-
+    
     /**
      * @return string
      */
@@ -444,8 +442,6 @@ class Society
      */
     private $users;
 
-=======
->>>>>>> 2756e26cfd5fea54bd3c224fea724525c2b345d1
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
@@ -460,7 +456,6 @@ class Society
     }
 
     /**
-<<<<<<< HEAD
      * Set users
      *
      * @param \BoosterBundle\Entity\User $users
@@ -485,8 +480,6 @@ class Society
     }
 
     /**
-=======
->>>>>>> 2756e26cfd5fea54bd3c224fea724525c2b345d1
      * Add projectName
      *
      * @param \BoosterBundle\Entity\Project $projectName
@@ -518,5 +511,35 @@ class Society
     public function getProjectNames()
     {
         return $this->project_names;
+    }
+
+    /**
+     * @var \BoosterBundle\Entity\User
+     */
+    private $user;
+
+
+    /**
+     * Set user
+     *
+     * @param \BoosterBundle\Entity\User $user
+     *
+     * @return Society
+     */
+    public function setUser(\BoosterBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \BoosterBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
