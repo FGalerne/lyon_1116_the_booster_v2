@@ -503,22 +503,22 @@ span {
 	margin-left: 0;
 	margin-right: 0;
 }
-/*video*/
-.video-container {
-	position: relative;
-	padding-bottom: 56.25%;
-	height: 0;
-	overflow: hidden;
-}
-
-.video-container iframe,
-.video-container object,
-.video-container embed {
+.border-overlay-top{
+	display: block;
 	position: absolute;
-	top: 0;
-	left: 0;
+	height: 1px;
 	width: 100%;
-	height: 100%;
+	background-color: white;
+}
+.border-overlay-bottom{
+	float: bottom;
+	display: block;
+	position: absolute;
+	margin: auto;
+	height: 1px;
+	bottom: 0;
+	width: 100%;
+	background-color: white;
 }
 .home_startup_title_img{
 	background-color: #EAEAEA;
