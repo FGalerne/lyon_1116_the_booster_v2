@@ -32,6 +32,7 @@ class BoosterRegistrationType extends RegistrationFormType
                 'required' => true
             ))
             ->add('createtime', 'datetime', array(
+                'label' => false,
                 'attr'=>array('style'=>'display:none;'),
                 'data' => new \DateTime()
             ))

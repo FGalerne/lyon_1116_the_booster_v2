@@ -58,6 +58,7 @@ class RegistrationType extends AbstractType
                 'required' => false,
             ))
             ->add('createtime', 'datetime', array(
+                'label' => false,
                 'attr'=>array('style'=>'display:none;'),
                 'data' => new \DateTime()
             ))

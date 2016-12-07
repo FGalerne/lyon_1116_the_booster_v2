@@ -30,7 +30,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class RegistrationController extends BaseController
 {
     /**
-     * @Route("/register/booster/", name="booster_user_booster_register")
+     * @Route("/enregistrement/booster/", name="booster_user_booster_register")
      *
      */
     public function registerBoosterAction(Request $request)
