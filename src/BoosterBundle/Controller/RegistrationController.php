@@ -59,6 +59,7 @@ class RegistrationController extends BaseController
 
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
+
                 $event = new FormEvent($form, $request);
                 $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
@@ -84,6 +85,7 @@ class RegistrationController extends BaseController
 
         return $this->render('FOSUserBundle:Registration:register.html.twig', array(
             'form' => $form->createView(),
+            'booster' => true,
         ));
     }
 
@@ -116,23 +118,31 @@ class RegistrationController extends BaseController
 		$form->setData($user);
 
 		$form->handleRequest($request);
+        $required = false;
 
 		if ($form->isSubmitted()) {
 			if ($form->isValid()) {
-				$event = new FormEvent($form, $request);
-				$dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
-				$userManager->updateUser($user);
+                $siret = $form["siretnumber"]->getData();
+                $phone = $form["phone"]->getData();
+                if($phone !== null || $siret !== null){
+                    $event = new FormEvent($form, $request);
+                    $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
-				if (null === $response = $event->getResponse()) {
-					$url = $this->generateUrl('fos_user_registration_confirmed');
-					$response = new RedirectResponse($url);
-				}
+                    $userManager->updateUser($user);
 
-				$dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+                    if (null === $response = $event->getResponse()) {
+                        $url = $this->generateUrl('fos_user_registration_confirmed');
+                        $response = new RedirectResponse($url);
+                    }
 
-				return $response;
-			}
+                    $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+
+                    return $response;
+                } else if($phone == null && $siret == null){
+                        $required = true;
+                }
+            }
 
 			$event = new FormEvent($form, $request);
 			$dispatcher->dispatch(FOSUserEvents::REGISTRATION_FAILURE, $event);
@@ -144,6 +154,8 @@ class RegistrationController extends BaseController
 
 		return $this->render('FOSUserBundle:Registration:register.html.twig', array(
 			'form' => $form->createView(),
+            'required' => $required,
+            'booster' => false,
 		));
 	}
 }
