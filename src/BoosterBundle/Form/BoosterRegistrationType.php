@@ -31,6 +31,10 @@ class BoosterRegistrationType extends RegistrationFormType
                 'label' => "Prénom",
                 'required' => true
             ))
+            ->add('createtime', 'datetime', array(
+                'attr'=>array('style'=>'display:none;'),
+                'data' => new \DateTime()
+            ))
             ->remove('username');
 
     }
