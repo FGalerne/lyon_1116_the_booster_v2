@@ -31,20 +31,21 @@ class DashboardController extends Controller
 
     public function boosterEditAction(Request $request, Booster $booster)
     {
-        $deleteForm = $this->createDeleteForm($booster);
         $editForm = $this->createForm('BoosterBundle\Form\BoosterType', $booster);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('booster_edit', array('id' => $booster->getId()));
+            return $this->redirectToRoute('dashboard_booster',
+                array('id' => $booster->getId()));
         }
 
-        return $this->render('booster/edit.html.twig', array(
+        return $this->render('BoosterBundle:Dashboard:dashboard-booster-edit.html.twig', array(
+            'id' => $booster->getId(),
             'booster' => $booster,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
     }
+
 }

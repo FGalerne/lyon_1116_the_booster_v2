@@ -30,9 +30,6 @@ class BoosterType extends AbstractType
             ->add('competence5')
             ->add('competence6')
             ->add('presentation')
-            ->add('hoursGiven')
-            ->add('projectDoneNumber')
-            ->add('averageNotation')
         ;
     }
     
