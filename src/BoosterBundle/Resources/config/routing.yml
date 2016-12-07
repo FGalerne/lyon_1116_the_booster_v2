@@ -47,6 +47,11 @@ dashboard_booster:
     defaults: { _controller: BoosterBundle:Dashboard:booster }
     methods:  GET
 
+dashboard_booster_edit:
+    path:     /dashboard-booster-edit/{id}/
+    defaults: { _controller: BoosterBundle:Dashboard:boosterEdit }
+    methods:  [GET, POST]
+
 booster_how_it_works:
     path:     /comment-ca-marche
     defaults: { _controller: BoosterBundle:Front:howItWorks }
