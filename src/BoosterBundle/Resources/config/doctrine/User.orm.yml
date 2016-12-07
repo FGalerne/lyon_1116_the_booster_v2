@@ -41,7 +41,7 @@ BoosterBundle\Entity\User:
             type: string
             lenght: 14
             nullable: true
-            unique: false
+            unique: true
             column: siret_number
         professionalFunction:
             type: string

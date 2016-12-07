@@ -1,10 +1,11 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+{% extends "BoosterBundle::layout.html.twig" %}
 
 {% trans_default_domain 'FOSUserBundle' %}
+{% block h1 %}<h1 class="h1_toppage">Votre compte est maintenant activé</h1>{% endblock %}
 
-{% block fos_user_content %}
-    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+{% block validation_content %}
+    <p class="text-center">{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
     {% if targetUrl %}
-    <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+    <p class="text-center"><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
     {% endif %}
-{% endblock fos_user_content %}
+{% endblock validation_content %}
