@@ -7,7 +7,6 @@ namespace BoosterBundle\Entity;
  */
 class Booster
 {
-
     /**
      * @var integer
      */
