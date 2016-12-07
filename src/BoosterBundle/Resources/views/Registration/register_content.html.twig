@@ -2,15 +2,45 @@
 {% form_theme form 'bootstrap_3_layout.html.twig' %}
 
 {% block body %}
+    {% if booster %}
+
     <div class="block_subs_forms">
         {{ form_start(form, {'method': 'post', 'attr': {'class': 'fos_user_registration_register'}}) }}
         {{ form_widget(form) }}
-            <div class="btn_register">
-                <input type="submit" value="{{ 'registration.submit'|trans }}" class="btn btn-danger"/>
-            </div>
-
+        <div class="btn_register">
+            <input type="submit" value="{{ 'registration.submit'|trans }}" class="btn btn-danger"/>
+        </div>
         {{ form_end(form) }}
     </div>
+
+    {% else %}
+
+    <div class="block_subs_forms">
+        {{ form_start(form, {'method': 'post', 'attr': {'class': 'fos_user_registration_register'}}) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.plainPassword) }}
+            {{ form_row(form.title) }}
+            {{ form_row(form.firstname) }}
+            {{ form_row(form.lastname) }}
+            {{ form_row(form.professionalfunction) }}
+            {{ form_row(form.nameproject) }}
+            {{ form_row(form.typeproject) }}
+            <div id="phoneGroup">
+                {{ form_row(form.phone) }}
+            </div>
+            <div id="siretGroup">
+                {{ form_row(form.siretnumber) }}
+            </div>
+            {% if required == true %}
+                <div id="required"><em>Ce champ est obligatoire</em></div>
+            {% endif %}
+                <div class="btn_register">
+                    <input type="submit" value="{{ 'registration.submit'|trans }}" class="btn btn-danger"/>
+                </div>
+        {{ form_end(form) }}
+    </div>
+
+    {% endif %}
 {% endblock %}
 
 

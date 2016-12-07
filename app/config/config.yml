@@ -18,7 +18,7 @@ framework:
         strict_requirements: ~
     form:            ~
     csrf_protection: ~
-    validation:      { enable_annotations: true }
+    validation:      { enabled: true, enable_annotations: true }
     #serializer:      { enable_annotations: true }
     templating:
         engines: ['twig']
@@ -76,9 +76,15 @@ fos_user:
     registration:
         form:
             type: BoosterBundle\Form\RegistrationType
-            validation_groups: [BoosterRegistration]
+            validation_groups: [Default]
             type: BoosterBundle\Form\RegistrationBoosterType
-            validation_groups: [BoosterRegistration]
+            validation_groups: [Default]
+        confirmation:
+            enabled: true
+    from_email:
+        address:        noreply@thebooster.com
+        sender_name:    the booster
+
 easy_admin:
     site_name: The booster
     design:
@@ -108,3 +114,8 @@ ewz_recaptcha:
     locale_from_request: true
     # Not needed as "%kernel.default_locale%" is the default value for the locale key
     locale_key:  %kernel.default_locale%
+
+twig:
+    form:
+        resources:
+            - 'BoosterBundle:Form:fields.html.twig'
