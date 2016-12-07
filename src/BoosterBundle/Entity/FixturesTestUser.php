@@ -371,4 +371,3 @@ class FixturesTestUser
         return $this->role;
     }
 }
-

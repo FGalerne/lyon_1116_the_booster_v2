@@ -9,7 +9,32 @@
 	namespace BoosterBundle\Repository;
 
 
-	class SocietyRepository
-	{
+	use Doctrine\ORM\EntityRepository;
+	use Doctrine\ORM\Tools\Pagination\Paginator;
+	use InvalidArgumentException;
+	use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+
+	class SocietyRepository extends EntityRepository
+	{
+		const MAX_RESULT = 12;
+		/**
+		 * @param int $page
+		 * @param int $itemPerPage
+		 * @return Paginator
+		 */
+		public function getByPage($page, $itemPerPage = self::MAX_RESULT)
+		{
+			if ($page > 0) {
+				$offset = ($page - 1) * $itemPerPage;
+			} else {
+				$offset = 0;
+			}
+			$query = $this->createQueryBuilder('s')
+				->orderBy('s.id', 'DESC')
+				->setFirstResult($offset)
+				->setMaxResults($itemPerPage)
+			;
+			return new Paginator($query);
+		}
 	}

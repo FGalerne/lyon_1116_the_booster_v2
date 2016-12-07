@@ -352,7 +352,7 @@ span {
 .home_blimg_startuplogo:hover{
 	opacity: 1;
 	height: 100%;
-	width: 113.8%;
+	width: 114.1%;
 	margin-left: -15px;
 	padding: 0;
 	background-color: rgba(255,255,255,0.9);
@@ -1388,12 +1388,49 @@ and (-webkit-min-device-pixel-ratio: 1) {
 		width: 100%;
 	}
 }
-
-.nombre-de-projet
-{
-	font-family: 'Roboto', sans-serif;
-	text-align:center;
-	margin-bottom:3vh;
+/** List Society **/
+.nombre-de-projet {
+	width: 100%;
+	background-color: #e60f33;
 	font-size: 13px;
+	text-transform: uppercase;
+	padding: 5px;
+	color: #fff;
+	top: 250px;
+	font-weight: bold;
+	margin: auto;
+	text-align: center;
+	border-top: solid #fff;
+
 }
+.name-list-society {
+
+	background-color: #e60f33;
+	font-size: 13px;
+	text-transform: uppercase;
+	padding: 5px;
+	color: #fff;
+	top: 0;
+	font-weight: bold;
+	margin: auto;
+
+}
+.img-list-society {
+	width: 100%;
+	margin: auto;
+}
+
+a:hover
+{
+	text-decoration: none;
+}
+
+.global-society
+{
+	width: 100%;
+	margin-bottom: 60px;
+
+}
+
+
 
