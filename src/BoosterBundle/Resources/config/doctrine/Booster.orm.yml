@@ -1,6 +1,7 @@
 BoosterBundle\Entity\Booster:
     type: entity
     table: booster
+    repositoryClass: BoosterBundle\Repository\BoosterRepository
     id:
         id:
             type: integer
@@ -77,4 +78,13 @@ BoosterBundle\Entity\Booster:
             type: integer
             nullable: true
             column: average_notation
+
+    oneToOne:
+        user:
+            targetEntity: User
+            inversedBy: booster
+            joinColumn:
+                name: id
+                referencedColumnName: id
+
     lifecycleCallbacks: {  }

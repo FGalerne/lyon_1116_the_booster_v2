@@ -7,7 +7,6 @@ namespace BoosterBundle\Entity;
  */
 class Booster
 {
-
     /**
      * @var integer
      */
@@ -447,6 +446,40 @@ class Booster
         $this->averageNotation = $averageNotation;
 
         return $this;
+    }
+
+    /**
+     * @var \BoosterBundle\Entity\User
+     */
+
+    private $user;
+
+    /**
+     * Set user
+     *
+     * @param \BoosterBundle\Entity\User $user
+     *
+     * @return Booster
+     */
+    public function setUser(\BoosterBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \BoosterBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    public function __toString()
+    {
+        return strval($this->id);
     }
 
     /**
