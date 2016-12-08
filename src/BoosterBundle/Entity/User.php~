@@ -5,13 +5,14 @@
  * Date: 22/11/2016
  * Time: 5:22 PM
  */
-
 namespace BoosterBundle\Entity;
-
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> e00dfc888b5d234bdbb2f5b19e0e01d81734634f
 /**
  * Class User
  * @package BoosterBundle\Entity
@@ -22,64 +23,55 @@ class User extends BaseUser
      * @var integer
      */
     protected $id;
-
     /**
      * @var integer
      */
     protected $title;
-
     /**
      * @var string
      */
     protected $lastName;
-
     /**
      * @var string
      */
     protected $firstName;
-
     /**
      * @var integer
      */
     protected $phone;
-
     /**
      * @var integer
      */
     protected $createTime;
-
     /**
      * @var string
      */
     protected $siretNumber;
-
     /**
      * @var boolean
      */
     protected $typeProject;
-
     /**
      * @var boolean
      */
     protected $typeSociety;
-
     /**
      * @var string
      */
     protected $professionalFunction;
-
     /**
      * @var
      */
     protected $nameProject;
-
+    /**
+     * @var boolean
+     */
+    protected $validationSociety = true;
 
     public function __construct()
     {
         parent::__construct();
     }
-
-
     /**
      * @return string
      */
@@ -87,7 +79,6 @@ class User extends BaseUser
     {
         return $this->title;
     }
-
     /**
      * @param string $title
      */
@@ -95,7 +86,6 @@ class User extends BaseUser
     {
         $this->title = $title;
     }
-
     /**
      * @return string
      */
@@ -103,7 +93,6 @@ class User extends BaseUser
     {
         return $this->lastName;
     }
-
     /**
      * @param string $lastName
      */
@@ -111,7 +100,6 @@ class User extends BaseUser
     {
         $this->lastName = $lastName;
     }
-
     /**
      * @return string
      */
@@ -119,7 +107,6 @@ class User extends BaseUser
     {
         return $this->firstName;
     }
-
     /**
      * @param string $firstName
      */
@@ -127,7 +114,6 @@ class User extends BaseUser
     {
         $this->firstName = $firstName;
     }
-
     /**
      * @return string
      */
@@ -135,7 +121,6 @@ class User extends BaseUser
     {
         return $this->phone;
     }
-
     /**
      * @param string $phone
      */
@@ -143,7 +128,6 @@ class User extends BaseUser
     {
         $this->phone = $phone;
     }
-
     /**
      * @return integer
      */
@@ -151,7 +135,6 @@ class User extends BaseUser
     {
         return $this->createTime;
     }
-
     /**
      * @param integer $createtime
      */
@@ -159,7 +142,6 @@ class User extends BaseUser
     {
         $this->createTime = $createTime;
     }
-
     /**
      * @return integer
      */
@@ -167,7 +149,6 @@ class User extends BaseUser
     {
         return $this->siretNumber;
     }
-
     /**
      * @param integer $siretnumber
      */
@@ -175,7 +156,6 @@ class User extends BaseUser
     {
         $this->siretNumber = $siretNumber;
     }
-
     /**
      * @return boolean
      */
@@ -183,7 +163,6 @@ class User extends BaseUser
     {
         return $this->typeProject;
     }
-
     /**
      * @param boolean $typeproject
      */
@@ -191,8 +170,6 @@ class User extends BaseUser
     {
         $this->typeProject = $typeProject;
     }
-
-
     /**
      * @return string
      */
@@ -200,7 +177,6 @@ class User extends BaseUser
     {
         return $this->professionalFunction;
     }
-
     /**
      * @param string $professionalFunction
      */
@@ -208,7 +184,6 @@ class User extends BaseUser
     {
         $this->professionalFunction = $professionalFunction;
     }
-
     /**
      * @return string
      */
@@ -216,15 +191,13 @@ class User extends BaseUser
     {
         return $this->nameProject;
     }
-
     /**
-     * @param string $nameProject
+     * @return string
      */
-    public function setNameProject($nameProject)
+    public function getNameProject()
     {
-        $this->nameProject = $nameProject;
+        return $this->nameProject;
     }
-
     /**
      * @param string $email
      * @return $this
@@ -234,11 +207,56 @@ class User extends BaseUser
         $email = is_null($email) ? '' : $email;
         parent::setEmail($email);
         $this->setUsername($email);
+        return $this;
+    }
+
+    /**
+<<<<<<< HEAD
+     * @param string $nameProject
+     */
+    public function setNameProject($nameProject)
+    {
+        $this->nameProject = $nameProject;
+    }
+
+=======
+     * Set validationSociety
+     *
+     * @param boolean $validationSociety
+     *
+     * @return User
+     */
+    public function setValidationSociety($validationSociety)
+    {
+        $this->validationSociety = $validationSociety;
 
         return $this;
     }
 
     /**
+<<<<<<< HEAD
+     * @var \BoosterBundle\Entity\Booster
+     */
+    private $booster;
+
+
+>>>>>>> e00dfc888b5d234bdbb2f5b19e0e01d81734634f
+    /**
+     * Set booster
+     *
+     * @param \BoosterBundle\Entity\Booster $booster
+     *
+     * @return User
+     */
+    public function setBooster(\BoosterBundle\Entity\Booster $booster = null)
+    {
+        $this->booster = $booster;
+
+        return $this;
+    }
+
+    /**
+<<<<<<< HEAD
      * @var \BoosterBundle\Entity\Society
      */
     private $society;
@@ -266,5 +284,25 @@ class User extends BaseUser
     public function getSociety()
     {
         return $this->society;
+=======
+     * Get booster
+     *
+     * @return \BoosterBundle\Entity\Booster
+     */
+    public function getBooster()
+    {
+        return $this->booster;
     }
 }
+=======
+     * Get validationSociety
+     *
+     * @return boolean
+     */
+    public function getValidationSociety()
+    {
+        return $this->validationSociety;
+>>>>>>> e00dfc888b5d234bdbb2f5b19e0e01d81734634f
+    }
+}
+>>>>>>> masterdev

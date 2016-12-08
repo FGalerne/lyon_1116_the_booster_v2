@@ -2,6 +2,10 @@ booster_project:
     resource: "@BoosterBundle/Resources/config/routing/project.yml"
     prefix:   /project
 
+booster_booster:
+    resource: "@BoosterBundle/Resources/config/routing/booster.yml"
+    prefix:   /booster
+
 booster_homepage:
     path:     /
     defaults: { _controller: BoosterBundle:Front:index }
@@ -40,9 +44,14 @@ dashboard_society:
     methods: GET
 
 dashboard_booster:
-    path:     /dashboard-booster
+    path:     /dashboard-booster/{id}/
     defaults: { _controller: BoosterBundle:Dashboard:booster }
     methods:  GET
+
+dashboard_booster_edit:
+    path:     /dashboard-booster-edit/{id}/
+    defaults: { _controller: BoosterBundle:Dashboard:boosterEdit }
+    methods:  [GET, POST]
 
 booster_how_it_works:
     path:     /comment-ca-marche

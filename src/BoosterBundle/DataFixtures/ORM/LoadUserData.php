@@ -8,7 +8,12 @@
 
 namespace BoosterBundle\DataFixtures\ORM;
 
-use BoosterBundle\Entity\FixturesTestUser;
+use BoosterBundle\Entity\Booster;
+use BoosterBundle\Entity\Project;
+use BoosterBundle\Entity\Society;
+use BoosterBundle\Entity\User;
+use BoosterBundle\Services\UserGenerator;
+use BoosterBundle\Util\Random;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -18,60 +23,114 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, containerAwareInterface
 {
 
-    private $container;
-
     public function load(ObjectManager $manager){
-        $users = $this->container->get('App.user_generator')->getUsers();
+        $random = new Random();
+        $generator = new UserGenerator('App.user_generator', 5000);
+        $users = $generator->getUsers();
+        $increment = 0;
         foreach($users as $user){
-            $userEntity = new FixturesTestUser;
+            $userEntity = new User;
+            $boosterEntity = new Booster;
+            $societyEntity = new Society;
+            $projectEntity = new Project;
 
-            $role = rand(0, 1);                                      //role (0 = booster, 1 = project)
-            $userEntity->setRole($role);                             //role (0 = booster, 1 = project)
+            $userEntity->setEnabled(1);
+
+            $randRole = rand(0, 1); //role (0 = booster, 1 = project)
+            if ($randRole == 0){
+                $role = 'ROLE_BOOSTER';
+
+                $boosterEntity->setPhoto($user->picture->medium);
+                $boosterEntity->setCity($user->location->city);
+                $boosterEntity->setZipCode($user->location->postcode);
+                $boosterEntity->setBirthDate(new \DateTime($user->dob));
+                $boosterEntity->setWorkStatus($random->randomWorkStatus());
+                $boosterEntity->setCompetence1($random->randomComp());
+                $boosterEntity->setCompetence2($random->randomComp());
+                $boosterEntity->setCompetence3($random->randomComp());
+                $boosterEntity->setCompetence4($random->randomComp());
+                $boosterEntity->setCompetence5($random->randomComp());
+                $boosterEntity->setCompetence6($random->randomComp());
+                $boosterEntity->setPresentation('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at purus nibh. Cras metus nulla, vestibulum in auctor ac, fermentum vitae tellus. Donec sed aliquam nisl. Sed eu leo id est pretium euismod. Nulla id justo at mi venenatis volutpat. Fusce nisi leo, placerat id condimentum a, accumsan vitae tortor. Nunc magna nunc, venenatis nec elementum eu, ultrices in sem. Maecenas tincidunt semper');
+                $boosterEntity->setHoursGiven(rand(0, 500));
+                $boosterEntity->setProjectDoneNumber(rand(0, 20));
+                $boosterEntity->setAverageNotation(rand(0, 5));
+                $manager->persist($boosterEntity);
+                unset($boosterEntity);
+
+            }
+            else{
+                $role = 'ROLE_BOOSTE';
+                $societyEntity->setPhoto($user->picture->large);
+                $societyEntity->setSocietyName($user->login->password);
+                $societyEntity->setPunchLine('Lorem ipsum dolor sit amet, consectetur adipisc');
+                $societyEntity->setPresentation('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at purus nibh. Cras metus nulla, vestibulum in auctor ac, fermentum vitae tellus. Donec sed aliquam nisl. Sed eu leo id est pretium euismod. Nulla id justo at mi venenatis volutpat. Fusce nisi leo, placerat id condimentum a, accumsan vitae tortor. Nunc magna nunc, venenatis nec elementum eu, ultrices in sem. Maecenas tincidunt semper molestie. Nulla nec neque sit amet libero molestie feugiat. Cras id metus velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis arcu non leo porta ut euismod ante luctus. Praesent elementum sodales dolor id scelerisque. Nam vitae cursus massa. Nunc ut arcu a mi convallis feugiat. Sed ante sem, sollicitudin sed porta et, molestie in turpis. Nulla lacinia lacus nec l');
+                $societyEntity->setLinkedin('https://fr.linkedin.com/');
+                $societyEntity->setFacebook('https://fr-fr.facebook.com/');
+                $societyEntity->setTwitter('https://twitter.com/');
+                $societyEntity->setYoutube('https://www.youtube.com/');
+                $societyEntity->setWebsiteLink('https://www.codingame.com');
+                $societyEntity->setHoursTaken(rand(0, 500));
+                $societyEntity->setProjectDoneNumber(rand(0, 20));
+                $societyEntity->setDeniedBoosters(rand(0, 50));
+                $societyEntity->setAverageNotation(rand(0, 5));
+                $manager->persist($societyEntity);
+                unset($societyEntity);
+
+                //project
+                $projectEntity->setProjectName($user->login->password);
+                $projectEntity->setCategory($random->randomComp());
+                $projectEntity->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at purus nibh. Cras metus nulla, vestibulum in auctor ac, fermentum vitae tellus. Donec sed aliquam nisl. Sed eu leo id est p');
+
+                $projectEntity->setCreationStatus($random->randomCreationStatus());
+
+                $projectEntity->setGivenTime(rand(0, 500));
+                $projectEntity->setCreateTime($random->randomDate());
+                $status = $random->randomProjectStatus();
+                $projectEntity->setStatus($status);
+                if ($status == "Finalisé"){
+                    $projectEntity->setEndTime($random->randomDate());
+                    $projectEntity->setBoosterNote(rand(0, 5));
+                    $projectEntity->setSocietyNote(rand(0, 5));
+                }
+
+                $manager->persist($projectEntity);
+                unset($projectEntity);
+            }
+            $userEntity->setRoles(array('ROLE_USER', $role));
+
 
             ////////////////////////  BOOSTERS  ////////////////////////////////////
-            $userEntity->setTitle($user->name->title);               //title (Mr/Mme)
-            $userEntity->setFamilyName($user->name->last);           //family_name
-            $userEntity->setSurname($user->name->first);             //surname
-            $userEntity->setEmail($user->email);                     //email
-            $userEntity->setPassword($user->login->password);        //password
+            $userEntity->setTitle($user->name->title);   //title (Mr/Mme)
+            $userEntity->setLastName($user->name->last);   //family_name
+            $userEntity->setFirstName($user->name->first);    //surname
+            $userEntity->setEmail($increment.$user->email);     //email
+            $userEntity->setPassword($user->login->password);     //password
+            $userEntity->setSalt($user->login->salt);               //salt
+            $userEntity->setCreateTime($random->randomDate());          //creation time
 
             ////////////////////////  SOCIETY  ////////////////////////////////////
-            if($role === 1){
-                $userEntity->setPhoneNumber($user->phone);    //phone_number
+            if($randRole === 1){
 
-                $function = rand(0, 3); //roles -> 0 for 'CO', 1 for CTO, 2 for Founder, 3 for Business Manager
-                switch ($function) {
-                    case 0:
-                        $function = 'CO';
-                        break;
-                    case 1:
-                        $function = 'CTO';
-                        break;
-                    case 2:
-                        $function = 'Founder';
-                        break;
-                    case 3:
-                        $function = 'Business Manager';
-                        break;
-                }
-                $userEntity->setFunction($function);  //function
+                $userEntity->setProfessionalFunction($random->randomFunction());  //function
 
-                //random datetime
-                $rand_date = rand(strtotime('2016-01-01 00:00:00'), strtotime('2017-01-01 00:00:00'));
-                $date =  date('Y-m-d H:i:s', $rand_date);                //convert to string
-                $date = new \DateTime($date);                            //convert to datetime format
-                $userEntity->setCreateTime($date);                       //create_time
+                $userEntity->setCreateTime($random->randomDate());                       //create_time
 
                 $projectType = rand(0, 1);                               //role (0 = society, 1 = project)
-                $userEntity->setProjectType($projectType);               //role (0 = society, 1 = project)
-                if($projectType === 1){
+                $userEntity->setTypeProject($projectType);               //role (0 = society, 1 = project)
+                if($projectType === 0){
                     $siret = rand(10000000000000, 99999999999999);       //siret
-                    $userEntity->setSiret($siret);                       //siret
+                    $userEntity->setSiretNumber($siret);                       //siret
+                } else{
+                    $userEntity->setPhone(str_replace("-", "", $user->phone));    //phone_number
                 }
-                $userEntity->setProjectName($user->login->password);        //project_name
+                $userEntity->setNameProject($user->login->password);        //project_name
+                $userEntity->setValidationSociety(0); //pending status for siret or phone validation
             }
             $manager->persist($userEntity);
             unset($userEntity);
+
+            $increment ++;
         }
         $manager->flush();
     }

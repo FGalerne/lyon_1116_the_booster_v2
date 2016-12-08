@@ -41,7 +41,7 @@ BoosterBundle\Entity\User:
             type: string
             lenght: 14
             nullable: true
-            unique: false
+            unique: true
             column: siret_number
         professionalFunction:
             type: string
@@ -55,8 +55,19 @@ BoosterBundle\Entity\User:
             nullable: true
             unique: false
             column: project_name
+        validationSociety:
+            type: boolean
+            nullable: true
+            unique: false
+            options:
+                default: true
+            column: validation_society
     oneToOne:
         society:
             targetEntity: Society
+            mappedBy: user
+    oneToOne:
+        booster:
+            targetEntity: Booster
             mappedBy: user
     lifecycleCallbacks: {  }

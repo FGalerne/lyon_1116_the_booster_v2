@@ -65,8 +65,10 @@ BoosterBundle\Entity\Project:
         society:
             targetEntity: Society
             inversedBy: societyName
+
     oneToMany:
         project_subscriptions:
             targetEntity: BoosterBundle\Entity\ProjectSubscription
             mappedBy: booster
+
     lifecycleCallbacks: {  }

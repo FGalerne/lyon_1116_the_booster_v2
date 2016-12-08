@@ -71,3 +71,10 @@
 .login_checkbox {
     margin-top: 15px;
 }
+#required{
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+.validation-height{
+    min-height: 300px;
+}
