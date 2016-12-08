@@ -63,4 +63,9 @@ BoosterBundle\Entity\User:
                 default: true
             column: validation_society
 
+    oneToOne:
+        booster:
+            targetEntity: Booster
+            mappedBy: user
+
     lifecycleCallbacks: {  }

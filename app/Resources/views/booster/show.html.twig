@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Booster</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ booster.id }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ booster.photo }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ booster.city }}</td>
+            </tr>
+            <tr>
+                <th>Zipcode</th>
+                <td>{{ booster.zipCode }}</td>
+            </tr>
+            <tr>
+                <th>Birthdate</th>
+                <td>{% if booster.birthDate %}{{ booster.birthDate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Workstatus</th>
+                <td>{{ booster.workStatus }}</td>
+            </tr>
+            <tr>
+                <th>Competence1</th>
+                <td>{{ booster.competence1 }}</td>
+            </tr>
+            <tr>
+                <th>Competence2</th>
+                <td>{{ booster.competence2 }}</td>
+            </tr>
+            <tr>
+                <th>Competence3</th>
+                <td>{{ booster.competence3 }}</td>
+            </tr>
+            <tr>
+                <th>Competence4</th>
+                <td>{{ booster.competence4 }}</td>
+            </tr>
+            <tr>
+                <th>Competence5</th>
+                <td>{{ booster.competence5 }}</td>
+            </tr>
+            <tr>
+                <th>Competence6</th>
+                <td>{{ booster.competence6 }}</td>
+            </tr>
+            <tr>
+                <th>Presentation</th>
+                <td>{{ booster.presentation }}</td>
+            </tr>
+            <tr>
+                <th>Hoursgiven</th>
+                <td>{{ booster.hoursGiven }}</td>
+            </tr>
+            <tr>
+                <th>Projectdonenumber</th>
+                <td>{{ booster.projectDoneNumber }}</td>
+            </tr>
+            <tr>
+                <th>Averagenotation</th>
+                <td>{{ booster.averageNotation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('booster_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('booster_edit', { 'id': booster.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
