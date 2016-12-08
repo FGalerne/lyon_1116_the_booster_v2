@@ -37,6 +37,7 @@ booster_inscription_choix:
 dashboard_society:
     path:     /dashboard-booste/{id}/
     defaults: { _controller: BoosterBundle:Dashboard:society }
+    methods: GET
 
 dashboard_booster:
     path:     /dashboard-booster
