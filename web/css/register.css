@@ -63,13 +63,23 @@
     margin-top: 20px;
     margin-bottom: 18vh;
 }
-
 .form_log {
     margin-top: 30px;
 }
-
-.login_checkbox {
-    margin-top: 15px;
+.login_checkbox label {
+    display: block;
+    padding-left: 15px;
+    text-indent: -15px;
+}
+.login_checkbox input {
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin:0;
+    vertical-align: bottom;
+    position: relative;
+    top: -3px;
+    *overflow: hidden;
 }
 #required{
     margin-top: -10px;

@@ -9,19 +9,21 @@
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
         {% endif %}
 
-            <div class="login_email">
-                <label for="user">Adresse email</label>
-                <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+            <div class="form-group login_email col-xs-12 col-lg-offset-2 col-lg-8">
+                <!--<label for="user">Adresse email</label>-->
+                <input class="form-control text-center" type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="Adresse email"/>
             </div>
 
-            <div class="login_password">
-                <label for="password">{{ 'security.login.password'|trans }}</label>
-                <input type="password" id="password" name="_password" required="required" />
+            <div class="form-group login_password col-xs-12 col-lg-offset-2 col-lg-8">
+                <!--<label for="password">{{ 'security.login.password'|trans }}</label>-->
+                <input class="form-control text-center" type="password" id="password" name="_password" required="required" placeholder="{{ 'security.login.password'|trans }}"/>
             </div>
 
-            <div class="login_checkbox">
-                <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+            <div class="login_checkbox col-xs-12">
+                <label for="remember_me">
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                    {{ 'security.login.remember_me'|trans }}
+                </label>
             </div>
 
             <div class="login_button">
