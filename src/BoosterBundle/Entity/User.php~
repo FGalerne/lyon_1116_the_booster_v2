@@ -8,11 +8,6 @@
 namespace BoosterBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
-<<<<<<< HEAD
-
-
-=======
->>>>>>> e00dfc888b5d234bdbb2f5b19e0e01d81734634f
 /**
  * Class User
  * @package BoosterBundle\Entity
@@ -67,6 +62,15 @@ class User extends BaseUser
      * @var boolean
      */
     protected $validationSociety = true;
+    /**
+     * @var \BoosterBundle\Entity\Society
+     */
+    private $society;
+    /**
+     * @var \BoosterBundle\Entity\Booster
+     */
+    private $booster;
+
 
     public function __construct()
     {
@@ -192,11 +196,11 @@ class User extends BaseUser
         return $this->nameProject;
     }
     /**
-     * @return string
+     * @param string $nameProject
      */
-    public function getNameProject()
+    public function setNameProject($nameProject)
     {
-        return $this->nameProject;
+        $this->nameProject = $nameProject;
     }
     /**
      * @param string $email
@@ -211,15 +215,6 @@ class User extends BaseUser
     }
 
     /**
-<<<<<<< HEAD
-     * @param string $nameProject
-     */
-    public function setNameProject($nameProject)
-    {
-        $this->nameProject = $nameProject;
-    }
-
-=======
      * Set validationSociety
      *
      * @param boolean $validationSociety
@@ -234,35 +229,6 @@ class User extends BaseUser
     }
 
     /**
-<<<<<<< HEAD
-     * @var \BoosterBundle\Entity\Booster
-     */
-    private $booster;
-
-
->>>>>>> e00dfc888b5d234bdbb2f5b19e0e01d81734634f
-    /**
-     * Set booster
-     *
-     * @param \BoosterBundle\Entity\Booster $booster
-     *
-     * @return User
-     */
-    public function setBooster(\BoosterBundle\Entity\Booster $booster = null)
-    {
-        $this->booster = $booster;
-
-        return $this;
-    }
-
-    /**
-<<<<<<< HEAD
-     * @var \BoosterBundle\Entity\Society
-     */
-    private $society;
-
-
-    /**
      * Set society
      *
      * @param \BoosterBundle\Entity\Society $society
@@ -273,6 +239,19 @@ class User extends BaseUser
     {
         $this->society = $society;
 
+    }
+
+
+    /**
+     * Set booster
+     *
+     * @param \BoosterBundle\Entity\Booster $booster
+     *
+     * @return User
+     */
+    public function setBooster(\BoosterBundle\Entity\Booster $booster = null)
+    {
+        $this->booster = $booster;
         return $this;
     }
 
@@ -284,25 +263,25 @@ class User extends BaseUser
     public function getSociety()
     {
         return $this->society;
-=======
+    }
+
+
+    /**
      * Get booster
-     *
      * @return \BoosterBundle\Entity\Booster
      */
     public function getBooster()
     {
         return $this->booster;
     }
-}
-=======
-     * Get validationSociety
+
+    /** Get validationSociety
      *
      * @return boolean
      */
+
     public function getValidationSociety()
     {
         return $this->validationSociety;
->>>>>>> e00dfc888b5d234bdbb2f5b19e0e01d81734634f
     }
 }
->>>>>>> masterdev
