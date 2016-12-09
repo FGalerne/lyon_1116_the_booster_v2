@@ -65,6 +65,7 @@ swiftmailer:
     auth_mode: login
     host:      "%mailer_host%"
     username:  "%mailer_user%"
+    username:  "%mailer_to%"
     password:  "%mailer_password%"
     spool:     { type: memory }
 
@@ -93,23 +94,86 @@ easy_admin:
         Utilisateur:
             class: BoosterBundle\Entity\User
             label: "Utilisateur"
+            list:
+                fields:
+                    - firstName
+                    - { property: 'firstName', label: 'Prénom' }
+                    - lastName
+                    - { property: 'lastName', label: 'Nom' }
+                    - createTime
+                    - { property: 'createTime', label: 'Création' }
+                    - username
+                    - { property: 'username', label: 'Identifiant' }
+                    - nameProject
+                    - { property: 'nameProject', label: 'Projet' }
+                    - siretNumber
+                    - { property: 'siretNumber', label: 'Siret' }
+                    - validationSociety
+                    - { property: 'validationSociety', label: 'Validation',  type: 'toggle' }
+                    - enabled
         Booster:
             class: BoosterBundle\Entity\Booster
             label: "Booster"
+            list:
+                fields:
+                    - photo
+                    - { property: 'photo', type: 'image' }
+                    - competence1
+                    - { property: 'competence1', label: 'Competence principale' }
+                    - averageNotation
+                    - { property: 'averageNotation', label: 'Note' }
+                    - city
+                    - { property: 'city', label: 'Ville' }
+                    - hoursGiven
+                    - { property: 'hoursGiven', label: 'Temps offert' }
+                    - projectDoneNumber
+                    - { property: 'projectDoneNumber', label: 'Projets réalisés' }
         Booste:
             class: BoosterBundle\Entity\Society
             label: "Booste"
+            list:
+                fields:
+                    - photo
+                    - { property: 'photo', type: 'image' }
+                    - societyName
+                    - { property: 'societyName', label: 'Societé' }
+                    - averageNotation
+                    - { property: 'averageNotation', label: 'Note' }
+                    - hoursTaken
+                    - { property: 'hoursTaken', label: 'Temps reçu' }
+                    - projectDoneNumber
+                    - { property: 'projectDoneNumber', label: 'Projets réalisés' }
+                    - deniedBoosters
+                    - { property: 'deniedBoosters', label: 'Aides refusés' }
         Project:
             class: BoosterBundle\Entity\Project
             label: "Projet"
+            list:
+                fields:
+                    - projectName
+                    - { property: 'projectName', label: 'Projet' }
+                    - category
+                    - { property: 'category', label: 'Catégorie' }
+                    - creationStatus
+                    - { property: 'creationStatus', label: 'Activation' }
+                    - status
+                    - { property: 'status', label: 'Status' }
+                    - givenTime
+                    - { property: 'givenTime', label: 'Temps reçu' }
+                    - createTime
+                    - { property: 'createTime', label: 'Création' }
+                    - endTime
+                    - { property: 'endTime', label: 'Fin' }
+                    - boosterNote
+                    - { property: 'boosterNote', label: 'Note Booster' }
+                    - societyNote
+                    - { property: 'societyNote', label: 'Note Boosté' }
+
             form:
                 fields:
                     - category
                     - description
-                    - { property: 'creation_status', type:'choice', type_options: {choices: {'Accepte':'Accepté', 'Refuse':'Refusé'}}}
-
-
-
+                    - { property: 'creation_status', type:'choice', type_options: {choices: {'Accepte':'Accepté', 'Refuse':'Refusé', 'Accepte':'Supprimé'}}}
 
 ewz_recaptcha:
     public_key: 6LenAQsUAAAAADIzPqfQyen9j7GbLkVEXJ0gzBAj

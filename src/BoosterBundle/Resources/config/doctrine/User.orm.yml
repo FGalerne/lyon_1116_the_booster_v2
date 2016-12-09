@@ -55,4 +55,12 @@ BoosterBundle\Entity\User:
             nullable: true
             unique: false
             column: project_name
+        validationSociety:
+            type: boolean
+            nullable: true
+            unique: false
+            options:
+                default: true
+            column: validation_society
+
     lifecycleCallbacks: {  }

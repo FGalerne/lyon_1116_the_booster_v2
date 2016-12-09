@@ -57,6 +57,10 @@ class RegistrationType extends AbstractType
                 'pattern' => '[0-9]{14}',
                 'required' => false,
             ))
+            ->add('createtime', 'datetime', array(
+                'attr'=>array('style'=>'display:none;'),
+                'data' => new \DateTime()
+            ))
             ->remove('username');
     }
 
