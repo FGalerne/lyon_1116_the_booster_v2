@@ -102,10 +102,10 @@ class FrontController extends Controller
 		$em = $this->getDoctrine()->getManager();
 		$repository= $em->getRepository('BoosterBundle:Society');
 
-		$post = $repository->getByPage($page, self::MAX_PER_PAGE);
-		$societies = $repository->findAll();
+		$societies = $repository->getByPage($page, self::MAX_PER_PAGE);
 
-		$total = count($post);
+
+		$total = count($societies);
 		$maxPage = (int) ($total / SocietyRepository::MAX_RESULT);
 		if(($total % SocietyRepository::MAX_RESULT) !== 0) {
 			$maxPage++;
@@ -114,7 +114,6 @@ class FrontController extends Controller
 		return $this->render('BoosterBundle:Front:liste_de_societe.html.twig', array(
 			'maxPage' => $maxPage,
 			'societies' => $societies,
-			'post' => $post,
 			'page' => $page));
 	}
 

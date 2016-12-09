@@ -1391,7 +1391,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
 /** List Society **/
 .nombre-de-projet {
 	width: 100%;
-	background-color: #e60f33;
+	background-color: dimgray;
 	font-size: 13px;
 	text-transform: uppercase;
 	padding: 5px;
@@ -1405,7 +1405,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
 }
 .name-list-society {
 
-	background-color: #e60f33;
+	background-color: dimgray;
 	font-size: 13px;
 	text-transform: uppercase;
 	padding: 5px;
@@ -1415,22 +1415,44 @@ and (-webkit-min-device-pixel-ratio: 1) {
 	margin: auto;
 
 }
-.img-list-society {
-	width: 100%;
-	margin: auto;
-}
 
-a:hover
-{
+
+a:hover {
 	text-decoration: none;
 }
 
-.global-society
-{
-	width: 100%;
+
+
+.global-society {
 	margin-bottom: 60px;
+	border: solid white;
+
+}
+.global-society:hover{
+	border: #e60f33 solid;
+}
+
+.global-society img {
+	width: 100%;
+
 
 }
 
+.fa {
+	color: white;
+	border: none;
+	width: 50px;
+}
+
+
+.pager li > a{
+	background-color: #e60f33;
+	border: none;
+}
+
+.pager li > a:hover
+{
+	background-color: #860f27;
+}
 
 
