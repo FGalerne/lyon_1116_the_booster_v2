@@ -65,6 +65,7 @@ span {
 	background-color: white;
 	box-shadow: 0 3px 0 rgba(230,15,51,1);
 	font-size: 1.1em;
+	min-height: 10vh;
 
 }
 
@@ -225,6 +226,7 @@ span {
 
 .navbar-right {
 	display: inline-block;
+	font-size: 1em;
 }
 
 /* HOME */
@@ -980,6 +982,7 @@ hr{
 .personnal-information p {
 	font-weight: 900;
 	margin-top: 10px;
+	font-size: 1.2em;
 }
 
 .dashboard-separation {
@@ -992,6 +995,8 @@ hr{
 
 #navbar-dashboard ul {
 	text-align: center;
+	margin-bottom: 35px;
+	margin-top: 35px;
 }
 
 #navbar-dashboard ul li {
@@ -1035,6 +1040,22 @@ hr{
 	border-radius: 10px;
 	border: 2px solid rgba(0, 0, 0, 0.2);
 	margin: 0;
+}
+
+#button-dashboard {
+	margin-top: 25px;
+}
+
+.project-in-progress,
+.project-done {
+	border-radius: 10px;
+	border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.project-in-progress p,
+.project-done p {
+	text-align: center;
+	padding-top: 5px;
 }
 
 /*********************** DASHBOARD BOOSTE "SOCIETY" ***********************/
