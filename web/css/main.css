@@ -1409,3 +1409,12 @@ and (-webkit-min-device-pixel-ratio: 1) {
 	}
 }
 
+/* Page Dashboard New Boosté */
+.bloc_new {
+	text-align: center;
+}
+
+.form_new{
+	text-align: center;
+	margin-top: 15px;
+}

@@ -14,10 +14,9 @@ class BoosterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('user')
             ->add('photo')
-            ->add('city')
             ->add('zipCode')
+            ->add('city')
             ->add('birthDate', 'date', array(
                 'years' => range(1950, 2020),
                 'format' => 'ddMMyyyy',

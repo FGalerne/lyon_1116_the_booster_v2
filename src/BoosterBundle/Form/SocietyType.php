@@ -22,11 +22,6 @@ class SocietyType extends AbstractType
                 ->add('twitter')
                 ->add('youtube')
                 ->add('websiteLink')
-                ->add('hoursTaken')
-                ->add('averageNotation')
-                ->add('projectDoneNumber')
-                ->add('deniedBoosters')
-                ->add('user')
         ;
     }
     

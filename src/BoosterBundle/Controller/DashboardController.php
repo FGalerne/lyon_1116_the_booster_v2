@@ -35,6 +35,31 @@ class DashboardController extends Controller
 
     /**
      * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function societyNewAction(Request $request)
+    {
+        $society = new Society();
+        $form = $this->createForm('BoosterBundle\Form\SocietyType', $society);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($society);
+            $em->flush($society);
+
+            return $this->redirectToRoute('dashboard_society', array('id' => $society->getId()));
+        }
+
+        return $this->render('@Booster/Dashboard/dashboard-booste-new.html.twig', array(
+            'society' => $society,
+            'form' => $form->createView(),
+        ));
+    }
+
+
+    /**
+     * @param Request $request
      * @param Society $society
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
@@ -76,6 +101,28 @@ class DashboardController extends Controller
         }
         return $this->redirectToRoute('booster_charte');
     }
+
+
+    public function boosterNewAction(Request $request)
+    {
+        $booster = new Booster();
+        $form = $this->createForm('BoosterBundle\Form\BoosterType', $booster);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($booster);
+            $em->flush($booster);
+
+            return $this->redirectToRoute('dashboard_booster', array('id' => $booster->getId()));
+        }
+
+        return $this->render('@Booster/Dashboard/dashboard-booster-new.html.twig', array(
+            'booster' => $booster,
+            'form' => $form->createView(),
+        ));
+    }
+
 
     /**
      * @param Request $request

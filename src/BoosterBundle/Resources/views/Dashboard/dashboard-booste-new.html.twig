@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="bloc_new">
+        <h1 class="h1_toppage">Création de votre profil Boosté</h1>
+        <hr>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10 form_new">
+                <img src="{{ asset('img/the-booster-icon-subscription.png') }}">
+            </div>
+        </div>
+    </div>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Finaliser mon inscription" />
+    {{ form_end(form) }}
+
+{% endblock %}
