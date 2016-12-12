@@ -72,6 +72,6 @@ BoosterBundle\Entity\Society:
             targetEntity: User
             inversedBy: society
             joinColumn:
-                name: id
+                name: user_id
                 referenceColumnName: id
     lifecycleCallbacks: {  }

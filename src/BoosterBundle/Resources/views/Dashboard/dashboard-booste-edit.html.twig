@@ -1,12 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+    <div class="block_edit">
+        <h1 class="h1_toppage">Mettre à jour les informations de votre compte Boosté</h1>
+        <hr>
+    </div>
     <section class="container-fluid global-presentation">
         <div class="container">
             {{ form_start(edit_form) }}
             {{ form_widget(edit_form) }}
-            <input type="submit" value="Mise à jour du profile" />
+            <input type="submit" value="Enregistrer" class="btn btn-danger btn_edit_booste"/>
             {{ form_end(edit_form) }}
 
         </div>

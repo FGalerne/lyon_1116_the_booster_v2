@@ -25,7 +25,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, c
 
     public function load(ObjectManager $manager){
         $random = new Random();
-        $generator = new UserGenerator('App.user_generator', 100);
+        $generator = new UserGenerator('App.user_generator', 1);
         $users = $generator->getUsers();
         $increment = 0;
         foreach($users as $user){

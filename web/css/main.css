@@ -1496,3 +1496,12 @@ a:hover {
 	text-align: center;
 	margin-top: 25px;
 }
+
+/* Page Dashboard Edit Boosté & Booster */
+.block_edit {
+	text-align: center;
+}
+
+.btn_edit_booste {
+	margin-top: 20px;
+}
