@@ -115,18 +115,15 @@ class RegistrationController extends BaseController
 		}
 
 		$form = $formFactory->createForm();
-
 		$form->setData($user);
-
 		$form->handleRequest($request);
         $required = false;
 
 		if ($form->isSubmitted()) {
 			if ($form->isValid()) {
-
                 $siret = $form["siretnumber"]->getData();
                 $phone = $form["phone"]->getData();
-                if($phone !== null || $siret !== null){
+                if($phone !== null && $siret !== null){
                     $event = new FormEvent($form, $request);
                     $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
                     $userManager->updateUser($user);
@@ -171,17 +168,12 @@ class RegistrationController extends BaseController
                                 'text/html'
                             )
                         ;
-
                         $this->get('mailer')->send($sendMessage);
-
-                        /**/
-
-
                     }
                     return $response;
-                } else if($phone == null && $siret == null){
-                        $required = true;
                 }
+                if($phone === null) $required = 'phone';
+                if($siret === null) $required = 'siret';
             }
 
 			$event = new FormEvent($form, $request);

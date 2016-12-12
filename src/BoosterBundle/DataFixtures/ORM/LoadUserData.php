@@ -105,27 +105,28 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, c
             $userEntity->setLastName($user->name->last);   //family_name
             $userEntity->setFirstName($user->name->first);    //surname
             $userEntity->setEmail($increment.$user->email);     //email
-            $userEntity->setPassword($user->login->password);     //password
+            $userEntity->setPassword('$2y$13$f/i.y7xfXtbt0NF.Ouv4KOPXpiJDtBzB6p80Gcv//pc9ctvVq6Bfa');     //password
             $userEntity->setSalt($user->login->salt);               //salt
-            $userEntity->setCreateTime($random->randomDate());          //creation time
+            $userEntity->setCreateTime($random->randomDate());        //creation time
 
             ////////////////////////  SOCIETY  ////////////////////////////////////
             if($randRole === 1){
 
                 $userEntity->setProfessionalFunction($random->randomFunction());  //function
 
-                $userEntity->setCreateTime($random->randomDate());                       //create_time
+                $userEntity->setCreateTime($random->randomDate());         //create_time
 
-                $projectType = rand(0, 1);                               //role (0 = society, 1 = project)
-                $userEntity->setTypeProject($projectType);               //role (0 = society, 1 = project)
+                $projectType = rand(0, 1);                                 //role (0 = society, 1 = project)
+                $userEntity->setTypeProject($projectType);                 //role (0 = society, 1 = project)
                 if($projectType === 0){
-                    $siret = rand(10000000000000, 99999999999999);       //siret
-                    $userEntity->setSiretNumber($siret);                       //siret
-                } else{
-                    $userEntity->setPhone(str_replace("-", "", $user->phone));    //phone_number
+                    $siret = rand(10000000000000, 99999999999999);         //siret
+                    $userEntity->setSiretNumber($siret);
+                    $userEntity->setValidationSociety(0);                  //pending status for siret or phone validation
                 }
-                $userEntity->setNameProject($user->login->password);        //project_name
-                $userEntity->setValidationSociety(0); //pending status for siret or phone validation
+                $userEntity->setPhone(str_replace("-", "", $user->phone)); //phone_number
+
+                $userEntity->setNameProject($user->login->password);       //project_name
+
             }
             $manager->persist($userEntity);
             unset($userEntity);

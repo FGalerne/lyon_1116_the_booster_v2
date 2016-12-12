@@ -220,7 +220,6 @@ class User extends BaseUser
     }
 
     /**
-<<<<<<< HEAD
      * @var \BoosterBundle\Entity\Booster
      */
     private $booster;
@@ -249,15 +248,15 @@ class User extends BaseUser
     {
         return $this->booster;
     }
-}
-=======
-     * Get validationSociety
+
+    /** Get validationSociety
      *
      * @return boolean
      */
+
     public function getValidationSociety()
     {
         return $this->validationSociety;
+
     }
 }
->>>>>>> masterdev

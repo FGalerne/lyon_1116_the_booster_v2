@@ -82,9 +82,13 @@
     *overflow: hidden;
 }
 #required{
+    color: #7e0000;
     margin-top: -10px;
     margin-bottom: 20px;
 }
 .validation-height{
     min-height: 300px;
+}
+.new-profil{
+    margin-top: 50px;
 }

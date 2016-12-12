@@ -26,14 +26,15 @@
             {{ form_row(form.nameproject) }}
             {{ form_row(form.typeproject) }}
             {{ form_widget(form.createtime) }}
-            <div id="phoneGroup">
-                {{ form_row(form.phone) }}
-            </div>
             <div id="siretGroup">
                 {{ form_row(form.siretnumber) }}
             </div>
-            {% if required == true %}
+            {% if required == 'siret' %}
                 <div id="required"><em>Ce champ est obligatoire</em></div>
+            {% endif %}
+            {{ form_row(form.phone) }}
+            {% if required == 'phone' %}
+                <div id="required"><em>! Ce champ est obligatoire</em></div>
             {% endif %}
                 <div class="btn_register">
                     <input type="submit" value="{{ 'registration.submit'|trans }}" class="btn btn-danger"/>
