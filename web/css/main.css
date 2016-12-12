@@ -1,4 +1,5 @@
 
+
 /* CSS def*/
 
 /* ALL */
@@ -353,7 +354,7 @@ span {
 .home_blimg_startuplogo:hover{
 	opacity: 1;
 	height: 100%;
-	width: 113.8%;
+	width: 114.1%;
 	margin-left: -15px;
 	padding: 0;
 	background-color: rgba(255,255,255,0.9);
@@ -1408,6 +1409,73 @@ and (-webkit-min-device-pixel-ratio: 1) {
 		width: 100%;
 	}
 }
+/** List Society **/
+.nombre-de-projet {
+	width: 100%;
+	background-color: dimgray;
+	font-size: 13px;
+	text-transform: uppercase;
+	padding: 5px;
+	color: #fff;
+	top: 250px;
+	font-weight: bold;
+	margin: auto;
+	text-align: center;
+	border-top: solid #fff;
+
+}
+.name-list-society {
+
+	background-color: dimgray;
+	font-size: 13px;
+	text-transform: uppercase;
+	padding: 5px;
+	color: #fff;
+	top: 0;
+	font-weight: bold;
+	margin: auto;
+
+}
+
+
+a:hover {
+	text-decoration: none;
+}
+
+
+
+.global-society {
+	margin-bottom: 60px;
+	border: solid white;
+
+}
+.global-society:hover{
+	border: #e60f33 solid;
+}
+
+.global-society img {
+	width: 100%;
+
+
+}
+
+.fa {
+	color: white;
+	border: none;
+	width: 50px;
+}
+
+
+.pager li > a{
+	background-color: #e60f33;
+	border: none;
+}
+
+.pager li > a:hover
+{
+	background-color: #860f27;
+}
+
 
 /* Page Dashboard New Boosté & Booster */
 .bloc_new {

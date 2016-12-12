@@ -3,6 +3,8 @@
 namespace BoosterBundle\Controller;
 
 use BoosterBundle\Entity\Contact;
+use BoosterBundle\Entity\Society;
+use BoosterBundle\Repository\SocietyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -92,5 +94,29 @@ class FrontController extends Controller
     {
         return $this->render('BoosterBundle:Front:inscription_choix.html.twig');
     }
+	const MAX_PER_PAGE = 12;
+
+    public function listSocietyAction($page = 1)
+	{
+
+		$em = $this->getDoctrine()->getManager();
+		$repository= $em->getRepository('BoosterBundle:Society');
+
+		$societies = $repository->getByPage($page, self::MAX_PER_PAGE);
+
+
+		$total = count($societies);
+		$maxPage = (int) ($total / SocietyRepository::MAX_RESULT);
+		if(($total % SocietyRepository::MAX_RESULT) !== 0) {
+			$maxPage++;
+		}
+
+		return $this->render('BoosterBundle:Front:liste_de_societe.html.twig', array(
+			'maxPage' => $maxPage,
+			'societies' => $societies,
+			'page' => $page));
+	}
+
+
 
 }

@@ -25,7 +25,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, c
 
     public function load(ObjectManager $manager){
         $random = new Random();
-        $generator = new UserGenerator('App.user_generator', 5000);
+        $generator = new UserGenerator('App.user_generator', 100);
         $users = $generator->getUsers();
         $increment = 0;
         foreach($users as $user){
@@ -61,7 +61,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, c
             }
             else{
                 $role = 'ROLE_BOOSTE';
-                $societyEntity->setPhoto($user->picture->large);
+                $societyEntity->setPhoto("/img/society/". rand(1,10). "-society.jpeg");
                 $societyEntity->setSocietyName($user->login->password);
                 $societyEntity->setPunchLine('Lorem ipsum dolor sit amet, consectetur adipisc');
                 $societyEntity->setPresentation('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at purus nibh. Cras metus nulla, vestibulum in auctor ac, fermentum vitae tellus. Donec sed aliquam nisl. Sed eu leo id est pretium euismod. Nulla id justo at mi venenatis volutpat. Fusce nisi leo, placerat id condimentum a, accumsan vitae tortor. Nunc magna nunc, venenatis nec elementum eu, ultrices in sem. Maecenas tincidunt semper molestie. Nulla nec neque sit amet libero molestie feugiat. Cras id metus velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis arcu non leo porta ut euismod ante luctus. Praesent elementum sodales dolor id scelerisque. Nam vitae cursus massa. Nunc ut arcu a mi convallis feugiat. Sed ante sem, sollicitudin sed porta et, molestie in turpis. Nulla lacinia lacus nec l');
