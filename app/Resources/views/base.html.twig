@@ -45,8 +45,8 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ path('fos_user_registration_register') }}">Proposer un projet</a></li>
-                        <li><a href="">Liste des sociétés</a></li>
+                        <li>{% if is_granted("ROLE_BOOSTE") %} <a href="{{ path('new_project') }}">Proposer un projet</a>{% endif %}</li>
+                        <li><a href="{{ path('list_society') }}">Liste des sociétés</a></li>
                         <li><a href="{{ path('booster_how_it_works') }}">Comment ça marche</a></li>
                     </ul>
 

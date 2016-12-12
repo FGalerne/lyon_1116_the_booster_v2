@@ -8,7 +8,7 @@ namespace BoosterBundle\Entity;
 class FixturesTestUser
 {
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -53,12 +53,12 @@ class FixturesTestUser
     private $createTime;
 
     /**
-     * @var bool
+     * @var boolean
      */
     private $projectType;
 
     /**
-     * @var int
+     * @var string
      */
     private $siret;
 
@@ -68,7 +68,7 @@ class FixturesTestUser
     private $projectName;
 
     /**
-     * @var string
+     * @var boolean
      */
     private $role;
 
@@ -76,21 +76,11 @@ class FixturesTestUser
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
     }
 
     /**
@@ -108,13 +98,13 @@ class FixturesTestUser
     }
 
     /**
-     * Get familyName
+     * Get title
      *
      * @return string
      */
-    public function getFamilyName()
+    public function getTitle()
     {
-        return $this->familyName;
+        return $this->title;
     }
 
     /**
@@ -132,13 +122,13 @@ class FixturesTestUser
     }
 
     /**
-     * Get surname
+     * Get familyName
      *
      * @return string
      */
-    public function getSurname()
+    public function getFamilyName()
     {
-        return $this->surname;
+        return $this->familyName;
     }
 
     /**
@@ -156,13 +146,13 @@ class FixturesTestUser
     }
 
     /**
-     * Get email
+     * Get surname
      *
      * @return string
      */
-    public function getEmail()
+    public function getSurname()
     {
-        return $this->email;
+        return $this->surname;
     }
 
     /**
@@ -180,13 +170,13 @@ class FixturesTestUser
     }
 
     /**
-     * Get password
+     * Get email
      *
      * @return string
      */
-    public function getPassword()
+    public function getEmail()
     {
-        return $this->password;
+        return $this->email;
     }
 
     /**
@@ -204,13 +194,13 @@ class FixturesTestUser
     }
 
     /**
-     * Get phoneNumber
+     * Get password
      *
      * @return string
      */
-    public function getPhoneNumber()
+    public function getPassword()
     {
-        return $this->phoneNumber;
+        return $this->password;
     }
 
     /**
@@ -228,13 +218,13 @@ class FixturesTestUser
     }
 
     /**
-     * Get function
+     * Get phoneNumber
      *
      * @return string
      */
-    public function getFunction()
+    public function getPhoneNumber()
     {
-        return $this->function;
+        return $this->phoneNumber;
     }
 
     /**
@@ -252,13 +242,13 @@ class FixturesTestUser
     }
 
     /**
-     * Get createTime
+     * Get function
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getCreateTime()
+    public function getFunction()
     {
-        return $this->createTime;
+        return $this->function;
     }
 
     /**
@@ -276,13 +266,13 @@ class FixturesTestUser
     }
 
     /**
-     * Get projectType
+     * Get createTime
      *
-     * @return bool
+     * @return \DateTime
      */
-    public function getProjectType()
+    public function getCreateTime()
     {
-        return $this->projectType;
+        return $this->createTime;
     }
 
     /**
@@ -300,19 +290,19 @@ class FixturesTestUser
     }
 
     /**
-     * Get siret
+     * Get projectType
      *
-     * @return int
+     * @return boolean
      */
-    public function getSiret()
+    public function getProjectType()
     {
-        return $this->siret;
+        return $this->projectType;
     }
 
     /**
      * Set siret
      *
-     * @param integer $siret
+     * @param string $siret
      *
      * @return FixturesTestUser
      */
@@ -324,13 +314,13 @@ class FixturesTestUser
     }
 
     /**
-     * Get projectName
+     * Get siret
      *
      * @return string
      */
-    public function getProjectName()
+    public function getSiret()
     {
-        return $this->projectName;
+        return $this->siret;
     }
 
     /**
@@ -348,19 +338,19 @@ class FixturesTestUser
     }
 
     /**
-     * Get role
+     * Get projectName
      *
      * @return string
      */
-    public function getRole()
+    public function getProjectName()
     {
-        return $this->role;
+        return $this->projectName;
     }
 
     /**
      * Set role
      *
-     * @param string $role
+     * @param boolean $role
      *
      * @return FixturesTestUser
      */
@@ -370,4 +360,15 @@ class FixturesTestUser
 
         return $this;
     }
+
+    /**
+     * Get role
+     *
+     * @return boolean
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
 }
+
