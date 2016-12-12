@@ -1409,7 +1409,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
 	}
 }
 
-/* Page Dashboard New Boosté */
+/* Page Dashboard New Boosté & Booster */
 .bloc_new {
 	text-align: center;
 }
@@ -1417,4 +1417,14 @@ and (-webkit-min-device-pixel-ratio: 1) {
 .form_new{
 	text-align: center;
 	margin-top: 15px;
+}
+
+.fform_new_ {
+	margin-top: 35px;
+	margin-bottom: 40px;
+}
+
+.btn_new{
+	text-align: center;
+	margin-top: 25px;
 }
