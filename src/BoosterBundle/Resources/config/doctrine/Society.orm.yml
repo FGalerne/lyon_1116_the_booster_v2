@@ -1,6 +1,7 @@
 BoosterBundle\Entity\Society:
     type: entity
     table: society
+    repositoryClass: BoosterBundle\Repository\SocietyRepository
     id:
         id:
             type: integer
