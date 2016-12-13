@@ -111,6 +111,7 @@ class DashboardController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $booster->setUser($this);
             $em->persist($booster);
             $em->flush($booster);
 
