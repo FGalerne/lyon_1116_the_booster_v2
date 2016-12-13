@@ -60,6 +60,9 @@ span {
 	height: 2.5vh;
 }
 
+.text-left{
+	text-align: left !important;
+}
 .navbar {
 	background-color: white;
 	box-shadow: 0 3px 0 rgba(230,15,51,1);

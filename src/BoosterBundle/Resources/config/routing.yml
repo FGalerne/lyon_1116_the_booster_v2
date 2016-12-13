@@ -6,6 +6,10 @@ booster_booster:
     resource: "@BoosterBundle/Resources/config/routing/booster.yml"
     prefix:   /booster
 
+booster_messenger:
+    resource: "@BoosterBundle/Resources/config/routing/messenger.yml"
+    prefix:   /messenger
+
 booster_homepage:
     path:     /
     defaults: { _controller: BoosterBundle:Front:index }
@@ -59,4 +63,7 @@ booster_how_it_works:
 new_project:
     path:     /deposer-un-projet
     defaults: { _controller: BoosterBundle:Project:new }
+
+
+
 

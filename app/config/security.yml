@@ -34,6 +34,7 @@ security:
     - {path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY}
     - {path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY}
     - {path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY}
+    - {path: ^/messenger, role: ROLE_USER}
     #- {path: ^/booste, role: ROLE_BOOSTE}
     #- {path: ^/booster, role: ROLE_BOOSTER}
     #- {path: ^/booster/dashboard/edit, role: ROLE_BOOSTER}
@@ -42,4 +43,5 @@ security:
     #- {path: ^/booster/dashboard, role: ROLE_BOOSTER}
     #- {path: ^/booste/dashboard/deposer-un-projet, role: ROLE_BOOSTE}
     #- {path: ^/admin, role: ROLE_ADMIN}
+
 

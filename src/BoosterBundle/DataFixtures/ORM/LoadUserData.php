@@ -9,6 +9,7 @@
 namespace BoosterBundle\DataFixtures\ORM;
 
 use BoosterBundle\Entity\Booster;
+use BoosterBundle\Entity\messenger;
 use BoosterBundle\Entity\Project;
 use BoosterBundle\Entity\Society;
 use BoosterBundle\Entity\User;
@@ -25,7 +26,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, c
 
     public function load(ObjectManager $manager){
         $random = new Random();
-        $generator = new UserGenerator('App.user_generator', 5000);
+        $generator = new UserGenerator('App.user_generator', 100);
         $users = $generator->getUsers();
         $increment = 0;
         foreach($users as $user){
@@ -33,8 +34,21 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, c
             $boosterEntity = new Booster;
             $societyEntity = new Society;
             $projectEntity = new Project;
+            $messengerEntity = new Messenger;
 
+            $username = $increment.$user->email;
             $userEntity->setEnabled(1);
+
+            // messages
+            $messengerEntity->setTitle('project n°'.rand(0, 200));
+            $messengerEntity->setUser1($username);
+            $messengerEntity->setUser2('messenger@test.com');
+            $messengerEntity->setMessage('Salut, ça va?');
+            $messengerEntity->setCreateTime($random->randomDate());
+            $messengerEntity->setUser1Read(0);
+            $messengerEntity->setUser2Read(0);
+            $manager->persist($messengerEntity);
+            unset($messengerEntity);
 
             $randRole = rand(0, 1); //role (0 = booster, 1 = project)
             if ($randRole == 0){
@@ -104,7 +118,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, c
             $userEntity->setTitle($user->name->title);   //title (Mr/Mme)
             $userEntity->setLastName($user->name->last);   //family_name
             $userEntity->setFirstName($user->name->first);    //surname
-            $userEntity->setEmail($increment.$user->email);     //email
+            $userEntity->setEmail($username);     //email
             $userEntity->setPassword('$2y$13$f/i.y7xfXtbt0NF.Ouv4KOPXpiJDtBzB6p80Gcv//pc9ctvVq6Bfa');     //password
             $userEntity->setSalt($user->login->salt);               //salt
             $userEntity->setCreateTime($random->randomDate());        //creation time

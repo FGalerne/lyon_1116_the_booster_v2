@@ -1,0 +1,36 @@
+BoosterBundle\Entity\Messenger:
+    type: entity
+    table: null
+    repositoryClass: BoosterBundle\Repository\MessengerRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        user1:
+            type: string
+            length: '100'
+        user2:
+            type: string
+            length: '100'
+        message:
+            type: text
+        createTime:
+            type: datetime
+            column: create_time
+        user1Read:
+            type: boolean
+            column: user1_read
+            options:
+                default: false
+        user2Read:
+            type: boolean
+            column: user2_read
+            options:
+                default: false
+    lifecycleCallbacks: {  }

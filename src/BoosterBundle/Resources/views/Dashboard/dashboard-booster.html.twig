@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
     {% for booster in boosters %}
         <section class="container-fluid global-presentation">
             <div class="container">
@@ -46,6 +47,7 @@
                         <li><a id="project-home">Accueil</a></li>
                         <li><a id="project-in-progress">Projets en cours</a></li>
                         <li><a id="project-done">Projets réalisés</a></li>
+                        <li><a id="messenger">Messages</a></li>
                     </ul>
                 </div>
             </div>
@@ -125,6 +127,41 @@
             </div>
         </section>
     {% endfor %}
+
+    {# messenger #}
+
+    <section class="container-fluid presentation-booster" id="dashboard-messenger">
+        {% for messenger in messengers %}
+            <div class="container project-done">
+                <div class="col-xs-6 col-md-3">
+                    <p class="text-left">{% if messenger.createTime %}<em>{{ messenger.createTime|date('Y-m-d H:i:s') }}</em>{% endif %}</p>
+                </div>
+                <div class="col-xs-12 col-md-9">
+                    <p class="text-left"><strong>de: </strong><em>{{ messenger.user1 }}</em>, &nbsp;&nbsp;&nbsp; à: <em>{{ messenger.user2 }}</em></p>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <p class="text-left"><strong>Sujet: </strong><em>{{ messenger.title }}</em></p>
+                </div>
+                <div class="col-xs-6 col-md-9">
+                    <p class="text-left"><strong>Message: </strong><em>{{ messenger.message }}</em></p>
+                </div>
+                <div class="col-xs-12">
+                    {{ form_start(form) }}
+                    {{ form_row(form.title, {'attr': {'value': messenger.title }}) }}
+                    {{ form_row(form.user1, {'attr': {'value': app.user.username }}) }}
+                    {% if app.user.username != messenger.user1 %}
+                        {{ form_row(form.user2, {'attr': {'value': messenger.user1 }}) }}
+                    {% else %}
+                        {{ form_row(form.user2, {'attr': {'value': messenger.user2 }}) }}
+                    {% endif %}
+                    {{ form_row(form.message) }}
+
+                    <input type="submit" value="Répondre" />
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        {% endfor %}
+    </section>
 {% endblock %}
 
 {% block javascripts %}
