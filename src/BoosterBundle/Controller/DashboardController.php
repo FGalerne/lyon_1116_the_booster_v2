@@ -15,20 +15,30 @@ class DashboardController extends Controller
         return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig');
     }
 
-    public function boosterAction($id)
+    public function boosterAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $boosters = $em->getRepository('BoosterBundle:Booster')->getDashboardById($id);
         $user = $this->getUser();
         if ($user != null) {
+            //messages
             $messenger = new Messenger();
             $form = $this->createForm('BoosterBundle\Form\MessengerType', $messenger);
             $messengers = $em->getRepository('BoosterBundle:Messenger')->myMessages($user);
+            $form->handleRequest($request);
+
             if ($user->getId() == $id) {
+                //messages
+                if ($form->isSubmitted() && $form->isValid()) {
+                    $em->persist($messengers);
+                    $em->flush();
+                }
+
                 return $this->render('BoosterBundle:Dashboard:dashboard-booster.html.twig', array(
                     'boosters' => $boosters,
                     'user' => $user,
                     'messengers' => $messengers,
+                    'title' => $title,
                     'form' => $form->createView(),
                 ));
             }

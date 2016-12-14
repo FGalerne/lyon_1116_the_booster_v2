@@ -14,6 +14,7 @@ class MessengerRepository extends \Doctrine\ORM\EntityRepository
         $req = $this->createQueryBuilder('a')
             ->where('a.user1 = :username')
             ->orWhere('a.user2 = :username')
+            ->orderBy('a.title')
             ->setParameter('username', $username)
             ->getQuery();
 

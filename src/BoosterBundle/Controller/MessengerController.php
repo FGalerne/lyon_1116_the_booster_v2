@@ -2,6 +2,7 @@
 
 namespace BoosterBundle\Controller;
 
+use BoosterBundle\Entity\Booster;
 use BoosterBundle\Entity\Messenger;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,11 +30,13 @@ class MessengerController extends Controller
 
     /**
      * Creates a new messenger entity.
-     *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $request)
     {
         $messenger = new Messenger();
+
         $form = $this->createForm('BoosterBundle\Form\MessengerType', $messenger);
         $form->handleRequest($request);
 
@@ -41,8 +44,9 @@ class MessengerController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($messenger);
             $em->flush($messenger);
-
-            return $this->redirectToRoute('messenger_show', array('id' => $messenger->getId()));
+            $id = $request->query->get('id');
+            return $this->redirectToRoute('dashboard_booster',
+               array('id' => $id));
         }
 
         return $this->render('messenger/new.html.twig', array(

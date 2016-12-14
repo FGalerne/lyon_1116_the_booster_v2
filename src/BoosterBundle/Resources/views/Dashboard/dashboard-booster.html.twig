@@ -131,39 +131,49 @@
     {# messenger #}
 
     <section class="container-fluid presentation-booster" id="dashboard-messenger">
+        {% set index = 0 %}
         {% for messenger in messengers %}
             <div class="container project-done">
+                <div class="col-xs-12">
+                    <p class="text-left"><strong>Sujet: </strong><em id="subject{{ index }}">{{ messenger.title }}</em></p>
+                </div>
+
                 <div class="col-xs-6 col-md-3">
                     <p class="text-left">{% if messenger.createTime %}<em>{{ messenger.createTime|date('Y-m-d H:i:s') }}</em>{% endif %}</p>
                 </div>
                 <div class="col-xs-12 col-md-9">
-                    <p class="text-left"><strong>de: </strong><em>{{ messenger.user1 }}</em>, &nbsp;&nbsp;&nbsp; à: <em>{{ messenger.user2 }}</em></p>
-                </div>
-                <div class="col-xs-6 col-md-3">
-                    <p class="text-left"><strong>Sujet: </strong><em>{{ messenger.title }}</em></p>
+                    <p class="text-left"><strong>de: </strong><em id="user1{{ index }}">{{ messenger.user1 }}</em>, &nbsp;&nbsp;&nbsp; à: <em id="user2{{ index }}">{{ messenger.user2 }}</em></p>
                 </div>
                 <div class="col-xs-6 col-md-9">
-                    <p class="text-left"><strong>Message: </strong><em>{{ messenger.message }}</em></p>
+                    <p class="text-left"><strong>Message: </strong><em>{{ messenger.message | raw }}</em></p>
                 </div>
                 <div class="col-xs-12">
-                    {{ form_start(form) }}
-                    {{ form_row(form.title, {'attr': {'value': messenger.title }}) }}
-                    {{ form_row(form.user1, {'attr': {'value': app.user.username }}) }}
-                    {% if app.user.username != messenger.user1 %}
-                        {{ form_row(form.user2, {'attr': {'value': messenger.user1 }}) }}
-                    {% else %}
-                        {{ form_row(form.user2, {'attr': {'value': messenger.user2 }}) }}
-                    {% endif %}
-                    {{ form_row(form.message) }}
-
-                    <input type="submit" value="Répondre" />
-                    {{ form_end(form) }}
+                    <label><textarea id="message{{ index }}" class="col-xs-12 WYSIWYG"></textarea></label>
+                </div>
+                <div class="col-xs-12 col-md-9">
+                    <input type="button" value="Répondre" onclick="messengerForm({{ index }})"/>
                 </div>
             </div>
+            {% set index = index + 1 %}
         {% endfor %}
+        <div class="col-xs-12">
+            {{ form_start(form, {'action': path('messenger_new', {'id': app.user.id}), 'attr': { 'id':'messengerSubmit' }}) }}
+            {{ form_row(form.user1, {'attr': { 'value': app.user.username}}) }}
+            {{ form_end(form) }}
+        </div>
     </section>
 {% endblock %}
 
 {% block javascripts %}
     <script src="{{ asset('js/dashboards.js')}}"></script>
+    <script src="{{ asset('js/messenger.js')}}"></script>
+    <script>
+        tinymce.init({
+            selector:'.WYSIWYG',
+            forced_root_block: false,
+            menubar: 'tools',
+            toolbar: 'undo redo | bold italic underline strikethrough | fontsizeselect',
+            height : 100,
+        });
+    </script>
 {% endblock %}
