@@ -1,8 +1,6 @@
 <?php
 
 namespace BoosterBundle\Controller;
-
-
 use BoosterBundle\Entity\Society;
 use BoosterBundle\Entity\Booster;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -23,28 +21,24 @@ class DashboardController extends Controller
          */
         $user = $this->getUser();
         if ($user != null) {
-            if ($user->getId() == $id) {
                 return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
                     'societies' => $societies,
                     'user' => $user,
                 ));
-            }
         }
         return $this->redirectToRoute('booster_charte');
     }
 
-    /**
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     */
     public function societyNewAction(Request $request)
     {
         $society = new Society();
         $form = $this->createForm('BoosterBundle\Form\SocietyType', $society);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $society->setUser($this->getUser());
             $em->persist($society);
             $em->flush($society);
 
@@ -76,7 +70,7 @@ class DashboardController extends Controller
         }
 
         return $this->render('@Booster/Dashboard/dashboard-booste-edit.html.twig', array(
-            'id'    =>  $society->getId(),
+            'id' => $society->getId(),
             'society' => $society,
             'edit_form' => $editForm->createView(),
         ));
@@ -92,12 +86,11 @@ class DashboardController extends Controller
         $boosters = $em->getRepository('BoosterBundle:Booster')->getDashboardById($id);
         $user = $this->getUser();
         if ($user != null) {
-            if ($user->getId() == $id) {
-                return $this->render('BoosterBundle:Dashboard:dashboard-booster.html.twig', array(
-                    'boosters' => $boosters,
-                    'user' => $user,
-                ));
-            }
+            return $this->render('BoosterBundle:Dashboard:dashboard-booster.html.twig', array(
+                'boosters' => $boosters,
+                'user' => $user,
+            ));
+
         }
         return $this->redirectToRoute('booster_charte');
     }
@@ -111,7 +104,7 @@ class DashboardController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $booster->setUser($this);
+            $booster->setUser($this->getUser());
             $em->persist($booster);
             $em->flush($booster);
 
@@ -150,3 +143,4 @@ class DashboardController extends Controller
     }
 
 }
+
