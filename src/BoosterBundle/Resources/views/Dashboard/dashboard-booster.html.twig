@@ -135,6 +135,7 @@
         {% set color = 'messenger-color-1' %}
         {% set newMessage = '' %}
 
+        <span class="messenger-user2" id="baseUsername">{{ app.user.username }}</span>
         {% for title, group in messengers|group_by(=> _.title) %}
             {% for messenger in group %}
                 {% if (app.user.username == messenger.user1 and messenger.user1Read == 0) or (app.user.username == messenger.user2 and messenger.user2Read == 0 )%}
@@ -159,8 +160,8 @@
                                     <em class="text-left">{{ app.user.firstName }}</em>
                                 {% else %}
                                     <!--user2-->
-                                    <img class="col-xs-4" src="{{ asset( 'img/avatar-test.jpg' ) }}" alt="photo-avatar" />
-                                    <em class="text-left">Clara</em>
+                                    <img class="col-xs-4" src="{{ asset( user2Infos.photo ) }}" alt="photo-avatar" />
+                                    <em class="text-left">{{ user2FirstName }}</em>
                                 {% endif %}
                                 <em class="messenger-user2 user1{{ index }}">{{ messenger.user1 }}</em>
                                 <em class="messenger-user2 user2{{ index }}">{{ messenger.user2 }}</em>

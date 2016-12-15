@@ -1,6 +1,7 @@
 BoosterBundle\Entity\User:
     type:  entity
     table: fos_user
+    repositoryClass: BoosterBundle\Repository\UserRepository
     id:
         id:
             type: integer
@@ -62,10 +63,11 @@ BoosterBundle\Entity\User:
             options:
                 default: true
             column: validation_society
-
     oneToOne:
+        society:
+            targetEntity: Society
+            mappedBy: user
         booster:
             targetEntity: Booster
             mappedBy: user
-
     lifecycleCallbacks: {  }

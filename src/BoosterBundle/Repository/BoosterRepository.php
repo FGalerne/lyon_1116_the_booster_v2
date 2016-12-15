@@ -3,9 +3,16 @@
 namespace BoosterBundle\Repository;
 
 
-
+/**
+ * Class BoosterRepository
+ * @package BoosterBundle\Repository
+ */
 class BoosterRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @param $id
+     * @return array
+     */
     public function getDashboardById($id)
     {
         $req = $this->createQueryBuilder('a')
@@ -15,4 +22,5 @@ class BoosterRepository extends \Doctrine\ORM\EntityRepository
 
         return $req->getResult();
     }
+
 }

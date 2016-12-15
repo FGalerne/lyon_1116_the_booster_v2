@@ -43,13 +43,29 @@ booster_inscription_choix:
     defaults: { _controller: BoosterBundle:Front:inscriptionChoix }
 
 dashboard_society:
-    path:     /dashboard-booste
+    path:     /dashboard-booste/{id}/
     defaults: { _controller: BoosterBundle:Dashboard:society }
+    methods: GET
+
+dashboard_society_new:
+    path:     /dashboard-booste-new/{id}/
+    defaults: { _controller: BoosterBundle:Dashboard:societyNew }
+    methods:  [GET, POST]
+
+dashboard_society_edit:
+    path:     /dashboard-booste-edit/{id}/
+    defaults: { _controller: BoosterBundle:Dashboard:societyEdit }
+    methods:  [GET, POST]
 
 dashboard_booster:
     path:     /dashboard-booster/{id}/
     defaults: { _controller: BoosterBundle:Dashboard:booster }
     methods:  GET
+
+dashboard_booster_new:
+    path:     /dashboard-booster-new/{id}/
+    defaults: { _controller: BoosterBundle:Dashboard:boosterNew }
+    methods:  [GET, POST]
 
 dashboard_booster_edit:
     path:     /dashboard-booster-edit/{id}/
@@ -63,6 +79,10 @@ booster_how_it_works:
 new_project:
     path:     /deposer-un-projet
     defaults: { _controller: BoosterBundle:Project:new }
+
+booster_society:
+    resource: "@BoosterBundle/Resources/config/routing/society.yml"
+    prefix:   /society
 
 list_society:
     path: /liste-de-societes/{page}

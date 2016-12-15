@@ -13,20 +13,17 @@ function messengerForm(index){
 
     if(user == user1){
         document.getElementById('boosterbundle_messenger_user2').value = user2;
-        document.getElementById('boosterbundle_messenger_user1Read').value = 1;
     }
 
     else{
         document.getElementById('boosterbundle_messenger_user2').value = user1;
-        document.getElementById('boosterbundle_messenger_user2Read').value = 1;
     }
 
     document.getElementById('boosterbundle_messenger_message').value = message;
     document.getElementById('boosterbundle_messenger_createTime').value = createTime;
 
-
-
     document.getElementById('messengerSubmit').submit();
+
 }
 function displayMessages(index){
 

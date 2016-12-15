@@ -68,11 +68,11 @@ BoosterBundle\Entity\Booster:
                 fixed: false
         hoursGiven:
             type: integer
-            nullable: false
+            nullable: true
             column: hours_given
         projectDoneNumber:
             type: integer
-            nullable: false
+            nullable: true
             column: project_done_number
         averageNotation:
             type: integer
@@ -84,7 +84,7 @@ BoosterBundle\Entity\Booster:
             targetEntity: User
             inversedBy: booster
             joinColumn:
-                name: id
+                name: user_id
                 referencedColumnName: id
 
     lifecycleCallbacks: {  }

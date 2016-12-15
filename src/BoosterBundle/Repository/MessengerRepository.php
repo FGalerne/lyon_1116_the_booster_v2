@@ -20,8 +20,8 @@ class MessengerRepository extends \Doctrine\ORM\EntityRepository
 
         return $req->getResult();
     }
-    function insertReadOne($username, $title){
 
+    function insertReadOne($username, $title){
         $qb = $this->createQueryBuilder('a');
         $req = $qb->update()
             ->set('a.user1Read', $qb->expr()->literal(1))
@@ -33,9 +33,8 @@ class MessengerRepository extends \Doctrine\ORM\EntityRepository
 
         return $req->execute();
     }
-    function insertReadTwo($username, $title){
-        $title = 'project n°50';
 
+    function insertReadTwo($username, $title){
         $qb = $this->createQueryBuilder('a');
         $req = $qb->update()
             ->set('a.user2Read', $qb->expr()->literal(1))

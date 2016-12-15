@@ -1524,10 +1524,39 @@ a:hover {
 .messenger-messages{
 	display: none;
 }
-.messenger-response{
+.messenger-response {
 	width: 100%;
 	background-color: #e60f33;
 	color: white;
 	border: none;
 	height: 30px;
+}
+
+/* Page Dashboard New Boosté & Booster */
+.bloc_new {
+	text-align: center;
+}
+
+.form_new{
+	text-align: center;
+	margin-top: 15px;
+}
+
+.fform_new_ {
+	margin-top: 35px;
+	margin-bottom: 40px;
+}
+
+.btn_new{
+	text-align: center;
+	margin-top: 25px;
+}
+
+/* Page Dashboard Edit Boosté & Booster */
+.block_edit {
+	text-align: center;
+}
+
+.btn_edit_booste {
+	margin-top: 20px;
 }
