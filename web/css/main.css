@@ -1483,4 +1483,51 @@ a:hover {
 	background-color: #860f27;
 }
 
-
+/*messenger*/
+.messenger-user2{
+	display:none;
+}
+.messenger-container{
+	margin-bottom: 20px;
+}
+.messenger-title{
+	padding-top: 10px;
+	background-color: #e60f33;
+	color: white;
+}
+.messenger-color-1{
+	background-color: rgba(215, 215, 215, 0.28);
+}
+.messenger-color-2{
+	background-color: white;
+}
+.messenger-row{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.messenger-area{
+	margin-top: 20px;
+	min-width: 100% ;
+}
+.display-messages{
+	height: 20px;
+	background-color: #322c3a;
+	text-align: center;
+}
+.display-messages:hover{
+	cursor: pointer;
+	background-color: #5d5469;
+}
+.display-messages img{
+	height: 20px;
+}
+.messenger-messages{
+	display: none;
+}
+.messenger-response{
+	width: 100%;
+	background-color: #e60f33;
+	color: white;
+	border: none;
+	height: 30px;
+}

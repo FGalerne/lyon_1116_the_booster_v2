@@ -28,6 +28,7 @@ class MessengerType extends AbstractType
                 'attr'=>array('style'=>'display:none;'),
             ))
             ->add('message', 'text', array(
+                'label' => false,
                 'attr'=>array('style'=>'display:none;'),
             ))
             ->add('createTime', 'datetime', array(
@@ -47,6 +48,7 @@ class MessengerType extends AbstractType
             ))
             ->add('save', SubmitType::class, array(
                 'label' => 'Répondre',
+                'attr'=>array('style'=>'display:none;'),
             ));
         ;
     }

@@ -20,4 +20,31 @@ class MessengerRepository extends \Doctrine\ORM\EntityRepository
 
         return $req->getResult();
     }
+    function insertReadOne($username, $title){
+
+        $qb = $this->createQueryBuilder('a');
+        $req = $qb->update()
+            ->set('a.user1Read', $qb->expr()->literal(1))
+            ->where('a.title = :title')
+            ->andWhere('a.user1 = :username')
+            ->setParameter('title', $title)
+            ->setParameter('username', $username)
+            ->getQuery();
+
+        return $req->execute();
+    }
+    function insertReadTwo($username, $title){
+        $title = 'project n°50';
+
+        $qb = $this->createQueryBuilder('a');
+        $req = $qb->update()
+            ->set('a.user2Read', $qb->expr()->literal(1))
+            ->where('a.title = :title')
+            ->andWhere('a.user2 = :username')
+            ->setParameter('title', $title)
+            ->setParameter('username', $username)
+            ->getQuery();
+
+        return $req->execute();
+    }
 }

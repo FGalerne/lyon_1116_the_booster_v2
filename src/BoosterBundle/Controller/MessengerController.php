@@ -40,11 +40,19 @@ class MessengerController extends Controller
         $form = $this->createForm('BoosterBundle\Form\MessengerType', $messenger);
         $form->handleRequest($request);
 
+        $title = $form->getData()->getTitle();
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($messenger);
             $em->flush($messenger);
+
             $id = $request->query->get('id');
+
+            $username = $request->query->get('username');
+
+            $em->getRepository('BoosterBundle:Messenger')->insertReadOne($username, $title);
+            $em->getRepository('BoosterBundle:Messenger')->insertReadTwo($username, $title);
+
             return $this->redirectToRoute('dashboard_booster',
                array('id' => $id));
         }

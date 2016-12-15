@@ -38,7 +38,6 @@ class DashboardController extends Controller
                     'boosters' => $boosters,
                     'user' => $user,
                     'messengers' => $messengers,
-                    'title' => $title,
                     'form' => $form->createView(),
                 ));
             }
