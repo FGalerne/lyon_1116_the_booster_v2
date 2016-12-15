@@ -2,7 +2,10 @@
 
 namespace BoosterBundle\Form;
 
+use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,10 +17,25 @@ class BoosterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('user')
             ->add('photo')
-            ->add('city')
-            ->add('zipCode')
+            ->add('presentation', TextareaType::class, array(
+                'label' => 'Texte de présentation',
+                'attr'  => array(
+                    'placeholder' => 'Présentez-vous'
+                ),
+            ))
+            ->add('zipCode', NumberType::class, array(
+                'label' => 'Code Postal',
+                'attr'  => array(
+                    'placeholder' => 'Code Postal'
+                ),
+            ))
+            ->add('city', \Symfony\Component\Form\Extension\Core\Type\TextType::class, array(
+                'label' => 'Ville',
+                'attr'  => array(
+                    'placeholder' => 'Ville'
+                ),
+            ))
             ->add('birthDate', 'date', array(
                 'years' => range(1950, 2020),
                 'format' => 'ddMMyyyy',
@@ -29,7 +47,6 @@ class BoosterType extends AbstractType
             ->add('competence4')
             ->add('competence5')
             ->add('competence6')
-            ->add('presentation')
         ;
     }
     

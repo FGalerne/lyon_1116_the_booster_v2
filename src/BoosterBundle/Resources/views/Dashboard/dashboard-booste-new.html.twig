@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+{% block body %}
+    <div class="bloc_new">
+        <h1 class="h1_toppage">Création de votre profil Boosté</h1>
+        <hr>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10 form_new">
+                <img src="{{ asset('img/the-booster-icon-subscription.png') }}">
+            </div>
+        </div>
+    </div>
+
+{% block form %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-4 fform_new_">
+            {{ form_start(form) }}
+                {{ form_widget(form) }}
+            <div class="btn_new"><input type="submit" value="Envoyer" class="btn btn-danger"/></div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% endblock %}

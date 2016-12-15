@@ -62,6 +62,15 @@ class User extends BaseUser
      * @var boolean
      */
     protected $validationSociety = true;
+    /**
+     * @var \BoosterBundle\Entity\Society
+     */
+    private $society;
+    /**
+     * @var \BoosterBundle\Entity\Booster
+     */
+    private $booster;
+
 
     public function __construct()
     {
@@ -220,10 +229,17 @@ class User extends BaseUser
     }
 
     /**
-<<<<<<< HEAD
-     * @var \BoosterBundle\Entity\Booster
+     * Set society
+     *
+     * @param \BoosterBundle\Entity\Society $society
+     *
+     * @return User
      */
-    private $booster;
+    public function setSociety(\BoosterBundle\Entity\Society $society = null)
+    {
+        $this->society = $society;
+
+    }
 
 
     /**
@@ -236,28 +252,36 @@ class User extends BaseUser
     public function setBooster(\BoosterBundle\Entity\Booster $booster = null)
     {
         $this->booster = $booster;
-
         return $this;
     }
 
     /**
-     * Get booster
+     * Get society
      *
+     * @return \BoosterBundle\Entity\Society
+     */
+    public function getSociety()
+    {
+        return $this->society;
+    }
+
+
+    /**
+     * Get booster
      * @return \BoosterBundle\Entity\Booster
      */
     public function getBooster()
     {
         return $this->booster;
     }
-}
-=======
-     * Get validationSociety
+
+    /** Get validationSociety
      *
      * @return boolean
      */
+
     public function getValidationSociety()
     {
         return $this->validationSociety;
     }
 }
->>>>>>> masterdev

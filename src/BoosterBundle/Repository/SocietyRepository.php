@@ -37,4 +37,19 @@
 			;
 			return new Paginator($query);
 		}
+
+        /**
+         * @param $id
+         * @return array
+         */
+        public function getDashboardById($id)
+        {
+            $req = $this->createQueryBuilder('s')
+                ->where('s.id = :id')
+                ->setParameter('id', $id)
+                ->getQuery();
+            return $req->getResult();
+        }
 	}
+
+

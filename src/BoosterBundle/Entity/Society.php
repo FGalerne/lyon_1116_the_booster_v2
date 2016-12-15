@@ -7,11 +7,6 @@ namespace BoosterBundle\Entity;
  */
 class Society
 {
-	public function __toString()
-	{
-		return strval($this->id);
-	}
-
     /**
      * @var integer
      */
@@ -433,6 +428,20 @@ class Society
 
         return $this;
     }
+    
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+    	return strval($this->id);
+    }
+
+    /**
+     * @var \BoosterBundle\Entity\User
+     */
+    private $users;
+
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
@@ -444,6 +453,30 @@ class Society
     public function __construct()
     {
         $this->project_names = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set users
+     *
+     * @param \BoosterBundle\Entity\User $users
+     *
+     * @return Society
+     */
+    public function setUsers(\BoosterBundle\Entity\User $users = null)
+    {
+        $this->users = $users;
+
+        return $this;
+    }
+
+    /**
+     * Get users
+     *
+     * @return \BoosterBundle\Entity\User
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 
     /**
@@ -478,5 +511,35 @@ class Society
     public function getProjectNames()
     {
         return $this->project_names;
+    }
+
+    /**
+     * @var \BoosterBundle\Entity\User
+     */
+    private $user;
+
+
+    /**
+     * Set user
+     *
+     * @param \BoosterBundle\Entity\User $user
+     *
+     * @return Society
+     */
+    public function setUser(\BoosterBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \BoosterBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
