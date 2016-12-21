@@ -10,40 +10,14 @@ namespace BoosterBundle\Repository;
  */
 class MessengerRepository extends \Doctrine\ORM\EntityRepository
 {
-    function myMessages($username){
+    function myMessages($userId){
         $req = $this->createQueryBuilder('a')
-            ->where('a.user1 = :username')
-            ->orWhere('a.user2 = :username')
+            ->where('a.user1 = :userId')
+            ->orWhere('a.user2 = :userId')
             ->orderBy('a.title')
-            ->setParameter('username', $username)
+            ->setParameter('userId', $userId)
             ->getQuery();
 
         return $req->getResult();
-    }
-
-    function insertReadOne($username, $title){
-        $qb = $this->createQueryBuilder('a');
-        $req = $qb->update()
-            ->set('a.user1Read', $qb->expr()->literal(1))
-            ->where('a.title = :title')
-            ->andWhere('a.user1 = :username')
-            ->setParameter('title', $title)
-            ->setParameter('username', $username)
-            ->getQuery();
-
-        return $req->execute();
-    }
-
-    function insertReadTwo($username, $title){
-        $qb = $this->createQueryBuilder('a');
-        $req = $qb->update()
-            ->set('a.user2Read', $qb->expr()->literal(1))
-            ->where('a.title = :title')
-            ->andWhere('a.user2 = :username')
-            ->setParameter('title', $title)
-            ->setParameter('username', $username)
-            ->getQuery();
-
-        return $req->execute();
     }
 }

@@ -2,8 +2,11 @@
 
 namespace BoosterBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,33 +18,34 @@ class MessengerType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', 'text', array(
+            ->add('title', TextType::class, array(
                 'label' => false,
                 'attr'=>array('style'=>'display:none;'),
             ))
-            ->add('user1', 'text', array(
+            ->add('user1', EntityType::class, array(
+                'class' => 'BoosterBundle:User',
                 'label' => false,
                 'attr'=>array('style'=>'display:none;'),
             ))
-            ->add('user2', 'text', array(
+            ->add('user2', EntityType::class, array(
+                'class' => 'BoosterBundle:User',
                 'label' => false,
                 'attr'=>array('style'=>'display:none;'),
             ))
-            ->add('message', 'text', array(
+            ->add('message', TextType::class, array(
                 'label' => false,
                 'attr'=>array('style'=>'display:none;'),
             ))
-            ->add('createTime', 'datetime', array(
+            ->add('createTime', DateTimeType::class, array(
                 'label' => false,
                 'attr'=>array('style'=>'display:none;'),
-                'data' => new \DateTime()
             ))
-            ->add('user1Read', 'text', array(
+            ->add('user1Read', TextType::class, array(
                 'label' => false,
                 'attr'=>array('style'=>'display:none;'),
                 'data' => 0
             ))
-            ->add('user2Read', 'text', array(
+            ->add('user2Read', TextType::class, array(
                 'label' => false,
                 'attr'=>array('style'=>'display:none;'),
                 'data' => 0

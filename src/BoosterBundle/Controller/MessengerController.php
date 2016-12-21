@@ -27,12 +27,6 @@ class MessengerController extends Controller
             'messengers' => $messengers,
         ));
     }
-
-    /**
-     * Creates a new messenger entity.
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     */
     public function newAction(Request $request)
     {
         $messenger = new Messenger();
@@ -40,27 +34,25 @@ class MessengerController extends Controller
         $form = $this->createForm('BoosterBundle\Form\MessengerType', $messenger);
         $form->handleRequest($request);
 
-        $title = $form->getData()->getTitle();
         if ($form->isSubmitted() && $form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
+            $messenger->setCreateTime(new \DateTime('now'));
             $em->persist($messenger);
-            $em->flush($messenger);
+            $em->flush();
 
-            $id = $request->query->get('id');
-
-            $username = $request->query->get('username');
-
-            $em->getRepository('BoosterBundle:Messenger')->insertReadOne($username, $title);
-            $em->getRepository('BoosterBundle:Messenger')->insertReadTwo($username, $title);
-
+        }
+        $id = $request->query->get('id');
+        $role = $request->query->get('role');
+        if($role == 'booster'){
             return $this->redirectToRoute('dashboard_booster',
-               array('id' => $id));
+                array('id' => $id));
+        }
+        else{
+            return $this->redirectToRoute('dashboard_society',
+                array('id' => $id));
         }
 
-        return $this->render('messenger/new.html.twig', array(
-            'messenger' => $messenger,
-            'form' => $form->createView(),
-        ));
     }
 
     /**

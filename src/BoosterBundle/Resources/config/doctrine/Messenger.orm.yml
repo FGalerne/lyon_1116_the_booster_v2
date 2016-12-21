@@ -1,6 +1,6 @@
 BoosterBundle\Entity\Messenger:
     type: entity
-    table: null
+    table: messenger
     repositoryClass: BoosterBundle\Repository\MessengerRepository
     id:
         id:
@@ -12,12 +12,6 @@ BoosterBundle\Entity\Messenger:
         title:
             type: string
             length: 255
-        user1:
-            type: string
-            length: '100'
-        user2:
-            type: string
-            length: '100'
         message:
             type: text
         createTime:
@@ -33,4 +27,30 @@ BoosterBundle\Entity\Messenger:
             column: user2_read
             options:
                 default: false
+
+    manyToOne:
+        user1:
+            targetEntity: User
+            joinTable:
+                name: user1
+                joinColumn:
+                    user1_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    user_id:
+                        referencedColumnName: id
+                        unique: true
+
+        user2:
+            targetEntity: User
+            joinTable:
+                name: user2
+                joinColumn:
+                    user2_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    user_id:
+                        referencedColumnName: id
+                        unique: true
+
     lifecycleCallbacks: {  }

@@ -229,15 +229,11 @@ class User extends BaseUser
     }
 
     /**
-<<<<<<< HEAD
-     * @var \BoosterBundle\Entity\Booster
-=======
      * Set society
      *
      * @param \BoosterBundle\Entity\Society $society
      *
      * @return User
->>>>>>> eaf33c58cf55f9a6d5559674224e293e67f1fce8
      */
     public function setSociety(\BoosterBundle\Entity\Society $society = null)
     {
@@ -287,6 +283,5 @@ class User extends BaseUser
     public function getValidationSociety()
     {
         return $this->validationSociety;
-
     }
 }
