@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "248f7893262d56e4a76a8af6b1f95cc6",
-    "content-hash": "86deb4fa361ff96b69d6565ee3d89d04",
+    "hash": "2f8a8f4ceea179212ebae3f291825682",
+    "content-hash": "fbcc9864a7fc2e890b4a28ce3ec4d215",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -776,6 +776,106 @@
             "time": "2016-09-10 18:51:13"
         },
         {
+            "name": "dpolac/dictionary",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dpolac/dictionary.git",
+                "reference": "7078d8bfe47cfcb11882140f5dbd7c106c1906e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dpolac/dictionary/zipball/7078d8bfe47cfcb11882140f5dbd7c106c1906e6",
+                "reference": "7078d8bfe47cfcb11882140f5dbd7c106c1906e6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-spl": "*",
+                "php": "^5.4 || ^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DPolac\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Damian Polac",
+                    "email": "damian.polac.111@gmail.com"
+                }
+            ],
+            "description": "Collection indexed with objects and scalars",
+            "keywords": [
+                "SplObjectStorage",
+                "array",
+                "dictionary",
+                "hash"
+            ],
+            "time": "2016-06-05 18:29:47"
+        },
+        {
+            "name": "dpolac/twig-lambda",
+            "version": "v0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dpolac/twig-lambda.git",
+                "reference": "703d4440f986035c9010163c79a4afc78894ab80"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dpolac/twig-lambda/zipball/703d4440f986035c9010163c79a4afc78894ab80",
+                "reference": "703d4440f986035c9010163c79a4afc78894ab80",
+                "shasum": ""
+            },
+            "require": {
+                "dpolac/dictionary": "^1.0",
+                "php": "^5.4 || ^7.0",
+                "twig/twig": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DPolac\\TwigLambda\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Damian Polac",
+                    "email": "damian.polac.111@gmail.com"
+                }
+            ],
+            "description": "Lambda expressions for Twig and filters that make use of them",
+            "keywords": [
+                "filter",
+                "function",
+                "functional",
+                "group",
+                "lambda",
+                "map",
+                "sort",
+                "unique"
+            ],
+            "time": "2016-06-11 13:10:51"
+        },
+        {
             "name": "excelwebzone/recaptcha-bundle",
             "version": "v1.4.4",
             "source": {
@@ -828,7 +928,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/7261f7aa143b4bfdb0b7ddc5df208067fa7be698",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/03ce036476ac45fac6f84cec7542062b12900ecb",
                 "reference": "7261f7aa143b4bfdb0b7ddc5df208067fa7be698",
                 "shasum": ""
             },

@@ -4,8 +4,21 @@
 {% block h1 %}<h1 class="h1_toppage">Votre compte est maintenant activé</h1>{% endblock %}
 
 {% block validation_content %}
-    <p class="text-center">{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
-    {% if targetUrl %}
-    <p class="text-center"><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+        <!--Booste-->
+    {% if user.roles == ['ROLE_BOOSTE', 'ROLE_USER'] %}
+        <div class="new-profil">
+            <p class="text-center">Merci {{ user.firstName }}, vous pouvez à présent créer votre profil.</p>
+        </div>
+        <div class="text-center new-profil">
+            <a href="" class="home_carousel_btn_lien"><strong>Je crée mon profil</strong></a>
+        </div>
+        <!--Booster-->
+    {% else %}
+        <div class="new-profil">
+            <p class="text-center">Merci {{ user.firstName }}, vous pouvez à présent créer votre profil.</p>
+        </div>
+        <div class="text-center new-profil">
+            <a href="" class="home_carousel_btn_lien"><strong>Je crée mon profil</strong></a>
+        </div>
     {% endif %}
 {% endblock validation_content %}

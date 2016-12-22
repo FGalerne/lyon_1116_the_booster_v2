@@ -16,3 +16,6 @@ services:
         tags:
             - { name: form.type, alias: tel }
 
+     dpolac.twig_lambda.extension:
+        class: DPolac\TwigLambda\LambdaExtension
+        tags: [ { name: twig.extension } ]

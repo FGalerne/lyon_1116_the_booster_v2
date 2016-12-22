@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Messengers list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>User1</th>
+                <th>User2</th>
+                <th>Message</th>
+                <th>Createtime</th>
+                <th>User1read</th>
+                <th>User2read</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for messenger in messengers %}
+            <tr>
+                <td><a href="{{ path('messenger_show', { 'id': messenger.id }) }}">{{ messenger.id }}</a></td>
+                <td>{{ messenger.title }}</td>
+                <td>{{ messenger.user1 }}</td>
+                <td>{{ messenger.user2 }}</td>
+                <td>{{ messenger.message }}</td>
+                <td>{% if messenger.createTime %}{{ messenger.createTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if messenger.user1Read %}Yes{% else %}No{% endif %}</td>
+                <td>{% if messenger.user2Read %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('messenger_show', { 'id': messenger.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('messenger_edit', { 'id': messenger.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('messenger_new') }}">Create a new messenger</a>
+        </li>
+    </ul>
+{% endblock %}

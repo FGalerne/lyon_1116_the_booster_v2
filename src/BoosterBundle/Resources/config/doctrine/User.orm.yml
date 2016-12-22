@@ -1,6 +1,7 @@
 BoosterBundle\Entity\User:
     type:  entity
     table: fos_user
+    repositoryClass: BoosterBundle\Repository\UserRepository
     id:
         id:
             type: integer

@@ -1,128 +1,145 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
     {% for booster in boosters %}
-    <section class="container-fluid global-presentation">
-        <div class="container">
-            <div class="col-md-3 avatar">
-                <img src="{{ asset('img/avatar-test.jpg') }}" alt="photo-avatar" />
+        <section class="container-fluid global-presentation">
+            <div class="container">
+                <div class="col-md-3 avatar">
+                    <img src="{{ asset( booster.photo ) }}" alt="photo-avatar" />
+                </div>
+
+            {# Personnal information of the booster #}
+
+                <div class="col-md-3 personnal-information">
+                    <p>Civilité : {{ booster.user.title }}</p>
+                    <p>Prénom : {{ booster.user.firstName }}</p>
+                    <p>Nom : {{ booster.user.lastName }}</p>
+                    <p>Email: {{ booster.user.email }}</p>
+                    <p>N° de tel: {{ booster.user.phone }}</p>
+                </div>
+
+                {# The statistic of the booster hour given / projects done and average notation #}
+
+                <div class="col-md-3 col-md-offset-3" id="statistic-booster">
+                    <p>Heures données : {{ booster.hoursGiven }}</p>
+                    <p>Projets soutenus : {{ booster.projectDoneNumber }}</p>
+                    <p>Note des boostés : {{ booster.averageNotation }}</p>
+                    <ul>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                    </ul>
+                </div>
             </div>
+        </section>
 
-        {# Personnal information of the booster #}
-
-            <div class="col-md-3 personnal-information">
-                <p>Civilité : {{ booster.user.title }}</p>
-                <p>Prénom : {{ booster.user.firstName }}</p>
-                <p>Nom : {{ booster.user.lastName }}</p>
-                <p>Email: {{ booster.user.email }}</p>
-                <p>N° de tel: {{ booster.user.phone }}</p>
-            </div>
-
-            {# The statistic of the booster hour given / projects done and average notation #}
-
-            <div class="col-md-3 col-md-offset-3" id="statistic-booster">
-                <p>Heures données : {{ booster.hoursGiven }}</p>
-                <p>Projets soutenus : {{ booster.projectDoneNumber }}</p>
-                <p>Note des boostés : {{ booster.averageNotation }}</p>
-                <ul>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <hr class="dashboard-separation">
+        <hr class="dashboard-separation">
 
         {# The navigation bar home / projects in progress / projects done #}
 
-    <section class="container-fluid">
-        <div class="container">
-            <div class="col-xs-12" id="navbar-dashboard">
-                <ul class="nav nav-pills">
-                    <li><a href="#" id="project-home">Accueil</a></li>
-                    <li><a href="#" id="project-in-progress">Projets en cours</a></li>
-                    <li><a href="#" id="project-done">Projets réalisés</a></li>
-                </ul>
+        <section class="container-fluid">
+            <div class="container">
+                <div class="col-xs-12" id="navbar-dashboard">
+                    <ul class="nav nav-pills">
+                        <li><a id="project-home">Accueil</a></li>
+                        <li><a id="project-in-progress">Projets en cours</a></li>
+                        <li><a id="project-done">Projets réalisés</a></li>
+                        <li><a id="messenger">Messages</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
         {# The personnal information of the booster #}
 
-        <section class="container-fluid presentation-booster">
-        <div class="container">
-            <p>Lieu de résidence : {{ booster.city }} </p>
-            <p>Code Postal : {{ booster.zipCode }}</p>
-            <p>Date de naissance : {% if booster.birthDate %}{{ booster.birthDate|date('d-m-Y') }}{% endif %} </p>
-            <p>Métier : {{ booster.workStatus }}</p>
+        <section id="dashboard-booster-home" class="container-fluid presentation-booster">
+            <div class="container">
+                <p>Lieu de résidence : {{ booster.city }} </p>
+                <p>Code Postal : {{ booster.zipCode }}</p>
+                <p>Date de naissance : {% if booster.birthDate %}{{ booster.birthDate|date('d-m-Y') }}{% endif %} </p>
+                <p>Métier : {{ booster.workStatus }}</p>
 
-            <h3>Mes principales compétences :</h3>
+                <h3>Mes principales compétences :</h3>
 
-            <div class="col-xs-12 booster-skill">
-                <ul>
-                    <li>{{ booster.competence1 }}</li>
-                    <li>{{ booster.competence2 }}</li>
-                    <li>{{ booster.competence3 }}</li>
-                    <li>{{ booster.competence4 }}</li>
-                    <li>{{ booster.competence5 }}</li>
-                    <li>{{ booster.competence6 }}</li>
-                </ul>
+                <div class="col-xs-12 booster-skill">
+                    <ul>
+                        <li>{{ booster.competence1 }}</li>
+                        <li>{{ booster.competence2 }}</li>
+                        <li>{{ booster.competence3 }}</li>
+                        <li>{{ booster.competence4 }}</li>
+                        <li>{{ booster.competence5 }}</li>
+                        <li>{{ booster.competence6 }}</li>
+                    </ul>
+                </div>
+
+                {# The presentation text of the booster #}
+
+                <h3>Présentation :</h3>
+                <div class="col-xs-12 presentation-text">
+                    <p>{{ booster.presentation }}</p>
+                </div>
+                <input type="submit" value="VALIDER" class="btn btn-danger" id="button-dashboard"/>
             </div>
-
-            {# The presentation text of the booster #}
-
-            <h3>Présentation :</h3>
-            <div class="col-xs-12 presentation-text">
-                <p>{{ booster.presentation }}</p>
-            </div>
-            <input type="submit" value="VALIDER" class="btn btn-danger" id="button-dashboard"/>
-        </div>
-    </section>
+        </section>
 
         {# The Project part "IN PROGRESS" #}
 
-        <section class="container-fluid presentation-booster" id="class-active">
-        <div class="container project-in-progress">
-            <div class="col-xs-6 col-md-3">
-                <p>Nom de la société</p>
-                <p>blablabla</p>
+        <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
+            <div class="container project-in-progress">
+                <div class="col-xs-6 col-md-3">
+                    <p>Nom de la société</p>
+                    <p>blablabla</p>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <p>Nom du projet :</p>
+                    <p>blablabla</p>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <p>Nombre d'heures:</p>
+                    <p>blablabla</p>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <p>Statut:</p>
+                    <p>Réalisé</p>
+                </div>
             </div>
-            <div class="col-xs-6 col-md-3">
-                <p>Nom du projet :</p>
-                <p>blablabla</p>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <p>Nombre d'heures:</p>
-                <p>blablabla</p>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <p>Statut:</p>
-                <p>Réalisé</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
         {# The Project part "DONE" #}
 
-        <section class="container-fluid presentation-booster" id="class-active">
-        <div class="container project-done">
-            <div class="col-xs-6 col-md-3">
-                <p>Nom de la société</p>
+        <section class="container-fluid presentation-booster" id="dashboard-booster-done">
+            <div class="container project-done">
+                <div class="col-xs-6 col-md-3">
+                    <p>Nom de la société</p>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <p>Nom du projet :</p>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <p>Nombre d'heures:</p>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <p>Statut:</p>
+                </div>
             </div>
-            <div class="col-xs-6 col-md-3">
-                <p>Nom du projet :</p>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <p>Nombre d'heures:</p>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <p>Statut:</p>
-            </div>
-        </div>
-    </section>
+        </section>
     {% endfor %}
+    {% include 'BoosterBundle:Dashboard:messenger.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/dashboards.js')}}"></script>
+    <script src="{{ asset('js/messenger.js')}}"></script>
+    <script>
+        tinymce.init({
+            selector:'.WYSIWYG',
+            forced_root_block: false,
+            menubar: 'tools',
+            toolbar: 'undo redo | bold italic underline strikethrough | fontsizeselect',
+            height : 300,
+        });
+    </script>
 {% endblock %}
