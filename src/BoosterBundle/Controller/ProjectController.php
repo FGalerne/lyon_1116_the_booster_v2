@@ -126,4 +126,20 @@ class ProjectController extends Controller
             ->getForm()
         ;
     }
+
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     * Displays the page to note and comment the experience
+     */
+    public function notesBoosterAction()
+    {
+        return $this-> render('BoosterBundle:Notes:notes_comments_booster.html.twig');
+    }
+
+    public function notesSocietyAction()
+    {
+        return $this-> render('BoosterBundle:Notes:notes_comments_society.html.twig');
+    }
+
 }
