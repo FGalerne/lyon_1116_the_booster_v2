@@ -59,8 +59,8 @@
 
                         <li><a href="{{ path('fos_user_security_logout') }}" class="log-nav">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
 
-                        <li>{% elseif is_granted('ROLE_BOOSTE') %} {% if app.user.society == null  %}<a href class="log-nav">Bienvenue  {{ app.user.firstName }}</a></li>
-                        <li><a href="{{ path('dashboard_society',{'id':app.user.id}) }}" class="log-nav" >{{ app.user.username }}</a></li>
+                        <li>{% elseif is_granted('ROLE_BOOSTE') %} {% if app.user.society == null %} <a href="{{ path('dashboard_society_new',{'id':app.user.id}) }}" class="log-nav">Bienvenue  {{ app.user.firstName }}</a></li>
+                        {#<li><a href="{{ path('dashboard_society',{'id':app.user.id}) }}" class="log-nav" >{{ app.user.username }}</a></li>#}
                         <li><a href="{{ path('dashboard_society_edit',{'id':app.user.id}) }}" class="log-nav"><img src="{{ asset('/img/profile-configuration.png')}}" alt="The Booster logo"></a></li>
 
                         <li>{% else %}<a href class="log-nav">Bienvenue  {{ app.user.firstName }}</a></li>

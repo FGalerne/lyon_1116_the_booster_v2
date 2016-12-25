@@ -10,7 +10,7 @@
                     <div class="row">
                         <img src="{{ society.photo }}" alt="photo couverture société" />
                     </div>
-                    <h2>{{ society.punchLine }}</h2>
+                    <h2>{{ society.punchLine | raw }}</h2>
                     <div class="col-xs-12" id="navbar-dashboard">
                         <ul class="nav nav-pills">
                             <li><a id="project-home">Accueil</a></li>
@@ -21,7 +21,7 @@
                     </div>
 
                     <div id="dashboard-booster-home" class="col-xs-12 presentation-text">
-                        <p>{{ society.presentation }}</p>
+                        <p>{{ society.presentation | raw }}</p>
                     </div>
 
                     <div class="col-xs-12 dashboard-social-media">
