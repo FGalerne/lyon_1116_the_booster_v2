@@ -173,6 +173,15 @@ easy_admin:
                     - category
                     - description
                     - { property: 'creation_status', type:'choice', type_options: {choices: {'Accepte':'Accepté', 'Refuse':'Refusé', 'Accepte':'Supprimé'}}}
+        FAQ:
+            class: BoosterBundle\Entity\Faq
+            label: "FAQ"
+            list:
+                fields:
+                    - question
+                    - { property: 'question', label: 'Questions' }
+                    - answer
+                    - { property: 'answer', label: 'Réponse' }
 
 ewz_recaptcha:
     public_key: 6LenAQsUAAAAADIzPqfQyen9j7GbLkVEXJ0gzBAj
