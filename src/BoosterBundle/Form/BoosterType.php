@@ -3,7 +3,9 @@
 namespace BoosterBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -18,7 +20,10 @@ class BoosterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('photo')
+            ->add('photo', FileType::class, array(
+                'label' => 'Avatar'
+                )
+            )
             ->add('presentation', TextareaType::class, array(
                 'label' => 'Texte de présentation (200 caractères max)',
                 'required' => false,
@@ -43,12 +48,114 @@ class BoosterType extends AbstractType
                 'format' => 'ddMMyyyy',
             ))
             ->add('workStatus')
-            ->add('competence1')
-            ->add('competence2')
-            ->add('competence3')
-            ->add('competence4')
-            ->add('competence5')
-            ->add('competence6')
+            ->add('competence1', ChoiceType::class, array(
+                'label' => 'competence1 ',
+                'attr' => array('class' => 'form-control form-group'),
+                'choices'  => array(
+                    'competence1' => 'competence1',
+                    'competence2' => 'competence2',
+                    'competence3' => 'competence3',
+                    'competence4' => 'competence4',
+                    'competence5' => 'competence5',
+                    'competence6' => 'competence6',
+                    'competence7' => 'competence7',
+                    'competence8' => 'competence8',
+                    'competence9' => 'competence9',
+                    'competence10' => 'competence10',
+                    'competence11' => 'competence11',
+                    'competence12' => 'competence12',
+                )
+            ))
+            ->add('competence2', ChoiceType::class, array(
+                'label' => 'competence2 ',
+                'attr' => array('class' => 'form-control form-group'),
+                'choices'  => array(
+                    'competence1' => 'competence1',
+                    'competence2' => 'competence2',
+                    'competence3' => 'competence3',
+                    'competence4' => 'competence4',
+                    'competence5' => 'competence5',
+                    'competence6' => 'competence6',
+                    'competence7' => 'competence7',
+                    'competence8' => 'competence8',
+                    'competence9' => 'competence9',
+                    'competence10' => 'competence10',
+                    'competence11' => 'competence11',
+                    'competence12' => 'competence12',
+                )
+            ))
+            ->add('competence3', ChoiceType::class, array(
+                'label' => 'competence3 ',
+                'attr' => array('class' => 'form-control form-group'),
+                'choices'  => array(
+                    'competence1' => 'competence1',
+                    'competence2' => 'competence2',
+                    'competence3' => 'competence3',
+                    'competence4' => 'competence4',
+                    'competence5' => 'competence5',
+                    'competence6' => 'competence6',
+                    'competence7' => 'competence7',
+                    'competence8' => 'competence8',
+                    'competence9' => 'competence9',
+                    'competence10' => 'competence10',
+                    'competence11' => 'competence11',
+                    'competence12' => 'competence12',
+                )
+            ))
+            ->add('competence4', ChoiceType::class, array(
+                'label' => 'competence4 ',
+                'attr' => array('class' => 'form-control form-group'),
+                'choices'  => array(
+                    'competence1' => 'competence1',
+                    'competence2' => 'competence2',
+                    'competence3' => 'competence3',
+                    'competence4' => 'competence4',
+                    'competence5' => 'competence5',
+                    'competence6' => 'competence6',
+                    'competence7' => 'competence7',
+                    'competence8' => 'competence8',
+                    'competence9' => 'competence9',
+                    'competence10' => 'competence10',
+                    'competence11' => 'competence11',
+                    'competence12' => 'competence12',
+                )
+            ))
+            ->add('competence5', ChoiceType::class, array(
+                'label' => 'competence5 ',
+                'attr' => array('class' => 'form-control form-group'),
+                'choices'  => array(
+                    'competence1' => 'competence1',
+                    'competence2' => 'competence2',
+                    'competence3' => 'competence3',
+                    'competence4' => 'competence4',
+                    'competence5' => 'competence5',
+                    'competence6' => 'competence6',
+                    'competence7' => 'competence7',
+                    'competence8' => 'competence8',
+                    'competence9' => 'competence9',
+                    'competence10' => 'competence10',
+                    'competence11' => 'competence11',
+                    'competence12' => 'competence12',
+                )
+            ))
+            ->add('competence6', ChoiceType::class, array(
+                'label' => 'competence6 ',
+                'attr' => array('class' => 'form-control form-group'),
+                'choices'  => array(
+                    'competence1' => 'competence1',
+                    'competence2' => 'competence2',
+                    'competence3' => 'competence3',
+                    'competence4' => 'competence4',
+                    'competence5' => 'competence5',
+                    'competence6' => 'competence6',
+                    'competence7' => 'competence7',
+                    'competence8' => 'competence8',
+                    'competence9' => 'competence9',
+                    'competence10' => 'competence10',
+                    'competence11' => 'competence11',
+                    'competence12' => 'competence12',
+                )
+            ))
         ;
     }
     

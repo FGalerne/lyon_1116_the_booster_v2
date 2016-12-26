@@ -133,6 +133,18 @@ class DashboardController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $booster->setUser($this->getUser());
+
+            $file = $booster->getPhoto();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('photo_tmp'),
+                $fileName
+            );
+            $this->get('util.imageresizer')->resizeImage('img/uploads/tmp/'.$fileName, $this->getParameter('photo_booster_directory') , $width=256);
+            unlink('img/uploads/tmp/'.$fileName);
+
+            $booster->setPhoto($fileName);
+
             $em->persist($booster);
             $em->flush($booster);
 

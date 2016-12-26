@@ -8,6 +8,8 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
+    photo_booster_directory: '%kernel.root_dir%/../web/img/uploads/boosters/'
+    photo_tmp: '%kernel.root_dir%/../web/img/uploads/tmp'
 
 framework:
     #esi:             ~
@@ -194,3 +196,4 @@ twig:
     form:
         resources:
             - 'BoosterBundle:Form:fields.html.twig'
+
