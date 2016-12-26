@@ -21,28 +21,8 @@
             toolbar: 'undo redo | bold italic underline strikethrough | fontsizeselect',
             height : 300,
             plugins: "charactercount",
-            setup: function (editor) {
-                editor.on('keyup', function(e) {
-                    var count = this.plugins["charactercount"].getCount();
-                    if (count > 200)
-                        $('#mceu_7-body').css('border', 'solid 1px red');
-                    else
-                        $('#mceu_7-body').css('border', 'none');
-                });
-                editor.on('submit', function(e) {
-                    var count = this.plugins["charactercount"].getCount();
-                    if (count > 200){
-                        e.preventDefault();
-                    }
-                    else{}
-
-                });
-
-            },
-            init_instance_callback: function (editor) {
-                $('.mce-tinymce').show('fast');
-                $(editor.getContainer()).find(".mce-path").css("display", "none");
-            }
+            maxCount: 200,
+            minCount: 1
         });
     </script>
 {% endblock %}

@@ -12,3 +12,18 @@
         </div>
     </section>
 {% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/countdown.js')}}"></script>
+    <script>
+        tinymce.init({
+            selector:'.WYSIWYG',
+            forced_root_block: false,
+            menubar: 'tools',
+            toolbar: 'undo redo | bold italic underline strikethrough | fontsizeselect',
+            height : 300,
+            plugins: "charactercount",
+            maxCount: 200,
+            minCount: 1
+        });
+    </script>
+{% endblock %}

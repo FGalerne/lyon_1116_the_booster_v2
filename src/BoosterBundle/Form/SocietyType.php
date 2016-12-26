@@ -32,19 +32,17 @@ class SocietyType extends AbstractType
                     ),
                 ))
                 ->add('punchLine', TextType::class, array(
-                    'label' => 'Phrase courte de présentation',
+                    'label' => 'Phrase courte de présentation (140 caractères max)',
                     'required' => false,
                     'attr'  => array(
-                        'class' => 'WYSIWYG form-control form-group',
-                        'placeholder' => '140 caractères max'
+                        'class' => 'WYSIWYG1 form-control form-group',
                     ),
                 ))
                 ->add('presentation', TextareaType::class, array(
-                    'label' => 'Texte de présentation de votre société',
+                    'label' => 'Texte de présentation de votre société (500 caractères max)',
                     'required' => false,
                     'attr'  => array(
-                        'class' => 'WYSIWYG form-control form-group',
-                        'placeholder' => '500 caractère max'
+                        'class' => 'WYSIWYG2 form-control form-group',
                     ),
                 ))
                 ->add('linkedin', TextType::class, array(

@@ -20,9 +20,10 @@ class BoosterType extends AbstractType
         $builder
             ->add('photo')
             ->add('presentation', TextareaType::class, array(
-                'label' => 'Texte de présentation',
-                'attr'  => array(
-                    'placeholder' => 'Présentez-vous'
+                'label' => 'Texte de présentation (200 caractères max)',
+                'required' => false,
+                'attr' => array(
+                    'class' => 'WYSIWYG form-control form-group',
                 ),
             ))
             ->add('zipCode', NumberType::class, array(
