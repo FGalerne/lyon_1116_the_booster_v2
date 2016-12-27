@@ -51,7 +51,7 @@ class BoosterType extends AbstractType
             ))
             ->add('workStatus')
             ->add('competence1', ChoiceType::class, array(
-                'label' => 'competence1 ',
+                'label' => 'competence principale',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
                     'competence1' => 'competence1',
@@ -69,7 +69,7 @@ class BoosterType extends AbstractType
                 )
             ))
             ->add('competence2', ChoiceType::class, array(
-                'label' => 'competence2 ',
+                'label' => 'autre compétence',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
                     null => 'aucune',
@@ -89,7 +89,7 @@ class BoosterType extends AbstractType
                 'required' => false,
             ))
             ->add('competence3', ChoiceType::class, array(
-                'label' => 'competence3 ',
+                'label' => 'autre compétence',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
                     null => 'aucune',
@@ -109,7 +109,7 @@ class BoosterType extends AbstractType
                 'required' => false,
             ))
             ->add('competence4', ChoiceType::class, array(
-                'label' => 'competence4 ',
+                'label' => 'autre compétence',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
                     null => 'aucune',
@@ -129,7 +129,7 @@ class BoosterType extends AbstractType
                 'required' => false,
             ))
             ->add('competence5', ChoiceType::class, array(
-                'label' => 'competence5 ',
+                'label' => 'autre compétence',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
                     null => 'aucune',
@@ -149,7 +149,7 @@ class BoosterType extends AbstractType
                 'required' => false,
             ))
             ->add('competence6', ChoiceType::class, array(
-                'label' => 'competence6 ',
+                'label' => 'autre compétence',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
                     null => 'aucune',

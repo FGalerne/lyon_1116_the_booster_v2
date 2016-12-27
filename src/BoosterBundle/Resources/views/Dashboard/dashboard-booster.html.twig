@@ -12,11 +12,10 @@
             {# Personnal information of the booster #}
 
                 <div class="col-md-3 personnal-information">
-                    <p>Civilité : {{ booster.user.title }}</p>
-                    <p>Prénom : {{ booster.user.firstName }}</p>
-                    <p>Nom : {{ booster.user.lastName }}</p>
-                    <p>Email: {{ booster.user.email }}</p>
-                    <p>N° de tel: {{ booster.user.phone }}</p>
+                    <p><strong>Civilité</strong> : {{ booster.user.title }}</p>
+                    <p><strong>Prénom</strong> : {{ booster.user.firstName }}</p>
+                    <p><strong>Nom</strong> : {{ booster.user.lastName }}</p>
+                    <p><strong>Email</strong> : {{ booster.user.email }}</p>
                 </div>
 
                 {# The statistic of the booster hour given / projects done and average notation #}
@@ -36,14 +35,14 @@
             </div>
         </section>
 
-        <hr class="dashboard-separation">
+        {#<hr class="dashboard-separation">#}
 
         {# The navigation bar home / projects in progress / projects done #}
 
         <section class="container-fluid">
-            <div class="container">
+            <div class="container dashboard-nav-container">
                 <div class="col-xs-12" id="navbar-dashboard">
-                    <ul class="nav nav-pills">
+                    <ul class="nav nav-pills dashboard-nav">
                         <li><a id="project-home">Accueil</a></li>
                         <li><a id="project-in-progress">Projets en cours</a></li>
                         <li><a id="project-done">Projets réalisés</a></li>
@@ -57,27 +56,33 @@
 
         <section id="dashboard-booster-home" class="container-fluid presentation-booster">
             <div class="container">
-                <p>Lieu de résidence : {{ booster.city }} </p>
-                <p>Code Postal : {{ booster.zipCode }}</p>
-                <p>Date de naissance : {% if booster.birthDate %}{{ booster.birthDate|date('d-m-Y') }}{% endif %} </p>
-                <p>Métier : {{ booster.workStatus }}</p>
+                <div class="row">
+                    <div class="col-xs-12 col-md-4">
+                        <h3 class="text-left">Mes coordonnées :</h3>
+                        <p><strong>Lieu de résidence</strong> : {{ booster.city }} </p>
+                        <p><strong>Code Postal</strong> : {{ booster.zipCode }}</p>
+                        <p><strong>Date de naissance</strong> : {% if booster.birthDate %}{{ booster.birthDate|date('d-m-Y') }}{% endif %} </p>
+                        <p><strong>Métier</strong> : {{ booster.workStatus }}</p>
+                    </div>
 
-                <h3>Mes principales compétences :</h3>
-
-                <div class="col-xs-12 booster-skill">
-                    <ul>
-                        <li>{{ booster.competence1 }}</li>
-                        <li>{{ booster.competence2 }}</li>
-                        <li>{{ booster.competence3 }}</li>
-                        <li>{{ booster.competence4 }}</li>
-                        <li>{{ booster.competence5 }}</li>
-                        <li>{{ booster.competence6 }}</li>
-                    </ul>
+                    <div class="col-xs-12 col-md-8 booster-skill">
+                        <h3 class="text-left">Mes principales compétences :</h3>
+                        <p><strong>Compétence principale</strong> : {{ booster.competence1 }}</p>
+                        <p><strong>Mes autres compétences</strong> : </p>
+                        <p>
+                            {% if booster.competence2 %}{{ booster.competence2 }}, {% endif %}
+                            {% if booster.competence3 %}{{ booster.competence3 }}, {% endif %}
+                            {% if booster.competence4 %}{{ booster.competence4 }}, {% endif %}
+                        </p>
+                        <p>
+                            {% if booster.competence5 %}{{ booster.competence5 }}, {% endif %}
+                            {% if booster.competence6 %}{{ booster.competence6 }} {% endif %}
+                        </p>
+                    </div>
                 </div>
-
                 {# The presentation text of the booster #}
 
-                <h3>Présentation :</h3>
+                <h3 class="text-left">Ma présentation:</h3>
                 <div class="col-xs-12 presentation-text">
                     <p>{{ booster.presentation }}</p>
                 </div>
