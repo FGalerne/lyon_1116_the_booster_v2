@@ -45,7 +45,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li>{% if is_granted("ROLE_BOOSTE") %} <a href="{{ path('new_project') }}">Proposer un projet</a>{% endif %}</li>
+                        <li>{% if is_granted("ROLE_BOOSTE") %}<a href="{{ path('new_project') }}">Proposer un projet</a>{% endif %}</li>
                         <li><a href="{{ path('list_society') }}">Liste des sociétés</a></li>
                         <li><a href="{{ path('booster_how_it_works') }}">Comment ça marche</a></li>
                     </ul>
@@ -54,11 +54,25 @@
                 {# DROP DOWN WHITH PROFILE / EDIT PROFILE / DISCONNECT #}
 
                     {# FIRST PART FOR THE ROLE BOOSTER #}
-                {#
                     {% if is_granted('ROLE_BOOSTER') %}
-                    <div class="nav navbar-nav navbar-right btn-group">
+                    <div class="nav navbar-nav navbar-right btn-group drop-nav-perso">
+                        <li class="dropdown">
+                            {% if app.user.booster == null  %}
+                            <a href="{{ path('dashboard_booster_new',{'id':app.user.id}) }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user" aria-hidden="true"></i>{{ app.user.username }}<span class="caret"></span>
+                            </a>
+                            {% else %}<a href class="log-nav"><i class="fa fa-user" aria-hidden="true"></i>Bonjour, {{ app.user.firstName }}</a>{% endif %}
+                            <ul class="dropdown-menu">
+
+                            </ul>
+                        </li>
+                    </div>
+
+                    {#
+                    {% if is_granted('ROLE_BOOSTER') %}
+                    <div class="nav navbar-nav navbar-right btn-group drop-nav-perso">
                         <button type="button" class="btn">
-                            {% if app.user.booster == null  %} <a href="{{ path('dashboard_booster_new',{'id':app.user.id}) }}" class="log-nav"><i class="fa fa-user" aria-hidden="true">{{ app.user.username }}</a>
+                            {% if app.user.booster == null  %}<a href="{{ path('dashboard_booster_new',{'id':app.user.id}) }}" class="log-nav"><i class="fa fa-user" aria-hidden="true"></i>{{ app.user.username }}</a>
                             {% else %}<a href class="log-nav"><i class="fa fa-user" aria-hidden="true"></i>Bienvenue  {{ app.user.firstName }}</a>
                         </button>
                         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -71,38 +85,39 @@
                             <li role="separator" class="divider"></li>
                             <li><a href="{{ path('fos_user_security_logout') }}" class="log-nav">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
                         </ul>
-                    </div>
+                    </div>    #}
 
                     {# SECOND PART FOR THE ROLE BOOSTE #}
-                    {#
+
                     {% elseif is_granted('ROLE_BOOSTE') %}
                         <div class="nav navbar-nav navbar-right btn-group">
-                        <button type="button" class="btn">
-                            {% if app.user.society == null  %} <a href="{{ path('dashboard_society_new',{'id':app.user.id}) }}" class="log-nav" >Bienvenue {{ app.user.username }}</a>
-                            {% else %}<a href class="log-nav">Bienvenue  {{ app.user.firstName }}</a>
-                        </button>
-                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="caret"></span>
-                            <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ path('dashboard_society',{'id':app.user.id}) }}" class="log-nav" ><i class="fa fa-user" aria-hidden="true"></i>Dashboard</a></li>
-                            <li><a href="{{ path('dashboard_society_edit',{'id':app.user.id}) }}" class="log-nav"><i class="fa fa-cog" aria-hidden="true"></i>Editez votre profile</a>{% endif %}</li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="{{ path('fos_user_security_logout') }}" class="log-nav">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
-                        </ul>
+                            <button type="button" class="btn">
+                                {% if app.user.society == null  %} <a href="{{ path('dashboard_society_new',{'id':app.user.id}) }}" class="log-nav" >Bienvenue {{ app.user.username }}</a>
+                                {% else %}<a href class="log-nav">Bienvenue  {{ app.user.firstName }}</a>
+                            </button>
+                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('dashboard_society',{'id':app.user.id}) }}" class="log-nav" ><i class="fa fa-user" aria-hidden="true"></i>Dashboard</a></li>
+                                <li><a href="{{ path('dashboard_society_edit',{'id':app.user.id}) }}" class="log-nav"><i class="fa fa-cog" aria-hidden="true"></i>Editez votre profile</a>{% endif %}</li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}" class="log-nav">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+                            </ul>
                         </div>
 
                     {# THIRD PART LAST PART #}
-                    {#
+
                     {% else %}
                     <div class="nav navbar-nav navbar-right btn-group">
                         <ul class="dropdown-menu">
                             <li><a href="{{ path('booster_inscription_choix') }}" class="login-index">Inscription</a>
                             <li><a href="{{ path('fos_user_security_login') }}" class="login-index">Connexion</a>
                         </ul>
-                    </div>{% endif %} #}
-
+                    </div>
+                    {% endif %}
+                    {#
                         <ul class="nav navbar-nav navbar-right">
                             <li>{% if is_granted('ROLE_BOOSTER') %} {% if app.user.booster == null  %} <a href="{{ path('dashboard_booster_new',{'id':app.user.id}) }}" class="log-nav" >{{ app.user.username }}</a></li>
                             <li>{% else %}<a href class="log-nav">Bienvenue  {{ app.user.firstName }}</a></li>
@@ -132,7 +147,7 @@
                                     <a href="https://fr.linkedin.com/in/the-booster-059bb1130" target="_blank"><img src="{{ asset('/img/linkedin-the-booster-black.png')}}" alt="linkedin"></a>
                                 </div>
                             </li>
-                        </ul>
+                        </ul>#}
                 </div>
             </div>
         </nav>

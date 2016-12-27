@@ -1026,6 +1026,10 @@ hr{
 	background-color: rgba(255, 255, 255, 0.1);
 }
 
+.drop-nav-perso i {
+	color: #000000;
+}
+
 .presentation-booster {
 	margin-bottom: 60px;
 }
