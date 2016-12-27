@@ -56,38 +56,41 @@
                     {# FIRST PART FOR THE ROLE BOOSTER #}
                     {% if is_granted('ROLE_BOOSTER') %}
                     <div class="nav navbar-nav navbar-right btn-group drop-nav-perso">
-                        <li class="dropdown">
+                        <div class="dropdown">
                             {% if app.user.booster == null  %}
-                            <a href="{{ path('dashboard_booster_new',{'id':app.user.id}) }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-user" aria-hidden="true"></i>{{ app.user.username }}<span class="caret"></span>
+                            <a href="{{ path('dashboard_booster_new',{'id':app.user.id}) }}" class="log-nav">
+                                <i class="fa fa-user" aria-hidden="true"></i>{{ app.user.username }} Cliquez ici pour compléter votre profile!<span class="caret"></span>
                             </a>
-                            {% else %}<a href class="log-nav"><i class="fa fa-user" aria-hidden="true"></i>Bonjour, {{ app.user.firstName }}</a>{% endif %}
+                            {% else %}
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>Bonjour {{ app.user.firstName }}</a>
                             <ul class="dropdown-menu">
-
+                                <li><a href="{{ path('dashboard_booster',{'id':app.user.booster.id}) }}" class="log-nav"><i class="fa fa-user" aria-hidden="true"></i>Dashboard</a></li>
+                                <li><a href="{{ path('dashboard_booster_edit',{'id':app.user.booster.id}) }}" class="log-nav"><i class="fa fa-cog" aria-hidden="true"></i>Editez votre profile</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}" class="log-nav"><i class="fa fa-power-off" aria-hidden="true"></i> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
                             </ul>
-                        </li>
-                    </div>
-
-                    {#
-                    {% if is_granted('ROLE_BOOSTER') %}
-                    <div class="nav navbar-nav navbar-right btn-group drop-nav-perso">
-                        <button type="button" class="btn">
-                            {% if app.user.booster == null  %}<a href="{{ path('dashboard_booster_new',{'id':app.user.id}) }}" class="log-nav"><i class="fa fa-user" aria-hidden="true"></i>{{ app.user.username }}</a>
-                            {% else %}<a href class="log-nav"><i class="fa fa-user" aria-hidden="true"></i>Bienvenue  {{ app.user.firstName }}</a>
-                        </button>
-                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="caret"></span>
-                            <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ path('dashboard_booster',{'id':app.user.booster.id}) }}" class="log-nav"><i class="fa fa-user" aria-hidden="true"></i>Dashboard</a></li>
-                            <li><a href="{{ path('dashboard_booster_edit',{'id':app.user.booster.id}) }}" class="log-nav"><i class="fa fa-cog" aria-hidden="true"></i>Editez votre profile</a>{% endif %}</li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="{{ path('fos_user_security_logout') }}" class="log-nav">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
-                        </ul>
-                    </div>    #}
+                        </div>
+                    </div>{% endif %}
 
                     {# SECOND PART FOR THE ROLE BOOSTE #}
+
+                    {% elseif is_granted('ROLE_BOOSTE') %}
+                        <div class="nav navbar-nav navbar-right btn-group drop-nav-perso">
+                            <div class="dropdown">
+                            {% if app.user.society == null  %}
+                                <a href="{{ path('dashboard_society_new',{'id':app.user.id}) }}" class="log-nav">
+                                    <i class="fa fa-user" aria-hidden="true"></i>{{ app.user.username }}<span class="caret"></span>
+                                </a>
+                            {% else %}
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>Bonjour {{ app.user.firstName }}</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('dashboard_society',{'id':app.user.id}) }}" class="log-nav" ><i class="fa fa-user" aria-hidden="true"></i>Dashboard</a></li>
+                                    <li><a href="{{ path('dashboard_society_edit',{'id':app.user.id}) }}" class="log-nav"><i class="fa fa-cog" aria-hidden="true"></i>Editez votre profile</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="{{ path('fos_user_security_logout') }}" class="log-nav">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+                                </ul>
+                            </div>
+                        </div>{% endif %}
 
                     {% elseif is_granted('ROLE_BOOSTE') %}
                         <div class="nav navbar-nav navbar-right btn-group">

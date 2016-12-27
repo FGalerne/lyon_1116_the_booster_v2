@@ -4,6 +4,7 @@ namespace BoosterBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -18,7 +19,9 @@ class BoosterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('photo')
+            ->add('photo', FileType::class, array(
+                'label' => 'Votre photo ou Avatar',
+            ))
             ->add('presentation', TextareaType::class, array(
                 'label' => 'Texte de présentation',
                 'attr'  => array(
