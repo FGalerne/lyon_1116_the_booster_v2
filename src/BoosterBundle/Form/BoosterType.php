@@ -42,7 +42,7 @@ class BoosterType extends AbstractType
             ))
             ->add('birthDate', DateTimeType::class, array(
                 'years' => range(1950, 2020),
-                'format' => 'dd/mm/yyyy',
+                'format' => 'ddMMyyyy',
             ))
             ->add('workStatus')
             ->add('competence1')

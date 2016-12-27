@@ -56,20 +56,22 @@
                     {# FIRST PART FOR THE ROLE BOOSTER #}
                     {% if is_granted('ROLE_BOOSTER') %}
                     <div class="nav navbar-nav navbar-right btn-group drop-nav-perso">
-                        <div class="dropdown">
-                            {% if app.user.booster == null  %}
-                            <a href="{{ path('dashboard_booster_new',{'id':app.user.id}) }}" class="log-nav">
-                                <i class="fa fa-user" aria-hidden="true"></i>{{ app.user.username }} Cliquez ici pour compléter votre profile!<span class="caret"></span>
-                            </a>
-                            {% else %}
-                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>Bonjour {{ app.user.firstName }}</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{ path('dashboard_booster',{'id':app.user.booster.id}) }}" class="log-nav"><i class="fa fa-user" aria-hidden="true"></i>Dashboard</a></li>
-                                <li><a href="{{ path('dashboard_booster_edit',{'id':app.user.booster.id}) }}" class="log-nav"><i class="fa fa-cog" aria-hidden="true"></i>Editez votre profile</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="{{ path('fos_user_security_logout') }}" class="log-nav"><i class="fa fa-power-off" aria-hidden="true"></i> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
-                            </ul>
-                        </div>
+                        <ul class="nav navbar-nav profile-dropdown">
+                            <li class="dropdown">
+                                {% if app.user.booster == null  %}
+                                <a href="{{ path('dashboard_booster_new',{'id':app.user.id}) }}" class="log-nav">
+                                    <i class="fa fa-user" aria-hidden="true"></i> Cliquez ici pour compléter votre profile! {{ app.user.username }} <span class="caret"></span><i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
+                                </a>
+                                {% else %}
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>Bonjour {{ app.user.firstName }}</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('dashboard_booster',{'id':app.user.booster.id}) }}" class="log-nav"><i class="fa fa-user" aria-hidden="true"></i>Dashboard</a></li>
+                                    <li><a href="{{ path('dashboard_booster_edit',{'id':app.user.booster.id}) }}" class="log-nav"><i class="fa fa-cog" aria-hidden="true"></i>Editez votre profile</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="{{ path('fos_user_security_logout') }}" class="log-nav"><i class="fa fa-power-off" aria-hidden="true"></i> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>{% endif %}
 
                     {# SECOND PART FOR THE ROLE BOOSTE #}
