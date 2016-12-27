@@ -6,7 +6,7 @@
         <section class="container-fluid global-presentation">
             <div class="container">
                 <div class="col-md-3 avatar">
-                    <img src="{{ asset('img/uploads/boosters/' ~ booster.photo) }}" alt="photo-avatar" />
+                    <img src="{{ booster.photo|default ? asset('img/uploads/boosters/' ~ booster.photo) : asset('img/avatar-default.png') }}" alt="photo couverture société" />
                 </div>
 
             {# Personnal information of the booster #}
