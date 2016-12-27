@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "248f7893262d56e4a76a8af6b1f95cc6",
-    "content-hash": "86deb4fa361ff96b69d6565ee3d89d04",
+    "hash": "2f8a8f4ceea179212ebae3f291825682",
+    "content-hash": "fbcc9864a7fc2e890b4a28ce3ec4d215",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -701,22 +701,22 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "v2.5.5",
+            "version": "v2.5.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "73e4be7c7b3ba26f96b781a40b33feba4dfa6d45"
+                "reference": "e6c434196c8ef058239aaa0724b4aadb0107940b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/73e4be7c7b3ba26f96b781a40b33feba4dfa6d45",
-                "reference": "73e4be7c7b3ba26f96b781a40b33feba4dfa6d45",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/e6c434196c8ef058239aaa0724b4aadb0107940b",
+                "reference": "e6c434196c8ef058239aaa0724b4aadb0107940b",
                 "shasum": ""
             },
             "require": {
                 "doctrine/cache": "~1.4",
                 "doctrine/collections": "~1.2",
-                "doctrine/common": ">=2.5-dev,<2.7-dev",
+                "doctrine/common": ">=2.5-dev,<2.8-dev",
                 "doctrine/dbal": ">=2.5-dev,<2.6-dev",
                 "doctrine/instantiator": "~1.0.1",
                 "ext-pdo": "*",
@@ -773,7 +773,107 @@
                 "database",
                 "orm"
             ],
-            "time": "2016-09-10 18:51:13"
+            "time": "2016-12-18 15:42:34"
+        },
+        {
+            "name": "dpolac/dictionary",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dpolac/dictionary.git",
+                "reference": "7078d8bfe47cfcb11882140f5dbd7c106c1906e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dpolac/dictionary/zipball/7078d8bfe47cfcb11882140f5dbd7c106c1906e6",
+                "reference": "7078d8bfe47cfcb11882140f5dbd7c106c1906e6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-spl": "*",
+                "php": "^5.4 || ^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DPolac\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Damian Polac",
+                    "email": "damian.polac.111@gmail.com"
+                }
+            ],
+            "description": "Collection indexed with objects and scalars",
+            "keywords": [
+                "SplObjectStorage",
+                "array",
+                "dictionary",
+                "hash"
+            ],
+            "time": "2016-06-05 18:29:47"
+        },
+        {
+            "name": "dpolac/twig-lambda",
+            "version": "v0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dpolac/twig-lambda.git",
+                "reference": "703d4440f986035c9010163c79a4afc78894ab80"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dpolac/twig-lambda/zipball/703d4440f986035c9010163c79a4afc78894ab80",
+                "reference": "703d4440f986035c9010163c79a4afc78894ab80",
+                "shasum": ""
+            },
+            "require": {
+                "dpolac/dictionary": "^1.0",
+                "php": "^5.4 || ^7.0",
+                "twig/twig": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DPolac\\TwigLambda\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Damian Polac",
+                    "email": "damian.polac.111@gmail.com"
+                }
+            ],
+            "description": "Lambda expressions for Twig and filters that make use of them",
+            "keywords": [
+                "filter",
+                "function",
+                "functional",
+                "group",
+                "lambda",
+                "map",
+                "sort",
+                "unique"
+            ],
+            "time": "2016-06-11 13:10:51"
         },
         {
             "name": "excelwebzone/recaptcha-bundle",
@@ -824,12 +924,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "7261f7aa143b4bfdb0b7ddc5df208067fa7be698"
+                "reference": "694e6d36588f128e8ee0abe622bdcb4c102bd75e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/7261f7aa143b4bfdb0b7ddc5df208067fa7be698",
-                "reference": "7261f7aa143b4bfdb0b7ddc5df208067fa7be698",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/694e6d36588f128e8ee0abe622bdcb4c102bd75e",
+                "reference": "694e6d36588f128e8ee0abe622bdcb4c102bd75e",
                 "shasum": ""
             },
             "require": {
@@ -891,7 +991,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2016-12-03 17:42:44"
+            "time": "2016-12-27 09:35:48"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -988,16 +1088,16 @@
         },
         {
             "name": "javiereguiluz/easyadmin-bundle",
-            "version": "v1.16.2",
+            "version": "v1.16.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/javiereguiluz/EasyAdminBundle.git",
-                "reference": "539743820a0c3e5613e3ccf3b7181f920b6d96b0"
+                "reference": "2bf7a787902b5f20bcececd0a40602c1ca6e67b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/javiereguiluz/EasyAdminBundle/zipball/539743820a0c3e5613e3ccf3b7181f920b6d96b0",
-                "reference": "539743820a0c3e5613e3ccf3b7181f920b6d96b0",
+                "url": "https://api.github.com/repos/javiereguiluz/EasyAdminBundle/zipball/2bf7a787902b5f20bcececd0a40602c1ca6e67b0",
+                "reference": "2bf7a787902b5f20bcececd0a40602c1ca6e67b0",
                 "shasum": ""
             },
             "require": {
@@ -1067,7 +1167,7 @@
                 "backend",
                 "generator"
             ],
-            "time": "2016-11-23 18:55:02"
+            "time": "2016-12-11 19:45:42"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -1413,16 +1513,16 @@
         },
         {
             "name": "sensio/framework-extra-bundle",
-            "version": "v3.0.16",
+            "version": "v3.0.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "507a15f56fa7699f6cc8c2c7de4080b19ce22546"
+                "reference": "c38bc608e12e81089d5d9dfbf72775ed553c61af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/507a15f56fa7699f6cc8c2c7de4080b19ce22546",
-                "reference": "507a15f56fa7699f6cc8c2c7de4080b19ce22546",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/c38bc608e12e81089d5d9dfbf72775ed553c61af",
+                "reference": "c38bc608e12e81089d5d9dfbf72775ed553c61af",
                 "shasum": ""
             },
             "require": {
@@ -1431,14 +1531,20 @@
                 "symfony/framework-bundle": "~2.3|~3.0"
             },
             "require-dev": {
+                "symfony/asset": "~2.7|~3.0",
                 "symfony/browser-kit": "~2.3|~3.0",
                 "symfony/dom-crawler": "~2.3|~3.0",
                 "symfony/expression-language": "~2.4|~3.0",
                 "symfony/finder": "~2.3|~3.0",
-                "symfony/phpunit-bridge": "~2.7|~3.0",
+                "symfony/phpunit-bridge": "~3.2",
+                "symfony/psr-http-message-bridge": "^0.3",
                 "symfony/security-bundle": "~2.4|~3.0",
+                "symfony/templating": "~2.3|~3.0",
+                "symfony/translation": "~2.3|~3.0",
                 "symfony/twig-bundle": "~2.3|~3.0",
-                "twig/twig": "~1.11|~2.0"
+                "symfony/yaml": "~2.3|~3.0",
+                "twig/twig": "~1.11|~2.0",
+                "zendframework/zend-diactoros": "^1.3"
             },
             "suggest": {
                 "symfony/expression-language": "",
@@ -1471,7 +1577,7 @@
                 "annotations",
                 "controllers"
             ],
-            "time": "2016-03-25 17:08:27"
+            "time": "2016-12-14 08:30:06"
         },
         {
             "name": "sensiolabs/security-checker",
@@ -2144,16 +2250,16 @@
         },
         {
             "name": "symfony/swiftmailer-bundle",
-            "version": "v2.4.0",
+            "version": "v2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/swiftmailer-bundle.git",
-                "reference": "d7b7bd6bb6e9b32ebc5f9778f94d4b4e4af5d069"
+                "reference": "ad751095576ce0c12a284e30e3fff80c91f27225"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/swiftmailer-bundle/zipball/d7b7bd6bb6e9b32ebc5f9778f94d4b4e4af5d069",
-                "reference": "d7b7bd6bb6e9b32ebc5f9778f94d4b4e4af5d069",
+                "url": "https://api.github.com/repos/symfony/swiftmailer-bundle/zipball/ad751095576ce0c12a284e30e3fff80c91f27225",
+                "reference": "ad751095576ce0c12a284e30e3fff80c91f27225",
                 "shasum": ""
             },
             "require": {
@@ -2199,20 +2305,20 @@
             ],
             "description": "Symfony SwiftmailerBundle",
             "homepage": "http://symfony.com",
-            "time": "2016-10-27 17:59:30"
+            "time": "2016-12-20 04:44:33"
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.8.14",
+            "version": "v2.8.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "6ceca5b4154c80839270c38aa65373de76127df7"
+                "reference": "3ec15b9379ebb0758e296d4193926a7b4121a964"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/6ceca5b4154c80839270c38aa65373de76127df7",
-                "reference": "6ceca5b4154c80839270c38aa65373de76127df7",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/3ec15b9379ebb0758e296d4193926a7b4121a964",
+                "reference": "3ec15b9379ebb0758e296d4193926a7b4121a964",
                 "shasum": ""
             },
             "require": {
@@ -2334,7 +2440,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2016-11-21 02:24:51"
+            "time": "2016-12-13 12:16:34"
         },
         {
             "name": "twig/extensions",
@@ -2390,16 +2496,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.28.2",
+            "version": "v1.30.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "b22ce0eb070e41f7cba65d78fe216de29726459c"
+                "reference": "c6ff71094fde15d12398eaba029434b013dc5e59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/b22ce0eb070e41f7cba65d78fe216de29726459c",
-                "reference": "b22ce0eb070e41f7cba65d78fe216de29726459c",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/c6ff71094fde15d12398eaba029434b013dc5e59",
+                "reference": "c6ff71094fde15d12398eaba029434b013dc5e59",
                 "shasum": ""
             },
             "require": {
@@ -2412,7 +2518,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.28-dev"
+                    "dev-master": "1.30-dev"
                 }
             },
             "autoload": {
@@ -2447,7 +2553,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-11-23 18:41:40"
+            "time": "2016-12-23 11:06:22"
         }
     ],
     "packages-dev": [
@@ -2621,7 +2727,7 @@
         },
         {
             "name": "symfony/phpunit-bridge",
-            "version": "v2.8.14",
+            "version": "v2.8.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/phpunit-bridge.git",

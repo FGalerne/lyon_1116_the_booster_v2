@@ -1,0 +1,61 @@
+<section class="container-fluid presentation-booster" id="dashboard-messenger">
+    {% set index = 0 %}
+    {% set color = 'messenger-color-1' %}
+    {% set newMessage = '' %}
+
+    <span class="messenger-user2" id="baseUsername">{{ app.user.id }}</span>
+    {% for title, group in messengers|group_by(=> _.title) %}
+        {% for messenger in group %}
+            {% if (app.user.username == messenger.user1 and messenger.user1Read == 0) or (app.user.username == messenger.user2 and messenger.user2Read == 0 )%}
+                {% set newMessage = ': Nouveau Message !' %}
+            {% else %}
+                {% set newMessage = '' %}
+            {% endif %}
+        {% endfor %}
+        <div class="container messenger-container">
+            <div class="row messenger-title">
+                <div class="col-xs-12">
+                    <p class="text-left"><strong id="subject{{ index }}">{{ title }}</strong>{{ newMessage }}</p>
+                </div>
+            </div>
+            <div class="row display-messages" onclick="displayMessages({{ index }})"><img src="{{ asset( 'img/arrowdown.png' ) }}"/></div>
+            <div class="messenger-messages">
+                {% for messenger in group %}
+                    <div class="messenger-row row {{ color }}">
+                        <div class="col-xs-3">
+                            <img class="col-xs-4" src="{{ messenger.user1.booster ? messenger.user1.booster.photo : messenger.user1.society.photo }}" alt="photo-avatar" />
+                            <em class="text-left">{{ messenger.user1.firstName }}</em>
+                            <em class="messenger-user2 user1{{ index }}">{{ messenger.user1.id }}</em>
+                            <em class="messenger-user2 user2{{ index }}">{{ messenger.user2.id }}</em>
+                            {% if messenger.createTime %}
+                                <br/>
+                                <em>{{ messenger.createTime|date('Y-m-d H:i:s') }}</em>
+                            {% endif %}
+                        </div>
+                        <div class="col-xs-9 col-md-9">
+                            <p class="text-left"><em>{{ messenger.message | raw }}</em></p>
+                        </div>
+                    </div>
+                    {% if color == 'messenger-color-1' %}{% set color = 'messenger-color-2' %}
+                    {% else %}{% set color = 'messenger-color-1' %}
+                    {% endif %}
+                {% endfor %}
+                <div class="row messenger-area">
+                    <textarea id="message{{ index }}" class="WYSIWYG"></textarea>
+                </div>
+                <div class="row">
+                    <input class="messenger-response" type="button" value="ENVOYER" onclick="messengerForm({{ index }})"/>
+                </div>
+            </div>
+        </div>
+        {% set index = index + 1 %}
+    {% endfor %}
+
+    <div class="col-xs-12">
+        {% set userId = app.user.booster ? app.user.booster.id : app.user.society.id %}
+        {% set userRole = app.user.booster ? 'booster' : 'society' %}
+
+        {{ form_start(form, {'action': path('messenger_new', {'id': userId, 'role': userRole }), 'attr': { 'id':'messengerSubmit' }}) }}
+        {{ form_end(form) }}
+    </div>
+</section>

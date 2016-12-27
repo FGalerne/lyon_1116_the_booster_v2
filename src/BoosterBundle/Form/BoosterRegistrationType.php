@@ -8,9 +8,13 @@
 
 namespace BoosterBundle\Form;
 
+
 use FOS\UserBundle\Form\Type\RegistrationFormType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class BoosterRegistrationType extends RegistrationFormType
 {
@@ -23,15 +27,16 @@ class BoosterRegistrationType extends RegistrationFormType
                 'required' => true,
                 'choices' => array('Mr' => 'Mr', 'Mme' => 'Mme')
             ))
-            ->add('firstname', 'text', array(
+            ->add('firstname', TextType::class, array(
                 'label' => "Nom",
                 'required' => true
             ))
-            ->add('lastname', 'text', array(
+            ->add('lastname', TextType::class, array(
                 'label' => "Prénom",
                 'required' => true
             ))
-            ->add('createtime', 'datetime', array(
+            ->add('createtime', DateTimeType::class, array(
+                'label' => false,
                 'attr'=>array('style'=>'display:none;'),
                 'data' => new \DateTime()
             ))

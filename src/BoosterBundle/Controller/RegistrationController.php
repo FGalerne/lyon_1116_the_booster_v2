@@ -30,7 +30,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class RegistrationController extends BaseController
 {
     /**
-     * @Route("/register/booster/", name="booster_user_booster_register")
+     * @Route("/enregistrement/booster/", name="booster_user_booster_register")
      *
      */
     public function registerBoosterAction(Request $request)
@@ -115,73 +115,64 @@ class RegistrationController extends BaseController
 		}
 
 		$form = $formFactory->createForm();
-
 		$form->setData($user);
-
 		$form->handleRequest($request);
         $required = false;
 
-		if ($form->isSubmitted()) {
-			if ($form->isValid()) {
 
-                $siret = $form["siretnumber"]->getData();
-                $phone = $form["phone"]->getData();
-                if($phone !== null || $siret !== null){
-                    $event = new FormEvent($form, $request);
-                    $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
-                    $userManager->updateUser($user);
+		if ($form->isSubmitted() && $form->isValid()) {
+            $typeProject = $form["typeproject"]->getData();
+            $siret = $form["siretnumber"]->getData();
+            $phone = $form["phone"]->getData();
+			if (($typeProject == 0 && $siret != null && $phone != null) //Soiety
+                || ($typeProject == 1 && $phone != null)                //Project
+            ) {
+                $event = new FormEvent($form, $request);
+                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
+                $userManager->updateUser($user);
 
-                    if (null === $response = $event->getResponse()) {
-                        $url = $this->generateUrl('fos_user_registration_confirmed');
-                        $response = new RedirectResponse($url);
-                    }
-
-                    $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
-
-                    //envoie d'un mail pour prevenir qu'un nouveau boosté attend une validation
-
-                    if ($siret !== null){
-
-                        $title = $form["title"]->getData();
-                        $name = $form["firstname"]->getData();
-                        $surname = $form["lastname"]->getData();
-                        $siret = $form["siretnumber"]->getData();
-
-                        $from = $this->getParameter('mailer_user');
-                        $to = $this->getParameter('mailer_to');
-
-                        $projectName = $form["nameproject"]->getData();
-                        $subject = $projectName.': validation du n° siret';
-
-                        $sendMessage = \Swift_Message::newInstance()
-                            ->setSubject($subject)
-                            ->setFrom($from)
-                            ->setTo($to)
-                            ->setBody(
-                                $this->renderView(
-                                    'BoosterBundle:Emails:validation_siret_email.html.twig',
-                                    array(
-                                        'title' => $title,
-                                        'name' => $name,
-                                        'surname' => $surname,
-                                        'projectName' => $projectName,
-                                        'siret' => $siret,
-                                    )
-                                ),
-                                'text/html'
-                            )
-                        ;
-
-                        $this->get('mailer')->send($sendMessage);
-
-                        /**/
-
-
-                    }
-                    return $response;
-                } else if($phone == null && $siret == null){
-                        $required = true;
+                if (null === $response = $event->getResponse()) {
+                    $url = $this->generateUrl('fos_user_registration_confirmed');
+                    $response = new RedirectResponse($url);
                 }
+
+                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+
+                //envoie d'un mail pour prevenir qu'un nouveau boosté attend une validation
+                $title = $form["title"]->getData();
+                $name = $form["firstname"]->getData();
+                $surname = $form["lastname"]->getData();
+                $siret = $form["siretnumber"]->getData();
+
+                $from = $this->getParameter('mailer_user');
+                $to = $form["email"]->getData();
+
+                $projectName = $form["nameproject"]->getData();
+                $subject = $projectName.': validation du n° siret';
+
+                $sendMessage = \Swift_Message::newInstance()
+                    ->setSubject($subject)
+                    ->setFrom($from)
+                    ->setTo($to)
+                    ->setBody(
+                        $this->renderView(
+                            'BoosterBundle:Emails:validation_siret_email.html.twig',
+                            array(
+                                'title' => $title,
+                                'name' => $name,
+                                'surname' => $surname,
+                                'projectName' => $projectName,
+                                'siret' => $siret,
+                            )
+                        ),
+                        'text/html'
+                    )
+                ;
+                $this->get('mailer')->send($sendMessage);
+                return $response;
+            } else{
+                if($phone === null) $required = 'phone';
+                if($siret === null) $required = 'siret';
             }
 
 			$event = new FormEvent($form, $request);

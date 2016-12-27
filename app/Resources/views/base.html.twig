@@ -50,10 +50,11 @@
                         <li><a href="{{ path('booster_how_it_works') }}">Comment ça marche</a></li>
                     </ul>
 
+
                 {# DROP DOWN WHITH PROFILE / EDIT PROFILE / DISCONNECT #}
 
                     {# FIRST PART FOR THE ROLE BOOSTER #}
-
+                {#
                     {% if is_granted('ROLE_BOOSTER') %}
                     <div class="nav navbar-nav navbar-right btn-group">
                         <button type="button" class="btn">
@@ -73,7 +74,7 @@
                     </div>
 
                     {# SECOND PART FOR THE ROLE BOOSTE #}
-
+                    {#
                     {% elseif is_granted('ROLE_BOOSTE') %}
                         <div class="nav navbar-nav navbar-right btn-group">
                         <button type="button" class="btn">
@@ -93,18 +94,16 @@
                         </div>
 
                     {# THIRD PART LAST PART #}
-
+                    {#
                     {% else %}
                     <div class="nav navbar-nav navbar-right btn-group">
                         <ul class="dropdown-menu">
                             <li><a href="{{ path('booster_inscription_choix') }}" class="login-index">Inscription</a>
                             <li><a href="{{ path('fos_user_security_login') }}" class="login-index">Connexion</a>
                         </ul>
-                    </div>{% endif %}
+                    </div>{% endif %} #}
 
-
-
-                        {#<ul class="nav navbar-nav navbar-right">
+                        <ul class="nav navbar-nav navbar-right">
                             <li>{% if is_granted('ROLE_BOOSTER') %} {% if app.user.booster == null  %} <a href="{{ path('dashboard_booster_new',{'id':app.user.id}) }}" class="log-nav" >{{ app.user.username }}</a></li>
                             <li>{% else %}<a href class="log-nav">Bienvenue  {{ app.user.firstName }}</a></li>
                             <li><a href="{{ path('dashboard_booster',{'id':app.user.booster.id}) }}" class="log-nav">Dashboard</a></li>
@@ -133,9 +132,7 @@
                                     <a href="https://fr.linkedin.com/in/the-booster-059bb1130" target="_blank"><img src="{{ asset('/img/linkedin-the-booster-black.png')}}" alt="linkedin"></a>
                                 </div>
                             </li>
-                        </ul> #}
-
-
+                        </ul>
                 </div>
             </div>
         </nav>

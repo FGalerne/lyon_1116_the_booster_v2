@@ -2,10 +2,11 @@
 
 namespace BoosterBundle\Form;
 
-use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -30,13 +31,13 @@ class BoosterType extends AbstractType
                     'placeholder' => 'Code Postal'
                 ),
             ))
-            ->add('city', \Symfony\Component\Form\Extension\Core\Type\TextType::class, array(
+            ->add('city', TextType::class, array(
                 'label' => 'Ville',
                 'attr'  => array(
                     'placeholder' => 'Ville'
                 ),
             ))
-            ->add('birthDate', 'date', array(
+            ->add('birthDate', DateTimeType::class, array(
                 'years' => range(1950, 2020),
                 'format' => 'ddMMyyyy',
             ))

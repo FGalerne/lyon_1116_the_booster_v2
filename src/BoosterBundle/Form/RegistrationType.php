@@ -10,6 +10,8 @@ namespace BoosterBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use BoosterBundle\Form\Type\TelType;
 
@@ -24,23 +26,23 @@ class RegistrationType extends AbstractType
                 'required'      => true,
                 'choices'       => array('Mr'=>'Mr', 'Mme'=>'Mme')
             ))
-            ->add('firstname', 'text', array(
+            ->add('firstname', TextType::class, array(
                 'label'         => "Nom",
                 'required'      => true,
             ))
-            ->add('lastname', 'text', array(
+            ->add('lastname', TextType::class, array(
                 'label'         => "Prénom",
                 'required'      => true,
             ))
-            ->add('professionalfunction', 'text', array(
+            ->add('professionalfunction', TextType::class, array(
                 'label' => 'Fonction',
                 'required'=> true
             ))
-            ->add('nameproject', 'text', array(
+            ->add('nameproject', TextType::class, array(
                 'label' => 'Nom du projet/société',
                 'required'=> true
             ))
-            ->add('typeproject', 'choice', array(
+            ->add('typeproject', ChoiceType::class, array(
                 'label'     => 'Vous êtes :',
                 'choices'  => array(1=>'Un porteur de projet', 0 =>'Une société'),
                 'expanded' => true,
@@ -52,12 +54,13 @@ class RegistrationType extends AbstractType
                 'required' => false,
                 'pattern' => "^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$"
             ))
-            ->add('siretnumber', 'text', array(
+            ->add('siretnumber', TextType::class, array(
                 'label' => 'Numéro de Siret',
                 'pattern' => '[0-9]{14}',
                 'required' => false,
             ))
-            ->add('createtime', 'datetime', array(
+            ->add('createtime', DateTimeType::class, array(
+                'label' => false,
                 'attr'=>array('style'=>'display:none;'),
                 'data' => new \DateTime()
             ))

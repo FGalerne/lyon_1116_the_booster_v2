@@ -7,15 +7,28 @@ fos_user:
 
 fos_user_register:
     resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /register
+    prefix: /enregistrement
 
 fos_user_registration_register:
-    path:   /register/booste
+    path:   /enregistrement/booste
     defaults: { _controller: FOSUserBundle:Registration:register}
 
-register:
-    path: /register
-    defaults: { _controller: FOS:Registration:register}
+fos_user_registration_check_email:
+    path: /verification
+    defaults: { _controller: FOSUserBundle:Registration:checkEmail}
+
+fos_user_registration_confirm:
+    path: /confirmation/{token}
+    defaults: { _controller: FOSUserBundle:Registration:confirm}
+
+fos_user_registration_confirmed:
+    path: /actif
+    defaults: { _controller: FOSUserBundle:Registration:confirmed}
+
+# I'm not sure we can safely delete this
+#register:
+#    path: /register
+#    defaults: { _controller: FOS:Registration:register}
 
 booster_user:
     resource: "@BoosterBundle/Controller/"

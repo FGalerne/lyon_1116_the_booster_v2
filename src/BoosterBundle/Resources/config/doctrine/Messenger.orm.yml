@@ -1,0 +1,56 @@
+BoosterBundle\Entity\Messenger:
+    type: entity
+    table: messenger
+    repositoryClass: BoosterBundle\Repository\MessengerRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        message:
+            type: text
+        createTime:
+            type: datetime
+            column: create_time
+        user1Read:
+            type: boolean
+            column: user1_read
+            options:
+                default: false
+        user2Read:
+            type: boolean
+            column: user2_read
+            options:
+                default: false
+
+    manyToOne:
+        user1:
+            targetEntity: User
+            joinTable:
+                name: user1
+                joinColumn:
+                    user1_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    user_id:
+                        referencedColumnName: id
+                        unique: true
+
+        user2:
+            targetEntity: User
+            joinTable:
+                name: user2
+                joinColumn:
+                    user2_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    user_id:
+                        referencedColumnName: id
+                        unique: true
+
+    lifecycleCallbacks: {  }
