@@ -23,7 +23,7 @@ class ImageResizer {
         $width_orig = $ImageDetails->width;
         $fileExtention = $ImageDetails->extension;
         $ratio = $ImageDetails->ratio;
-        $jpegQuality = 75;
+        $jpegQuality = 90;
 
         //Resize dimensions are bigger than original image, stop processing
         if ($width > $width_orig && $height > $height_orig){

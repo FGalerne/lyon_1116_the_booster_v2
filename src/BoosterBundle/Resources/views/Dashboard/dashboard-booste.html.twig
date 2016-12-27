@@ -7,8 +7,8 @@
             <div class="container">
                 <div class="col-xs-12 col-md-8 dashboard-society">
                     <h1>{{ society.societyName }}</h1>
-                    <div class="row">
-                        <img src="{{ society.photo }}" alt="photo couverture société" />
+                    <div class="row society-photo">
+                        <img src="{{ asset('img/uploads/societies/' ~ society.photo) }}" alt="photo couverture société" />
                     </div>
                     <h2>{{ society.punchLine | raw }}</h2>
                     <div class="col-xs-12" id="navbar-dashboard">

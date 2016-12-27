@@ -21,7 +21,9 @@ class BoosterType extends AbstractType
     {
         $builder
             ->add('photo', FileType::class, array(
-                'label' => 'Avatar'
+                'label' => 'Avatar (format portrait)',
+                'required' => false,
+                'data_class' => null
                 )
             )
             ->add('presentation', TextareaType::class, array(
@@ -70,6 +72,7 @@ class BoosterType extends AbstractType
                 'label' => 'competence2 ',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
+                    null => 'aucune',
                     'competence1' => 'competence1',
                     'competence2' => 'competence2',
                     'competence3' => 'competence3',
@@ -82,12 +85,14 @@ class BoosterType extends AbstractType
                     'competence10' => 'competence10',
                     'competence11' => 'competence11',
                     'competence12' => 'competence12',
-                )
+                ),
+                'required' => false,
             ))
             ->add('competence3', ChoiceType::class, array(
                 'label' => 'competence3 ',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
+                    null => 'aucune',
                     'competence1' => 'competence1',
                     'competence2' => 'competence2',
                     'competence3' => 'competence3',
@@ -100,12 +105,14 @@ class BoosterType extends AbstractType
                     'competence10' => 'competence10',
                     'competence11' => 'competence11',
                     'competence12' => 'competence12',
-                )
+                ),
+                'required' => false,
             ))
             ->add('competence4', ChoiceType::class, array(
                 'label' => 'competence4 ',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
+                    null => 'aucune',
                     'competence1' => 'competence1',
                     'competence2' => 'competence2',
                     'competence3' => 'competence3',
@@ -118,12 +125,14 @@ class BoosterType extends AbstractType
                     'competence10' => 'competence10',
                     'competence11' => 'competence11',
                     'competence12' => 'competence12',
-                )
+                ),
+                'required' => false,
             ))
             ->add('competence5', ChoiceType::class, array(
                 'label' => 'competence5 ',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
+                    null => 'aucune',
                     'competence1' => 'competence1',
                     'competence2' => 'competence2',
                     'competence3' => 'competence3',
@@ -136,12 +145,14 @@ class BoosterType extends AbstractType
                     'competence10' => 'competence10',
                     'competence11' => 'competence11',
                     'competence12' => 'competence12',
-                )
+                ),
+                'required' => false,
             ))
             ->add('competence6', ChoiceType::class, array(
                 'label' => 'competence6 ',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
+                    null => 'aucune',
                     'competence1' => 'competence1',
                     'competence2' => 'competence2',
                     'competence3' => 'competence3',
@@ -154,7 +165,8 @@ class BoosterType extends AbstractType
                     'competence10' => 'competence10',
                     'competence11' => 'competence11',
                     'competence12' => 'competence12',
-                )
+                ),
+                'required' => false,
             ))
         ;
     }

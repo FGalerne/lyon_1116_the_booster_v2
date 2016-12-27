@@ -963,13 +963,39 @@ hr{
 	margin-top: 35px;
 	margin-bottom: 35px;
 }
-
+.avatar{
+	max-height: 300px;
+	overflow: hidden;
+}
 .avatar img {
-	width: 200px;
+	position: relative;
+	top: 50%;
+	transform: translate(0, -25%);
+	-moz-transform: translate(0, -25%);
+	-webkit-transform: translate(0, -25%);
+	-ms-transform: translate(0, -25%);
+	-o-transform: translate(0, -25%);
+	width: 256px;
 	display: block;
 	margin: 0 auto;
 }
+.society-photo{
 
+	max-height: 400px;
+	overflow: hidden;
+}
+.society-photo img {
+	position: relative;
+	top: 50%;
+	transform: translate(0, -25%);
+	-moz-transform: translate(0, -25%);
+	-webkit-transform: translate(0, -25%);
+	-ms-transform: translate(0, -25%);
+	-o-transform: translate(0, -25%);
+	width: 512px;
+	display: block;
+	margin: 0 auto;
+}
 #statistic-society,
 #statistic-booster {
 	padding: 20px;

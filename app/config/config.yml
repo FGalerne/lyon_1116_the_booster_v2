@@ -8,7 +8,8 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
-    photo_booster_directory: '%kernel.root_dir%/../web/img/uploads/boosters/'
+    photo_booster_directory: '%kernel.root_dir%/../web/img/uploads/boosters'
+    photo_society_directory: '%kernel.root_dir%/../web/img/uploads/societies'
     photo_tmp: '%kernel.root_dir%/../web/img/uploads/tmp'
 
 framework:
