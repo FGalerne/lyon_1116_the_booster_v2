@@ -72,6 +72,7 @@ span {
 
 }
 
+.nav-no-user > li > a,
 .navbar-nav > li > a {
 	line-height: 7vh;
 	color: black;
@@ -155,6 +156,15 @@ span {
 		overflow-y: unset;
 		padding-bottom: 3vh;
 	}
+}
+
+.nav-no-user {
+	list-style: none;
+	display: block;
+}
+
+.nav-no-user li {
+	display: inline-block;
 }
 
 .icon-bar {
