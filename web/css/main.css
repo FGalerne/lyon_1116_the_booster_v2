@@ -1599,3 +1599,10 @@ a:hover {
 	background-color: #e60f33;
 	margin-bottom: 35px;
 }
+.avatar-messenger{
+	max-height: 50px;
+	overflow: hidden;
+}
+.avatar-messenger img{
+	width: 100%;
+}

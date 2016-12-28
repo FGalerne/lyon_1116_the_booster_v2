@@ -119,7 +119,7 @@ easy_admin:
             list:
                 fields:
                     - photo
-                    - { property: 'photo', type: 'image' }
+                    - { property: 'photo', type: 'image', base_path: 'img/uploads/boosters' }
                     - competence1
                     - { property: 'competence1', label: 'Competence principale' }
                     - averageNotation
@@ -136,7 +136,7 @@ easy_admin:
             list:
                 fields:
                     - photo
-                    - { property: 'photo', type: 'image' }
+                    - { property: 'photo', type: 'image', base_path: 'img/uploads/societies' }
                     - societyName
                     - { property: 'societyName', label: 'Societé' }
                     - averageNotation
