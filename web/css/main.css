@@ -1448,12 +1448,13 @@ a:hover {
 	text-decoration: none;
 }
 
-
-
 .global-society {
 	margin-bottom: 60px;
 	border: solid white;
-
+}
+.global-society div{
+	height: 200px;
+	overflow: hidden;
 }
 .global-society:hover{
 	border: #e60f33 solid;
@@ -1461,8 +1462,13 @@ a:hover {
 
 .global-society img {
 	width: 100%;
-
-
+	position: relative;
+	top: 50%;
+	transform: translate(0, -50%);
+	-moz-transform: translate(0, -50%);
+	-webkit-transform: translate(0, -50%);
+	-ms-transform: translate(0, -50%);
+	-o-transform: translate(0, -50%);
 }
 
 .fa{
