@@ -5,24 +5,24 @@
 
         <section class="container-fluid global-presentation">
             <div class="container">
-                <div class="col-xs-12 col-md-8 dashboard-society">
-                    <div class="col-md-4 society-photo">
+                <div class="col-xs-12 col-md-9 dashboard-society">
+                    <div class="col-xs-12 col-md-4 society-photo">
                         <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/avatar-default.png') }}" alt="photo couverture société" />
                     </div>
-                    <h1>{{ society.societyName }}</h1>
-                    <div class="col-xs-12 dashboard-social-media">
-                        {% if society.facebook %}<a href="{{ society.facebook }}" target="_blank"><li><i class="fa fa-facebook-official" aria-hidden="true"></i></li></a>{% endif %}
-                        {% if society.twitter %}<a href="{{ society.twitter }}" target="_blank"><li><i class="fa fa-twitter-square" aria-hidden="true"></i></li></a>{% endif %}
-                        {% if society.linkedin %}<a href="{{ society.linkedin }}" target="_blank"><li><i class="fa fa-linkedin-square" aria-hidden="true"></i></li></a>{% endif %}
-                        {% if society.youtube %}<a href="{{ society.youtube }}" target="_blank"><li><i class="fa fa-youtube-square" aria-hidden="true"></i></li></a>{% endif %}
+                    <div class="col-xs-12 col-md-4">
+                        <h1 class="text-left">{{ society.societyName }}</h1>
+                        <div class=" dashboard-social-media">
+                            {% if society.facebook %}<a href="{{ society.facebook }}" target="_blank"><li><i class="fa fa-facebook-official" aria-hidden="true"></i></li></a>{% endif %}
+                            {% if society.twitter %}<a href="{{ society.twitter }}" target="_blank"><li><i class="fa fa-twitter-square" aria-hidden="true"></i></li></a>{% endif %}
+                            {% if society.linkedin %}<a href="{{ society.linkedin }}" target="_blank"><li><i class="fa fa-linkedin-square" aria-hidden="true"></i></li></a>{% endif %}
+                            {% if society.youtube %}<a href="{{ society.youtube }}" target="_blank"><li><i class="fa fa-youtube-square" aria-hidden="true"></i></li></a>{% endif %}
+                        </div>
                     </div>
-
-
                 </div>
 
                 {# Here the right part of the dashboard we could found the statistic of the society and the button to add a new project #}
 
-                <div class="col-xs-12 col-md-3 col-md-offset-1" id="statistic-society">
+                <div class="col-xs-12 col-md-3" id="statistic-society">
                     <p>Heures reçues : {{ society.hoursTaken }}</p>
                     <p>Projets réalisés : {{ society.projectDoneNumber }}</p>
                     <p>Note du booster : {{ society.averageNotation }}</p>
@@ -34,12 +34,14 @@
                         <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
                     </ul>
                 </div>
-                <div class="col-xs-12 col-md-3 col-md-offset-1" id="add-project">
+                <div class="col-xs-12 col-md-3" id="add-project">
                     <a href="#">JE DEPOSE UN PROJET</a>
                 </div>
 
             </div>
-            <h2>{{ society.punchLine | raw }}</h2>
+            <div class="container">
+                <h2>{{ society.punchLine | raw }}</h2>
+            </div>
             <section class="container-fluid">
                 <div class="container dashboard-nav-container">
                     <div class="col-xs-12" id="navbar-dashboard">

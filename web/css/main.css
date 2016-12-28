@@ -1465,12 +1465,11 @@ a:hover {
 
 }
 
-.fa {
-	color: white;
+.fa{
+	/*color: white;*/
 	border: none;
-	width: 50px;
+	/*width: 50px;*/
 }
-
 
 .pager li > a{
 	background-color: #e60f33;
