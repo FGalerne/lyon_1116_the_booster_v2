@@ -18,9 +18,13 @@ booster_cgv:
     path:     /cgv
     defaults: { _controller: BoosterBundle:Front:cgv }
 
+booster_f_a_q:
+    path:   /FAQ
+    defaults: { _controller: BoosterBundle:Faq:faqPage }
+
 booster_faq:
-    path:     /faq
-    defaults: { _controller: BoosterBundle:Front:faq }
+    resource: "@BoosterBundle/Resources/config/routing/faq.yml"
+    prefix:   /faq
 
 booster_charte:
     path:     /charte
@@ -97,5 +101,6 @@ list_society:
     defaults: { _controller: "BoosterBundle:Front:listSociety", page: 1}
     requirements:
         page: \d+
+
 
 

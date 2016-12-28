@@ -33,36 +33,44 @@ class SocietyType extends AbstractType
                 ))
                 ->add('punchLine', TextType::class, array(
                     'label' => 'Phrase courte de présentation',
+                    'required' => false,
                     'attr'  => array(
+                        'class' => 'WYSIWYG form-control form-group',
                         'placeholder' => '140 caractères max'
                     ),
                 ))
                 ->add('presentation', TextareaType::class, array(
                     'label' => 'Texte de présentation de votre société',
+                    'required' => false,
                     'attr'  => array(
+                        'class' => 'WYSIWYG form-control form-group',
                         'placeholder' => '500 caractère max'
                     ),
                 ))
                 ->add('linkedin', TextType::class, array(
                     'label' => 'Profil Linkedin',
+                    'required' => false,
                     'attr'  => array(
                         'placeholder' => 'Lien vers votre profil société Linkedin'
                     ),
                 ))
                 ->add('facebook' , TextType::class, array(
                     'label' => 'Page Facebook',
+                    'required' => false,
                     'attr'  => array(
                         'placeholder' => 'Lien vers votre page Facebook'
                     ),
                 ))
                 ->add('twitter', TextType::class, array(
                     'label' => 'Profil Twitter',
+                    'required' => false,
                     'attr'  => array(
                         'placeholder' => 'Lien vers votre profil Twitter'
                     ),
                 ))
                 ->add('youtube', TextType::class, array(
                     'label' => 'Profil Youtube',
+                    'required' => false,
                     'attr'  => array(
                         'placeholder' => 'Lien vers votre profil Youtube'
                     ),
