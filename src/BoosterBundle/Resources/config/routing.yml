@@ -85,11 +85,11 @@ new_project:
     defaults: { _controller: BoosterBundle:Project:new }
 
 notes_comments_booster:
-    path:   /Booste-notez-votre-experience
+    path:   /Booster-notez-votre-experience
     defaults: { _controller: BoosterBundle:Project:notesBooster}
 
 notes_comments_society:
-    path:   /Booster-notez-votre-experience
+    path:   /Booste-notez-votre-experience
     defaults: { _controller: BoosterBundle:Project:notesSociety }
 
 booster_society:

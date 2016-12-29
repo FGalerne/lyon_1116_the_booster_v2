@@ -1560,3 +1560,19 @@ a:hover {
 .btn_edit_booste {
 	margin-top: 20px;
 }
+
+/* Pages notes and comments Booster and Society */
+.block_top {
+	text-align: center;
+	margin-top: 4vh;
+}
+
+.block_n {
+	margin-top: 2vh;
+	line-height: 40px;
+	margin-bottom: 7vh;
+}
+
+.btn_send_note {
+	margin-bottom: 7vh;
+}
