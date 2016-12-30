@@ -8,6 +8,9 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
+    photo_booster_directory: '%kernel.root_dir%/../web/img/uploads/boosters'
+    photo_society_directory: '%kernel.root_dir%/../web/img/uploads/societies'
+    photo_tmp: '%kernel.root_dir%/../web/img/uploads/tmp'
 
 framework:
     #esi:             ~
@@ -116,7 +119,7 @@ easy_admin:
             list:
                 fields:
                     - photo
-                    - { property: 'photo', type: 'image' }
+                    - { property: 'photo', type: 'image', base_path: 'img/uploads/boosters' }
                     - competence1
                     - { property: 'competence1', label: 'Competence principale' }
                     - averageNotation
@@ -133,7 +136,7 @@ easy_admin:
             list:
                 fields:
                     - photo
-                    - { property: 'photo', type: 'image' }
+                    - { property: 'photo', type: 'image', base_path: 'img/uploads/societies' }
                     - societyName
                     - { property: 'societyName', label: 'Societé' }
                     - averageNotation
@@ -173,6 +176,15 @@ easy_admin:
                     - category
                     - description
                     - { property: 'creation_status', type:'choice', type_options: {choices: {'Accepte':'Accepté', 'Refuse':'Refusé', 'Accepte':'Supprimé'}}}
+        FAQ:
+            class: BoosterBundle\Entity\Faq
+            label: "FAQ"
+            list:
+                fields:
+                    - question
+                    - { property: 'question', label: 'Questions' }
+                    - answer
+                    - { property: 'answer', label: 'Réponse' }
 
 ewz_recaptcha:
     public_key: 6LenAQsUAAAAADIzPqfQyen9j7GbLkVEXJ0gzBAj
@@ -185,3 +197,4 @@ twig:
     form:
         resources:
             - 'BoosterBundle:Form:fields.html.twig'
+

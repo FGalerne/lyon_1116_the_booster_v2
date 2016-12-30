@@ -145,7 +145,7 @@ class RegistrationController extends BaseController
                 $siret = $form["siretnumber"]->getData();
 
                 $from = $this->getParameter('mailer_user');
-                $to = $form["email"]->getData();
+                $to = $this->getParameter('mailer_to');
 
                 $projectName = $form["nameproject"]->getData();
                 $subject = $projectName.': validation du n° siret';

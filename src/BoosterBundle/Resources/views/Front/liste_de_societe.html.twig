@@ -32,7 +32,9 @@
         <div class="col-xs-12 col-sm-3 col-md-3">
             <a href="">
                 <div class="global-society">
-                    <img src="{{ society.photo }}">
+                    <div>
+                        <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/avatar-default.png') }}">
+                    </div>
                     <h5 class="name-list-society">{{ society.societyName }}</h5>
                     <p class="nombre-de-projet">Nombre de projets : 100</p>
                 </div>
