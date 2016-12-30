@@ -5,36 +5,24 @@
 
         <section class="container-fluid global-presentation">
             <div class="container">
-                <div class="col-xs-12 col-md-8 dashboard-society">
-                    <h1>{{ society.societyName }}</h1>
-                    <div class="row">
-                        <img src="{{ society.photo }}" alt="photo couverture société" />
+                <div class="col-xs-12 col-md-9 dashboard-society">
+                    <div class="col-xs-12 col-md-4 society-photo">
+                        <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/avatar-default.png') }}" alt="photo couverture société" />
                     </div>
-                    <h2>{{ society.punchLine | raw }}</h2>
-                    <div class="col-xs-12" id="navbar-dashboard">
-                        <ul class="nav nav-pills">
-                            <li><a id="project-home">Accueil</a></li>
-                            <li><a id="project-in-progress">Projets en cours</a></li>
-                            <li><a id="project-done">Projets réalisés</a></li>
-                            <li><a id="messenger">Messages</a></li>
-                        </ul>
-                    </div>
-
-                    <div id="dashboard-booster-home" class="col-xs-12 presentation-text">
-                        <p>{{ society.presentation | raw }}</p>
-                    </div>
-
-                    <div class="col-xs-12 dashboard-social-media">
-                        <a href="{{ society.facebook }}" target="_blank"><li><i class="fa fa-facebook-official" aria-hidden="true"></i></li></a>
-                        <a href="{{ society.twitter }}" target="_blank"><li><i class="fa fa-twitter-square" aria-hidden="true"></i></li></a>
-                        <a href="{{ society.linkedin }}" target="_blank"><li><i class="fa fa-linkedin-square" aria-hidden="true"></i></li></a>
-                        <a href="{{ society.youtube }}" target="_blank"><li><i class="fa fa-youtube-square" aria-hidden="true"></i></li></a>
+                    <div class="col-xs-12 col-md-4">
+                        <h1 class="text-left">{{ society.societyName }}</h1>
+                        <div class=" dashboard-social-media">
+                            {% if society.facebook %}<a href="{{ society.facebook }}" target="_blank"><li><i class="fa fa-facebook-official" aria-hidden="true"></i></li></a>{% endif %}
+                            {% if society.twitter %}<a href="{{ society.twitter }}" target="_blank"><li><i class="fa fa-twitter-square" aria-hidden="true"></i></li></a>{% endif %}
+                            {% if society.linkedin %}<a href="{{ society.linkedin }}" target="_blank"><li><i class="fa fa-linkedin-square" aria-hidden="true"></i></li></a>{% endif %}
+                            {% if society.youtube %}<a href="{{ society.youtube }}" target="_blank"><li><i class="fa fa-youtube-square" aria-hidden="true"></i></li></a>{% endif %}
+                        </div>
                     </div>
                 </div>
 
                 {# Here the right part of the dashboard we could found the statistic of the society and the button to add a new project #}
 
-                <div class="col-xs-12 col-md-3 col-md-offset-1" id="statistic-society">
+                <div class="col-xs-12 col-md-3" id="statistic-society">
                     <p>Heures reçues : {{ society.hoursTaken }}</p>
                     <p>Projets réalisés : {{ society.projectDoneNumber }}</p>
                     <p>Note du booster : {{ society.averageNotation }}</p>
@@ -46,12 +34,38 @@
                         <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
                     </ul>
                 </div>
-                <div class="col-xs-12 col-md-3 col-md-offset-1" id="add-project">
+                <div class="col-xs-12 col-md-3" id="add-project">
                     <a href="#">JE DEPOSE UN PROJET</a>
                 </div>
 
             </div>
+            <div class="container">
+                <h2>{{ society.punchLine | raw }}</h2>
+            </div>
+            <section class="container-fluid">
+                <div class="container dashboard-nav-container">
+                    <div class="col-xs-12" id="navbar-dashboard">
+                        <ul class="nav nav-pills dashboard-nav">
+                            <li><a id="project-home">Accueil</a></li>
+                            <li><a id="project-in-progress">Projets en cours</a></li>
+                            <li><a id="project-done">Projets réalisés</a></li>
+                            <li><a id="messenger">Messages</a></li>
+                        </ul>
+                    </div>
+                </div>
 
+            </section>
+            {# The presentation text of the society #}
+            <section id="dashboard-booster-home" class="container-fluid presentation-booster">
+                <section class="container">
+                    <div class="row">
+                        <h3 class="text-left">Ma présentation:</h3>
+                        <div class="col-xs-12 presentation-text">
+                            <p>{{ society.presentation | raw }}</p>
+                        </div>
+                    </div>
+                </section>
+            </section>
         {# The Project part "IN PROGRESS" #}
 
         <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
