@@ -167,6 +167,10 @@ span {
 	display: inline-block;
 }
 
+#connection-nav ul {
+	font-size: 1em;
+}
+
 .icon-bar {
 	background-color: black;
 }
