@@ -87,10 +87,12 @@ new_project:
 notes_comments_booster:
     path:   /Booster-notez-votre-experience
     defaults: { _controller: BoosterBundle:Project:notesBooster}
+    methods:  [GET, POST]
 
 notes_comments_society:
     path:   /Booste-notez-votre-experience
     defaults: { _controller: BoosterBundle:Project:notesSociety }
+    methods:  [GET, POST]
 
 booster_society:
     resource: "@BoosterBundle/Resources/config/routing/society.yml"
