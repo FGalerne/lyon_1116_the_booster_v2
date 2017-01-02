@@ -61,6 +61,7 @@ BoosterBundle\Entity\Project:
             type: integer
             nullable: true
             column: society_note
+
     manyToOne:
         society:
             targetEntity: Society

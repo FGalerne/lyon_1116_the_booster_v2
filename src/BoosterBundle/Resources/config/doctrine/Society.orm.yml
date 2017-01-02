@@ -76,4 +76,5 @@ BoosterBundle\Entity\Society:
             joinColumn:
                 name: user_id
                 referenceColumnName: id
+
     lifecycleCallbacks: {  }
