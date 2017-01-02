@@ -53,17 +53,20 @@ class DashboardController extends Controller
             $em = $this->getDoctrine()->getManager();
             $society->setUser($this->getUser());
 
-            $tmp = $this->getParameter('photo_tmp');
-            $file = $society->getPhoto();
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            $file->move(
-                $this->getParameter('photo_tmp'),
-                $fileName
-            );
-            $this->get('util.imageresizer')->resizeImage($tmp.'/'.$fileName, $this->getParameter('photo_society_directory').'/' , $width=1024);
-            unlink($tmp.'/'.$fileName);
+            if($file = $society->getPhoto()){
+                $tmp = $this->getParameter('photo_tmp');
 
-            $society->setPhoto($fileName);
+                $fileName = md5(uniqid()).'.'.$file->guessExtension();
+                $file->move(
+                    $this->getParameter('photo_tmp'),
+                    $fileName
+                );
+
+                $this->get('util.imageresizer')->resizeImage($tmp.'/'.$fileName, $this->getParameter('photo_society_directory').'/' , $width=1024);
+                unlink($tmp.'/'.$fileName);
+
+                $society->setPhoto($fileName);
+            }
 
             $em->persist($society);
             $em->flush($society);
@@ -100,7 +103,7 @@ class DashboardController extends Controller
                 $file = $society->getPhoto();
                 $fileName = md5(uniqid()).'.'.$file->guessExtension();
                 $file->move(
-                    $this->getParameter('photo_tmp'),
+                    $tmp,
                     $fileName
                 );
                 $this->get('util.imageresizer')->resizeImage($tmp.'/'.$fileName, $dir.'/' , $width=1024);
@@ -169,17 +172,20 @@ class DashboardController extends Controller
             $em = $this->getDoctrine()->getManager();
             $booster->setUser($this->getUser());
 
-            $tmp = $this->getParameter('photo_tmp');
-            $file = $booster->getPhoto();
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            $file->move(
-                $this->getParameter('photo_tmp'),
-                $fileName
-            );
-            $this->get('util.imageresizer')->resizeImage($tmp.'/'.$fileName, $this->getParameter('photo_booster_directory').'/' , $width=512);
-            unlink($tmp.'/'.$fileName);
+            if($file = $booster->getPhoto()){
+                $tmp = $this->getParameter('photo_tmp');
+                $dir = $this->getParameter('photo_booster_directory');
 
-            $booster->setPhoto($fileName);
+                $fileName = md5(uniqid()).'.'.$file->guessExtension();
+                $file->move(
+                    $tmp,
+                    $fileName
+                );
+                $this->get('util.imageresizer')->resizeImage($tmp.'/'.$fileName, $dir.'/' , $width=512);
+                unlink($tmp.'/'.$fileName);
+
+                $booster->setPhoto($fileName);
+            }
 
             $em->persist($booster);
             $em->flush($booster);
