@@ -1,6 +1,8 @@
 BoosterBundle\Entity\Transaction:
     type: entity
     table: transaction
+    repositoryClass: BoosterBundle\Repository\TransactionRepository
+    repositoryClass: BoosterBundle\Repository\SocietyRepository
     id:
         id:
             type: integer
@@ -14,24 +16,13 @@ BoosterBundle\Entity\Transaction:
             options:
                 default: CURRENT_TIMESTAMP
             column: create_time
-        projectLeft:
-            type: integer
-            nullable: false
-            column: project_left
-        projectMonthLeft:
-            type: integer
-            nullable: false
-            column: project_month_left
-        validityDate:
-            type: datetime
-            nullable: false
-            column: validity_date
-        status:
-            type: string
-            nullable: false
-            length: 45
-    manyToOne:
+
+    oneToOne:
         society:
             targetEntity: BoosterBundle\Entity\Society
-            mappedBy: societyName
+            inversedBy: transaction
+            joinColumn:
+                name: transaction_id
+                referencedColumnName: id
+
     lifecycleCallbacks: {  }

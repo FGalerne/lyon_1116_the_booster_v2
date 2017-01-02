@@ -1080,8 +1080,19 @@ hr{
 	list-style: none;
 	display: inline-block;
 }
+#add-homePage{
 
-#add-project a {
+}
+#add-homePage a  {
+	background-color: rgba(230,15,51,1);
+	margin: 35px auto;
+	padding: 30px;
+	display: block;
+	color: #FFFFFF;
+	text-decoration: none;
+	text-align: center;
+}
+#add-project a{
 	background-color: rgba(230,15,51,1);
 	margin: 35px auto;
 	display: block;

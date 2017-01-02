@@ -3,7 +3,6 @@
 namespace BoosterBundle\Controller;
 
 use BoosterBundle\Entity\Contact;
-use BoosterBundle\Entity\Society;
 use BoosterBundle\Repository\SocietyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,7 +11,14 @@ class FrontController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('BoosterBundle:Front:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $transactions = $em->getRepository('BoosterBundle:Transaction')
+            ->homePageSocieties()
+        ;
+        return $this->render('BoosterBundle:Front:index.html.twig', array(
+            'transactions' => $transactions,
+        ));
     }
     public function cgvAction()
     {

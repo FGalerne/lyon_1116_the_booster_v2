@@ -18,30 +18,13 @@ class Transaction
     private $createTime = 'CURRENT_TIMESTAMP';
 
     /**
-     * @var integer
-     */
-    private $projectLeft;
-
-    /**
-     * @var integer
-     */
-    private $projectMonthLeft;
-
-    /**
-     * @var \DateTime
-     */
-    private $validityDate;
-
-    /**
-     * @var string
-     */
-    private $status;
-
-    /**
      * @var \BoosterBundle\Entity\Society
      */
-    private $society;
+    private $transaction_id;
 
+    public function __toString() {
+        return $this->transaction_id->getPhoto();
+    }
 
     /**
      * Get id
@@ -51,16 +34,6 @@ class Transaction
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Get createTime
-     *
-     * @return \DateTime
-     */
-    public function getCreateTime()
-    {
-        return $this->createTime;
     }
 
     /**
@@ -78,122 +51,36 @@ class Transaction
     }
 
     /**
-     * Get projectLeft
-     *
-     * @return integer
-     */
-    public function getProjectLeft()
-    {
-        return $this->projectLeft;
-    }
-
-    /**
-     * Set projectLeft
-     *
-     * @param integer $projectLeft
-     *
-     * @return Transaction
-     */
-    public function setProjectLeft($projectLeft)
-    {
-        $this->projectLeft = $projectLeft;
-
-        return $this;
-    }
-
-    /**
-     * Get projectMonthLeft
-     *
-     * @return integer
-     */
-    public function getProjectMonthLeft()
-    {
-        return $this->projectMonthLeft;
-    }
-
-    /**
-     * Set projectMonthLeft
-     *
-     * @param integer $projectMonthLeft
-     *
-     * @return Transaction
-     */
-    public function setProjectMonthLeft($projectMonthLeft)
-    {
-        $this->projectMonthLeft = $projectMonthLeft;
-
-        return $this;
-    }
-
-    /**
-     * Get validityDate
+     * Get createTime
      *
      * @return \DateTime
      */
-    public function getValidityDate()
+    public function getCreateTime()
     {
-        return $this->validityDate;
+        return $this->createTime;
     }
 
     /**
-     * Set validityDate
+     * Set transactionId
      *
-     * @param \DateTime $validityDate
+     * @param \BoosterBundle\Entity\Society $transactionId
      *
      * @return Transaction
      */
-    public function setValidityDate($validityDate)
+    public function setTransactionId(\BoosterBundle\Entity\Society $transactionId = null)
     {
-        $this->validityDate = $validityDate;
+        $this->transaction_id = $transactionId;
 
         return $this;
     }
 
     /**
-     * Get status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * Set status
-     *
-     * @param string $status
-     *
-     * @return Transaction
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    /**
-     * Get society
+     * Get transactionId
      *
      * @return \BoosterBundle\Entity\Society
      */
-    public function getSociety()
+    public function getTransactionId()
     {
-        return $this->society;
-    }
-
-    /**
-     * Set society
-     *
-     * @param \BoosterBundle\Entity\Society $society
-     *
-     * @return Transaction
-     */
-    public function setSociety(\BoosterBundle\Entity\Society $society = null)
-    {
-        $this->society = $society;
-
-        return $this;
+        return $this->transaction_id;
     }
 }

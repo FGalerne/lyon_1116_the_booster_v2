@@ -17,6 +17,9 @@
                             {% if society.linkedin %}<a href="{{ society.linkedin }}" target="_blank"><li><i class="fa fa-linkedin-square" aria-hidden="true"></i></li></a>{% endif %}
                             {% if society.youtube %}<a href="{{ society.youtube }}" target="_blank"><li><i class="fa fa-youtube-square" aria-hidden="true"></i></li></a>{% endif %}
                         </div>
+                        <div id="add-homePage">
+                            <a href="{{ society.transaction.society|default ? path('transaction_edit', { 'id': app.user.society.id } ) : path('transaction_new', { 'id': app.user.society.id }) }}">ME METTRE EN AVANT SUR LA PAGE D'ACCUEIL</a>
+                        </div>
                     </div>
                 </div>
 
