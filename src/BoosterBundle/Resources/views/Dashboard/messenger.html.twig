@@ -23,7 +23,14 @@
                 {% for messenger in group %}
                     <div class="messenger-row row {{ color }}">
                         <div class="col-xs-3">
-                            <img class="col-xs-4" src="{{ messenger.user1.booster ? messenger.user1.booster.photo : messenger.user1.society.photo }}" alt="photo-avatar" />
+                            {% set avatar = messenger.user1.booster ? messenger.user1.booster.photo : messenger.user1.society.photo %}
+                            <div class="col-xs-4 avatar-messenger">
+                            {% if avatar|default %}
+                                <img src="{{ messenger.user1.booster ? asset('img/uploads/boosters/' ~ avatar) : asset('img/uploads/societies/' ~ avatar) }}" alt="photo-avatar" />
+                            {% else %}
+                                <img src="{{ asset('img/avatar-default.png') }}" alt="photo-avatar"/>
+                            {% endif %}
+                            </div>
                             <em class="text-left">{{ messenger.user1.firstName }}</em>
                             <em class="messenger-user2 user1{{ index }}">{{ messenger.user1.id }}</em>
                             <em class="messenger-user2 user2{{ index }}">{{ messenger.user2.id }}</em>
