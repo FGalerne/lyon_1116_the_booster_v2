@@ -170,7 +170,7 @@ class RegistrationController extends BaseController
                 ;
                 $this->get('mailer')->send($sendMessage);
                 return $response;
-            } else{
+            } else {
                 if($phone === null) $required = 'phone';
                 if($siret === null) $required = 'siret';
             }
