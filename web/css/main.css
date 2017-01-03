@@ -985,6 +985,7 @@ hr{
 .global-presentation {
 	margin-top: 35px;
 	margin-bottom: 35px;
+	padding: 0;
 }
 
 #statistic-society,
