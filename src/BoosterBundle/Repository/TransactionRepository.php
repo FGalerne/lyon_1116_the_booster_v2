@@ -13,7 +13,7 @@ class TransactionRepository extends \Doctrine\ORM\EntityRepository
     public function homePageSocieties()
     {
         $req = $this->createQueryBuilder('a')
-            ->orderBy('a.createTime')
+            ->orderBy('a.createTime', 'DESC')
             ->setMaxResults(16)
             ->getQuery();
 
@@ -31,5 +31,4 @@ class TransactionRepository extends \Doctrine\ORM\EntityRepository
 
         return $qb->execute();
     }
-
 }

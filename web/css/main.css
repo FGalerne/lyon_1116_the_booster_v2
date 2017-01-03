@@ -1085,10 +1085,10 @@ hr{
 }
 #add-homePage a  {
 	background-color: rgba(230,15,51,1);
-	margin: 35px auto;
-	padding: 30px;
+	padding: 15px 5px 15px 5px;
 	display: block;
 	color: #FFFFFF;
+	border-radius: 10px;
 	text-decoration: none;
 	text-align: center;
 }
@@ -1102,7 +1102,7 @@ hr{
 	text-align: center;
 }
 
-#add-project a:hover {
+#add-project a:hover, #add-homePage a:hover {
 	background-color: rgba(230,15,51,0.9);
 }
 

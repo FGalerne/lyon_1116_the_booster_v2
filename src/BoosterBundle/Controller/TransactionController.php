@@ -54,7 +54,7 @@ class TransactionController extends Controller
      * Finds and displays a transaction entity.
      *
      */
-    public function showAction(Transaction $transaction)
+    /*public function showAction(Transaction $transaction)
     {
         $deleteForm = $this->createDeleteForm($transaction);
 
@@ -62,32 +62,16 @@ class TransactionController extends Controller
             'transaction' => $transaction,
             'delete_form' => $deleteForm->createView(),
         ));
-    }
+    }*/
 
     /**
-     * Displays a form to edit an existing transaction entity.
-     *
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function editAction(Request $request, $id)
     {
-        /*$deleteForm = $this->createDeleteForm($transaction);
-        $editForm = $this->createForm('BoosterBundle\Form\TransactionType', $transaction);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('transaction_edit', array('id' => $transaction->getId()));
-        }
-
-        return $this->render('transaction/edit.html.twig', array(
-            'transaction' => $transaction,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));*/
-        $em = $this->getDoctrine()->getManager();
-
-        $transaction = $this->getDoctrine()
+        $this->getDoctrine()
             ->getRepository('BoosterBundle:Transaction')
             ->updateTransaction($id);
         return $this->redirectToRoute('dashboard_society', array('id' => $id));
@@ -97,6 +81,7 @@ class TransactionController extends Controller
      * Deletes a transaction entity.
      *
      */
+    /*
     public function deleteAction(Request $request, Transaction $transaction)
     {
         $form = $this->createDeleteForm($transaction);
@@ -109,7 +94,7 @@ class TransactionController extends Controller
         }
 
         return $this->redirectToRoute('transaction_index');
-    }
+    }*/
 
     /**
      * Creates a form to delete a transaction entity.
@@ -118,12 +103,12 @@ class TransactionController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Transaction $transaction)
+    /*private function createDeleteForm(Transaction $transaction)
     {
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('transaction_delete', array('id' => $transaction->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;
-    }
+    }*/
 }

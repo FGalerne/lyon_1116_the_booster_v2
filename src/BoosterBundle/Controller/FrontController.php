@@ -16,8 +16,17 @@ class FrontController extends Controller
         $transactions = $em->getRepository('BoosterBundle:Transaction')
             ->homePageSocieties()
         ;
+        $societies = array();
+        $count = count($transactions);
+        if($count < 16){
+            $max = 16 /*- count($transactions)*/;
+            $societies = $em->getRepository('BoosterBundle:Society')
+                ->findMax($max);
+        }
+
         return $this->render('BoosterBundle:Front:index.html.twig', array(
             'transactions' => $transactions,
+            'societies' => $societies,
         ));
     }
     public function cgvAction()
