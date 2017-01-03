@@ -94,7 +94,8 @@ class FrontController extends Controller
     {
         return $this->render('BoosterBundle:Front:inscription_choix.html.twig');
     }
-	const MAX_PER_PAGE = 12;
+
+    const MAX_PER_PAGE = 12;
 
     public function listSocietyAction($page = 1)
 	{
