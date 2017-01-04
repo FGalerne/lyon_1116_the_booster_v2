@@ -24,9 +24,11 @@ class TransactionRepository extends \Doctrine\ORM\EntityRepository
         $qb = $this->createQueryBuilder('a')
             ->update()
             ->set('a.createTime', '?1')
-            ->where('a.society = ?2')
+            ->set('a.endTime', '?2')
+            ->where('a.society = ?3')
             ->setParameter(1, new \DateTime('now'))
-            ->setParameter(2, $id)
+            ->setParameter(2, date_modify(new \DateTime('now'), "+24 hour"))
+            ->setParameter(3, $id)
             ->getQuery();
 
         return $qb->execute();

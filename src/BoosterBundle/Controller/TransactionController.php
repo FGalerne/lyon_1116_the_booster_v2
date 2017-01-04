@@ -66,11 +66,10 @@ class TransactionController extends Controller
     }*/
 
     /**
-     * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function editAction(Request $request, $id)
+    public function editAction($id)
     {
         $this->getDoctrine()
             ->getRepository('BoosterBundle:Transaction')

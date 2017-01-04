@@ -17,13 +17,13 @@
                             {% if society.linkedin %}<a href="{{ society.linkedin }}" target="_blank"><li><i class="fa fa-linkedin-square" aria-hidden="true"></i></li></a>{% endif %}
                             {% if society.youtube %}<a href="{{ society.youtube }}" target="_blank"><li><i class="fa fa-youtube-square" aria-hidden="true"></i></li></a>{% endif %}
                         </div>
-                        {% if society.transaction|default %}
+                        {% if society.transaction|default and "now"|date('m/d/Y H:i:s') < society.transaction.endTime|date("m/d/Y H:i:s") %}
                         <div id="on-homePage">
-                            <a>MA SOCIETE EST EN HOME PAGE JUSQU'AU: {{ society.transaction.endTime|date("m/d/Y H:i:s") }}</a>
+                            <a>MA SOCIETE EST EN HOME PAGE JUSQU'AU: {{  society.transaction.endTime|date("m/d/Y H:i:s") }}</a>
                         </div>
                         {% else %}
                         <div id="add-homePage">
-                            <a href="{{ society.transaction.society|default ? path('transaction_edit', { 'id': app.user.society.id } ) : path('transaction_new', { 'id': app.user.society.id }) }}">ME METTRE EN AVANT SUR LA PAGE D'ACCUEIL</a>
+                            <a href="{{ society.transaction|default ? path('transaction_edit', { 'id': app.user.society.id } ) : path('transaction_new', { 'id': app.user.society.id }) }}">ME METTRE EN AVANT SUR LA PAGE D'ACCUEIL</a>
                         </div>
                         {% endif %}
                     </div>
