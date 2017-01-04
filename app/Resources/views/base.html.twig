@@ -89,7 +89,7 @@
                                         <li><a href="{{ path('dashboard_society',{'id':app.user.society.id}) }}" class="log-nav" ><i class="fa fa-user" aria-hidden="true"></i>Dashboard</a></li>
                                         <li><a href="{{ path('dashboard_society_edit',{'id':app.user.society.id}) }}" class="log-nav"><i class="fa fa-cog" aria-hidden="true"></i>Editez votre profile</a></li>
                                         <li role="separator" class="divider"></li>
-                                        <li><a href="{{ path('fos_user_security_logout') }}" class="log-nav">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+                                        <li><a href="{{ path('fos_user_security_logout') }}" class="log-nav"><i class="fa fa-power-off" aria-hidden="true"></i> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
                                     </ul>
                                 </li>
                             </ul>
