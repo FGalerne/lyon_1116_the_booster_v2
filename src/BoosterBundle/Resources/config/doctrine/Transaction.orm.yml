@@ -16,6 +16,10 @@ BoosterBundle\Entity\Transaction:
             options:
                 default: CURRENT_TIMESTAMP
             column: create_time
+        endTime:
+            type: datetime
+            nullable: true
+            column: end_time
 
     oneToOne:
         society:

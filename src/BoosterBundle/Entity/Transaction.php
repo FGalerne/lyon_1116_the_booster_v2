@@ -112,4 +112,62 @@ class Transaction
     {
         return $this->society;
     }
+    /**
+     * @var \DateTime
+     */
+    private $duration;
+
+
+    /**
+     * Set duration
+     *
+     * @param \DateTime $duration
+     *
+     * @return Transaction
+     */
+    public function setDuration($duration)
+    {
+        $this->duration = $duration;
+
+        return $this;
+    }
+
+    /**
+     * Get duration
+     *
+     * @return \DateTime
+     */
+    public function getDuration()
+    {
+        return $this->duration;
+    }
+    /**
+     * @var \DateTime
+     */
+    private $endTime;
+
+
+    /**
+     * Set endTime
+     *
+     * @param \DateTime $endTime
+     *
+     * @return Transaction
+     */
+    public function setEndTime($endTime)
+    {
+        $this->endTime = $endTime;
+
+        return $this;
+    }
+
+    /**
+     * Get endTime
+     *
+     * @return \DateTime
+     */
+    public function getEndTime()
+    {
+        return $this->endTime;
+    }
 }

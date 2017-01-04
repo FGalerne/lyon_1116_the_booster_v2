@@ -1080,17 +1080,14 @@ hr{
 	list-style: none;
 	display: inline-block;
 }
-#add-homePage{
 
-}
-#add-homePage a  {
-	background-color: rgba(230,15,51,1);
+#add-homePage a, #on-homePage a{
+	background-color: rgb(133, 133, 133);
 	padding: 15px 5px 15px 5px;
 	display: block;
 	color: #FFFFFF;
-	border-radius: 10px;
+	margin-top: 15px;
 	text-decoration: none;
-	text-align: center;
 }
 #add-project a{
 	background-color: rgba(230,15,51,1);

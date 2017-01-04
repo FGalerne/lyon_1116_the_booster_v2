@@ -10,9 +10,6 @@
                         <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/avatar-default.png') }}" alt="photo couverture société" />
                     </div>
                     <div class="col-xs-12 col-md-4">
-                        <div id="add-homePage">
-                            <a href="{{ society.transaction.society|default ? path('transaction_edit', { 'id': app.user.society.id } ) : path('transaction_new', { 'id': app.user.society.id }) }}">ME METTRE EN AVANT SUR LA PAGE D'ACCUEIL</a>
-                        </div>
                         <h1 class="text-left">{{ society.societyName }}</h1>
                         <div class=" dashboard-social-media">
                             {% if society.facebook %}<a href="{{ society.facebook }}" target="_blank"><li><i class="fa fa-facebook-official" aria-hidden="true"></i></li></a>{% endif %}
@@ -20,6 +17,15 @@
                             {% if society.linkedin %}<a href="{{ society.linkedin }}" target="_blank"><li><i class="fa fa-linkedin-square" aria-hidden="true"></i></li></a>{% endif %}
                             {% if society.youtube %}<a href="{{ society.youtube }}" target="_blank"><li><i class="fa fa-youtube-square" aria-hidden="true"></i></li></a>{% endif %}
                         </div>
+                        {% if society.transaction|default %}
+                        <div id="on-homePage">
+                            <a>MA SOCIETE EST EN HOME PAGE JUSQU'AU: {{ society.transaction.endTime|date("m/d/Y H:i:s") }}</a>
+                        </div>
+                        {% else %}
+                        <div id="add-homePage">
+                            <a href="{{ society.transaction.society|default ? path('transaction_edit', { 'id': app.user.society.id } ) : path('transaction_new', { 'id': app.user.society.id }) }}">ME METTRE EN AVANT SUR LA PAGE D'ACCUEIL</a>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
 

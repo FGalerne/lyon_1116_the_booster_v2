@@ -23,7 +23,7 @@ class Transaction
     private $transaction_id;
 
     public function __toString() {
-        return $this->transaction_id->getPhoto();
+        return $this->transaction_id->getSocietyName();
     }
 
     /**
@@ -82,5 +82,63 @@ class Transaction
     public function getTransactionId()
     {
         return $this->transaction_id;
+    }
+    /**
+     * @var \BoosterBundle\Entity\Society
+     */
+    private $society;
+
+
+    /**
+     * Set society
+     *
+     * @param \BoosterBundle\Entity\Society $society
+     *
+     * @return Transaction
+     */
+    public function setSociety(\BoosterBundle\Entity\Society $society = null)
+    {
+        $this->society = $society;
+
+        return $this;
+    }
+
+    /**
+     * Get society
+     *
+     * @return \BoosterBundle\Entity\Society
+     */
+    public function getSociety()
+    {
+        return $this->society;
+    }
+    /**
+     * @var \DateTime
+     */
+    private $duration;
+
+
+    /**
+     * Set duration
+     *
+     * @param \DateTime $duration
+     *
+     * @return Transaction
+     */
+    public function setDuration($duration)
+    {
+        $this->duration = $duration;
+
+        return $this;
+    }
+
+    /**
+     * Get duration
+     *
+     * @return \DateTime
+     */
+    public function getDuration()
+    {
+        return $this->duration;
     }
 }

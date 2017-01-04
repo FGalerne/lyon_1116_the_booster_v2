@@ -44,6 +44,7 @@ class TransactionController extends Controller
             ->findOneById($id);
         $transaction->setSociety($society);
         $transaction->setCreateTime(new \DateTime('now'));
+        $transaction->setEndTime(date_modify(new \DateTime('now'), "+24 hour"));
         $em->persist($transaction);
         $em->flush($transaction);
 
