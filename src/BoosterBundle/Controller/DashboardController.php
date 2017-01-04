@@ -6,6 +6,7 @@ use BoosterBundle\Entity\Booster;
 use BoosterBundle\Entity\Messenger;
 use BoosterBundle\Repository\messengerRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 
 class DashboardController extends Controller
@@ -51,6 +52,22 @@ class DashboardController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $society->setUser($this->getUser());
+
+            if($file = $society->getPhoto()){
+                $tmp = $this->getParameter('photo_tmp');
+
+                $fileName = md5(uniqid()).'.'.$file->guessExtension();
+                $file->move(
+                    $this->getParameter('photo_tmp'),
+                    $fileName
+                );
+
+                $this->get('util.imageresizer')->resizeImage($tmp.'/'.$fileName, $this->getParameter('photo_society_directory').'/' , $width=1024);
+                unlink($tmp.'/'.$fileName);
+
+                $society->setPhoto($fileName);
+            }
+
             $em->persist($society);
             $em->flush($society);
 
@@ -71,10 +88,31 @@ class DashboardController extends Controller
      */
     public function societyEditAction(Request $request, Society $society)
     {
+        $oldSocietyPhoto = $society->getPhoto();
         $editForm = $this->createForm('BoosterBundle\Form\SocietyType', $society);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            if($editForm->get('photo')->getData() == null ){
+                $society->setPhoto($oldSocietyPhoto);
+            }
+            else{
+                $tmp = $this->getParameter('photo_tmp');
+                $dir = $this->getParameter('photo_society_directory');
+                $file = $society->getPhoto();
+                $fileName = md5(uniqid()).'.'.$file->guessExtension();
+                $file->move(
+                    $tmp,
+                    $fileName
+                );
+                $this->get('util.imageresizer')->resizeImage($tmp.'/'.$fileName, $dir.'/' , $width=1024);
+
+                if (isset($oldSocietyPhoto) && !empty($oldSocietyPhoto)) unlink($dir.'/'.$oldSocietyPhoto);
+                unlink($tmp.'/'.$fileName);
+                $society->setPhoto($fileName);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('dashboard_society',
@@ -133,6 +171,22 @@ class DashboardController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $booster->setUser($this->getUser());
+
+            if($file = $booster->getPhoto()){
+                $tmp = $this->getParameter('photo_tmp');
+                $dir = $this->getParameter('photo_booster_directory');
+
+                $fileName = md5(uniqid()).'.'.$file->guessExtension();
+                $file->move(
+                    $tmp,
+                    $fileName
+                );
+                $this->get('util.imageresizer')->resizeImage($tmp.'/'.$fileName, $dir.'/' , $width=512);
+                unlink($tmp.'/'.$fileName);
+
+                $booster->setPhoto($fileName);
+            }
+
             $em->persist($booster);
             $em->flush($booster);
 
@@ -153,10 +207,30 @@ class DashboardController extends Controller
      */
     public function boosterEditAction(Request $request, Booster $booster)
     {
+        $oldBoosterPhoto = $booster->getPhoto();
         $editForm = $this->createForm('BoosterBundle\Form\BoosterType', $booster);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            if($editForm->get('photo')->getData() == null ){
+                $booster->setPhoto($oldBoosterPhoto);
+            }
+            else{
+                $tmp = $this->getParameter('photo_tmp');
+                $dir = $this->getParameter('photo_booster_directory');
+                $file = $booster->getPhoto();
+                $fileName = md5(uniqid()).'.'.$file->guessExtension();
+                $file->move(
+                    $this->getParameter('photo_tmp'),
+                    $fileName
+                );
+                $this->get('util.imageresizer')->resizeImage($tmp.'/'.$fileName, $dir.'/' , $width=512);
+
+                if (isset($oldBoosterPhoto) && !empty($oldBoosterPhoto)) unlink($dir.'/'.$oldBoosterPhoto);
+                unlink($tmp.'/'.$fileName);
+                $booster->setPhoto($fileName);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('dashboard_booster',

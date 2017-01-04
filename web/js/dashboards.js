@@ -1,17 +1,26 @@
+var dashboardNavBackground = '#e60f33';
+var dashboardNavColor = 'white';
+
+
 $( document ).ready(function() {
     dashHome();
+    colorFocus('#project-home');
 });
 $('#project-home').click(function() {
     dashHome();
+    colorFocus('#project-home');
 });
 $('#project-in-progress').click(function() {
     dashProject();
+    colorFocus('#project-in-progress');
 });
 $('#project-done').click(function() {
     dashDone();
+    colorFocus('#project-done');
 });
 $('#messenger').click(function() {
     dashMessenger();
+    colorFocus('#messenger');
 });
 function dashHome(){
     $('#dashboard-booster-home').css({'display':''});
@@ -36,4 +45,12 @@ function dashMessenger(){
     $('#dashboard-booster-inProgress').css({'display':'none'});
     $('#dashboard-booster-done').css({'display':'none'});
     $('#dashboard-messenger').css({'display':''});
+}
+function colorFocus(id){
+    $('#project-home').css({'background-color':dashboardNavBackground, 'color':dashboardNavColor});
+    $('#project-in-progress').css({'background-color':dashboardNavBackground, 'color':dashboardNavColor});
+    $('#project-done').css({'background-color':dashboardNavBackground, 'color':dashboardNavColor});
+    $('#messenger').css({'background-color':dashboardNavBackground, 'color':dashboardNavColor});
+
+    $(id).css({'background-color':dashboardNavColor, 'color':dashboardNavBackground});
 }

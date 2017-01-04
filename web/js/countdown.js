@@ -26,14 +26,30 @@ tinymce.PluginManager.add('charactercount', function (editor) {
             }, 0);
         }
     });
+    var maxCount = editor.getParam("maxCount");
+    var minCount = editor.getParam("minCount");
 
     self.getCount = function () {
+
         var tx = editor.getContent({ format: 'raw' });
         var decoded = decodeHtml(tx);
         var decodedStripped = decoded.replace(/(<([^>]+)>)/ig, "").trim();
         var tc = decodedStripped.length;
+
+        if (tc > maxCount)
+            editor.contentDocument.body.style.color = 'red';
+        else
+            editor.contentDocument.body.style.color = '';
+
         return tc;
     };
+
+    editor.on('submit', function(e) {
+        var count = this.plugins["charactercount"].getCount();
+        if (count > maxCount || count < minCount){
+            e.preventDefault();
+        }
+    });
 
     function decodeHtml(html) {
         var txt = document.createElement("textarea");

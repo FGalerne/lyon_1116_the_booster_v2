@@ -34,21 +34,26 @@
     <script src="{{ asset('js/countdown.js')}}"></script>
     <script>
         tinymce.init({
-            selector:'.WYSIWYG',
+            selector:'.WYSIWYG1',
             forced_root_block: false,
             menubar: 'tools',
             toolbar: 'undo redo | bold italic underline strikethrough | fontsizeselect',
-            height : 200,
+            height : 300,
             plugins: "charactercount",
-            setup: function (editor) {
-                editor.on('keyup', function(e) {
-                    var count = this.plugins["charactercount"].getCount();
-                });
-            },
-            init_instance_callback: function (editor) {
-                $('.mce-tinymce').show('fast');
-                $(editor.getContainer()).find(".mce-path").css("display", "none");
-            }
+            maxCount: 140,
+            minCount: 1
+        });
+    </script>
+    <script>
+        tinymce.init({
+            selector:'.WYSIWYG2',
+            forced_root_block: false,
+            menubar: 'tools',
+            toolbar: 'undo redo | bold italic underline strikethrough | fontsizeselect',
+            height : 300,
+            plugins: "charactercount",
+            maxCount: 500,
+            minCount: 1
         });
     </script>
 {% endblock %}

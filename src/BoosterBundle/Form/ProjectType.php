@@ -37,10 +37,9 @@ class ProjectType extends AbstractType
                 },
             )
         )->add('description', TextareaType::class, array(
-                'label' => 'Décrivez votre projet en moins de 200 caractères.', 'label_attr' => array('class' => 'project-label-description'),
+                'label' => 'Décrivez votre projet (200 caractères max)', 'label_attr' => array('class' => 'project-label-description'),
                 'attr' => array(
                     'class' => 'WYSIWYG form-control form-group',
-                    'placeholder' => 'Décrivez votre projet en moins de 200 caractères.'
                 ),
                 'required' => false,
             )
