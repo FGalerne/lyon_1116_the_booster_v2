@@ -69,9 +69,9 @@ span {
 	box-shadow: 0 3px 0 rgba(230,15,51,1);
 	font-size: 1.1em;
 	min-height: 10vh;
-
 }
 
+.nav-no-user > li > a,
 .navbar-nav > li > a {
 	line-height: 7vh;
 	color: black;
@@ -81,7 +81,10 @@ span {
 
 .navbar-brand img {
 	height: 9vh;
+}
 
+.social-nav {
+	list-style: none;
 }
 
 #navbar-logo img {
@@ -95,7 +98,6 @@ span {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	margin-right: 20px;
 }
 
 .nav_networks img {
@@ -149,11 +151,33 @@ span {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
-		margin-right: 20px;
 	}
 	.navbar-collapse.in {
 		overflow-y: unset;
 		padding-bottom: 3vh;
+	}
+}
+
+.nav-no-user {
+	list-style: none;
+	display: block;
+}
+
+.nav-no-user li {
+	display: inline-block;
+}
+
+#connection-nav ul {
+	font-size: 1em;
+}
+
+.dropdown {
+	margin-left: 20px;
+}
+
+@media (max-width: 1075px) {
+	.dropdown {
+		margin: 0;
 	}
 }
 
@@ -303,7 +327,6 @@ span {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
-		margin-right: 20px;
 	}
 	.navbar-collapse.in {
 		overflow-y: unset;
@@ -1025,6 +1048,11 @@ hr{
 	background-color: rgba(255, 255, 255, 0.1);
 }
 
+.drop-nav-perso i {
+	color: #000000;
+	padding-right: 10px;
+}
+
 .presentation-booster {
 	margin-bottom: 60px;
 }
@@ -1062,6 +1090,10 @@ hr{
 .project-done p {
 	text-align: center;
 	padding-top: 5px;
+}
+
+.configuration-profile {
+	width: 20px;
 }
 
 /*********************** DASHBOARD BOOSTE "SOCIETY" ***********************/
@@ -1573,7 +1605,9 @@ a:hover {
 	margin-top: 20px;
 }
 
+
 /* Dashboards */
+
 .avatar{
 	width: 200px;
 	height: 220px;

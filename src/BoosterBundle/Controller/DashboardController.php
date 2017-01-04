@@ -101,6 +101,8 @@ class DashboardController extends Controller
                 $tmp = $this->getParameter('photo_tmp');
                 $dir = $this->getParameter('photo_society_directory');
                 $file = $society->getPhoto();
+                var_dump($file);
+
                 $fileName = md5(uniqid()).'.'.$file->guessExtension();
                 $file->move(
                     $tmp,
@@ -111,6 +113,8 @@ class DashboardController extends Controller
                 if (isset($oldSocietyPhoto) && !empty($oldSocietyPhoto)) unlink($dir.'/'.$oldSocietyPhoto);
                 unlink($tmp.'/'.$fileName);
                 $society->setPhoto($fileName);
+
+
             }
 
             $this->getDoctrine()->getManager()->flush();
