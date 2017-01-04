@@ -35,7 +35,7 @@
                     </ul>
                 </div>
                 <div class="col-xs-12 col-md-3" id="add-project">
-                    <a href="#">JE DEPOSE UN PROJET</a>
+                    {% if is_granted("ROLE_BOOSTE") %}<a href="{{ path('new_project') }}">JE DEPOSE UN PROJET</a>{% endif %}
                 </div>
 
             </div>
