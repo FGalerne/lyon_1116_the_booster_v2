@@ -333,6 +333,18 @@ span {
 		padding-bottom: 3vh;
 	}
 }
+
+.dropdown-menu {
+	width: 100%;
+	border-radius: 0;
+}
+
+@media (max-width: 1075px) {
+	.dropdown {
+		margin-left: 20px;
+	}
+}
+
 #home_startup_title{
 	text-align: center;
 	margin-top: 10vh;

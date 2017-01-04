@@ -40,7 +40,7 @@ class ProjectController extends Controller
         $time = new \DateTime();
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $project->setSociety($form->getData()->getSociety());
+            $project->setSocietyId($form->getData()->getSociety());
             $project->setCreateTime($time);
             $project->setCreationStatus('en attente');
             $project->setStatus('proposé');
