@@ -12,20 +12,11 @@
                     <div class="col-xs-12 col-md-4">
                         <h1 class="text-left">{{ society.societyName }}</h1>
                         <div class=" dashboard-social-media">
-                            {% if society.facebook %}<a href="{{ society.facebook }}" target="_blank"><li><i class="fa fa-facebook-official" aria-hidden="true"></i></li></a>{% endif %}
-                            {% if society.twitter %}<a href="{{ society.twitter }}" target="_blank"><li><i class="fa fa-twitter-square" aria-hidden="true"></i></li></a>{% endif %}
-                            {% if society.linkedin %}<a href="{{ society.linkedin }}" target="_blank"><li><i class="fa fa-linkedin-square" aria-hidden="true"></i></li></a>{% endif %}
-                            {% if society.youtube %}<a href="{{ society.youtube }}" target="_blank"><li><i class="fa fa-youtube-square" aria-hidden="true"></i></li></a>{% endif %}
+                            {% if society.facebook %}<a href="{{ society.facebook | external_link }}" target="_blank"><li><i class="fa fa-facebook-official" aria-hidden="true"></i></li></a>{% endif %}
+                            {% if society.twitter %}<a href="{{ society.twitter | external_link }}" target="_blank"><li><i class="fa fa-twitter-square" aria-hidden="true"></i></li></a>{% endif %}
+                            {% if society.linkedin %}<a href="{{ society.linkedin | external_link }}" target="_blank"><li><i class="fa fa-linkedin-square" aria-hidden="true"></i></li></a>{% endif %}
+                            {% if society.youtube %}<a href="{{ society.youtube | external_link }}" target="_blank"><li><i class="fa fa-youtube-square" aria-hidden="true"></i></li></a>{% endif %}
                         </div>
-                        {% if society.transaction|default and "now"|date('m/d/Y H:i:s') < society.transaction.endTime|date("m/d/Y H:i:s") %}
-                        <div id="on-homePage">
-                            <a>MA SOCIETE EST EN HOME PAGE JUSQU'AU: {{  society.transaction.endTime|date("m/d/Y H:i:s") }}</a>
-                        </div>
-                        {% else %}
-                        <div id="add-homePage">
-                            <a href="{{ society.transaction|default ? path('transaction_edit', { 'id': app.user.society.id } ) : path('transaction_new', { 'id': app.user.society.id }) }}">ME METTRE EN AVANT SUR LA PAGE D'ACCUEIL</a>
-                        </div>
-                        {% endif %}
                     </div>
                 </div>
 
@@ -59,6 +50,7 @@
                             <li><a id="project-in-progress">Projets en cours</a></li>
                             <li><a id="project-done">Projets réalisés</a></li>
                             <li><a id="messenger">Messages</a></li>
+                            <li><a id="options">Options</a></li>
                         </ul>
                     </div>
                 </div>
@@ -116,6 +108,36 @@
                 </div>
             </div>
         </section>
+
+        {# Options payantes #}
+
+        <section class="container-fluid presentation-booster" id="dashboard-options">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                    {% if society.transaction|default and "now"|date('m/d/Y H:i:s') < society.transaction.endTime|date("m/d/Y H:i:s") %}
+                        <div class="transactions-on">
+                            <a class="col-xs-12">
+                                <div class="col-xs-6">MA SOCIETE EST EN HOME PAGE </div>
+                                <div class="col-xs-6 prices">Jusqu'au: {{  society.transaction.endTime|date("m/d/Y") }}, {{  society.transaction.endTime|date("H") }}H{{  society.transaction.endTime|date("i") }}
+                                </div>
+                            </a>
+                        </div>
+                    {% else %}
+                        <div class="transactions">
+                            <a class="col-xs-12" href="{{ society.transaction|default ? path('transaction_edit', { 'id': app.user.society.id } ) : path('transaction_new', { 'id': app.user.society.id }) }}">
+                                <div class="col-xs-6">ME METTRE EN AVANT SUR LA PAGE D'ACCUEIL</div>
+                                <div class="row col-xs-3 prices">DUREE: 24H</div>
+                                <div class="row col-xs-3 prices">PRIX: 5 &#8364; HT</div>
+                            </a>
+                        </div>
+                    {% endif %}
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
     {% endfor %}
     {% include 'BoosterBundle:Dashboard:messenger.html.twig' %}
 {% endblock %}

@@ -1114,13 +1114,24 @@ hr{
 	display: inline-block;
 }
 
-#add-homePage a, #on-homePage a{
+.transactions a{
 	background-color: rgb(133, 133, 133);
 	padding: 15px 5px 15px 5px;
 	display: block;
 	color: #FFFFFF;
 	margin-top: 15px;
 	text-decoration: none;
+}
+.transactions-on a{
+	background-color: rgb(133, 133, 133);
+	padding: 15px 5px 15px 5px;
+	display: block;
+	color: #FFFFFF;
+	margin-top: 15px;
+	text-decoration: none;
+}
+.prices{
+	text-align: right;
 }
 #add-project a{
 	background-color: rgba(235,3,16,1);
@@ -1132,7 +1143,7 @@ hr{
 	text-align: center;
 }
 
-#add-project a:hover, #add-homePage a:hover {
+#add-project a:hover, .transactions a:hover {
 	background-color: rgba(235,3,16,0.9);
 }
 
