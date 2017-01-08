@@ -23,12 +23,3 @@ transaction_edit:
 #    defaults: { _controller: "BoosterBundle:Transaction:delete" }
 #    methods:  DELETE
 
-transaction_token:
-    path:     /token
-    defaults: { _controller: "BoosterBundle:Payement:prepare" }
-    methods:  GET
-
-transaction_done:
-    path:     /done
-    defaults: { _controller: "BoosterBundle:Payement:done" }
-    methods:  GET

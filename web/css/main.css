@@ -1046,7 +1046,8 @@ hr{
 
 #navbar-dashboard li a:hover {
 	cursor: pointer;
-	background-color: rgba(255, 255, 255, 0.1);
+	background-color: rgba(255, 255, 255, 0.1) !important;
+	color: white !important;
 }
 
 .drop-nav-perso i {
@@ -1122,13 +1123,25 @@ hr{
 	margin-top: 15px;
 	text-decoration: none;
 }
-.transactions-on a{
+.transactions-on a, .no-dispo{
 	background-color: rgb(133, 133, 133);
 	padding: 15px 5px 15px 5px;
 	display: block;
 	color: #FFFFFF;
 	margin-top: 15px;
 	text-decoration: none;
+}
+.payment-infos{
+	background-color: #2b2b2b !important;
+	text-align: center;
+}
+.paypal-button{
+	color: #FFFFFF;
+	margin-top: 8px;
+
+}
+.paypal-button:hover{
+	background-color: white !important;
 }
 .prices{
 	text-align: right;
@@ -1144,7 +1157,7 @@ hr{
 }
 
 #add-project a:hover, .transactions a:hover {
-	background-color: rgba(235,3,16,0.9);
+	background-color: rgba(235,3,16,0.9)!important;
 }
 
 .dashboard-social-media {

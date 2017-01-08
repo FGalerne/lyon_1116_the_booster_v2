@@ -201,15 +201,5 @@ twig:
         resources:
             - 'BoosterBundle:Form:fields.html.twig'
 
-payum:
-    security:
-        token_storage:
-            BoosterBundle\Entity\PaymentToken: { doctrine: orm }
 
-    storages:
-        BoosterBundle\Entity\Payment: { doctrine: orm }
-
-    gateways:
-        offline:
-            factory: offline
 

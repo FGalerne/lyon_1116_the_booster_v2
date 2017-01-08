@@ -11,7 +11,7 @@
                     </div>
                     <div class="col-xs-12 col-md-4">
                         <h1 class="text-left">{{ society.societyName }}</h1>
-                        <div class=" dashboard-social-media">
+                        <div class="dashboard-social-media">
                             {% if society.facebook %}<a href="{{ society.facebook | external_link }}" target="_blank"><li><i class="fa fa-facebook-official" aria-hidden="true"></i></li></a>{% endif %}
                             {% if society.twitter %}<a href="{{ society.twitter | external_link }}" target="_blank"><li><i class="fa fa-twitter-square" aria-hidden="true"></i></li></a>{% endif %}
                             {% if society.linkedin %}<a href="{{ society.linkedin | external_link }}" target="_blank"><li><i class="fa fa-linkedin-square" aria-hidden="true"></i></li></a>{% endif %}
@@ -124,13 +124,48 @@
                             </a>
                         </div>
                     {% else %}
+                        {% if avaliable %}
                         <div class="transactions">
-                            <a class="col-xs-12" href="{{ society.transaction|default ? path('transaction_edit', { 'id': app.user.society.id } ) : path('transaction_new', { 'id': app.user.society.id }) }}">
+                            <a class="col-xs-9" href="{{ society.transaction|default ? path('transaction_edit', { 'id': app.user.society.id } ) : path('transaction_new', { 'id': app.user.society.id }) }}">
                                 <div class="col-xs-6">ME METTRE EN AVANT SUR LA PAGE D'ACCUEIL</div>
                                 <div class="row col-xs-3 prices">DUREE: 24H</div>
                                 <div class="row col-xs-3 prices">PRIX: 5 &#8364; HT</div>
                             </a>
+                            <a class="col-xs-1 payment-infos" href="#">INFOS</a>
+                            <span class="col-xs-2 paypal-button">
+                                <!--to test: teamthebooster-buyer@gmail.com to buy
+                                 same pwd as email-->
+                                <!--to test: teamthebooster@gmail.com to look at transaction
+                                 can log on: https://www.sandbox.paypal.com/signin?country.x=FR&locale.x=fr_FR
+                                 same pwd as email-->
+                                <!--script found here : https://paypal.github.io/JavaScriptButtons/-->
+                                <!--more info here: https://github.com/paypal/JavaScriptButtons#editable-inputs-->
+                                <!--nb: this callback may not work because a real url is needed (not a route)-->
+                                <!--nb2: the 'return' parameter works-->
+                                <script async="async" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=teamthebooster@gmail.com"
+                                    data-button="buynow"
+                                    data-name="Mise en avant sur la home page - 24h"
+                                    data-quantity="1"
+                                    data-amount="5.00"
+                                    data-currency="EUR"
+                                    data-tax="2.5"
+                                    data-lc="fr_FR"
+                                    data-callback="{{ society.transaction|default ? path('transaction_edit', { 'id': app.user.society.id } ) : path('transaction_new', { 'id': app.user.society.id }) }}"
+                                    data-env="sandbox"
+                                    return="{{ path('dashboard_society', { 'id': app.user.society.id }) }}"
+                                ></script>
+
+                            </span>
                         </div>
+                        {% else %}
+                        <div class="transactions">
+                            <span class="col-xs-11 no-dispo">
+                                <span class="col-xs-6">ME METTRE EN AVANT SUR LA PAGE D'ACCUEIL</span>
+                                <span class="row col-xs-6 prices">PROCHAINE PLACE DISPONIBLE LE: {{ socOnHomePage.0.endTime|date("m/d/Y H:i:s") }}</span>
+                            </span>
+                            <a class="col-xs-1 payment-infos" href="#">INFOS</a>
+                        </div>
+                        {% endif %}
                     {% endif %}
                     </div>
 

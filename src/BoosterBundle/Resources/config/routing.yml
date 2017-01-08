@@ -93,6 +93,7 @@ list_society:
     defaults: { _controller: "BoosterBundle:Front:listSociety", page: 1}
     requirements:
         page: \d+
+
 booster_transaction:
         resource: "@BoosterBundle/Resources/config/routing/transaction.yml"
         prefix:   /transaction

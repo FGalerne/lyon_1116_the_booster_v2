@@ -34,11 +34,7 @@ class TransactionController extends Controller
      */
     public function newAction(Request $request, $id)
     {
-        //paypal sandbox
-        //APP-80W284485P519543T
-        //user: teamthebooster_api1.gmail.com
-        //pwd: EDHLEQXXBJN6R4LN
-        //signature: AFcWxV21C7fd0v3bYYYRCpSSRl31Afl5RKAVs1nefl18qJaPaaganNf3
+        //if(verification paypal) {
         $transaction = new Transaction();
         $form = $this->createForm('BoosterBundle\Form\TransactionType', $transaction);
         $form->handleRequest($request);
@@ -52,8 +48,9 @@ class TransactionController extends Controller
         $transaction->setEndTime(date_modify(new \DateTime('now'), "+24 hour"));
         $em->persist($transaction);
         $em->flush($transaction);
-
+        //}
         return $this->redirectToRoute('dashboard_society', array('id' => $id));
+
     }
 
     /**
@@ -76,10 +73,12 @@ class TransactionController extends Controller
      */
     public function editAction($id)
     {
+        //if(verification paypal) {
         $this->getDoctrine()
             ->getRepository('BoosterBundle:Transaction')
             ->updateTransaction($id);
         return $this->redirectToRoute('dashboard_society', array('id' => $id));
+        //}
     }
 
     /**

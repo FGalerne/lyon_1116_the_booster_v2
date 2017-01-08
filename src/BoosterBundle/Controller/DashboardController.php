@@ -27,18 +27,29 @@ class DashboardController extends Controller
             $user = $this->getUser();
             $userId = $user->getId();
 
+            //messages
             $messenger = new Messenger();
             $form = $this->createForm('BoosterBundle\Form\MessengerType', $messenger);
             $messengers = $em->getRepository('BoosterBundle:Messenger')->myMessages($userId);
             $form->handleRequest($request);
 
+            //testing if a place is avaliable to buy on home page
+            $socOnHomePage = $em->getRepository('BoosterBundle:transaction')->socOnHomePage();
+            $avaliable = true;
+            if(count($socOnHomePage) > 16) $avaliable = false;
+
                 return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
+                    'socOnHomePage' => $socOnHomePage,
+                    'avaliable' => $avaliable,
                     'societies' => $societies,
                     'user' => $user,
                     'messengers' => $messengers,
                     'form' => $form->createView(),
                 ));
         }
+
+
+
         return $this->redirectToRoute('booster_charte');
     }
 
