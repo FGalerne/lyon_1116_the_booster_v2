@@ -76,6 +76,8 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: BoosterBundle\Entity\User
+    service:
+        mailer: fos_user.mailer.twig_swift
     registration:
         form:
             type: BoosterBundle\Form\RegistrationType
@@ -84,6 +86,7 @@ fos_user:
             validation_groups: [Default]
         confirmation:
             enabled: true
+            template:   BoosterBundle:Emails:confirmed_Booster.html.twig
     from_email:
         address:        noreply@thebooster.com
         sender_name:    the booster

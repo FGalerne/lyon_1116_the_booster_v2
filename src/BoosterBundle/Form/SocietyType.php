@@ -24,6 +24,7 @@ class SocietyType extends AbstractType
                     'data_class' => null
                     )
                 )
+
                 ->add('societyName', TextType::class, array(
                     'label' => 'Nom de la société ou du projet',
                     'attr'  => array(
