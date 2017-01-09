@@ -84,14 +84,9 @@ new_project:
     path:     /deposer-un-projet
     defaults: { _controller: BoosterBundle:Project:new }
 
-notes_comments_booster:
-    path:   /Booster-notez-votre-experience
-    defaults: { _controller: BoosterBundle:Project:notesBooster}
-    methods:  [GET, POST]
-
-notes_comments_society:
-    path:   /Booste-notez-votre-experience
-    defaults: { _controller: BoosterBundle:Project:notesSociety }
+notes_comments:
+    path:   /notez-votre-experience
+    defaults: { _controller: BoosterBundle:Project:notesComments}
     methods:  [GET, POST]
 
 booster_society:

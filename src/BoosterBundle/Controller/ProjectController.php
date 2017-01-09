@@ -130,16 +130,11 @@ class ProjectController extends Controller
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
-     * Displays the page to note and comment the experience
      */
-    public function notesBoosterAction()
+    public function notesCommentsAction()
     {
-        return $this-> render('BoosterBundle:Notes:notes_comments_booster.html.twig');
+        return $this-> render('BoosterBundle:Notes:notes_comments.html.twig');
     }
 
-    public function notesSocietyAction()
-    {
-        return $this-> render('BoosterBundle:Notes:notes_comments_society.html.twig');
-    }
 
 }
