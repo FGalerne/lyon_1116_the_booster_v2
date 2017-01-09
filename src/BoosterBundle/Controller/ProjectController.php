@@ -40,14 +40,14 @@ class ProjectController extends Controller
         $time = new \DateTime();
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $project->setSociety($this->getSociety());
+            $project->setSociety($this->getUser()->getSociety());
             $project->setCreateTime($time);
             $project->setCreationStatus('en attente');
             $project->setStatus('proposé');
             $project->setGivenTime(0);
             $em->persist($project);
             $em->flush($project);
-            return $this->redirectToRoute('project_show', array('id' => $project->getId()));
+            return $this->redirectToRoute('dashboard_society', array('id' => $this->getUser()->getSociety()));
         }
 
         return $this->render('BoosterBundle:Front:deposer_un_projet.html.twig', array(
