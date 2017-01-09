@@ -1,6 +1,7 @@
 BoosterBundle\Entity\Project:
     type: entity
     table: project
+    repositoryClass: BoosterBundle\Repository\ProjectRepository
     id:
         id:
             type: integer

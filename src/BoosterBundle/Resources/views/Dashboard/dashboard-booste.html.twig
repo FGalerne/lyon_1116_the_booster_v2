@@ -66,25 +66,26 @@
                     </div>
                 </section>
             </section>
+
         {# The Project part "IN PROGRESS" #}
 
         <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
             <div class="container project-in-progress">
                 <div class="col-xs-6 col-md-3">
                     <p>Nom de la société</p>
-                    <p>blablabla</p>
+                    <p>{{ society.societyName }}</p>
                 </div>
                 <div class="col-xs-6 col-md-3">
                     <p>Nom du projet :</p>
-                    <p>blablabla</p>
+                    <p>{{ society.project.projectName }}</p>
                 </div>
                 <div class="col-xs-6 col-md-3">
                     <p>Nombre d'heures:</p>
-                    <p>blablabla</p>
+                    <p>{{ society.project.givenTime }}</p>
                 </div>
                 <div class="col-xs-6 col-md-3">
                     <p>Statut:</p>
-                    <p>Réalisé</p>
+                    <p>{{ society.project.status }}</p>
                 </div>
             </div>
         </section>
@@ -95,15 +96,19 @@
             <div class="container project-done">
                 <div class="col-xs-6 col-md-3">
                     <p>Nom de la société</p>
+                    <p>{{ society.societyName }}</p>
                 </div>
                 <div class="col-xs-6 col-md-3">
                     <p>Nom du projet :</p>
+                    <p>{{ society.project.projectName }}</p>
                 </div>
                 <div class="col-xs-6 col-md-3">
                     <p>Nombre d'heures:</p>
+                    <p>{{ society.project.givenTime }}</p>
                 </div>
                 <div class="col-xs-6 col-md-3">
                     <p>Statut:</p>
+                    <p>{{ society.project.status }}</p>
                 </div>
             </div>
         </section>

@@ -19,9 +19,12 @@ class DashboardController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $societies = $em->getRepository('BoosterBundle:Society')->getDashboardById($id);
+        $projects = $em->getRepository('BoosterBundle:Project')->getProjectById($id);
+
         /**
          * @var Society $user
          */
+
         $user = $this->getUser();
         if ($user != null) {
             $user = $this->getUser();
@@ -36,6 +39,7 @@ class DashboardController extends Controller
                     'societies' => $societies,
                     'user' => $user,
                     'messengers' => $messengers,
+                    'project' => $projects,
                     'form' => $form->createView(),
                 ));
         }

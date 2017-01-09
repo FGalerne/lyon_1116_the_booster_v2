@@ -20,7 +20,6 @@ class ProjectController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $projects = $em->getRepository('BoosterBundle:Project')->findAll();
 
         return $this->render('project/index.html.twig', array(
