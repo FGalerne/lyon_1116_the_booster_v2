@@ -66,6 +66,9 @@ BoosterBundle\Entity\Project:
         society:
             targetEntity: Society
             inversedBy: societyName
+            joinColumn:
+                    name: society_id
+                    referencedColumnName: id
 
     oneToMany:
         project_subscriptions:
