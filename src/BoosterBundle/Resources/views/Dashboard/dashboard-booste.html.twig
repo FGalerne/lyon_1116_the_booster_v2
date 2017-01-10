@@ -69,6 +69,8 @@
 
         {# The Project part "IN PROGRESS" #}
 
+    {% for project in projects %}
+
         <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
             <div class="container project-in-progress">
                 <div class="col-xs-6 col-md-3">
@@ -77,18 +79,19 @@
                 </div>
                 <div class="col-xs-6 col-md-3">
                     <p>Nom du projet :</p>
-                    <p>{{ society.project.projectName }}</p>
+                    <p>{{ project.projectName }}</p>
                 </div>
                 <div class="col-xs-6 col-md-3">
                     <p>Nombre d'heures:</p>
-                    <p>{{ society.project.givenTime }}</p>
+                    <p>{{ project.givenTime }}</p>
                 </div>
                 <div class="col-xs-6 col-md-3">
                     <p>Statut:</p>
-                    <p>{{ society.project.status }}</p>
+                    <p>{{ project.status }}</p>
                 </div>
             </div>
         </section>
+
 
         {# The Project part "DONE" #}
 
@@ -100,18 +103,19 @@
                 </div>
                 <div class="col-xs-6 col-md-3">
                     <p>Nom du projet :</p>
-                    <p>{{ society.project.projectName }}</p>
+                    <p>{{ project.projectName }}</p>
                 </div>
                 <div class="col-xs-6 col-md-3">
                     <p>Nombre d'heures:</p>
-                    <p>{{ society.project.givenTime }}</p>
+                    <p>{{ project.givenTime }}</p>
                 </div>
                 <div class="col-xs-6 col-md-3">
                     <p>Statut:</p>
-                    <p>{{ society.project.status }}</p>
+                    <p>{{ project.status }}</p>
                 </div>
             </div>
         </section>
+        {% endfor %}
     {% endfor %}
     {% include 'BoosterBundle:Dashboard:messenger.html.twig' %}
 {% endblock %}

@@ -9,13 +9,18 @@ namespace BoosterBundle\Repository;
 
 class ProjectRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getProjectById($id)
+
+    //function that get the Project By Society in the twig view.
+
+    public function getProjectBySociety($value)
     {
         $req = $this->createQueryBuilder('p')
-            ->where('p.id = :id')
-            ->setParameter('id', $id)
+            ->select('p.projectName, p.status, p.givenTime')   //ici on renseigne les champs qu'on veut récupérer
+            ->innerJoin('p.society','s')
+            ->where('p.society = :id')
+            ->setParameter('id', $value)
             ->getQuery();
 
-        return $req->getResult();
+        return $req->getScalarResult();
     }
 }
