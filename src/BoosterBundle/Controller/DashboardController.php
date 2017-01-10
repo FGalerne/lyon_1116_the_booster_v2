@@ -34,9 +34,9 @@ class DashboardController extends Controller
             $form->handleRequest($request);
 
             //testing if a place is avaliable to buy on home page
-            $socOnHomePage = $em->getRepository('BoosterBundle:transaction')->socOnHomePage();
+            $socOnHomePage = $em->getRepository('BoosterBundle:transaction')->actualTransactions();
             $avaliable = true;
-            if(count($socOnHomePage) > 16) $avaliable = false;
+            if(count($socOnHomePage) > 15) $avaliable = false;
 
                 return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
                     'socOnHomePage' => $socOnHomePage,

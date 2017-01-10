@@ -9,12 +9,12 @@ namespace BoosterBundle\Repository;
  */
 class TransactionRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function socOnHomePage()
+    public function actualTransactions()
     {
         $req = $this->createQueryBuilder('a')
-            ->where('a.endTime < :now')
+            ->where('a.endTime > :now')
             ->setParameter('now', new \DateTime('now'))
-            ->orderBy('a.endTime', 'DESC')
+            ->orderBy('a.endTime', 'ASC')
             ->getQuery();
 
         return $req->getResult();

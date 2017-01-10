@@ -48,8 +48,12 @@ class TransactionController extends Controller
         $transaction->setEndTime(date_modify(new \DateTime('now'), "+24 hour"));
         $em->persist($transaction);
         $em->flush($transaction);
+
+        return $this->redirectToRoute('dashboard_society', array(
+            'id' => $id,
+        ));
+
         //}
-        return $this->redirectToRoute('dashboard_society', array('id' => $id));
 
     }
 
@@ -73,11 +77,14 @@ class TransactionController extends Controller
      */
     public function editAction($id)
     {
+
         //if(verification paypal) {
         $this->getDoctrine()
             ->getRepository('BoosterBundle:Transaction')
             ->updateTransaction($id);
-        return $this->redirectToRoute('dashboard_society', array('id' => $id));
+        return $this->redirectToRoute('dashboard_society', array(
+            'id' => $id,
+        ));
         //}
     }
 

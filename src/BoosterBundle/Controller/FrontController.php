@@ -19,7 +19,7 @@ class FrontController extends Controller
         $societies = array();
         $count = count($transactions);
         if($count < 16){
-            $max = 16 /*- count($transactions)*/;
+            $max = 16 - $count;
             $societies = $em->getRepository('BoosterBundle:Society')
                 ->findMax($max);
         }
