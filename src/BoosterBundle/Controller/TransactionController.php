@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class TransactionController extends Controller
 {
+
     /**
      * Lists all transaction entities.
      *
@@ -34,7 +35,7 @@ class TransactionController extends Controller
      */
     public function newAction(Request $request, $id)
     {
-        //if(verification paypal) {
+
         $transaction = new Transaction();
         $form = $this->createForm('BoosterBundle\Form\TransactionType', $transaction);
         $form->handleRequest($request);
@@ -51,9 +52,8 @@ class TransactionController extends Controller
 
         return $this->redirectToRoute('dashboard_society', array(
             'id' => $id,
+            'paymentStatus' => 'success',
         ));
-
-        //}
 
     }
 
@@ -78,14 +78,14 @@ class TransactionController extends Controller
     public function editAction($id)
     {
 
-        //if(verification paypal) {
         $this->getDoctrine()
             ->getRepository('BoosterBundle:Transaction')
             ->updateTransaction($id);
         return $this->redirectToRoute('dashboard_society', array(
             'id' => $id,
+            'paymentStatus' => 'success',
         ));
-        //}
+
     }
 
     /**

@@ -95,8 +95,13 @@ list_society:
         page: \d+
 
 booster_transaction:
-        resource: "@BoosterBundle/Resources/config/routing/transaction.yml"
-        prefix:   /transaction
+    resource: "@BoosterBundle/Resources/config/routing/transaction.yml"
+    prefix:   /transaction
+
+orders:
+    resource: "@BoosterBundle/Resources/config/routing/order.yml"
+    prefix:   /orders
+
 
 
 

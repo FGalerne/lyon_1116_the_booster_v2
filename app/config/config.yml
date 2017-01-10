@@ -200,6 +200,12 @@ twig:
     form:
         resources:
             - 'BoosterBundle:Form:fields.html.twig'
+jms_payment_core:
+    secret: 009fe4cfe3d62a1559c6a6a519477fc3
 
+jms_payment_paypal:
+    username: teamthebooster_api1.gmail.com
+    password: EDHLEQXXBJN6R4LN
+    signature: AFcWxV21C7fd0v3bYYYRCpSSRl31Afl5RKAVs1nefl18qJaPaaganNf3
 
 

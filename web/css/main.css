@@ -1678,3 +1678,35 @@ a:hover {
 .avatar-messenger img{
 	width: 100%;
 }
+
+/*payment*/
+.title-transaction{
+	font-weight: bold;
+}
+.form-transaction{
+	margin-top: 80px;
+	margin-bottom: 80px;
+}
+.transaction-divs{
+	margin-top: 10px;
+}
+.transaction-submit{
+	margin-bottom: 25px;
+	font-size:1.2em;
+	font-weight:900;
+	background-color: #d41018;
+	color:white;
+	padding: 10px 30px;
+	border: none;
+	border-radius: 5px;
+}
+.transaction-submit:hover{
+	background-color: #eb0310;
+	color: white;
+}
+.text-status{
+	margin-top: 60px;
+	font-weight: bold;
+	font-size: 18px;
+	margin-bottom: 30px;
+}
