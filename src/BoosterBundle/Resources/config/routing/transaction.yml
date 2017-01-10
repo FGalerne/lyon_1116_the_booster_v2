@@ -7,6 +7,7 @@ transaction_index:
 #    path:     /{id}/show
 #    defaults: { _controller: "BoosterBundle:Transaction:show" }
 #    methods:  GET
+
 transaction_new:
     path:     /{id}/new
     defaults: { _controller: "BoosterBundle:Transaction:new" }
