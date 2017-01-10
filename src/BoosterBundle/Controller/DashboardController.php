@@ -112,7 +112,6 @@ class DashboardController extends Controller
                 $tmp = $this->getParameter('photo_tmp');
                 $dir = $this->getParameter('photo_society_directory');
                 $file = $society->getPhoto();
-                var_dump($file);
 
                 $fileName = md5(uniqid()).'.'.$file->guessExtension();
                 $file->move(
