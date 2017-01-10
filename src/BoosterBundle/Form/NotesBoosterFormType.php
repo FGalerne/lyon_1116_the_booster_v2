@@ -2,37 +2,46 @@
 /**
  * Created by PhpStorm.
  * User: LaurieGandon
- * Date: 29/12/2016
- * Time: 11:44 PM
+ * Date: 09/01/2017
+ * Time: 5:58 PM
  */
 
 namespace BoosterBundle\Form;
 
 
-use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class NotesProjectType extends AbstractType
+class NotesBoosterFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('societyCommentaries', TextareaType::class, array(
-                    'label' => 'Commentaire', 'label_attr' => array('class' => 'project-label-description'),
-                    'attr' => array(
-                        'class' => 'WYSIWYG form-control form-group',
-                        'placeholder' => 'Commentez votre expérience'
-                    ),
-                    'required' => false,))
+            ->add('boosterNote', IntegerType::class, array(
+                'label' => 'Attribuez une note au Booster : ',
+                'required'  => true,
+                'class' => 'form-control form-group'
+            ))
+            ->add('boosterCommentaries', TextareaType::class, array(
+                'label' => 'Écrivez un commentaire à propos du booster : ',
+                'attr' => array(
+                    'class' => 'form-control form-group',
+                    'placeholder' => 'Message',
+                    'max_length' => 300
+                ),
+                'required'  => true
+            ))
             ->add('save', SubmitType::class, array(
                 'label' => 'Envoyer',
-                'attr' => array('class' => 'form-submit-center', 'id' => 'submit'),
-            ));
+                'attr' => array('class' => 'form-submit-right')
+            ))
+        ;
     }
+
 
     /**
      * {@inheritdoc}
@@ -54,3 +63,4 @@ class NotesProjectType extends AbstractType
 
 
 }
+
