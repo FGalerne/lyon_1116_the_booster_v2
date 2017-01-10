@@ -69,9 +69,11 @@
 
         {# The Project part "IN PROGRESS" #}
 
-    {% for project in projects %}
 
+
+        {#{% if {{ project.status }} ==  %} #}
         <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
+        {% for project in projects %}
             <div class="container project-in-progress">
                 <div class="col-xs-6 col-md-3">
                     <p>Nom de la société</p>
@@ -81,21 +83,28 @@
                     <p>Nom du projet :</p>
                     <p>{{ project.projectName }}</p>
                 </div>
-                <div class="col-xs-6 col-md-3">
+                <div class="col-xs-6 col-md-2">
                     <p>Nombre d'heures:</p>
                     <p>{{ project.givenTime }}</p>
                 </div>
-                <div class="col-xs-6 col-md-3">
+                <div class="col-xs-6 col-md-2">
+                    <p>Catégorie:</p>
+                    <p>{{ project.category }}</p>
+                </div>
+                <div class="col-xs-6 col-md-2">
                     <p>Statut:</p>
                     <p>{{ project.status }}</p>
                 </div>
             </div>
+            {% endfor %}
         </section>
-
 
         {# The Project part "DONE" #}
 
+
+
         <section class="container-fluid presentation-booster" id="dashboard-booster-done">
+            {% for project in projects %}
             <div class="container project-done">
                 <div class="col-xs-6 col-md-3">
                     <p>Nom de la société</p>
@@ -105,17 +114,22 @@
                     <p>Nom du projet :</p>
                     <p>{{ project.projectName }}</p>
                 </div>
-                <div class="col-xs-6 col-md-3">
+                <div class="col-xs-6 col-md-2">
                     <p>Nombre d'heures:</p>
                     <p>{{ project.givenTime }}</p>
                 </div>
-                <div class="col-xs-6 col-md-3">
+                <div class="col-xs-6 col-md-2">
+                    <p>Catégorie:</p>
+                    <p>{{ project.category }}</p>
+                </div>
+                <div class="col-xs-6 col-md-2">
                     <p>Statut:</p>
                     <p>{{ project.status }}</p>
                 </div>
             </div>
+            {% endfor %}
         </section>
-        {% endfor %}
+
     {% endfor %}
     {% include 'BoosterBundle:Dashboard:messenger.html.twig' %}
 {% endblock %}
