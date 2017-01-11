@@ -185,6 +185,16 @@ easy_admin:
             label: "FAQ"
             list:
                 fields:
+                    - category
+                    - { property: 'category', label: 'Catégorie' }
+                    - question
+                    - { property: 'question', label: 'Questions' }
+                    - answer
+                    - { property: 'answer', label: 'Réponse' }
+            form:
+                fields:
+                    - category
+                    - { property: 'category', label: 'Catégorie' }
                     - question
                     - { property: 'question', label: 'Questions' }
                     - answer
