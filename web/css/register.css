@@ -1,6 +1,6 @@
 /* Page register */
 .ah {
-    color: #E60F33;
+    color: #eb0310;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 700;
     font-size: 18px;
@@ -17,7 +17,7 @@
     display: inline-block;
     width: 90px;
     height: 8px;
-    background: #E60F33;
+    background: #eb0310;
     margin: auto 10px;
     margin-bottom: 30px;
 }

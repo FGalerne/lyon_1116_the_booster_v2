@@ -18,30 +18,13 @@ class Transaction
     private $createTime = 'CURRENT_TIMESTAMP';
 
     /**
-     * @var integer
-     */
-    private $projectLeft;
-
-    /**
-     * @var integer
-     */
-    private $projectMonthLeft;
-
-    /**
-     * @var \DateTime
-     */
-    private $validityDate;
-
-    /**
-     * @var string
-     */
-    private $status;
-
-    /**
      * @var \BoosterBundle\Entity\Society
      */
-    private $society;
+    private $society_id;
 
+    public function __toString() {
+        return $this->society->getSocietyName();
+    }
 
     /**
      * Get id
@@ -51,16 +34,6 @@ class Transaction
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Get createTime
-     *
-     * @return \DateTime
-     */
-    public function getCreateTime()
-    {
-        return $this->createTime;
     }
 
     /**
@@ -78,110 +51,43 @@ class Transaction
     }
 
     /**
-     * Get projectLeft
-     *
-     * @return integer
-     */
-    public function getProjectLeft()
-    {
-        return $this->projectLeft;
-    }
-
-    /**
-     * Set projectLeft
-     *
-     * @param integer $projectLeft
-     *
-     * @return Transaction
-     */
-    public function setProjectLeft($projectLeft)
-    {
-        $this->projectLeft = $projectLeft;
-
-        return $this;
-    }
-
-    /**
-     * Get projectMonthLeft
-     *
-     * @return integer
-     */
-    public function getProjectMonthLeft()
-    {
-        return $this->projectMonthLeft;
-    }
-
-    /**
-     * Set projectMonthLeft
-     *
-     * @param integer $projectMonthLeft
-     *
-     * @return Transaction
-     */
-    public function setProjectMonthLeft($projectMonthLeft)
-    {
-        $this->projectMonthLeft = $projectMonthLeft;
-
-        return $this;
-    }
-
-    /**
-     * Get validityDate
+     * Get createTime
      *
      * @return \DateTime
      */
-    public function getValidityDate()
+    public function getCreateTime()
     {
-        return $this->validityDate;
+        return $this->createTime;
     }
 
     /**
-     * Set validityDate
+     * Set societyId
      *
-     * @param \DateTime $validityDate
+     * @param \BoosterBundle\Entity\Society $societyId
      *
      * @return Transaction
      */
-    public function setValidityDate($validityDate)
+    public function setSocietyId(\BoosterBundle\Entity\Society $societyId = null)
     {
-        $this->validityDate = $validityDate;
+        $this->society_id = $societyId;
 
         return $this;
     }
 
     /**
-     * Get status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * Set status
-     *
-     * @param string $status
-     *
-     * @return Transaction
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    /**
-     * Get society
+     * Get transactionId
      *
      * @return \BoosterBundle\Entity\Society
      */
-    public function getSociety()
+    public function getSocietyId()
     {
-        return $this->society;
+        return $this->society_id;
     }
+    /**
+     * @var \BoosterBundle\Entity\Society
+     */
+    private $society;
+
 
     /**
      * Set society
@@ -195,5 +101,73 @@ class Transaction
         $this->society = $society;
 
         return $this;
+    }
+
+    /**
+     * Get society
+     *
+     * @return \BoosterBundle\Entity\Society
+     */
+    public function getSociety()
+    {
+        return $this->society;
+    }
+    /**
+     * @var \DateTime
+     */
+    private $duration;
+
+
+    /**
+     * Set duration
+     *
+     * @param \DateTime $duration
+     *
+     * @return Transaction
+     */
+    public function setDuration($duration)
+    {
+        $this->duration = $duration;
+
+        return $this;
+    }
+
+    /**
+     * Get duration
+     *
+     * @return \DateTime
+     */
+    public function getDuration()
+    {
+        return $this->duration;
+    }
+    /**
+     * @var \DateTime
+     */
+    private $endTime;
+
+
+    /**
+     * Set endTime
+     *
+     * @param \DateTime $endTime
+     *
+     * @return Transaction
+     */
+    public function setEndTime($endTime)
+    {
+        $this->endTime = $endTime;
+
+        return $this;
+    }
+
+    /**
+     * Get endTime
+     *
+     * @return \DateTime
+     */
+    public function getEndTime()
+    {
+        return $this->endTime;
     }
 }

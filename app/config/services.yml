@@ -22,3 +22,9 @@ services:
 
     util.imageresizer:
         class: BoosterBundle\Util\ImageResizer
+
+    app.twig.external_link:
+            class: BoosterBundle\Twig\ExternalLinkFilter
+            public: false
+            tags:
+                - { name: twig.extension }
