@@ -84,6 +84,7 @@ fos_user:
             validation_groups: [Default]
         confirmation:
             enabled: true
+
     from_email:
         address:        noreply@thebooster.com
         sender_name:    the booster

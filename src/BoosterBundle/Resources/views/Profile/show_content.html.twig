@@ -1,6 +1,30 @@
 {% trans_default_domain 'FOSUserBundle' %}
-
-<div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+{% if is_granted("ROLE_BOOSTER") %}
+    <div class=" col-xs-12 col-lg-offset-2 col-lg-8">
+        <p><strong>Nom d'utilisateur</strong></p>
+        <p>{{ user.username }}</p>
+        <p><strong>Nom</strong></p>
+        <p>{{ user.lastname}}</p>
+        <p><strong>Prénom</strong></p>
+        <p>{{ user.firstname}}</p>
+    </div>
+{% elseif is_granted("ROLE_BOOSTE") %}
+    <div class="col-xs-12 col-lg-offset-2 col-lg-8">
+        <p><strong>Nom d'utilisateur</strong></p>
+        <p>{{ user.username }}</p>
+        <p><strong>Nom</strong></p>
+        <p>{{ user.lastname}}</p>
+        <p><strong>Prénom</strong></p>
+        <p>{{ user.firstname}}</p>
+        <p><strong>Fonction</strong></p>
+        <p>{{ user.professionalfunction }}</p>
+        {% if (user.siretnumber is not null)  %}
+        <p><strong>Siret</strong></p>
+        <p>{{ user.siretnumber }}</p>
+        {% endif %}
+    </div>
+{% endif %}
+<div class="btn_register col-xs-12 col-lg-offset-2 col-lg-8">
+    <a href="{{ path("fos_user_profile_edit") }}" type="button" class="btn_subs btn btn-danger btn-lg">Modifier mes infos</a>
+    <a href="{{ path("fos_user_change_password") }}" type="button" class="btn_subs btn btn-danger btn-lg">Modifier mon mot de passe</a>
 </div>

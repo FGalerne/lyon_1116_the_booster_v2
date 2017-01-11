@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{%  block title %}La charte | The Booster{% endblock %}
+{% block title %}La charte | The Booster{% endblock %}
 {% block body %}
     <div class="ml_title">
         <h1 class="h1_toppage">La charte</h1>
@@ -8,8 +8,26 @@
 
     <div class="container body_ml">
         <div class="row">
-            <div class="col-xs-offset-1 col-xs-10 col-md-offset-1 col-md-10">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at purus nibh. Cras metus nulla, vestibulum in auctor ac, fermentum vitae tellus. Donec sed aliquam nisl. Sed eu leo id est pretium euismod. Nulla id justo at mi venenatis volutpat. Fusce nisi leo, placerat id condimentum a, accumsan vitae tortor. Nunc magna nunc, venenatis nec elementum eu, ultrices in sem. Maecenas tincidunt semper molestie. Nulla nec neque sit amet libero molestie feugiat. Cras id metus velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis arcu non leo porta ut euismod ante luctus. Praesent elementum sodales dolor id scelerisque.</p><p>Nam vitae cursus massa. Nunc ut arcu a mi convallis feugiat. Sed ante sem, sollicitudin sed porta et, molestie in turpis. Nulla lacinia lacus nec ligula feugiat eget sagittis metus lobortis. Aenean eget velit leo, et euismod risus. Pellentesque molestie hendrerit velit at gravida. Integer nec mauris urna, vel gravida est.</p><p>Etiam sed velit tellus, eget aliquam nisi. Suspendisse potenti. Duis at augue purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper sapien congue lorem tristique nec bibendum velit tincidunt. Maecenas faucibus sollicitudin arcu, sed tincidunt nunc fermentum ac. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam felis turpis, rutrum nec tincidunt nec, imperdiet quis tortor. Sed sit amet arcu vel orci porttitor elementum.</p><p>Vivamus eu elit augue. Donec viverra vehicula fermentum. Curabitur vitae tellus id mi sodales posuere vel cursus ligula. Proin quis risus arcu. Etiam purus dui, laoreet at mattis non, pretium et orci. Ut nec rhoncus neque. Aenean id risus ac neque congue suscipit. Sed bibendum quam nec felis aliquet in tempus enim adipiscing.</p><p>Aenean libero sem, ornare sed adipiscing quis, blandit a nibh. Proin quis sem urna. Vivamus id neque turpis. Aliquam erat volutpat. Curabitur magna nisl, mollis imperdiet interdum in, fringilla id urna. Phasellus vel blandit lacus. Proin lacus lacus, sodales in sodales id, tincidunt ac metus. Nunc rutrum risus id enim varius luctus sagittis lectus porta. Nunc eu imperdiet nibh. Etiam sit amet mi ac quam facilisis pharetra ac eget ligula. Maecenas pretium, est sed tincidunt tincidunt, dolor tortor tristique justo, in placerat enim est eu ante.</p><p>Ut at lorem ut diam molestie laoreet. Donec ut nibh ac risus euismod semper a ut metus. Phasellus faucibus dapibus felis, viverra tincidunt felis pellentesque posuere. Nunc tristique, quam ut mattis commodo, dolor eros commodo orci, sit amet mattis metus augue ut neque. Sed vehicula scelerisque tincidunt. Nulla lobortis </p>
+            <div class="col-xs-offset-1 col-xs-10 col-md-offset-1 col-md-10" id="charte">
+                <img src="{{ asset('img/logo-thebooster_0004_solidarite-entraide.png') }}">
+                <p><strong>Entraide & Solidarité</strong></p>
+                <p>The Booster est une plateforme gratuite qui valorise l’entraide et la solidarité entre legrand public et l’Entrepreneuriat (porteur de projets, Entrepreneurs et Entreprises).</p>
+                <br>
+                <img src="{{ asset('img/logo-thebooster_0002_Don-gratuite.png') }}">
+                <p><strong>Don & Gratuité</strong></p>
+                <p>Sur The Booster, les relations entre les Boostés et les Booster sont basées uniquement sur le principe du bénévolat sans aucune contre partie qu’elle soit financière ou autre.</p>
+                <br>
+                <img src="{{ asset('img/logo-thebooster_0001_Engagement-volontariat.png') }}">
+                <p><strong>Engagement & Volontariat</strong></p>
+                <p>Sur The Booster la seule et unique monnaie est l’engagement. Toute personne désireuse de s’engager en faveur d’un Boosté le fait sur la base du volontariat, libre de toute contrainte ou promesse.</p>
+                <br>
+                <img src="{{ asset('img/logo-thebooster_0000_liberte-reciprocite.png') }}">
+                <p><strong>Liberté & Réciprocité</strong></p>
+                <p>Sur The Booster l’aide est basée sur un principe de réciprocité et de respect : le Boosterchoisit librement de proposer de son temps pour aider un Boosté. Les Boostés décidentlibrement et sans influence d’accepter la proposition du Booster de leur choix.</p>
+                <br>
+                <img src="{{ asset('img/logo-thebooster_0003_changer-le-nom.png') }}">
+                <p><strong>Changer le Monde</strong></p>
+                <p>Chez The Booster on pense que pour changer le Monde il suffit d’un peu de temps et debeaucoup d’Envie. Si on est motivé, on peut toujours faire quelque chose à son niveau etsi chacun fait sa part, si des synergies se créent, de grandes réalisations sont possibles.</p>
             </div>
         </div>
     </div>

@@ -1,8 +1,22 @@
 {% trans_default_domain 'FOSUserBundle' %}
+<div class="col-xs-12 col-lg-offset-2 col-lg-8">
+    {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+    {{ form_label(form.title, 'Civilité')}}
+        {{ form_widget(form.title, {'attr':{'class' :'form-control text-center'}}) }}
+    {{ form_label(form.last_name, 'Nom')}}
+        {{ form_widget(form.last_name, {'attr':{'class' :'form-control text-center'}}) }}
+    {{ form_label(form.first_name, 'Prénom')}}
+        {{ form_widget(form.first_name, {'attr':{'class' :'form-control text-center'}}) }}
 
-{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+    {% if is_granted("ROLE_BOOSTE") %}
+        {{ form_label(form.professional_function, 'Fonction')}}
+        {{ form_widget(form.professional_function, {'attr':{'class' :'form-control text-center'}}) }}
+        {{ form_label(form.phone, 'Téléphone Portable')}}
+        {{ form_widget(form.phone, {'attr':{'class' :'form-control text-center'}}) }}
+
+    {% endif %}
+    <div class="btn_register">
+        <input type="submit" value="Envoyer" class="btn btn-danger" />
     </div>
-{{ form_end(form) }}
+    {{ form_end(form) }}
+</div>

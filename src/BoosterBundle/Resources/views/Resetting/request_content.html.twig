@@ -1,0 +1,10 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
+    <div class="form-group login_email col-xs-12 col-lg-offset-2 col-lg-8">
+        <input type="text" class="form-control text-center"  name="username" required="required" placeholder="Adresse-email" />
+    </div>
+    <div class="btn_register">
+        <input type="submit" value="Envoyer" class="btn btn-danger" />
+    </div>
+</form>
