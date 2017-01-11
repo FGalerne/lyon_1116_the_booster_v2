@@ -3,8 +3,8 @@
 {% block body %}
     {% for society in societies %}
 
-        <section class="container-fluid global-presentation">
-            <div class="container">
+        <section class="container-fluid global-presentation blueHour">
+            <div class="container prelude">
                 <div class="col-xs-12 col-md-9 dashboard-society">
                     <div class="col-xs-12 col-md-4 society-photo">
                         <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/avatar-default.png') }}" alt="photo couverture société" />
@@ -39,7 +39,7 @@
                 </div>
 
             </div>
-            <div class="container">
+            <div class="container prelude">
                 <h2>{{ society.punchLine | raw }}</h2>
             </div>
             <section class="container-fluid">
@@ -57,7 +57,7 @@
             </section>
             {# The presentation text of the society #}
             <section id="dashboard-booster-home" class="container-fluid presentation-booster">
-                <section class="container">
+                <section class="container prelude">
                     <div class="row">
                         <h3 class="text-left">Ma présentation:</h3>
                         <div class="col-xs-12 presentation-text">
@@ -74,7 +74,7 @@
         {#{% if {{ project.status }} ==  %} #}
         <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
         {% for project in projects %}
-            <div class="container project-in-progress">
+            <div class="container project-in-progress prelude">
                 <div class="col-xs-6 col-md-3">
                     <p>Nom de la société</p>
                     <p>{{ society.societyName }}</p>
@@ -105,7 +105,7 @@
 
         <section class="container-fluid presentation-booster" id="dashboard-booster-done">
             {% for project in projects %}
-            <div class="container project-done">
+            <div class="container prelude project-done">
                 <div class="col-xs-6 col-md-3">
                     <p>Nom de la société</p>
                     <p>{{ society.societyName }}</p>

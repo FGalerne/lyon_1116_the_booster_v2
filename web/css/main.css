@@ -5,7 +5,7 @@
 /* ALL */
 
 body {
-    padding-top: 11vh;
+    padding-top: 10vh;
 
 }
 html{
@@ -44,6 +44,19 @@ span {
 	 font-weight: 900;
  }
 
+.prelude {
+	background-color: #FAFAFA;
+	padding: 30px;
+}
+
+.blueHour {
+	background:
+			radial-gradient(55% 330%, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0.5) 550%),
+			linear-gradient(to top, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0.6) 50%),
+			linear-gradient(to top right, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 120%);
+	background-color: #DFE3E4;
+	background-blend-mode: color-burn, screen, color-burn;
+}
 
 .all_blsp {
 	height: 10vh;
@@ -995,9 +1008,7 @@ hr{
 /*********************** DASHBOARD BOOSTER ***********************/
 
 .global-presentation {
-	margin-top: 35px;
-	margin-bottom: 35px;
-	padding: 0;
+	padding: 35px 0 0 0;
 }
 
 #statistic-society,
@@ -1082,11 +1093,9 @@ hr{
 }
 
 .presentation-text {
-	height: 250px;
 	width: 100%;
-	border-radius: 10px;
-	border: 2px solid rgba(0, 0, 0, 0.2);
 	margin: 0;
+	padding: 0;
 }
 
 #button-dashboard {
@@ -1095,8 +1104,8 @@ hr{
 
 .project-in-progress,
 .project-done {
-	border-radius: 10px;
-	border: 2px solid rgba(0, 0, 0, 0.2);
+	margin-bottom: 30px;
+	margin-top: 30px;
 }
 
 .project-in-progress p,
@@ -1647,10 +1656,11 @@ a:hover {
 	display: block;
 	margin: 0 auto;
 }
+
 .dashboard-nav-container{
 	background-color: #e60f33;
-	margin-bottom: 35px;
 }
+
 .avatar-messenger{
 	max-height: 50px;
 	overflow: hidden;
