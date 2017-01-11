@@ -141,4 +141,33 @@ class Transaction
     {
         return $this->duration;
     }
+    /**
+     * @var \DateTime
+     */
+    private $endTime;
+
+
+    /**
+     * Set endTime
+     *
+     * @param \DateTime $endTime
+     *
+     * @return Transaction
+     */
+    public function setEndTime($endTime)
+    {
+        $this->endTime = $endTime;
+
+        return $this;
+    }
+
+    /**
+     * Get endTime
+     *
+     * @return \DateTime
+     */
+    public function getEndTime()
+    {
+        return $this->endTime;
+    }
 }

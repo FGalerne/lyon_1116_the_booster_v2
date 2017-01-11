@@ -26,7 +26,7 @@ BoosterBundle\Entity\Transaction:
             targetEntity: BoosterBundle\Entity\Society
             inversedBy: transaction
             joinColumn:
-                name: transaction_id
+                name: society_id
                 referencedColumnName: id
 
     lifecycleCallbacks: {  }

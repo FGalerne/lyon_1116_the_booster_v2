@@ -36,7 +36,9 @@ class DashboardController extends Controller
             //testing if a place is avaliable to buy on home page
             $socOnHomePage = $em->getRepository('BoosterBundle:transaction')->actualTransactions();
             $avaliable = true;
-            if(count($socOnHomePage) > 15) $avaliable = false;
+            if(count($socOnHomePage) > 15) {
+                $avaliable = false;
+            }
 
                 return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
                     'socOnHomePage' => $socOnHomePage,
@@ -120,7 +122,9 @@ class DashboardController extends Controller
                 );
                 $this->get('util.imageresizer')->resizeImage($tmp.'/'.$fileName, $dir.'/' , $width=1024);
 
-                if (isset($oldSocietyPhoto) && !empty($oldSocietyPhoto)) unlink($dir.'/'.$oldSocietyPhoto);
+                if (isset($oldSocietyPhoto) && !empty($oldSocietyPhoto)) {
+                    unlink($dir.'/'.$oldSocietyPhoto);
+                }
                 unlink($tmp.'/'.$fileName);
                 $society->setPhoto($fileName);
 
@@ -240,7 +244,9 @@ class DashboardController extends Controller
                 );
                 $this->get('util.imageresizer')->resizeImage($tmp.'/'.$fileName, $dir.'/' , $width=512);
 
-                if (isset($oldBoosterPhoto) && !empty($oldBoosterPhoto)) unlink($dir.'/'.$oldBoosterPhoto);
+                if (isset($oldBoosterPhoto) && !empty($oldBoosterPhoto)) {
+                    unlink($dir.'/'.$oldBoosterPhoto);
+                }
                 unlink($tmp.'/'.$fileName);
                 $booster->setPhoto($fileName);
             }
