@@ -15,6 +15,19 @@ BoosterBundle\Entity\User:
             errorPath: phone
             message: 'Ce numéro de téléphone est déja enregistré'
 
+BoosterBundle\Entity\Society:
+    properties:
+            photo:
+                - Image:
+                    maxSize: '2M'
+
+BoosterBundle\Entity\Booster:
+    properties:
+            photo:
+                - Image:
+                    maxSize: '2M'
+
+
 
 
 

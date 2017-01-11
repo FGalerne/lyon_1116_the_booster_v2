@@ -542,4 +542,62 @@ class Society
     {
         return $this->user;
     }
+    /**
+     * @var \BoosterBundle\Entity\Transaction
+     */
+    private $transaction;
+
+
+    /**
+     * Set transaction
+     *
+     * @param \BoosterBundle\Entity\Transaction $transaction
+     *
+     * @return Society
+     */
+    public function setTransaction(\BoosterBundle\Entity\Transaction $transaction = null)
+    {
+        $this->transaction = $transaction;
+
+        return $this;
+    }
+
+    /**
+     * Get transaction
+     *
+     * @return \BoosterBundle\Entity\Transaction
+     */
+    public function getTransaction()
+    {
+        return $this->transaction;
+    }
+    /**
+     * @var \BoosterBundle\Entity\Transaction
+     */
+    private $transaction_id;
+
+
+    /**
+     * Set transactionId
+     *
+     * @param \BoosterBundle\Entity\Transaction $transactionId
+     *
+     * @return Society
+     */
+    public function setTransactionId(\BoosterBundle\Entity\Transaction $transactionId = null)
+    {
+        $this->transaction_id = $transactionId;
+
+        return $this;
+    }
+
+    /**
+     * Get transactionId
+     *
+     * @return \BoosterBundle\Entity\Transaction
+     */
+    public function getTransactionId()
+    {
+        return $this->transaction_id;
+    }
 }

@@ -27,18 +27,31 @@ class DashboardController extends Controller
             $user = $this->getUser();
             $userId = $user->getId();
 
+            //messages
             $messenger = new Messenger();
             $form = $this->createForm('BoosterBundle\Form\MessengerType', $messenger);
             $messengers = $em->getRepository('BoosterBundle:Messenger')->myMessages($userId);
             $form->handleRequest($request);
 
+            //testing if a place is avaliable to buy on home page
+            $socOnHomePage = $em->getRepository('BoosterBundle:transaction')->actualTransactions();
+            $avaliable = true;
+            if(count($socOnHomePage) > 15) {
+                $avaliable = false;
+            }
+
                 return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
+                    'socOnHomePage' => $socOnHomePage,
+                    'avaliable' => $avaliable,
                     'societies' => $societies,
                     'user' => $user,
                     'messengers' => $messengers,
                     'form' => $form->createView(),
                 ));
         }
+
+
+
         return $this->redirectToRoute('booster_charte');
     }
 
@@ -101,6 +114,7 @@ class DashboardController extends Controller
                 $tmp = $this->getParameter('photo_tmp');
                 $dir = $this->getParameter('photo_society_directory');
                 $file = $society->getPhoto();
+
                 $fileName = md5(uniqid()).'.'.$file->guessExtension();
                 $file->move(
                     $tmp,
@@ -108,9 +122,13 @@ class DashboardController extends Controller
                 );
                 $this->get('util.imageresizer')->resizeImage($tmp.'/'.$fileName, $dir.'/' , $width=1024);
 
-                if (isset($oldSocietyPhoto) && !empty($oldSocietyPhoto)) unlink($dir.'/'.$oldSocietyPhoto);
+                if (isset($oldSocietyPhoto) && !empty($oldSocietyPhoto)) {
+                    unlink($dir.'/'.$oldSocietyPhoto);
+                }
                 unlink($tmp.'/'.$fileName);
                 $society->setPhoto($fileName);
+
+
             }
 
             $this->getDoctrine()->getManager()->flush();
@@ -226,7 +244,9 @@ class DashboardController extends Controller
                 );
                 $this->get('util.imageresizer')->resizeImage($tmp.'/'.$fileName, $dir.'/' , $width=512);
 
-                if (isset($oldBoosterPhoto) && !empty($oldBoosterPhoto)) unlink($dir.'/'.$oldBoosterPhoto);
+                if (isset($oldBoosterPhoto) && !empty($oldBoosterPhoto)) {
+                    unlink($dir.'/'.$oldBoosterPhoto);
+                }
                 unlink($tmp.'/'.$fileName);
                 $booster->setPhoto($fileName);
             }

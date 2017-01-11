@@ -24,9 +24,9 @@
         "javiereguiluz/easyadmin-bundle": "^1.16",
         "excelwebzone/recaptcha-bundle": "^1.4",
         "friendsofsymfony/user-bundle": "2.0.x-dev#612649c",
-        "dpolac/twig-lambda": "^0.5.0"
-
-
+        "dpolac/twig-lambda": "^0.5.0",
+        "jms/payment-core-bundle": "^1.2",
+        "jms/payment-paypal-bundle": "^1.1"
 
     },
     "require-dev": {

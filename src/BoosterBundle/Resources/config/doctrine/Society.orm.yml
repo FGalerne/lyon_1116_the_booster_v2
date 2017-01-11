@@ -74,4 +74,8 @@ BoosterBundle\Entity\Society:
             joinColumn:
                 name: user_id
                 referenceColumnName: id
+
+        transaction:
+            targetEntity: BoosterBundle\Entity\Transaction
+            mappedBy: society
     lifecycleCallbacks: {  }

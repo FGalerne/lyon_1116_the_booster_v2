@@ -28,7 +28,7 @@ class ProfileFormType extends AbstractType
 		'required' => true,))
 			->add('title', ChoiceType::class, array(
 				'choices' => array(
-					'MR' => "Mr",
+					'MR' => "M.",
 					'MME' => "Mme",
 				),
 			))
