@@ -1725,3 +1725,25 @@ a:hover {
 	font-size: 18px;
 	margin-bottom: 30px;
 }
+
+/*faq*/
+.faq-categories{
+	font-weight: bold;
+	font-size: 20px;
+	margin-top: 50px;
+	margin-bottom: 10px;
+	background-color: #eb0310;
+	color: white;
+}
+.hr-faq{
+	width: 100%;
+	height: 1px;
+	background-color: #5d5469;
+}
+.faq-categories:hover{
+	background-color: #fd262f;
+	cursor: pointer;
+}
+.faq-height{
+	min-height: 500px;
+}
