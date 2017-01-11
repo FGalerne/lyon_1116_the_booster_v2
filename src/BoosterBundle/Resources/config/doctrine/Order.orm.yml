@@ -1,0 +1,22 @@
+BoosterBundle\Entity\Order:
+    type: entity
+    table: orders
+
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+
+    fields:
+        amount:
+            type: decimal
+            precision: 10
+            scale: 2
+
+    oneToOne:
+        paymentInstruction:
+            targetEntity: JMS\Payment\CoreBundle\Entity\PaymentInstruction
+
+    lifecycleCallbacks: {  }

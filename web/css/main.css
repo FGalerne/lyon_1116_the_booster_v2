@@ -28,7 +28,7 @@ footer {
  	background-color: black;
 	padding-top:30px;
 	padding-bottom: 35px;
- }
+}
 
 span {
 	font-style: italic;
@@ -64,9 +64,10 @@ span {
 .text-left{
 	text-align: left !important;
 }
+
 .navbar {
 	background-color: white;
-	box-shadow: 0 3px 0 rgba(230,15,51,1);
+	box-shadow: 0 3px 0 rgba(235,3,16,1);
 	font-size: 1.1em;
 	min-height: 10vh;
 }
@@ -429,7 +430,7 @@ span {
 
 .home_blimg_startup:hover {
 	background-color: rgba(255,0,0,0.2);
-	border: 3px solid #e60f33;
+	border: 3px solid #eb0310;
 }
 
 .home_h3 h3{
@@ -512,7 +513,7 @@ span {
 }
 
 #home_btn_jqbar1 {
-	background: #e60f33;
+	background: #eb0310;
 	height: 9vh;
 	color: white;
 	text-align: center;
@@ -570,7 +571,7 @@ hr{
 	display: inline-block;
 	width:90px;
 	height:8px;
-	background: #E60F33;
+	background: #eb0310;
 	margin: auto 10px;
 	margin-bottom: 15px;
 }
@@ -763,7 +764,7 @@ hr{
 .how_btn_inscript a {
 	font-size:1.35em;
 	margin-bottom:2vh;
-	background-color: #e60f33;
+	background-color: #eb0310;
 	color:white;
 	padding: 1% 5%;
 	border-radius:15px;
@@ -855,7 +856,7 @@ hr{
 	margin-bottom: 25px;
 	font-size:1.2em;
 	font-weight:900;
-	background-color: #e60f33;
+	background-color: #eb0310;
 	color:white;
 	padding: 10px 30px;
 	border: none;
@@ -1045,7 +1046,8 @@ hr{
 
 #navbar-dashboard li a:hover {
 	cursor: pointer;
-	background-color: rgba(255, 255, 255, 0.1);
+	background-color: rgba(255, 255, 255, 0.1) !important;
+	color: white !important;
 }
 
 .drop-nav-perso i {
@@ -1113,8 +1115,39 @@ hr{
 	display: inline-block;
 }
 
-#add-project a {
-	background-color: rgba(230,15,51,1);
+.transactions a{
+	background-color: rgb(133, 133, 133);
+	padding: 15px 5px 15px 5px;
+	display: block;
+	color: #FFFFFF;
+	margin-top: 15px;
+	text-decoration: none;
+}
+.transactions-on a, .no-dispo{
+	background-color: rgb(133, 133, 133);
+	padding: 15px 5px 15px 5px;
+	display: block;
+	color: #FFFFFF;
+	margin-top: 15px;
+	text-decoration: none;
+}
+.payment-infos{
+	background-color: #2b2b2b !important;
+	text-align: center;
+}
+.paypal-button{
+	color: #FFFFFF;
+	margin-top: 8px;
+
+}
+.paypal-button:hover{
+	background-color: white !important;
+}
+.prices{
+	text-align: right;
+}
+#add-project a{
+	background-color: rgba(235,3,16,1);
 	margin: 35px auto;
 	display: block;
 	padding: 40px;
@@ -1123,8 +1156,8 @@ hr{
 	text-align: center;
 }
 
-#add-project a:hover {
-	background-color: rgba(230,15,51,0.9);
+#add-project a:hover, .transactions a:hover {
+	background-color: rgba(235,3,16,0.9)!important;
 }
 
 .dashboard-social-media {
@@ -1144,7 +1177,7 @@ hr{
 .home_carousel_slogan{
 	font-size: 1.3em;
 	font-weight: 900;
-	color: #E60F33;
+	color: #eb0310;
 }
 
 #home_carousel h2, .home_carousel_over h2{
@@ -1164,7 +1197,7 @@ hr{
 	font-size:1.2em;
 	font-weight:900;
 	margin-bottom:2vh;
-	background-color: #e60f33;
+	background-color: #eb0310;
 	color:white;
 	padding: 10px 30px;
 }
@@ -1489,7 +1522,7 @@ a:hover {
 	overflow: hidden;
 }
 .global-society:hover{
-	border: #e60f33 solid;
+	border: #eb0310 solid;
 }
 
 .global-society img {
@@ -1510,7 +1543,7 @@ a:hover {
 }
 
 .pager li > a{
-	background-color: #e60f33;
+	background-color: #eb0310;
 	border: none;
 }
 
@@ -1528,7 +1561,7 @@ a:hover {
 }
 .messenger-title{
 	padding-top: 10px;
-	background-color: #e60f33;
+	background-color: #eb0310;
 	color: white;
 }
 .messenger-color-1{
@@ -1562,7 +1595,7 @@ a:hover {
 }
 .messenger-response {
 	width: 100%;
-	background-color: #e60f33;
+	background-color: #eb0310;
 	color: white;
 	border: none;
 	height: 30px;
@@ -1635,7 +1668,7 @@ a:hover {
 	margin: 0 auto;
 }
 .dashboard-nav-container{
-	background-color: #e60f33;
+	background-color: #eb0310;
 	margin-bottom: 35px;
 }
 .avatar-messenger{
@@ -1644,4 +1677,36 @@ a:hover {
 }
 .avatar-messenger img{
 	width: 100%;
+}
+
+/*payment*/
+.title-transaction{
+	font-weight: bold;
+}
+.form-transaction{
+	margin-top: 80px;
+	margin-bottom: 80px;
+}
+.transaction-divs{
+	margin-top: 10px;
+}
+.transaction-submit{
+	margin-bottom: 25px;
+	font-size:1.2em;
+	font-weight:900;
+	background-color: #d41018;
+	color:white;
+	padding: 10px 30px;
+	border: none;
+	border-radius: 5px;
+}
+.transaction-submit:hover{
+	background-color: #eb0310;
+	color: white;
+}
+.text-status{
+	margin-top: 60px;
+	font-weight: bold;
+	font-size: 18px;
+	margin-bottom: 30px;
 }

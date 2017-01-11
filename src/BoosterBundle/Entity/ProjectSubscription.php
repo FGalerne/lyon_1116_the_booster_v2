@@ -7,6 +7,7 @@ namespace BoosterBundle\Entity;
  */
 class ProjectSubscription
 {
+
 	public function __toString()
 	{
 		return ProjectSubscription::get;
