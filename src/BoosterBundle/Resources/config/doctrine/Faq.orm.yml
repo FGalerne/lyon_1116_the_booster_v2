@@ -12,7 +12,13 @@ BoosterBundle\Entity\Faq:
         question:
             type: string
             length: 255
-            unique: true
+            unique: false
         answer:
             type: text
+            unique: false
+        category:
+            type: string
+            length: 255
+            unique: false
+
     lifecycleCallbacks: {  }
