@@ -86,7 +86,7 @@ new_project:
 
 notes_comments:
     path:   /notez-votre-experience
-    defaults: { _controller: BoosterBundle:Project:notesComments}
+    defaults: { _controller: BoosterBundle:Project:notesComments }
     methods:  [GET, POST]
 
 booster_society:

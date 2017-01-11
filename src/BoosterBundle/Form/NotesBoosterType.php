@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: LaurieGandon
- * Date: 09/01/2017
- * Time: 5:58 PM
- */
 
 namespace BoosterBundle\Form;
-
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -16,7 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class NotesBoosterFormType extends AbstractType
+class NotesBoosterType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -42,10 +35,6 @@ class NotesBoosterFormType extends AbstractType
         ;
     }
 
-
-    /**
-     * {@inheritdoc}
-     */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
@@ -53,14 +42,8 @@ class NotesBoosterFormType extends AbstractType
         ));
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
+    public function getName()
     {
-        return 'boosterbundle_project';
+        return 'booster_bundle_notes_booster_type';
     }
-
-
 }
-

@@ -2,30 +2,30 @@
 
 {% block body %}
 
-        <!-- Display page notation and comments for Boosters -->
+    <!-- Display page notation and comments for Boosters -->
     {% if is_granted('ROLE_BOOSTER') %}
-    <div class="row">
-        <div class="block_top col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
-            <h1 class="h1_top_page">Évaluation Boosté</h1>
-            <hr>
-            <h2 class="h2_toppage">Un Booster vient de vous offrir de son temps libre et de ses compétences.</h2>
-            <p>Attribuez une note au Boosté :</p>
-            <p>Ecrivez un commentaire à propos du Boosté :</p>
+        <div class="row">
+            <div class="block_top col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
+                <h1 class="h1_top_page">Évaluation du Boosté</h1>
+                <hr>
+                <h2 class="h2_toppage">Un Booster vient de vous offrir de son temps libre et de ses compétences.</h2>
+                <p>Attribuez une note au Boosté :</p>
+                <p>Ecrivez un commentaire à propos du Boosté :</p>
+            </div>
         </div>
-    </div>
 
         <!-- Display page notation and comments for Society -->
     {%  elseif is_granted('ROLE_BOOSTE')  %}
-    <div class="row">
-        <div class="block_top col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
-            <h1 class="h1_top_page">Évaluation Booster</h1>
-            <hr>
-            <h2 class="h2_toppage">Un Booster vient de vous offrir de son temps libre et de ses compétences.</h2>
-            <p>Attribuez une note au Booster : </p>
+        <div class="row">
+            <div class="block_top col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
+                <h1 class="h1_top_page">Évaluation du Booster</h1>
+                <hr>
+                <h2 class="h2_toppage">Un Booster vient de vous offrir de son temps libre et de ses compétences.</h2>
+                <p>Attribuez une note au Booster : </p>
 
-            <p>Ecrivez un commentaire à propos du Booster : </p>
+                <p>Ecrivez un commentaire à propos du Booster : </p>
+            </div>
         </div>
-    </div>
 
     {% endif %}
 

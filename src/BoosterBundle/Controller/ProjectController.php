@@ -127,14 +127,13 @@ class ProjectController extends Controller
         ;
     }
 
-
     /**
+     * Page notation and comments
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function notesCommentsAction()
     {
         return $this-> render('BoosterBundle:Notes:notes_comments.html.twig');
     }
-
 
 }
