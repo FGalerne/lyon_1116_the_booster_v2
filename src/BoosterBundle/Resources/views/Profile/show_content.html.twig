@@ -1,30 +1,26 @@
 {% trans_default_domain 'FOSUserBundle' %}
 {% if is_granted("ROLE_BOOSTER") %}
-    <div class=" col-xs-12 col-lg-offset-2 col-lg-8">
-        <p><strong>Nom d'utilisateur</strong></p>
-        <p>{{ user.username }}</p>
-        <p><strong>Nom</strong></p>
-        <p>{{ user.lastname}}</p>
-        <p><strong>Prénom</strong></p>
-        <p>{{ user.firstname}}</p>
+    <div class=" col-xs-11 col-lg-offset-2 col-lg-10">
+        <p><strong>Nom d'utilisateur :</strong> {{ user.username }}</p>
+        <p><strong>Nom : </strong>{{ user.lastname}}</p>
+        <p><strong>Prénom : </strong>{{ user.firstname}}</p>
     </div>
 {% elseif is_granted("ROLE_BOOSTE") %}
     <div class="col-xs-12 col-lg-offset-2 col-lg-8">
-        <p><strong>Nom d'utilisateur</strong></p>
-        <p>{{ user.username }}</p>
-        <p><strong>Nom</strong></p>
-        <p>{{ user.lastname}}</p>
-        <p><strong>Prénom</strong></p>
-        <p>{{ user.firstname}}</p>
-        <p><strong>Fonction</strong></p>
-        <p>{{ user.professionalfunction }}</p>
+        <p><strong>Nom d'utilisateur :</strong> {{ user.username }}</p>
+        <p><strong>Nom : </strong>{{ user.lastname}}</p>
+        <p><strong>Prénom : </strong>{{ user.firstname}}</p>
+        <p><strong>Fonction : </strong> <p>{{ user.professionalfunction }}</p>
         {% if (user.siretnumber is not null)  %}
-        <p><strong>Siret</strong></p>
-        <p>{{ user.siretnumber }}</p>
+        <p><strong>Siret : </strong>{{ user.siretnumber }}</p>
         {% endif %}
     </div>
 {% endif %}
 <div class="btn_register col-xs-12 col-lg-offset-2 col-lg-8">
-    <a href="{{ path("fos_user_profile_edit") }}" type="button" class="btn_subs btn btn-danger btn-lg">Modifier mes infos</a>
-    <a href="{{ path("fos_user_change_password") }}" type="button" class="btn_subs btn btn-danger btn-lg">Modifier mon mot de passe</a>
+    <div class="btn_register">
+        <a href="{{ path('fos_user_profile_edit') }}"><input type="submit" value="Modifier mon profil" class="btn btn-danger" /></a>
+    </div>
+    <div class="btn_register">
+        <a href="{{ path('fos_user_change_password') }}" ><input type="submit" value="Modifier mon mot de passe" class="btn btn-danger" /></a>
+    </div>
 </div>
