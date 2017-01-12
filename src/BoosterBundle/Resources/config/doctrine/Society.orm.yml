@@ -63,10 +63,12 @@ BoosterBundle\Entity\Society:
             type: integer
             nullable: true
             column: denied_boosters
+
     oneToMany:
         project_names:
             targetEntity: BoosterBundle\Entity\Project
-            mappedBy: projectName
+            mappedBy: society
+
     oneToOne:
         user:
             targetEntity: User
@@ -78,4 +80,5 @@ BoosterBundle\Entity\Society:
         transaction:
             targetEntity: BoosterBundle\Entity\Transaction
             mappedBy: society
+
     lifecycleCallbacks: {  }

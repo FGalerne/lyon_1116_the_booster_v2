@@ -1,6 +1,7 @@
 <?php
 
 namespace BoosterBundle\Controller;
+
 use BoosterBundle\Entity\Society;
 use BoosterBundle\Entity\Booster;
 use BoosterBundle\Entity\Messenger;
@@ -19,9 +20,12 @@ class DashboardController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $societies = $em->getRepository('BoosterBundle:Society')->getDashboardById($id);
+        $projects = $em->getRepository('BoosterBundle:Project')->getProjectBySociety($id);
+
         /**
          * @var Society $user
          */
+
         $user = $this->getUser();
         if ($user != null) {
             $user = $this->getUser();
@@ -46,6 +50,7 @@ class DashboardController extends Controller
                     'societies' => $societies,
                     'user' => $user,
                     'messengers' => $messengers,
+                    'projects' => $projects,
                     'form' => $form->createView(),
                 ));
         }

@@ -20,7 +20,6 @@ class ProjectController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $projects = $em->getRepository('BoosterBundle:Project')->findAll();
 
         return $this->render('project/index.html.twig', array(
@@ -40,14 +39,14 @@ class ProjectController extends Controller
         $time = new \DateTime();
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $project->setSociety($this->getUser()->getSociety());
             $project->setCreateTime($time);
             $project->setCreationStatus('en attente');
             $project->setStatus('proposé');
             $project->setGivenTime(0);
             $em->persist($project);
             $em->flush($project);
-
-            return $this->redirectToRoute('project_show', array('id' => $project->getId()));
+            return $this->redirectToRoute('dashboard_society', array('id' => $this->getUser()->getSociety()));
         }
 
         return $this->render('BoosterBundle:Front:deposer_un_projet.html.twig', array(
@@ -60,7 +59,7 @@ class ProjectController extends Controller
      * Finds and displays a project entity.
      *
      */
-    public function showAction (Project $project)
+    public function showAction(Project $project)
     {
         $deleteForm = $this->createDeleteForm($project);
 
@@ -126,4 +125,5 @@ class ProjectController extends Controller
             ->getForm()
         ;
     }
+
 }
