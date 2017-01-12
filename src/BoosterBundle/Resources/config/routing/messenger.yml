@@ -1,24 +1,24 @@
-messenger_index:
-    path:     /
-    defaults: { _controller: "BoosterBundle:Messenger:index" }
-    methods:  GET
+#messenger_index:
+#    path:     /
+#    defaults: { _controller: "BoosterBundle:Messenger:index" }
+#    methods:  GET
 
-messenger_show:
-    path:     /{id}/show
-    defaults: { _controller: "BoosterBundle:Messenger:show" }
-    methods:  GET
+#messenger_show:
+#    path:     /{id}/show
+#    defaults: { _controller: "BoosterBundle:Messenger:show" }
+#    methods:  GET
 
 messenger_new:
     path:     /new
     defaults: { _controller: "BoosterBundle:Messenger:new" }
     methods:  [GET, POST]
 
-messenger_edit:
-    path:     /{id}/edit
-    defaults: { _controller: "BoosterBundle:Messenger:edit" }
-    methods:  [GET, POST]
+#messenger_edit:
+#    path:     /{id}/edit
+#    defaults: { _controller: "BoosterBundle:Messenger:edit" }
+#   methods:  [GET, POST]
 
-messenger_delete:
-    path:     /{id}/delete
-    defaults: { _controller: "BoosterBundle:Messenger:delete" }
-    methods:  DELETE
+#messenger_delete:
+#    path:     /{id}/delete
+#    defaults: { _controller: "BoosterBundle:Messenger:delete" }
+#   methods:  DELETE
