@@ -9,6 +9,9 @@
                 <h1 class="h1_top_page">Évaluation du Boosté</h1>
                 <hr>
                 <h2 class="h2_toppage">Un Booster vient de vous offrir de son temps libre et de ses compétences.</h2>
+                {{ form_start(form1) }}
+                {{ form_widget(form1) }}
+                {{ form_end(form1) }}
                 <p>Attribuez une note au Boosté :</p>
                 <p>Ecrivez un commentaire à propos du Boosté :</p>
             </div>
@@ -21,8 +24,10 @@
                 <h1 class="h1_top_page">Évaluation du Booster</h1>
                 <hr>
                 <h2 class="h2_toppage">Un Booster vient de vous offrir de son temps libre et de ses compétences.</h2>
+                {{ form_start(form2) }}
+                {{ form_widget(form2) }}
+                {{ form_end(form2) }}
                 <p>Attribuez une note au Booster : </p>
-
                 <p>Ecrivez un commentaire à propos du Booster : </p>
             </div>
         </div>

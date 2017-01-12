@@ -14,24 +14,9 @@ class NotesBoosterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('boosterNote', IntegerType::class, array(
-                'label' => 'Attribuez une note au Booster : ',
-                'required'  => true,
-                'class' => 'form-control form-group'
-            ))
-            ->add('boosterCommentaries', TextareaType::class, array(
-                'label' => 'Écrivez un commentaire à propos du booster : ',
-                'attr' => array(
-                    'class' => 'form-control form-group',
-                    'placeholder' => 'Message',
-                    'max_length' => 300
-                ),
-                'required'  => true
-            ))
-            ->add('save', SubmitType::class, array(
-                'label' => 'Envoyer',
-                'attr' => array('class' => 'form-submit-right')
-            ))
+            ->add('boosterNote', IntegerType::class)
+            ->add('boosterCommentaries', TextareaType::class)
+            ->add('save', SubmitType::class)
         ;
     }
 

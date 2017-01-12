@@ -3,7 +3,10 @@
 namespace BoosterBundle\Controller;
 
 use BoosterBundle\Entity\Project;
+use BoosterBundle\Form\NotesBoosterType;
+use BoosterBundle\Form\NotesSocietyType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Console\Tests\Helper\FormatterHelperTest;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints\DateTime;
 
@@ -130,9 +133,35 @@ class ProjectController extends Controller
      * Page notation and comments
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function notesCommentsAction()
+    public function notesCommentsAction(Request $request)
     {
-        return $this-> render('BoosterBundle:Notes:notes_comments.html.twig');
+        $project = new Project();
+
+        $form1 = $this->createForm(NotesBoosterType::class, $project);
+        if ($form1->isSubmitted() && $form1->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $project = $form1->getData();
+            $em->persist($project);
+            $em->flush();
+
+            return $this->redirectToRoute('booster_equipe');
+
+        }
+
+        $form2 = $this->createForm(NotesSocietyType::class, $project);
+        if ($form2->isSubmitted() && $form2->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $project = $form2->getData();
+            $em->persist($project);
+            $em->flush();
+
+            return $this->redirectToRoute('booster_equipe');
+    }
+
+    return $this-> render('BoosterBundle:Notes:notes_comments.html.twig', array(
+        'form1' => $form1,
+        'form2' => $form2,
+    ));
     }
 
 }
