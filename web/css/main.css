@@ -1703,6 +1703,14 @@ a:hover {
 	width: 100%;
 }
 
+/****** Charte ******/
+#charte img {
+	width: 100px;
+	display: block;
+	margin: auto;
+	padding-bottom: 30px;
+}
+
 /*payment*/
 .title-transaction{
 	font-weight: bold;
