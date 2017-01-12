@@ -1756,8 +1756,32 @@ a:hover {
 
 /************************** TEAM PAGE **************************/
 
+.team-presentation {
+	margin-bottom: 75px;
+}
+
 .team-rocket img {
 	display: block;
 	margin: 0 auto;
 	width: 100%;
 }
+
+/* Here we manage the css of the h2 h3 and p */
+
+.all-team h2 {
+	font-size: 1.5em;
+}
+
+.all-team h3 {
+	font-size: 1.2em;
+}
+
+.all-team p {
+	font-size: 1em;
+}
+
+.all-team ul {
+	list-style: none;
+	display: inline-block;
+}
+/* Here we manage the disposition of the different person */
