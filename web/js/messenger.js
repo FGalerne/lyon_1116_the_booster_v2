@@ -16,8 +16,8 @@ function messengerForm(index){
     document.getElementById('boosterbundle_messenger_user1Read').value = 1;
     document.getElementById('boosterbundle_messenger_user2Read').value = 0;
     document.getElementById('messengerSubmit').submit();
-
 }
+
 function displayMessages(index){
 
     var messages = document.getElementsByClassName('messenger-messages');
