@@ -48,7 +48,7 @@ class TransactionController extends Controller
         $transaction->setCreateTime(new \DateTime('now'));
         $transaction->setEndTime(date_modify(new \DateTime('now'), "+24 hour"));
         $em->persist($transaction);
-        $em->flush($transaction);
+        $em->flush();
 
         return $this->redirectToRoute('dashboard_society', array(
             'id' => $id,
