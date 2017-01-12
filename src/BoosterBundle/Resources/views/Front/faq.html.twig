@@ -6,14 +6,22 @@
         <hr>
     </div>
 
-    <div class="container body_ml">
+    <div class="container body_ml faq-height">
         <div class="row">
             <div class="col-xs-offset-1 col-xs-10 col-md-offset-1 col-md-10">
-                {% for faq in faqs %}
-                    <div class="row">
-                        <p class="col-xs-4"><strong>{{ faq.question }}</strong>: </p>
-                        <p class="col-xs-8">{{ faq.answer }}</p>
+                {% set categoriID = 0 %}
+                {% for category, group in faqs|group_by(=> _.category) %}
+
+                    <div class="col-xs-12 faq-categories" data-toggle="collapse" data-target="{{'#collapse-category' ~ categoriID }}">{{ category }}</div>
+
+                    <div id="{{'collapse-category' ~ categoriID }}" class="collapse">
+                        {% for faq in group %}
+                            <div class="col-xs-12"><p><strong>{{ faq.question }}</strong></p></div>
+                            <div class="col-xs-12">{{ faq.answer|raw }}</div>
+                            <hr class="hr-faq"/>
+                        {% endfor %}
                     </div>
+                    {% set categoriID = categoriID + 1 %}
                 {% endfor %}
             </div>
         </div>
