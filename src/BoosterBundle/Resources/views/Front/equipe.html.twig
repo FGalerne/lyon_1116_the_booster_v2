@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {%  block title %}L'équipe | The Booster{% endblock %}
 {% block body %}
-    <div class="container-fluid">
+    <section class="container-fluid">
         <div class="row all_blsp_xs all_blsp_sm all_blsp_md"></div>
 
         <div class="row all_blsp">
@@ -10,28 +10,18 @@
                 <hr>
             </div>
         </div>
-        <div class="row who_blocimg">
-            <div class="col-xs-offset-3 col-xs-6 col-sm-offset-2 col-sm-3 col-md-offset-3 col-md-2" id="who_blocimg_pic1">
-                <img src="{{ asset('/img/the-booster-guylaine-antonini.png')}}" class="img-responsive who_img_portrait" alt="Guylaine Antonini cofondatrice The Booster">
-                <div class="who_blocsoc">
-                    <h2>Guylaine Antonini</h2>
-                    <div>
-                        <a href="https://twitter.com/Guyylaine" target="_blank"><img src="{{ asset('/img/twitter-the-booster-black.png')}}" alt="Twitter guylaine The Booster"></a>
-                        <a href="https://fr.linkedin.com/in/guylaineantonini" target="_blank"><img src="{{ asset('/img/linkedin-the-booster-black.png')}}" alt="Linkedin Guylaine The Booster"></a>
-                    </div>
-                </div>
+
+        <div class="container">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4 team-rocket">
+                <img src="{{ asset('img/the-booster-equipe.png') }}" alt="Presentation de l'équipe the booster">
             </div>
-            <div class="col-xs-offset-3 col-xs-6 col-sm-offset-2 col-sm-3 col-md-offset-2 col-md-2" id="who_blocimg_pic2">
-                <img src="{{ asset('/img/the-booster-nicolas-antonini.png')}}" class="img-responsive who_img_portrait" alt="Nicolas Antonini cofondateur The Booster">
-                <div class="who_blocsoc">
-                    <h2>Nicolas Antonini</h2>
-                    <div>
-                        <a href="https://twitter.com/nicolasantonini" target="_blank"><img src="{{ asset('/img/twitter-the-booster-black.png')}}" alt="Twitter Nicolas The Booster"></a>
-                        <a href="https://fr.linkedin.com/in/nicolasantonini" target="_blank"><img src="{{ asset('/img/linkedin-the-booster-black.png')}}" alt="Linkedin Nicolas The Booster"></a>
-                    </div>
-                </div>
-            </div>
+            <div class="col-xs-4"></div>
         </div>
+
+    </section>
+
+    <section class="container-fluid">
         <div class="row who_bltxt" id="who_bltxt_ext">
             <div class=" who_bltxt col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8" id="who_bltxt_int">
 
@@ -45,6 +35,5 @@
                 </p>
             </div>
         </div>
-
-    </div>
+    </section>
 {% endblock %}
