@@ -18,7 +18,9 @@
                 <!--<label for="password">{{ 'security.login.password'|trans }}</label>-->
                 <input class="form-control text-center" type="password" id="password" name="_password" required="required" placeholder="{{ 'security.login.password'|trans }}"/>
             </div>
-
+        <div class="login_checkbox col-xs-12">
+            <a  href="{{ path('fos_user_resetting_request') }}">Mot de passe oublié ?</a>
+        </div>
             <div class="login_checkbox col-xs-12">
                 <label for="remember_me">
                     <input type="checkbox" id="remember_me" name="_remember_me" value="on" />

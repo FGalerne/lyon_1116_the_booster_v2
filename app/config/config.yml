@@ -87,6 +87,7 @@ fos_user:
         confirmation:
             enabled: true
             template:   BoosterBundle:Emails:confirmed_Booster.html.twig
+
     from_email:
         address:        noreply@thebooster.com
         sender_name:    the booster
