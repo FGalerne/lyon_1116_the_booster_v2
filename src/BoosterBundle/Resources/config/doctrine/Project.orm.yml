@@ -1,6 +1,7 @@
 BoosterBundle\Entity\Project:
     type: entity
     table: project
+    repositoryClass: BoosterBundle\Repository\ProjectRepository
     id:
         id:
             type: integer
@@ -61,10 +62,14 @@ BoosterBundle\Entity\Project:
             type: integer
             nullable: true
             column: society_note
+
     manyToOne:
         society:
             targetEntity: Society
             inversedBy: societyName
+            joinColumn:
+                    name: society_id
+                    referencedColumnName: id
 
     oneToMany:
         project_subscriptions:

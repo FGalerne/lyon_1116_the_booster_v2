@@ -89,6 +89,11 @@ notes_comments:
     defaults: { _controller: BoosterBundle:Project:notesComments }
     methods:  [GET, POST]
 
+show_projects:
+    path:     /{id}/projet
+    defaults: { _controller: "BoosterBundle:Project:show" }
+    methods:  GET
+
 booster_society:
     resource: "@BoosterBundle/Resources/config/routing/society.yml"
     prefix:   /society

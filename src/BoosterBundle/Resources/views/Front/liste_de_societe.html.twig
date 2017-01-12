@@ -29,8 +29,8 @@
             </li>
         </ul>
         {% for society in societies %}
-        <div class="col-xs-12 col-sm-3 col-md-3">
-            <a href="">
+        <div class="col-xs-12 col-sm-4 col-md-3">
+            <a href="{{ path('dashboard_society',{'id':society.id}) }}">
                 <div class="global-society">
                     <div>
                         <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/avatar-default.png') }}">
