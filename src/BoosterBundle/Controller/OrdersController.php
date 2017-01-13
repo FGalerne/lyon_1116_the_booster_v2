@@ -5,7 +5,6 @@ use BoosterBundle\Entity\Order;
 use BoosterBundle\Entity\Transaction;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use JMS\Payment\CoreBundle\PluginController\Result;
 use JMS\Payment\CoreBundle\Plugin\Exception\Action\VisitUrl;

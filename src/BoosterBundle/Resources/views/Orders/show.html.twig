@@ -14,7 +14,7 @@
                     <div class="transaction-divs">&nbsp;&nbsp;&nbsp;<strong>Prix</strong> :&nbsp; {{ order.amount }} € HT</div>
                 </div>
                 <div class="row">
-                    <div class="transaction-divs">&nbsp;&nbsp;&nbsp;<strong>TVA</strong> :&nbsp; 20 %</div>
+                    <div class="transaction-divs">&nbsp;&nbsp;&nbsp;<strong>TVA</strong> :&nbsp;{{ order.amount * 20 / 100 }} € (20 %)</div>
                 </div>
                 <div class="row">
                     <div class="transaction-divs">&nbsp;&nbsp;&nbsp;<strong>Total TTC</strong> :&nbsp;{{ order.amount * 1.20 }} € TTC</div>
