@@ -14,6 +14,12 @@
                     <div class="transaction-divs">&nbsp;&nbsp;&nbsp;<strong>Prix</strong> :&nbsp; {{ order.amount }} € HT</div>
                 </div>
                 <div class="row">
+                    <div class="transaction-divs">&nbsp;&nbsp;&nbsp;<strong>TVA</strong> :&nbsp; 20 %</div>
+                </div>
+                <div class="row">
+                    <div class="transaction-divs">&nbsp;&nbsp;&nbsp;<strong>Total TTC</strong> :&nbsp;{{ order.amount * 1.20 }} € TTC</div>
+                </div>
+                <div class="row">
                     {{ form_start(form) }}
                         {{ form_widget(form, {'attr': {'class': 'hidden'}}) }}
                     <input class="transaction-divs transaction-submit" type="submit" value="Payer avec Paypal" />
