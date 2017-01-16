@@ -3,7 +3,7 @@
 {% block body %}
     <section class="container-fluid global-presentation">
         <div class="container">
-            <div class="col-xs-6 col-md-4 col-md-offset-4 form-transaction">
+            <div class="col-xs-12 col-md-6 col-md-offset-3 form-transaction">
                 <div class="row">
                     <div class="transaction-divs title-transaction">MISE EN AVANT SUR LA PAGE D'ACCUEIL</div>
                 </div>
@@ -11,18 +11,22 @@
                     <div class="transaction-divs">&nbsp;&nbsp;&nbsp;<strong>Durée</strong> :&nbsp; 24h</div>
                 </div>
                 <div class="row">
-                    <div class="transaction-divs">&nbsp;&nbsp;&nbsp;<strong>Prix</strong> :&nbsp; {{ order.amount }} € HT</div>
+                    <div class="transaction-divs">&nbsp;&nbsp;&nbsp;<strong>Prix</strong> :&nbsp; 5 € HT</div>
                 </div>
                 <div class="row">
-                    <div class="transaction-divs">&nbsp;&nbsp;&nbsp;<strong>TVA</strong> :&nbsp;{{ order.amount * 20 / 100 }} € (20 %)</div>
+                    <div class="transaction-divs">&nbsp;&nbsp;&nbsp;<strong>TVA</strong> :&nbsp; 1 € (20 %)</div>
                 </div>
                 <div class="row">
-                    <div class="transaction-divs">&nbsp;&nbsp;&nbsp;<strong>Total TTC</strong> :&nbsp;{{ order.amount * 1.20 }} € TTC</div>
+                    <div class="transaction-divs">&nbsp;&nbsp;&nbsp;<strong>Total TTC</strong> :&nbsp;{{ order.amount }} € TTC</div>
                 </div>
-                <div class="row">
+                <div class="row transaction-form">
                     {{ form_start(form) }}
+                        <label class="checkbox-inline col-xs-12 col-md-6"><input type="checkbox" value="" required>
+                            En cochant cette case, j'accepte les
+                            <a href ="{{ path('booster_cgv') }}"> conditions générales de vente.</a>
+                        </label>
                         {{ form_widget(form, {'attr': {'class': 'hidden'}}) }}
-                    <input class="transaction-divs transaction-submit" type="submit" value="Payer avec Paypal" />
+                    <input class="transaction-submit col-xs-12 col-md-6" type="submit" value="Payer avec Paypal" />
                     {{ form_end(form) }}
                 </div>
             </div>

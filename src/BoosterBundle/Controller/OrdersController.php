@@ -48,7 +48,7 @@ class OrdersController extends Controller
         );
 
         $form = $this->createForm('jms_choose_payment_method', null, array(
-            'amount'   => $order->getAmount() * 1.20 ,
+            'amount'   => $order->getAmount(),
             'currency' => 'EUR',
             'predefined_data' => $config,
             'allowed_methods' => array('paypal_express_checkout'),
@@ -111,8 +111,6 @@ class OrdersController extends Controller
             //if no transaction have been done before, we create a new one
             else if($action === 'new'){
                 $transaction = new Transaction();
-                $form = $this->createForm('BoosterBundle\Form\TransactionType', $transaction);
-                $form->handleRequest($request);
 
                 $em = $this->getDoctrine()->getManager();
                 $society = $this->getDoctrine()
