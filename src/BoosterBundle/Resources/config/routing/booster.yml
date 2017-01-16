@@ -19,6 +19,6 @@ booster_edit:
     methods:  [GET, POST]
 
 booster_delete:
-    path:     /{id}/delete
+    path:     /{id}/{name}/delete
     defaults: { _controller: "BoosterBundle:Booster:delete" }
     methods:  DELETE

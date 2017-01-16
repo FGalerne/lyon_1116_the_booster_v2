@@ -13,7 +13,8 @@ class BoosterRepository extends \Doctrine\ORM\EntityRepository
      * @param $id
      * @return array
      */
-    public function getDashboardById($id)
+
+	public function getDashboardById($id)
     {
         $req = $this->createQueryBuilder('a')
             ->where('a.id = :id')

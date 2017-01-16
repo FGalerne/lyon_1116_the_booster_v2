@@ -63,7 +63,7 @@
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>Bonjour {{ app.user.firstName }} <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ path('dashboard_booster',{'id':app.user.booster.id}) }}" class="log-nav"><i class="fa fa-user" aria-hidden="true"></i>Dashboard</a></li>
-                                    <li><a href="{{ path('dashboard_booster_edit',{'id':app.user.booster.id}) }}" class="log-nav"><i class="fa fa-cog" aria-hidden="true"></i>Editez votre profil</a></li>
+                                    <li><a href="{{ path('dashboard_booster_edit',{'slug':app.user.booster.slug}) }}" class="log-nav"><i class="fa fa-cog" aria-hidden="true"></i>Editez votre profil</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="{{ path('fos_user_profile_show')}}"><i class="fa fa-cog" aria-hidden="true"></i>Paramètre du compte</a></li>
                                     <li><a href="{{ path('fos_user_security_logout') }}" class="log-nav"><i class="fa fa-power-off" aria-hidden="true"></i> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>

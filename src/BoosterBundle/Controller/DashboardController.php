@@ -6,6 +6,7 @@ use BoosterBundle\Entity\Society;
 use BoosterBundle\Entity\Booster;
 use BoosterBundle\Entity\Messenger;
 use BoosterBundle\Repository\messengerRepository;
+use Doctrine\ORM\Mapping\Id;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
@@ -175,7 +176,8 @@ class DashboardController extends Controller
                 }
             }
             return $this->render('BoosterBundle:Dashboard:dashboard-booster.html.twig', array(
-                'boosters' => $boosters,
+                'slug'=> $boosters[0]->getSlug(),
+            	'boosters' => $boosters,
                 'user' => $user,
                 'messengers' => $messengers,
                 'form' => $form->createView(),
@@ -192,8 +194,10 @@ class DashboardController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+
+        	$em = $this->getDoctrine()->getManager();
             $booster->setUser($this->getUser());
+			$booster->setSlug(md5(uniqid()));
 
             if($file = $booster->getPhoto()){
                 $tmp = $this->getParameter('photo_tmp');
@@ -213,11 +217,15 @@ class DashboardController extends Controller
             $em->persist($booster);
             $em->flush($booster);
 
-            return $this->redirectToRoute('dashboard_booster', array('id' => $booster->getId()));
+            return $this->redirectToRoute('dashboard_booster', array(
+            	'id' => $booster->getId(),
+				'slug' => $booster->getSlug()
+			));
         }
-
+		var_dump($booster->getSlug());
         return $this->render('@Booster/Dashboard/dashboard-booster-new.html.twig', array(
-            'booster' => $booster,
+            'slug' =>$booster->getSlug(),
+        	'booster' => $booster,
             'form' => $form->createView(),
         ));
     }
@@ -263,7 +271,8 @@ class DashboardController extends Controller
         }
 
         return $this->render('BoosterBundle:Dashboard:dashboard-booster-edit.html.twig', array(
-            'id' => $booster->getId(),
+            'slug'=> $booster->getSlug(),
+        	'id' => $booster->getId(),
             'booster' => $booster,
             'edit_form' => $editForm->createView(),
         ));

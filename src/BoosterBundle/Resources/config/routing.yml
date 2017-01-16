@@ -67,12 +67,12 @@ dashboard_booster:
     methods:  GET
 
 dashboard_booster_new:
-    path:     /dashboard-booster-new/{id}/
+    path:     /dashboard-booster-new/{id}
     defaults: { _controller: BoosterBundle:Dashboard:boosterNew }
     methods:  [GET, POST]
 
 dashboard_booster_edit:
-    path:     /dashboard-booster-edit/{id}/
+    path:     /dashboard-booster-edit/{slug}
     defaults: { _controller: BoosterBundle:Dashboard:boosterEdit }
     methods:  [GET, POST]
 

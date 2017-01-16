@@ -78,6 +78,11 @@ BoosterBundle\Entity\Booster:
             type: integer
             nullable: true
             column: average_notation
+        slug:
+            type: string
+            nullable: true
+            length: 16
+            unique: true
 
     oneToOne:
         user:
