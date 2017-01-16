@@ -1769,11 +1769,11 @@ a:hover {
 /************************** TEAM PAGE **************************/
 
 .team-block-left {
-	margin-top: 230px;
+	margin-top: 280px;
 }
 
 .team-block-right {
-	margin-top: 280px;
+	margin-top: 340px;
 }
 
 .team-presentation {
@@ -1809,13 +1809,13 @@ a:hover {
 .all-team ul li {
 	list-style: none;
 	display: inline-block;
-	padding: 1px 0 0 6px;
+	padding: 2px 0 0 8px;
 	color: #FFFFFF;
 	font-size: 1em;
 	background-color: #dd4444;
 	border-radius: 50%;
-	width: 30px;
-	height: 30px;
+	width: 33px;
+	height: 33px;
 	margin-top: 5px;
 }
 
