@@ -23,7 +23,7 @@
                     {{ form_start(form) }}
                         <label class="checkbox-inline col-xs-12 col-md-6"><input type="checkbox" value="" required>
                             En cochant cette case, j'accepte les
-                            <a href ="{{ path('booster_cgv') }}"> conditions générales de vente.</a>
+                            <a href ="{{ path('booster_cgv') }}" target="_blank"> conditions générales de vente.</a>
                         </label>
                         {{ form_widget(form, {'attr': {'class': 'hidden'}}) }}
                     <input class="transaction-submit col-xs-12 col-md-6" type="submit" value="Payer avec Paypal" />
