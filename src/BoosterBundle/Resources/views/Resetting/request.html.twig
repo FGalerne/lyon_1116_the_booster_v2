@@ -1,0 +1,10 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% block h1 %}
+    <div class="text-center">
+        <h1 class="h1_top_page">Mot de passe oublié</h1>
+        <hr class="hr_">
+    </div>
+{% endblock h1 %}
+{% block fos_user_content %}
+{% include "FOSUserBundle:Resetting:request_content.html.twig" %}
+{% endblock fos_user_content %}

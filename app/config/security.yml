@@ -32,18 +32,19 @@ security:
 
     access_control:
     - {path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY}
-    - {path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY}
+    - {path: ^/enregistrement, role: IS_AUTHENTICATED_ANONYMOUSLY}
     - {path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY}
     - {path: ^/messenger, role: ROLE_USER}
-    # - {path: ^/transaction/, role: ROLE_SUPER_ADMIN} we need to alow paypal controller to access this route
+    - {path: ^/admin, role: ROLE_SUPER_ADMIN}
+    - {path: ^/dashboard-booster-edit/, role: ROLE_BOOSTER}
+    - {path: ^/dashboard-booste-edit/, role: ROLE_BOOSTE}
+    - {path: ^/deposer-un-projet/, role: ROLE_BOOSTE}
 
     #- {path: ^/booste, role: ROLE_BOOSTE}
     #- {path: ^/booster, role: ROLE_BOOSTER}
-    #- {path: ^/booster/dashboard/edit, role: ROLE_BOOSTER}
-    #- {path: ^/booste/dashboard/edit, role: ROLE_BOOSTE}
-    #- {path: ^/booste/dashboard, role: ROLE_USER}
-    #- {path: ^/booster/dashboard, role: ROLE_BOOSTER}
     #- {path: ^/booste/dashboard/deposer-un-projet, role: ROLE_BOOSTE}
     #- {path: ^/admin, role: ROLE_ADMIN}
+
+
 
 

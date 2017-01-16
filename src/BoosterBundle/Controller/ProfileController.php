@@ -11,6 +11,7 @@
 
 namespace BoosterBundle\Controller;
 
+use BoosterBundle\Form\ProfileFormType;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\Event\FormEvent;
 use FOS\UserBundle\Event\GetResponseUserEvent;
@@ -25,12 +26,16 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
+use FOS\UserBundle\Controller\ProfileController as BaseController;
+
+
+
 /**
  * Controller managing the user profile.
  *
  * @author Christophe Coevoet <stof@notk.org>
  */
-class ProfileController extends Controller
+class ProfileController extends BaseController
 {
     /**
      * Show the user.
@@ -72,9 +77,8 @@ class ProfileController extends Controller
         }
 
         /** @var $formFactory FactoryInterface */
-        $formFactory = $this->get('fos_user.profile.form.factory');
 
-        $form = $formFactory->createForm();
+        $form = $this->createForm(ProfileFormType::class);
         $form->setData($user);
 
         $form->handleRequest($request);
@@ -98,7 +102,7 @@ class ProfileController extends Controller
             return $response;
         }
 
-        return $this->render('FOSUserBundle:Profile:edit.html.twig', array(
+        return $this->render('BoosterBundle:Profile:edit.html.twig', array(
             'form' => $form->createView(),
         ));
     }
