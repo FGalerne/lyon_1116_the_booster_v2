@@ -39,7 +39,6 @@ security:
     - {path: ^/dashboard-booster-edit/, role: ROLE_BOOSTER}
     - {path: ^/dashboard-booste-edit/, role: ROLE_BOOSTE}
     - {path: ^/deposer-un-projet/, role: ROLE_BOOSTE}
-    # - {path: ^/transaction/, role: ROLE_SUPER_ADMIN} we need to alow paypal controller to access this route
 
     #- {path: ^/booste, role: ROLE_BOOSTE}
     #- {path: ^/booster, role: ROLE_BOOSTER}

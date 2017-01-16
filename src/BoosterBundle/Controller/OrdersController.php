@@ -2,6 +2,7 @@
 namespace BoosterBundle\Controller;
 
 use BoosterBundle\Entity\Order;
+use BoosterBundle\Entity\Transaction;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -31,8 +32,10 @@ class OrdersController extends Controller
     {
         $config = array(
             'paypal_express_checkout' => array(
-                'return_url' => $this->generateUrl('transaction_'.$action, array(
-                    'id' => $clientId,
+                'return_url' => $this->generateUrl('order_payment_create', array(
+                    'id' => $order->getId(),
+                    'clientId' => $clientId,
+                    'action' => $action,
                 ), UrlGeneratorInterface::ABSOLUTE_URL),
 
                 'cancel_url' => $this->generateUrl('dashboard_society', array(
@@ -65,6 +68,8 @@ class OrdersController extends Controller
 
             return $this->redirect($this->generateUrl('order_payment_create', array(
                 'id' => $order->getId(),
+                'clientId' => $clientId,
+                'action' => $action,
             )));
         }
 
@@ -74,7 +79,7 @@ class OrdersController extends Controller
         ));
     }
 
-    private function createPayment($order)
+    private function createPayment($order, $clientId)
     {
         $instruction = $order->getPaymentInstruction();
         $pendingTransaction = $instruction->getPendingTransaction();
@@ -86,20 +91,48 @@ class OrdersController extends Controller
         $ppc = $this->get('payment.plugin_controller');
         $amount = $instruction->getAmount() - $instruction->getDepositedAmount();
 
-        return $ppc->createPayment($instruction->getId(), $amount);
+        return $ppc->createPayment($instruction->getId(), $amount, $clientId);
     }
 
-    public function paymentCreateAction(Order $order)
+    public function paymentCreateAction(Order $order, $clientId, $action, Request $request)
     {
-        $payment = $this->createPayment($order);
+        $payment = $this->createPayment($order, $clientId);
 
         $ppc = $this->get('payment.plugin_controller');
         $result = $ppc->approveAndDeposit($payment->getId(), $payment->getTargetAmount());
 
         if ($result->getStatus() === Result::STATUS_SUCCESS) {
-            return $this->redirect($this->generateUrl('app_orders_paymentcomplete', [
+            //if a creation already exist, we just update it with new datetime
+            if($action === 'edit'){
+                $this->getDoctrine()
+                    ->getRepository('BoosterBundle:Transaction')
+                    ->updateTransaction($clientId);
+            }
+            //if no transaction have been done before, we create a new one
+            else if($action === 'new'){
+                $transaction = new Transaction();
+
+                $em = $this->getDoctrine()->getManager();
+                $society = $this->getDoctrine()
+                    ->getRepository('BoosterBundle:Society')
+                    ->findOneById($clientId);
+                $transaction->setSociety($society);
+                $transaction->setCreateTime(new \DateTime('now'));
+                $transaction->setEndTime(date_modify(new \DateTime('now'), "+24 hour"));
+                $em->persist($transaction);
+                $em->flush();
+            } else {
+                //this should never append
+                return $this->redirect($this->generateUrl('dashboard_society', array(
+                'id' => $clientId,
+                'paymentStatus' => 'error',
+                )));
+            }
+
+            return $this->redirect($this->generateUrl('order_payment_complete', array(
                 'id' => $order->getId(),
-            ]));
+                'clientId' => $clientId,
+            )));
         }
 
         if ($result->getStatus() === Result::STATUS_PENDING) {
@@ -116,6 +149,14 @@ class OrdersController extends Controller
             }
         }
         throw new \Exception('Transaction was not successful: '.$result->getReasonCode());
+    }
+
+    public function paymentCompleteAction(Order $order, $clientId)
+    {
+        return $this->redirectToRoute('dashboard_society', array(
+            'id' => $clientId,
+            'paymentStatus' => 'success',
+        ));
     }
 
 }
