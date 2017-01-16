@@ -14,9 +14,27 @@ class NotesSocietyType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('societyNote', IntegerType::class)
-            ->add('societyCommentaries', TextareaType::class)
-            ->add('save', SubmitType::class)
+            ->add('societyNote', IntegerType::class, array(
+                'label' => 'Attribuez une note au Booster : ',
+                'attr' => array(
+                    'class' => 'form-control form-group',
+                ),
+                'required'    => true
+            ))
+
+            ->add('societyCommentaries', TextareaType::class, array(
+                'label' => 'Écrivez un commentaire à propos du Booster : ',
+                'attr' => array(
+                    'class' => 'form-control form-group',
+                    'placeholder' => 'Écrivez votre commentaire'
+                ),
+                'required'    => true
+            ))
+
+            ->add('save', SubmitType::class, array(
+                'label' => 'Envoyer',
+                'attr' => array('class' => 'form-submit-center'),
+            ))
         ;
     }
 

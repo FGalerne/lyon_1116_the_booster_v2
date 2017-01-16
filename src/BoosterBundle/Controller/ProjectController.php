@@ -133,34 +133,35 @@ class ProjectController extends Controller
      * Page notation and comments
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function notesCommentsAction(Request $request)
+    public function notesCommentsAction(Request $request, Project $projectId)
     {
-        $project = new Project();
+        $em = $this->getDoctrine()->getManager();
+        $project = $em->getRepository('BoosterBundle:Project')->find($projectId);
 
         $form1 = $this->createForm(NotesBoosterType::class, $project);
-        if ($form1->isSubmitted() && $form1->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+        $form1->handleRequest($request);
+        if ($form1->isSubmitted()) {
             $project = $form1->getData();
             $em->persist($project);
             $em->flush();
 
-            return $this->redirectToRoute('booster_equipe');
+            return $this->redirectToRoute('booster_f_a_q');
 
         }
 
         $form2 = $this->createForm(NotesSocietyType::class, $project);
+        $form2->handleRequest($request);
         if ($form2->isSubmitted() && $form2->isValid()) {
-            $em = $this->getDoctrine()->getManager();
             $project = $form2->getData();
             $em->persist($project);
             $em->flush();
 
-            return $this->redirectToRoute('booster_equipe');
+            return $this->redirectToRoute('booster_f_a_q');
     }
 
     return $this-> render('BoosterBundle:Notes:notes_comments.html.twig', array(
-        'form1' => $form1,
-        'form2' => $form2,
+        'form1' => $form1->createView(),
+        'form2' => $form2->createView(),
     ));
     }
 

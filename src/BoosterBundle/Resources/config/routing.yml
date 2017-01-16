@@ -85,7 +85,7 @@ new_project:
     defaults: { _controller: BoosterBundle:Project:new }
 
 notes_comments:
-    path:   /notez-votre-experience
+    path:   /notez-votre-experience/{id}/
     defaults: { _controller: BoosterBundle:Project:notesComments }
     methods:  [GET, POST]
 
