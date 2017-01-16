@@ -25,7 +25,7 @@ class BoosterRegistrationType extends RegistrationFormType
             ->add('title', ChoiceType::class, array(
                 'label' => 'Civilité ',
                 'required' => true,
-                'choices' => array('Mr' => 'Mr', 'Mme' => 'Mme')
+                'choices' => array('Mr' => 'M.', 'Mme' => 'Mme')
             ))
             ->add('firstname', TextType::class, array(
                 'label' => "Nom",

@@ -1,10 +1,10 @@
-booster_project:
-    resource: "@BoosterBundle/Resources/config/routing/project.yml"
-    prefix:   /project
+#booster_project:
+#    resource: "@BoosterBundle/Resources/config/routing/project.yml"
+#    prefix:   /project
 
-booster_booster:
-    resource: "@BoosterBundle/Resources/config/routing/booster.yml"
-    prefix:   /booster
+#booster_booster:
+#    resource: "@BoosterBundle/Resources/config/routing/booster.yml"
+#    prefix:   /booster
 
 booster_messenger:
     resource: "@BoosterBundle/Resources/config/routing/messenger.yml"
@@ -22,9 +22,9 @@ booster_f_a_q:
     path:   /FAQ
     defaults: { _controller: BoosterBundle:Faq:faqPage }
 
-booster_faq:
-    resource: "@BoosterBundle/Resources/config/routing/faq.yml"
-    prefix:   /faq
+#booster_faq:
+#    resource: "@BoosterBundle/Resources/config/routing/faq.yml"
+#    prefix:   /faq
 
 booster_charte:
     path:     /charte
@@ -94,9 +94,9 @@ show_projects:
     defaults: { _controller: "BoosterBundle:Project:show" }
     methods:  GET
 
-booster_society:
-    resource: "@BoosterBundle/Resources/config/routing/society.yml"
-    prefix:   /society
+#booster_society:
+#    resource: "@BoosterBundle/Resources/config/routing/society.yml"
+#    prefix:   /society
 
 list_society:
     path: /liste-de-societes/{page}
@@ -104,9 +104,9 @@ list_society:
     requirements:
         page: \d+
 
-booster_transaction:
-    resource: "@BoosterBundle/Resources/config/routing/transaction.yml"
-    prefix:   /transaction
+#booster_transaction:
+#    resource: "@BoosterBundle/Resources/config/routing/transaction.yml"
+#    prefix:   /transaction
 
 orders:
     resource: "@BoosterBundle/Resources/config/routing/order.yml"

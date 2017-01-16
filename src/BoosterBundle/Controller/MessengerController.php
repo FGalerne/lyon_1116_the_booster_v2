@@ -34,14 +34,47 @@ class MessengerController extends Controller
         $form = $this->createForm('BoosterBundle\Form\MessengerType', $messenger);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        //$messenger->getMessage() is because wysiwyg bug sometimes with required fields
+        if ($form->isSubmitted() && $form->isValid() && $messenger->getMessage()) {
 
             $em = $this->getDoctrine()->getManager();
             $messenger->setCreateTime(new \DateTime('now'));
             $em->persist($messenger);
             $em->flush();
 
+            //sending a mail to the message receiver
+            $to = 'error';
+            $name = '';
+
+            $receiver = $messenger->getUser2();
+            if(NULL !== $receiver->getBooster()){
+                $to = $receiver->getBooster()->getUser()->getEmail();
+                $name = $receiver->getBooster()->getUser()->getFirstName();
+            } else if(NULL !== $receiver->getSociety()) {
+                $to = $receiver->getSociety()->getUser()->getEmail();
+                $name = $receiver->getSociety()->getUser()->getFirstName();
+            }
+
+            if($to !== 'error'){
+
+                $sendMessage = \Swift_Message::newInstance()
+                    ->setSubject('The Booster: Vous avez reçu un nouveau message!')
+                    ->setFrom($this->getParameter('mailer_user'))
+                    ->setTo($to)
+                    ->setBody(
+                        $this->renderView(
+                            'BoosterBundle:Emails:messenger_new_message.html.twig',
+                            array(
+                                'name' => $name,
+                            )
+                        ),
+                        'text/html'
+                    )
+                ;
+                $this->get('mailer')->send($sendMessage);
+            }
         }
+
         $id = $request->query->get('id');
         $role = $request->query->get('role');
         if($role == 'booster'){
@@ -52,7 +85,6 @@ class MessengerController extends Controller
             return $this->redirectToRoute('dashboard_society',
                 array('id' => $id));
         }
-
     }
 
     /**
