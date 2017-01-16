@@ -22,6 +22,11 @@ class Faq
      */
     private $answer;
 
+    /**
+     * @var string
+     */
+    private $category;
+
 
     /**
      * Get id
@@ -79,5 +84,29 @@ class Faq
     public function getAnswer()
     {
         return $this->answer;
+    }
+
+    /**
+     * Set category
+     *
+     * @param string $category
+     *
+     * @return Faq
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return string
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }
