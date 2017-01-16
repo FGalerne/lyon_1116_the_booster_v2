@@ -26,12 +26,12 @@ class RegistrationType extends AbstractType
                 'required'      => true,
                 'choices'       => array('Mr'=>'M.', 'Mme'=>'Mme')
             ))
-            ->add('lastname', TextType::class, array(
-                'label'         => "Nom",
-                'required'      => true,
-            ))
             ->add('firstname', TextType::class, array(
                 'label'         => "Prénom",
+                'required'      => true,
+            ))
+            ->add('lastname', TextType::class, array(
+                'label'         => "Nom",
                 'required'      => true,
             ))
             ->add('professionalfunction', TextType::class, array(
