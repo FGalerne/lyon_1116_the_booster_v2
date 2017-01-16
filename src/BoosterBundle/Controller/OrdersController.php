@@ -35,7 +35,11 @@ class OrdersController extends Controller
                     'id' => $clientId,
                 ), UrlGeneratorInterface::ABSOLUTE_URL),
 
-                'cancel_url' => 'https://example.com/cancel-url',
+                'cancel_url' => $this->generateUrl('dashboard_society', array(
+                'id' => $clientId,
+                'paymentStatus' => 'error',
+                ), UrlGeneratorInterface::ABSOLUTE_URL),
+
                 'useraction' => 'commit',
             ),
         );
