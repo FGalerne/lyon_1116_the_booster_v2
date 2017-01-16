@@ -20,10 +20,10 @@ class Transaction
     /**
      * @var \BoosterBundle\Entity\Society
      */
-    private $transaction_id;
+    private $society_id;
 
     public function __toString() {
-        return $this->transaction_id->getSocietyName();
+        return $this->society->getSocietyName();
     }
 
     /**
@@ -61,15 +61,15 @@ class Transaction
     }
 
     /**
-     * Set transactionId
+     * Set societyId
      *
-     * @param \BoosterBundle\Entity\Society $transactionId
+     * @param \BoosterBundle\Entity\Society $societyId
      *
      * @return Transaction
      */
-    public function setTransactionId(\BoosterBundle\Entity\Society $transactionId = null)
+    public function setSocietyId(\BoosterBundle\Entity\Society $societyId = null)
     {
-        $this->transaction_id = $transactionId;
+        $this->society_id = $societyId;
 
         return $this;
     }
@@ -79,9 +79,9 @@ class Transaction
      *
      * @return \BoosterBundle\Entity\Society
      */
-    public function getTransactionId()
+    public function getSocietyId()
     {
-        return $this->transaction_id;
+        return $this->society_id;
     }
     /**
      * @var \BoosterBundle\Entity\Society
