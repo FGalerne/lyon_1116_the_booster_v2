@@ -491,4 +491,50 @@ class Booster
     {
         return $this->averageNotation;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $projects;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->projects = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add project
+     *
+     * @param \BoosterBundle\Entity\Project $project
+     *
+     * @return Booster
+     */
+    public function addProject(\BoosterBundle\Entity\Project $project)
+    {
+        $this->projects[] = $project;
+
+        return $this;
+    }
+
+    /**
+     * Remove project
+     *
+     * @param \BoosterBundle\Entity\Project $project
+     */
+    public function removeProject(\BoosterBundle\Entity\Project $project)
+    {
+        $this->projects->removeElement($project);
+    }
+
+    /**
+     * Get projects
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProjects()
+    {
+        return $this->projects;
+    }
 }

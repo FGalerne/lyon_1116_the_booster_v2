@@ -70,6 +70,12 @@ BoosterBundle\Entity\Project:
             joinColumn:
                     name: society_id
                     referencedColumnName: id
+        booster:
+            targetEntity: BoosterBundle\Entity\Booster
+            inversedBy: projects
+            joinColumn:
+                    name: booster_id
+                    referencedColumnName: id
 
     oneToMany:
         project_subscriptions:

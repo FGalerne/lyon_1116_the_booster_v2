@@ -79,6 +79,11 @@ BoosterBundle\Entity\Booster:
             nullable: true
             column: average_notation
 
+    oneToMany:
+        projects:
+            targetEntity: BoosterBundle\Entity\Project
+            mappedBy: booster
+
     oneToOne:
         user:
             targetEntity: User
