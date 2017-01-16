@@ -1768,3 +1768,10 @@ a:hover {
 .faq-height{
 	min-height: 500px;
 }
+
+/*CGV/CGU*/
+.cgv-article{
+	margin-top: 60px;
+	font-size: 18px;
+	font-weight: bold;
+}
