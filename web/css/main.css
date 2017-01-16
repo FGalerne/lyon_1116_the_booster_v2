@@ -1721,6 +1721,10 @@ a:hover {
 }
 .transaction-divs{
 	margin-top: 10px;
+	border-bottom: 1px solid #b0b0b0;
+}
+.transaction-form{
+	margin-top: 30px;
 }
 .transaction-submit{
 	margin-bottom: 25px;

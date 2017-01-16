@@ -9,9 +9,12 @@ order_show:
     methods:  [GET, POST]
 
 order_payment_create:
-    path:     /{id}/payment/create
+    path:     /{id}/payment/create/{clientId}/{action}
     defaults: { _controller: "BoosterBundle:Orders:paymentCreate" }
     methods:  [GET, POST]
 
-
+order_payment_complete:
+    path:     /{id}/payment/complete/{clientId}
+    defaults: { _controller: "BoosterBundle:Orders:paymentComplete" }
+    methods:  [GET, POST]
 

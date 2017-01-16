@@ -175,9 +175,10 @@
                                 {% else %}
                                     {% if avaliable %}
                                     <div class="transactions">
+                                        {% set taxes = 1.2 %} {# 20% (TVA)#}
                                         <a class="col-xs-11" href="{{ society.transaction|default
-                                            ? path('order_new', { 'action': 'edit' , 'amount': 5.00 , 'clientId': app.user.society.id })
-                                            : path('order_new', { 'action': 'new' , 'amount': 5.00 , 'clientId': app.user.society.id }) }}">
+                                            ? path('order_new', { 'action': 'edit' , 'amount': 5.00 * taxes , 'clientId': app.user.society.id })
+                                            : path('order_new', { 'action': 'new' , 'amount': 5.00 * taxes, 'clientId': app.user.society.id }) }}">
                                             <div class="col-xs-6">ME METTRE EN AVANT SUR LA PAGE D'ACCUEIL</div>
                                             <div class="row col-xs-3 prices">DUREE: 24H</div>
                                             <div class="row col-xs-3 prices">PRIX: 5 &#8364; HT</div>
