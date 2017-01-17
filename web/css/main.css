@@ -1870,3 +1870,33 @@ a:hover {
 	margin-bottom: 50px;
 }
 
+/*************************** here the mobile version of the team page *****************************/
+
+@media screen and (min-width : 995px) {
+	.mobile-display {
+		display: none;
+	}
+}
+
+@media screen and (max-width : 995px) {
+	.team-rocket img,
+	.team-presentation {
+		display: none;
+	}
+	.team-block-left {
+		margin-top: 0;
+	}
+
+	.team-block-right {
+		margin-top: 0;
+	}
+
+	.img-portrait-mobile img {
+		display: block;
+		width: 120%;
+	}
+
+	.all-team {
+		padding-bottom: 200px;
+	}
+}
