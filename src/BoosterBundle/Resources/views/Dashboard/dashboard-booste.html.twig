@@ -104,6 +104,7 @@
                 {#{% if {{ project.status }} ==  %} #}
                 <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
                 {% for project in projects %}
+                    {% if project.status == 'proposé' %}
                     <div class="container project-in-progress prelude">
                         <div class="col-xs-6 col-md-3">
                             <p>Nom de la société</p>
@@ -126,13 +127,15 @@
                             <p>{{ project.status }}</p>
                         </div>
                     </div>
-                    {% endfor %}
+                    {% endif %}
+                {% endfor %}
                 </section>
 
                 {# The Project part "DONE" #}
 
                 <section class="container-fluid presentation-booster" id="dashboard-booster-done">
-                    {% for project in projects %}
+                {% for project in projects %}
+                    {% if project.status == 'accepté' %}
                     <div class="container prelude project-done">
                         <div class="col-xs-6 col-md-3">
                             <p>Nom de la société</p>
@@ -155,7 +158,8 @@
                             <p>{{ project.status }}</p>
                         </div>
                     </div>
-                    {% endfor %}
+                    {% endif %}
+                {% endfor %}
                 </section>
 
                 {# Options payantes #}
