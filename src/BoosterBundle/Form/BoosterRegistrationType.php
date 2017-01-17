@@ -28,11 +28,11 @@ class BoosterRegistrationType extends RegistrationFormType
                 'choices' => array('Mr' => 'M.', 'Mme' => 'Mme')
             ))
             ->add('firstname', TextType::class, array(
-                'label' => "Nom",
+                'label' => "Prénom",
                 'required' => true
             ))
             ->add('lastname', TextType::class, array(
-                'label' => "Prénom",
+                'label' => "Nom",
                 'required' => true
             ))
             ->add('createtime', DateTimeType::class, array(
