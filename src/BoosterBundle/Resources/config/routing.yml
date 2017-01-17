@@ -107,6 +107,17 @@ orders:
     resource: "@BoosterBundle/Resources/config/routing/order.yml"
     prefix:   /orders
 
+public_dashboard:
+    path:     /public-dashboard/{id}/
+    defaults: { _controller: BoosterBundle:Dashboard:publicDashboard }
+    methods: GET
+
+project_subscription:
+    path:     /je-donne-du-temps/{boosterId}/{societyId}/{projectId}
+    defaults: { _controller: BoosterBundle:ProjectSubscription:subscription }
+    methods: [GET, POST]
+
+
 
 
 

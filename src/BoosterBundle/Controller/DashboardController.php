@@ -55,8 +55,6 @@ class DashboardController extends Controller
                 ));
         }
 
-
-
         return $this->redirectToRoute('booster_charte');
     }
 
@@ -266,6 +264,18 @@ class DashboardController extends Controller
             'id' => $booster->getId(),
             'booster' => $booster,
             'edit_form' => $editForm->createView(),
+        ));
+    }
+
+    public function publicDashboardAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $society = $em->getRepository('BoosterBundle:Society')->findOneById($id);
+        $projects = $em->getRepository('BoosterBundle:Project')->getProjectBySociety($id);
+
+        return $this->render('BoosterBundle:Dashboard:public-dashboard.html.twig', array(
+            'society' => $society,
+            'projects' => $projects,
         ));
     }
 
