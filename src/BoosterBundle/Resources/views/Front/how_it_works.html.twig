@@ -1,5 +1,8 @@
 {% extends 'base.html.twig' %}
-{%  block title %}Comment ça marche? | The Booster{% endblock %}
+{% block title %}Comment ça marche | The Booster{% endblock %}
+{% block pageDescription %}C'est très simple. Inscrivez-vous gratuitement sur The Booster. Vous êtes un Booster :  créer votre espace personnel et choissez les projets que vous souhaitez aider. Vous êtes un Boosté : présenter votre projet, votre entreprise et déposer vos besoins : vos demandes de Coup de Boost. {% endblock %}
+
+
 {% block body %}
 
     <section>
@@ -10,73 +13,31 @@
         <div class="container body_ml">
             <div class="row">
                 <div class="col-xs-offset-1 col-xs-10 col-md-offset-1 col-md-10">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at purus nibh.
-                        Cras metus nulla, vestibulum in auctor ac, fermentum vitae tellus. Donec sed aliquam nisl.
-                        Sed eu leo id est pretium euismod. Nulla id justo at mi venenatis volutpat. Fusce nisi leo,
-                        placerat id condimentum a, accumsan vitae tortor. Nunc magna nunc, venenatis nec elementum eu,
-                        ultrices in sem. Maecenas tincidunt semper molestie. Nulla nec neque sit amet libero molestie feugiat.
-                        Cras id metus velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis arcu non
-                        leo porta ut euismod ante luctus. Praesent elementum sodales dolor id scelerisque.
-                    </p>
-                    <p>Nam vitae cursus massa. Nunc ut arcu a mi convallis feugiat. Sed ante sem, sollicitudin sed porta et,
-                        molestie in turpis. Nulla lacinia lacus nec ligula feugiat eget sagittis metus lobortis. Aenean eget velit leo,
-                        et euismod risus. Pellentesque molestie hendrerit velit at gravida. Integer nec mauris urna, vel gravida est.
-                    </p>
-                    <p>Etiam sed velit tellus, eget aliquam nisi. Suspendisse potenti. Duis at augue purus. Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Etiam semper sapien congue lorem tristique nec bibendum velit tincidunt. Maecenas faucibus sollicitudin arcu
-                        , sed tincidunt nunc fermentum ac. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam felis turpis, rutrum nec
-                        tincidunt nec, imperdiet quis tortor. Sed sit amet arcu vel orci porttitor elementum.
-                    </p>
-                    <p>Vivamus eu elit augue. Donec viverra vehicula fermentum. Curabitur vitae tellus id mi sodales posuere vel cursus l
-                        igula. Proin quis risus arcu. Etiam purus dui, laoreet at mattis non, pretium et orci. Ut nec rhoncus neque. Aenean i
-                        d risus ac neque congue suscipit. Sed bibendum quam nec felis aliquet in tempus enim adipiscing.
-                    </p>
+                    <p>The Booster, un concept simple : avec de l'envie et du temps on peut tous aider l'économie et l'entrepreneuriat.</p>
+
+                    <p>Aujourd’hui pour Entreprendre ou développer son activité deux ressources sont indispensables : l’Argent et les Compétences.</p>
+
+                    <p>Malheureusement, au démarrage l'une ou l'autre ressource fait toujours défaut. De plus, Entreprendre c'est souvent démarrer seul et ne pas savoir vers qui se tourner pour monter sa boîte. Enfin, lorsque l'on dirige son entreprise on a souvent des besoins ou des idées que l'on abandonne faute de moyens.</p>
+
+                    <p>Chez The Booster, nous sommes convaincus que la mobilisation et les actions de tous contribuent au développement des entreprises en création ou déjà avancées.</p>
+
+                    <p>Nous désirons donc offrir à chaque porteur de projet, à chaque entreprise la même chance, le même niveau de ressources.</p>
+
+                    <p>Pour y arriver nous nous sommes inspirés de l'adage "le temps c'est de l'argent". Ainsi sur The Booster vous investissez votre temps, pas votre argent.
+                        The Booster c'est la première plateforme de Crowfunding de Compétences. Alors, n'investissez pas, investissez-vous !</p>
+
+                    <p>Totalement gratuite, The Booster met en relation porteurs de projets, entrepreneurs ou dirigeants d’entreprises, appelés les "Boostés" avec toutes les personnes qui désirent donner du temps libre et des compétences : les "Boosters".</p>
+
+                    <p>The Booster souhaite devenir un acteur incontournable de l'Entrepreneuriat : un rôle social, un esprit collaboratif et une vocation solidaire.</p>
+
+                    <p>C'est en aidant l'autre, que l'on grandit réellement.</p>
                 </div>
             </div>
-        </div>
-    </section>
-    <section id="price">
-        <div class="ml_title">
-            <h2 class="h1_toppage_CCM">Découvrez nos offres:</h2>
-            <hr>
-            <h3 class="">Découvrez nos offres:</h3>
-        </div>
 
-        <div class="container" id="booster-prices">
-            <div class="col-xs-12 col-md-4 booster-formula">
-                <img  src="{{ asset('img/logo-test-price.png') }}" alt="logo test">
-                <h4>Formule au projet</h4>
-                <p>piscing elit. Etiam semper sapien congue lorem tristique nec bibendum velit tincidunt.
-                    Maecenas faucibus sollicitudin arcu, sed tincidunt nunc ferme</p>
-                    <p><strong>J'achète <input id="number-of-projects" type="number" step="1" value="0" min="0" max="5"> projets</strong></p>
-                <button>Valider</button>
+            <div class="btn_maillage">
+                <a href="{{ path('booster_inscription_choix') }}" class="btn_subs"><strong>S'inscrire à The Booster</strong></a>
             </div>
 
-            <div class="col-xs-12 col-md-4 booster-formula">
-                <img  src="{{ asset('img/logo-test-price.png') }}" alt="logo test">
-                <h4>Abonnement 6 mois</h4>
-                <p>piscing elit. Etiam semper sapien congue lorem tristique nec bibendum velit tincidunt.
-                    Maecenas faucibus sollicitudin arcu, sed tincidunt nunc ferme</p>
-                <div class="height-price">
-                    <p><strong>Soit 30€ / mois</strong></p>
-                </div>
-                <button>Je m'abonne</button>
-            </div>
-
-            <div class="col-xs-12 col-md-4 booster-formula" id="last-booster-formula">
-                <img  src="{{ asset('img/logo-test-price.png') }}" alt="logo test">
-                <h4>Abonnement 12 mois.</h4>
-                <p>piscing elit. Etiam semper sapien congue lorem tristique nec bibendum velit tincidunt.
-                    Maecenas faucibus sollicitudin arcu, sed tincidunt nunc ferme</p>
-                <div class="height-price">
-                    <p><strong>Soit 20€ / mois</strong></p>
-                </div>
-                <button>Je m'abonne</button>
-            </div>
-
-            <div class="col-xs-12" id="limit-project">
-                <p><small>Dans la limite de 5 projets maximum par mois.</small></p>
-            </div>
         </div>
     </section>
 

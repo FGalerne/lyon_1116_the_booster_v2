@@ -828,47 +828,28 @@ hr{
 
 /******************** PAGE | COMMENT CA MARCHE ********************/
 
-#price {
-	background-color: rgba(0, 0, 0, 0.1);
-	padding-top: 35px;
-	padding-bottom: 100px;
-}
-
 .h1_toppage_CCM {
 	font-size: 37px;
 	letter-spacing: -2px;
 }
 
-#booster-prices{
-	margin-top: 50px;
-}
-
-.booster-formula {
+.btn_maillage {
 	text-align: center;
-	border-left: 4px solid #363636;
-	border-top: 4px solid #363636;
-	border-bottom: 4px solid #363636;
-	background-color: #ffffff;
-	height: 450px;
+	margin-top: 5vh;
+	margin-bottom: 5vh;
 }
 
-#last-booster-formula {
-	border-right: 4px solid #363636;
+.btn_subs {
+	font-size:1.4em;
+	font-weight:900;
+	margin-bottom:2vh;
+	background-color: #eb0310;
+	color:white;
+	padding: 35px 45px;
 }
 
-@media screen and (max-width: 991px) {
-	.booster-formula {
-		text-align: center;
-		border-left: 4px solid #363636;
-		border-top: 4px solid #363636;
-		border-right: 4px solid #363636;
-	}
-	#last-booster-formula {
-		border-bottom: 4px solid #363636;
-	}
 
-}
-.booster-formula h4 {
+/*.booster-formula h4 {
 	margin-top: 25px;
 }
 
@@ -915,7 +896,7 @@ hr{
 #limit-project p {
 	margin-top: 10px;
 	text-align: center;
-}
+}*/
 
 /* CSS tempo */
 
