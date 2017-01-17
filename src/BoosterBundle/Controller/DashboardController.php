@@ -44,15 +44,15 @@ class DashboardController extends Controller
                 $avaliable = false;
             }
 
-                return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
-                    'socOnHomePage' => $socOnHomePage,
-                    'avaliable' => $avaliable,
-                    'societies' => $societies,
-                    'user' => $user,
-                    'messengers' => $messengers,
-                    'projects' => $projects,
-                    'form' => $form->createView(),
-                ));
+            return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
+                'socOnHomePage' => $socOnHomePage,
+                'avaliable' => $avaliable,
+                'societies' => $societies,
+                'user' => $user,
+                'messengers' => $messengers,
+                'projects' => $projects,
+                'form' => $form->createView(),
+            ));
         }
 
         return $this->redirectToRoute('booster_charte');
