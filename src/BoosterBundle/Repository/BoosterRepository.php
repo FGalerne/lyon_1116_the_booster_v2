@@ -12,6 +12,8 @@ class BoosterRepository extends \Doctrine\ORM\EntityRepository
     /**
      * @param $id
      * @return array
+     *
+     * The function getDashboardById allowed to get all the dashboards
      */
     public function getDashboardById($id)
     {

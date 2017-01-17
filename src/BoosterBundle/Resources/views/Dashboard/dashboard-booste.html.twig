@@ -7,7 +7,7 @@
             <div class="container prelude">
                 <div class="col-xs-12 col-md-9 dashboard-society">
                     <div class="col-xs-12 col-md-4 society-photo">
-                        <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/avatar-default.png') }}" alt="photo couverture société" />
+                        <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/photo-couverture-profile-societe.png') }}" alt="photo couverture société" />
                     </div>
                     <div class="col-xs-12 col-md-4">
                         <h1 class="text-left">{{ society.societyName }}</h1>
@@ -218,7 +218,7 @@
             forced_root_block: false,
             menubar: 'tools',
             toolbar: 'undo redo | bold italic underline strikethrough | fontsizeselect',
-            height : 300,
+            height : 300
         });
     </script>
 {% endblock %}
