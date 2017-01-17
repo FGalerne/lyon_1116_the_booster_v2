@@ -571,33 +571,34 @@ class Society
     {
         return $this->transaction;
     }
+
     /**
      * @var \BoosterBundle\Entity\Transaction
      */
-    private $transaction_id;
+    private $society_id;
 
 
     /**
      * Set transactionId
      *
-     * @param \BoosterBundle\Entity\Transaction $transactionId
+     * @param \BoosterBundle\Entity\Transaction $societyId
      *
      * @return Society
      */
-    public function setTransactionId(\BoosterBundle\Entity\Transaction $transactionId = null)
+    public function setSocietyId(\BoosterBundle\Entity\Transaction $societyId = null)
     {
-        $this->transaction_id = $transactionId;
+        $this->society_id = $societyId;
 
         return $this;
     }
 
     /**
-     * Get transactionId
+     * Get societyId
      *
      * @return \BoosterBundle\Entity\Transaction
      */
-    public function getTransactionId()
+    public function getSocietyId()
     {
-        return $this->transaction_id;
+        return $this->society_id;
     }
 }
