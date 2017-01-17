@@ -1766,6 +1766,7 @@ a:hover {
 }
 
 
+
 /************************** TEAM PAGE **************************/
 
 .team-block-left {
@@ -1900,3 +1901,12 @@ a:hover {
 		padding-bottom: 200px;
 	}
 }
+
+
+/*CGV/CGU*/
+.cgv-article{
+	margin-top: 60px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
