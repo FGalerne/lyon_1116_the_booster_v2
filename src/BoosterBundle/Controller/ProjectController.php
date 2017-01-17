@@ -145,7 +145,7 @@ class ProjectController extends Controller
             $em->persist($project);
             $em->flush();
 
-            return $this->redirectToRoute('booster_f_a_q');
+            return $this->render('BoosterBundle:Notes:confirmednote.html.twig');
 
         }
 
@@ -156,7 +156,7 @@ class ProjectController extends Controller
             $em->persist($project);
             $em->flush();
 
-            return $this->redirectToRoute('booster_f_a_q');
+            return $this->render('BoosterBundle:Notes:confirmednote.html.twig');
     }
 
     return $this-> render('BoosterBundle:Notes:notes_comments.html.twig', array(
