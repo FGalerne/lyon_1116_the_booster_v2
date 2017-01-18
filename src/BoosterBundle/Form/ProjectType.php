@@ -33,7 +33,7 @@ class ProjectType extends AbstractType
                     'Catégorie 6'  => 'Ressources Humaines',
                     'Catégorie 7'  => 'Digital',
                     'Catégorie 8'  => 'Innovation',
-                    'Catégorie 9'  => 'Développement International,',
+                    'Catégorie 9'  => 'Développement International',
                     'Catégorie 10' => 'Design et Graphisme (logo, marque, …)',
                     'Catégorie 11' => 'Juridique',
                     'Catégorie 12' => 'Numérique (site internet, application, …)',
