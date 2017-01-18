@@ -15,10 +15,10 @@ class ProjectRepository extends \Doctrine\ORM\EntityRepository
     public function getProjectBySociety($id)
     {
         $req = $this->createQueryBuilder('p')
-            ->select('p.projectName, p.status, p.givenTime, p.creationStatus, p.category')   // here the fields we want to get
-            ->innerJoin('p.society','s')                                                     // here the join field we want to use
-            ->where('p.society = :id')                                                       // :id means (id is a parameter)
-            ->setParameter('id', $id)                                                        // declaration of the parameter
+            ->select('p')   // here the fields we want to get
+            ->innerJoin('p.society','s')        // here the join field we want to use
+            ->where('p.society = :id')          // :id means (id is a parameter)
+            ->setParameter('id', $id)           // declaration of the parameter
             ->getQuery();
 
         return $req->getResult();
