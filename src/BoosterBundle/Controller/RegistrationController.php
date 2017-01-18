@@ -169,8 +169,8 @@ class RegistrationController extends BaseController
                             'text/html'
                         );
                     $this->get('mailer')->send($sendMessage);
-                    return $response;
                 }
+                return $response;
             } else {
                 if($phone === null) $required = 'phone';
                 if($siret === null) $required = 'siret';
