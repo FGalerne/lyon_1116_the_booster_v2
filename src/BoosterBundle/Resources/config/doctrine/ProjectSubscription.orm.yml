@@ -1,6 +1,7 @@
 BoosterBundle\Entity\ProjectSubscription:
     type: entity
     table: project_subscription
+    repositoryClass: BoosterBundle\Repository\ProjectSubscriptionRepository
     id:
         id:
             type: integer

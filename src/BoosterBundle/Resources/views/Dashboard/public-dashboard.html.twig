@@ -68,7 +68,10 @@
 
         <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
             {% for project in projects %}
-                {% if project.status == 'proposé' %}
+                {% set showSubscriptions = 1 %}
+                {% if project.status != 'proposé' %}
+                    {% set showSubscriptions = 0 %}
+                {% endif %}
                     <div class="container project-in-progress prelude">
                         <div class="col-xs-6 col-md-2">
                             <p>Nom de la société</p>
@@ -86,7 +89,7 @@
                             <p>Catégorie:</p>
                             <p>{{ project.category }}</p>
                         </div>
-
+                        {% if showSubscriptions %}
                             {#BOOSTE#}
                         {% if is_granted("ROLE_BOOSTE") %}
                             <a class="col-xs-6 col-md-4 postulation-button" href="{{ path('booster_inscription_choix') }}">
@@ -126,11 +129,18 @@
                                 Créer un compte pour donner du temps à ce projet !
                             </a>
                         {% endif %}
+                        {% endif %}
                         <div class="col-xs-12">
                             <p class="text-left">{{ project.description }}</p>
                         </div>
+                        {% if not showSubscriptions %}
+                            <div class="sub-container row">
+                                <div class="col-xs-12">
+                                    Projet en cours de réalisation !
+                                </div>
+                            </div>
+                        {% endif %}
                     </div>
-                {% endif %}
             {% endfor %}
         </section>
 

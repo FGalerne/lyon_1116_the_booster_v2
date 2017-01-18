@@ -14,6 +14,7 @@ class DashboardController extends Controller
 {
     /**
      * @param $id
+     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function societyAction($id, Request $request)
@@ -279,4 +280,18 @@ class DashboardController extends Controller
         ));
     }
 
+    public function contactBoosterAction($subscriberId, $societyId, $projectId, $subscriptionId)
+    {
+        $em = $this->getDoctrine()->getManager();
+        //set project-subscription status to 'en cours'
+        $projectRepository = $em->getRepository('BoosterBundle:projectSubscription');
+        $projectRepository->chooseProjectSubscriber($subscriptionId);
+
+        //set project status to 'en cours'
+        $projectRepository = $em->getRepository('BoosterBundle:project');
+        $projectRepository->updateProjectStatus($projectId);
+
+        return $this->redirectToRoute('dashboard_society', array('id' => $societyId));
+
+    }
 }

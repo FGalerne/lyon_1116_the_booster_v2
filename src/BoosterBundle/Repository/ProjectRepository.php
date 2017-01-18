@@ -23,4 +23,21 @@ class ProjectRepository extends \Doctrine\ORM\EntityRepository
 
         return $req->getResult();
     }
+
+    /**
+     * @param $projectId
+     * @return mixed
+     */
+    public function updateProjectStatus($projectId)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->update()
+            ->set('a.status', '?2')
+            ->where('a.id = ?1')
+            ->setParameter(1, $projectId)
+            ->setParameter(2, 'en cours')
+            ->getQuery();
+
+        return $qb->execute();
+    }
 }
