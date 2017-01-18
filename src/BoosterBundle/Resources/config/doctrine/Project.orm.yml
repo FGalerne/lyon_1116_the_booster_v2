@@ -50,8 +50,8 @@ BoosterBundle\Entity\Project:
             targetEntity: Society
             inversedBy: societyName
             joinColumn:
-                    name: society_id
-                    referencedColumnName: id
+                name: society_id
+                referencedColumnName: id
 
     manyToMany:
         boosters:
@@ -61,6 +61,6 @@ BoosterBundle\Entity\Project:
     oneToMany:
         project_subscriptions:
             targetEntity: BoosterBundle\Entity\ProjectSubscription
-            mappedBy: booster
+            mappedBy: project
 
     lifecycleCallbacks: {  }

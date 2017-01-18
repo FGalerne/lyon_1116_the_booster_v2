@@ -43,7 +43,6 @@ class DashboardController extends Controller
             if(count($socOnHomePage) > 15) {
                 $avaliable = false;
             }
-
             return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
                 'socOnHomePage' => $socOnHomePage,
                 'avaliable' => $avaliable,

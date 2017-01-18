@@ -1953,7 +1953,7 @@ a:hover {
 
 /*public dashboard*/
 
-.postulation-button{
+.postulation-button, .postuled-button{
 	text-align: center;
 	margin-top: 7px;
 	font-size:1.2em;
@@ -1962,6 +1962,10 @@ a:hover {
 	padding: 10px 30px;
 	border: none;
 	border-radius: 5px;
+	color:white;
+}
+.postuled-button:hover{
+	background-color: #696969;
 	color:white;
 }
 .postulation-button:hover{

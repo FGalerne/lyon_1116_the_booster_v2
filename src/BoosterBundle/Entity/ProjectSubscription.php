@@ -33,6 +33,26 @@ class ProjectSubscription
     private $createTime = 'CURRENT_TIMESTAMP';
 
     /**
+     * @var string
+     */
+    private $boosterCommentaries;
+
+    /**
+     * @var string
+     */
+    private $societyCommentaries;
+
+    /**
+     * @var integer
+     */
+    private $boosterNote;
+
+    /**
+     * @var integer
+     */
+    private $societyNote;
+
+    /**
      * @var \BoosterBundle\Entity\Booster
      */
     private $booster;
@@ -41,6 +61,7 @@ class ProjectSubscription
      * @var \BoosterBundle\Entity\Project
      */
     private $project;
+
 
     /**
      * Get id
@@ -149,74 +170,6 @@ class ProjectSubscription
     }
 
     /**
-     * Set booster
-     *
-     * @param \BoosterBundle\Entity\Booster $booster
-     *
-     * @return ProjectSubscription
-     */
-    public function setBooster(\BoosterBundle\Entity\Booster $booster = null)
-    {
-        $this->booster = $booster;
-
-        return $this;
-    }
-
-    /**
-     * Get booster
-     *
-     * @return \BoosterBundle\Entity\Booster
-     */
-    public function getBooster()
-    {
-        return $this->booster;
-    }
-
-    /**
-     * Set project
-     *
-     * @param \BoosterBundle\Entity\Project $project
-     *
-     * @return ProjectSubscription
-     */
-    public function setProject(\BoosterBundle\Entity\Project $project = null)
-    {
-        $this->project = $project;
-
-        return $this;
-    }
-
-    /**
-     * Get project
-     *
-     * @return \BoosterBundle\Entity\Project
-     */
-    public function getProject()
-    {
-        return $this->project;
-    }
-    /**
-     * @var string
-     */
-    private $boosterCommentaries;
-
-    /**
-     * @var string
-     */
-    private $societyCommentaries;
-
-    /**
-     * @var integer
-     */
-    private $boosterNote;
-
-    /**
-     * @var integer
-     */
-    private $societyNote;
-
-
-    /**
      * Set boosterCommentaries
      *
      * @param string $boosterCommentaries
@@ -311,4 +264,53 @@ class ProjectSubscription
     {
         return $this->societyNote;
     }
+
+    /**
+     * Set booster
+     *
+     * @param \BoosterBundle\Entity\Booster $booster
+     *
+     * @return ProjectSubscription
+     */
+    public function setBooster(\BoosterBundle\Entity\Booster $booster = null)
+    {
+        $this->booster = $booster;
+
+        return $this;
+    }
+
+    /**
+     * Get booster
+     *
+     * @return \BoosterBundle\Entity\Booster
+     */
+    public function getBooster()
+    {
+        return $this->booster;
+    }
+
+    /**
+     * Set project
+     *
+     * @param \BoosterBundle\Entity\Project $project
+     *
+     * @return ProjectSubscription
+     */
+    public function setProject(\BoosterBundle\Entity\Project $project = null)
+    {
+        $this->project = $project;
+
+        return $this;
+    }
+
+    /**
+     * Get project
+     *
+     * @return \BoosterBundle\Entity\Project
+     */
+    public function getProject()
+    {
+        return $this->project;
+    }
 }
+

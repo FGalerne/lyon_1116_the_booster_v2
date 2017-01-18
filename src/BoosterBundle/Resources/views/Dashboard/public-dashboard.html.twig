@@ -5,7 +5,7 @@
         <div class="container prelude">
             <div class="col-xs-12 col-md-9 dashboard-society">
                 <div class="col-xs-12 col-md-4 society-photo">
-                    <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/avatar-default.png') }}" alt="photo couverture société" />
+                    <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/photo-couverture-profile-societe.png') }}" alt="photo couverture société" />
                 </div>
                 <div class="col-xs-12 col-md-4">
                     <h1 class="text-left">{{ society.societyName }}</h1>
@@ -86,10 +86,6 @@
                             <p>Catégorie:</p>
                             <p>{{ project.category }}</p>
                         </div>
-                        {#<div class="col-xs-6 col-md-2">
-                            <p>Statut:</p>
-                            <p>{{ project.status }}</p>
-                        </div>#}
 
                             {#BOOSTE#}
                         {% if is_granted("ROLE_BOOSTE") %}
@@ -98,9 +94,24 @@
                             </a>
                             {#BOOSTER#}
                         {% elseif is_granted("ROLE_BOOSTER") %}
-                            <a class="col-xs-6 col-md-4 postulation-button" href="{{ path('project_subscription', { 'boosterId': app.user.booster.id, 'societyId': society.id, 'projectId': project.id }) }}">
-                                Je donne du temps à ce projet !
-                            </a>
+
+                            {#Verify if the user already subscribed to the project#}
+                            {% set subscribed = 0 %}
+                            {% for sub in project.projectSubscriptions %}
+                                {% if sub.booster.id == app.user.booster.id %}
+                                    {% set subscribed = 1 %}
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if subscribed == 0 %}
+                                <a class="col-xs-6 col-md-4 postulation-button" href="{{ path('project_subscription', { 'boosterId': app.user.booster.id, 'societyId': society.id, 'projectId': project.id }) }}">
+                                    Je donne du temps à ce projet !
+                                </a>
+                            {% else %}
+                                <a class="col-xs-6 col-md-4 postuled-button" href="">
+                                    Vous avez postulé pour ce projet
+                                </a>
+                            {% endif %}
                             {#GUEST#}
                         {% else %}
                             <a class="col-xs-6 col-md-4 postulation-button" href="{{ path('booster_inscription_choix') }}">

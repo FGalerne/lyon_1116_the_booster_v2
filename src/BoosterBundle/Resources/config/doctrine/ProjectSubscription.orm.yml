@@ -48,8 +48,9 @@ BoosterBundle\Entity\ProjectSubscription:
     manyToOne:
         booster:
             targetEntity: BoosterBundle\Entity\Booster
-            inversedBy: id
+            inversedBy: project_subscriptions
         project:
             targetEntity: BoosterBundle\Entity\Project
-            inversedBy: id
+            inversedBy: project_subscriptions
+
     lifecycleCallbacks: {  }
