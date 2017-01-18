@@ -1,36 +1,42 @@
 <?php
-
 namespace BoosterBundle\Entity;
 
-/**
- * Order
- */
+use Doctrine\ORM\Mapping as ORM;
+use JMS\Payment\CoreBundle\Entity\PaymentInstruction;
+
+
 class Order
 {
-    /**
-     * @var integer
-     */
+
     private $id;
 
-    /**
-     * @var string
-     */
-    private $amount;
-
-    /**
-     * @var \JMS\Payment\CoreBundle\Entity\PaymentInstruction
-     */
     private $paymentInstruction;
 
+    private $amount;
 
-    /**
-     * Get id
-     *
-     * @return integer
-     */
+    public function __construct($amount)
+    {
+        $this->amount = $amount;
+    }
+
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getAmount()
+    {
+        return $this->amount;
+    }
+
+    public function getPaymentInstruction()
+    {
+        return $this->paymentInstruction;
+    }
+
+    public function setPaymentInstruction(PaymentInstruction $instruction)
+    {
+        $this->paymentInstruction = $instruction;
     }
 
     /**
@@ -45,40 +51,6 @@ class Order
         $this->amount = $amount;
 
         return $this;
-    }
-
-    /**
-     * Get amount
-     *
-     * @return string
-     */
-    public function getAmount()
-    {
-        return $this->amount;
-    }
-
-    /**
-     * Set paymentInstruction
-     *
-     * @param \JMS\Payment\CoreBundle\Entity\PaymentInstruction $paymentInstruction
-     *
-     * @return Order
-     */
-    public function setPaymentInstruction(\JMS\Payment\CoreBundle\Entity\PaymentInstruction $paymentInstruction = null)
-    {
-        $this->paymentInstruction = $paymentInstruction;
-
-        return $this;
-    }
-
-    /**
-     * Get paymentInstruction
-     *
-     * @return \JMS\Payment\CoreBundle\Entity\PaymentInstruction
-     */
-    public function getPaymentInstruction()
-    {
-        return $this->paymentInstruction;
     }
 }
 
