@@ -150,39 +150,47 @@ class DashboardController extends Controller
         ));
     }
 
-    /**
-     * @param $id
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     */
-    public function boosterAction($id, Request $request)
+	/**
+	 * @param         $id
+	 * @param Request $request
+	 * @param         $slug
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+	 */
+    public function boosterAction($id, Request $request, $slug)
     {
         $em = $this->getDoctrine()->getManager();
         $boosters = $em->getRepository('BoosterBundle:Booster')->getDashboardById($id);
+
         $user = $this->getUser();
+		$slugUser= $user->getBooster()->getSlug();
+		$slugUserID= $user->getBooster()->getId();
+
         $userId = $user->getId();
 
-        if ($user != null) {
-            //messages
-            $messenger = new Messenger();
-            $form = $this->createForm('BoosterBundle\Form\MessengerType', $messenger);
-            $messengers = $em->getRepository('BoosterBundle:Messenger')->myMessages($userId);
-            $form->handleRequest($request);
+			if ($id != null && $slugUser === $slug && $userId && $slugUserID === intval($id)) {
 
-            if ($user->getId() == $id) {
-                if ($form->isSubmitted() && $form->isValid()) {
-                    $em->persist($messengers);
-                    $em->flush();
-                }
-            }
-            return $this->render('BoosterBundle:Dashboard:dashboard-booster.html.twig', array(
-                'slug'=> $boosters[0]->getSlug(),
-            	'boosters' => $boosters,
-                'user' => $user,
-                'messengers' => $messengers,
-                'form' => $form->createView(),
-            ));
-        }
+				//messages
+				$messenger = new Messenger();
+				$form = $this->createForm('BoosterBundle\Form\MessengerType', $messenger);
+				$messengers = $em->getRepository('BoosterBundle:Messenger')->myMessages($userId);
+				$form->handleRequest($request);
+
+				if ($user->getId() == $id) {
+					if ($form->isSubmitted() && $form->isValid()) {
+						$em->persist($messengers);
+						$em->flush();
+					}
+				}
+				return $this->render('BoosterBundle:Dashboard:dashboard-booster.html.twig', array(
+
+					'boosters' => $boosters,
+					'user' => $user,
+					'messengers' => $messengers,
+					'form' => $form->createView(),
+				));
+
+			}
+
         return $this->redirectToRoute('booster_charte');
     }
 
@@ -231,51 +239,55 @@ class DashboardController extends Controller
     }
 
 
-    /**
-     * @param Request $request
-     * @param Booster $booster
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     */
-    public function boosterEditAction(Request $request, Booster $booster)
+	/**
+	 * @param Request $request
+	 * @param Booster $booster
+	 * @param         $slug
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+	 */
+    public function boosterEditAction(Request $request, Booster $booster, $slug)
     {
         $oldBoosterPhoto = $booster->getPhoto();
         $editForm = $this->createForm('BoosterBundle\Form\BoosterType', $booster);
         $editForm->handleRequest($request);
+		$user=$this->getUser();
+        $slugUser= $user->getBooster()->getSlug();
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            if($editForm->get('photo')->getData() == null ){
-                $booster->setPhoto($oldBoosterPhoto);
-            }
-            else{
-                $tmp = $this->getParameter('photo_tmp');
-                $dir = $this->getParameter('photo_booster_directory');
-                $file = $booster->getPhoto();
-                $fileName = md5(uniqid()).'.'.$file->guessExtension();
-                $file->move(
-                    $this->getParameter('photo_tmp'),
-                    $fileName
-                );
-                $this->get('util.imageresizer')->resizeImage($tmp.'/'.$fileName, $dir.'/' , $width=512);
 
-                if (isset($oldBoosterPhoto) && !empty($oldBoosterPhoto)) {
-                    unlink($dir.'/'.$oldBoosterPhoto);
-                }
-                unlink($tmp.'/'.$fileName);
-                $booster->setPhoto($fileName);
-            }
+			if ($editForm->isSubmitted() && $editForm->isValid()) {
+				if ($editForm->get('photo')->getData() == null) {
+					$booster->setPhoto($oldBoosterPhoto);
+				} else {
+					$tmp = $this->getParameter('photo_tmp');
+					$dir = $this->getParameter('photo_booster_directory');
+					$file = $booster->getPhoto();
+					$fileName = md5(uniqid()) . '.' . $file->guessExtension();
+					$file->move(
+						$this->getParameter('photo_tmp'),
+						$fileName
+					);
+					$this->get('util.imageresizer')->resizeImage($tmp . '/' . $fileName, $dir . '/', $width = 512);
 
-            $this->getDoctrine()->getManager()->flush();
+					if (isset($oldBoosterPhoto) && !empty($oldBoosterPhoto)) {
+						unlink($dir . '/' . $oldBoosterPhoto);
+					}
+					unlink($tmp . '/' . $fileName);
+					$booster->setPhoto($fileName);
+				}
 
-            return $this->redirectToRoute('dashboard_booster',
-                array('id' => $booster->getId()));
-        }
+				$this->getDoctrine()->getManager()->flush();
 
-        return $this->render('BoosterBundle:Dashboard:dashboard-booster-edit.html.twig', array(
-            'slug'=> $booster->getSlug(),
-        	'id' => $booster->getId(),
-            'booster' => $booster,
-            'edit_form' => $editForm->createView(),
-        ));
+				return $this->redirectToRoute('dashboard_booster',
+					array('id' => $booster->getId()));
+			}
+
+		return $this->render('BoosterBundle:Dashboard:dashboard-booster-edit.html.twig', array(
+			'slug'=> $booster->getSlug(),
+			'id' => $booster->getId(),
+			'booster' => $booster,
+			'edit_form' => $editForm->createView(),
+		));
+
     }
 
 }

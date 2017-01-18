@@ -1,24 +1,24 @@
-booster_index:
-    path:     /
-    defaults: { _controller: "BoosterBundle:Booster:index" }
-    methods:  GET
+#booster_index:
+#    path:     /
+#    defaults: { _controller: "BoosterBundle:Booster:index" }
+#    methods:  GET
 
-booster_show:
-    path:     /{id}/show
-    defaults: { _controller: "BoosterBundle:Booster:show" }
-    methods:  GET
+#booster_show:
+#    path:     /{id}/show
+#    defaults: { _controller: "BoosterBundle:Booster:show" }
+#    methods:  GET
 
-booster_new:
-    path:     /new
-    defaults: { _controller: "BoosterBundle:Booster:new" }
-    methods:  [GET, POST]
+#booster_new:
+#    path:     /new
+#    defaults: { _controller: "BoosterBundle:Booster:new" }
+#    methods:  [GET, POST]
 
-booster_edit:
-    path:     /{id}/edit
-    defaults: { _controller: "BoosterBundle:Booster:edit" }
-    methods:  [GET, POST]
+#booster_edit:
+#    path:     /{id}/edit
+#    defaults: { _controller: "BoosterBundle:Booster:edit" }
+#    methods:  [GET, POST]
 
-booster_delete:
-    path:     /{id}/{name}/delete
-    defaults: { _controller: "BoosterBundle:Booster:delete" }
-    methods:  DELETE
+#booster_delete:
+#    path:     /{id}/delete
+#    defaults: { _controller: "BoosterBundle:Booster:delete" }
+#    methods:  DELETE

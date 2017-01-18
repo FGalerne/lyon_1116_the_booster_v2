@@ -58,7 +58,7 @@ function dashOptions(){
     $('#dashboard-booster-home').css({'display':'none'});
     $('#dashboard-booster-inProgress').css({'display':'none'});
     $('#dashboard-booster-done').css({'display':'none'});
-    $('#dashboard-messenger').css({'display':''});
+    $('#dashboard-messenger').css({'display':'none'});
     if($('#dashboard-options')) $('#dashboard-options').css({'display':''});
 }
 function colorFocus(id){

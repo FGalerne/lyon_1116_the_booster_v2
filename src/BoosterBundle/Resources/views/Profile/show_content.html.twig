@@ -1,7 +1,8 @@
 {% trans_default_domain 'FOSUserBundle' %}
 {% if is_granted("ROLE_BOOSTER") %}
+    <p><strong>Adresse-email :</strong> {{ user.username }}</p>
     <div class=" col-xs-11 col-lg-offset-2 col-lg-10">
-        <p><strong>Nom d'utilisateur :</strong> {{ user.username }}</p>
+        <p><strong>Adresse-email :</strong> {{ user.username }}</p>
         <p><strong>Nom : </strong>{{ user.lastname}}</p>
         <p><strong>Prénom : </strong>{{ user.firstname}}</p>
     </div>

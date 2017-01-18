@@ -17,7 +17,7 @@ class TransactionController extends Controller
      * Lists all transaction entities.
      *
      */
-    public function indexAction()
+/*    public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -26,16 +26,15 @@ class TransactionController extends Controller
         return $this->render('transaction/index.html.twig', array(
             'transactions' => $transactions,
         ));
-    }
+    }*/
 
     /**
      * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function newAction(Request $request, $id)
+/*    public function newAction(Request $request, $id)
     {
-
         $transaction = new Transaction();
         $form = $this->createForm('BoosterBundle\Form\TransactionType', $transaction);
         $form->handleRequest($request);
@@ -48,14 +47,14 @@ class TransactionController extends Controller
         $transaction->setCreateTime(new \DateTime('now'));
         $transaction->setEndTime(date_modify(new \DateTime('now'), "+24 hour"));
         $em->persist($transaction);
-        $em->flush($transaction);
+        $em->flush();
 
         return $this->redirectToRoute('dashboard_society', array(
             'id' => $id,
             'paymentStatus' => 'success',
         ));
 
-    }
+    }*/
 
     /**
      * Finds and displays a transaction entity.
@@ -75,9 +74,8 @@ class TransactionController extends Controller
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function editAction($id)
+/*    public function editAction($id)
     {
-
         $this->getDoctrine()
             ->getRepository('BoosterBundle:Transaction')
             ->updateTransaction($id);
@@ -85,8 +83,7 @@ class TransactionController extends Controller
             'id' => $id,
             'paymentStatus' => 'success',
         ));
-
-    }
+    }*/
 
     /**
      * Deletes a transaction entity.

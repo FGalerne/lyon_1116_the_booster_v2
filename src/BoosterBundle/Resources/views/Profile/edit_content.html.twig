@@ -7,7 +7,6 @@
         {{ form_widget(form.last_name, {'attr':{'class' :'form-control text-center'}}) }}
     {{ form_label(form.first_name, 'Prénom')}}
         {{ form_widget(form.first_name, {'attr':{'class' :'form-control text-center'}}) }}
-
     {% if is_granted("ROLE_BOOSTE") %}
         {{ form_label(form.professional_function, 'Fonction')}}
         {{ form_widget(form.professional_function, {'attr':{'class' :'form-control text-center'}}) }}
