@@ -11,16 +11,46 @@ BoosterBundle\Entity\ProjectSubscription:
         message:
             type: string
             nullable: false
-            length: 45
+            length: 200
         status:
             type: string
             nullable: false
             length: 45
+        givenTime:
+            type: integer
+            nullable: false
+            column: given_time
+        createTime:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+            column: create_time
+        boosterCommentaries:
+            type: string
+            nullable: true
+            length: 255
+            column: booster_commentaries
+        societyCommentaries:
+            type: string
+            nullable: true
+            length: 255
+            column: society_commentaries
+        boosterNote:
+            type: integer
+            nullable: true
+            column: booster_note
+        societyNote:
+            type: integer
+            nullable: true
+            column: society_note
+
     manyToOne:
         booster:
             targetEntity: BoosterBundle\Entity\Booster
-            inversedBy: id
+            inversedBy: project_subscriptions
         project:
             targetEntity: BoosterBundle\Entity\Project
-            inversedBy: id
+            inversedBy: project_subscriptions
+
     lifecycleCallbacks: {  }

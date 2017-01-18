@@ -16,7 +16,6 @@ class OrdersController extends Controller
     public function newAction($amount, $action, $clientId)
     {
         $em = $this->getDoctrine()->getManager();
-
         $order = new Order($amount);
         $em->persist($order);
         $em->flush();

@@ -1951,3 +1951,30 @@ a:hover {
 	font-weight: bold;
 }
 
+/*public dashboard*/
+
+.postulation-button, .postuled-button{
+	text-align: center;
+	margin-top: 7px;
+	font-size:1.2em;
+	font-weight:900;
+	background-color: #696969;
+	padding: 10px 30px;
+	border: none;
+	border-radius: 5px;
+	color:white;
+}
+.postuled-button:hover{
+	background-color: #696969;
+	color:white;
+}
+.postulation-button:hover{
+	cursor: pointer;
+	background-color: #eb0310;
+	color:white;
+}
+.project-subscription-container{
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
