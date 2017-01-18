@@ -71,8 +71,10 @@ class ProjectController extends Controller
 
 
             $em->persist($project);
-            $em->flush($project);
-            return $this->redirectToRoute('dashboard_society', array('id' => $this->getUser()->getSociety()));
+            $em->flush();
+            return $this->redirectToRoute('dashboard_society', array(
+                'id' => $this->getUser()->getSociety()->getId()
+            ));
         }
 
         return $this->render('BoosterBundle:Front:deposer_un_projet.html.twig', array(
