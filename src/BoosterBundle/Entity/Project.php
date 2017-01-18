@@ -7,10 +7,6 @@ namespace BoosterBundle\Entity;
  */
 class Project
 {
-	public function __toString()
-	{
-		return $this->projectName;
-	}
     /**
      * @var integer
      */
@@ -57,26 +53,6 @@ class Project
     private $endTime;
 
     /**
-     * @var string
-     */
-    private $boosterCommentaries;
-
-    /**
-     * @var string
-     */
-    private $societyCommentaries;
-
-    /**
-     * @var integer
-     */
-    private $boosterNote;
-
-    /**
-     * @var integer
-     */
-    private $societyNote;
-
-    /**
      * @var \Doctrine\Common\Collections\Collection
      */
     private $project_subscriptions;
@@ -87,11 +63,17 @@ class Project
     private $society;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $boosters;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->project_subscriptions = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->boosters = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -102,16 +84,6 @@ class Project
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Get projectName
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->projectName;
     }
 
     /**
@@ -129,13 +101,13 @@ class Project
     }
 
     /**
-     * Get category
+     * Get projectName
      *
      * @return string
      */
-    public function getCategory()
+    public function getProjectName()
     {
-        return $this->category;
+        return $this->projectName;
     }
 
     /**
@@ -153,13 +125,13 @@ class Project
     }
 
     /**
-     * Get description
+     * Get category
      *
      * @return string
      */
-    public function getDescription()
+    public function getCategory()
     {
-        return $this->description;
+        return $this->category;
     }
 
     /**
@@ -177,13 +149,13 @@ class Project
     }
 
     /**
-     * Get creationStatus
+     * Get description
      *
      * @return string
      */
-    public function getCreationStatus()
+    public function getDescription()
     {
-        return $this->creationStatus;
+        return $this->description;
     }
 
     /**
@@ -201,14 +173,14 @@ class Project
     }
 
     /**
-     * Get status
+     * Get creationStatus
      *
      * @return string
      */
 
-    public function getStatus()
+    public function getCreationStatus()
     {
-        return $this->status;
+        return $this->creationStatus;
     }
 
     /**
@@ -226,13 +198,13 @@ class Project
     }
 
     /**
-     * Get givenTime
+     * Get status
      *
-     * @return integer
+     * @return string
      */
-    public function getGivenTime()
+    public function getStatus()
     {
-        return $this->givenTime;
+        return $this->status;
     }
 
     /**
@@ -250,13 +222,13 @@ class Project
     }
 
     /**
-     * Get createTime
+     * Get givenTime
      *
-     * @return \DateTime
+     * @return integer
      */
-    public function getCreateTime()
+    public function getGivenTime()
     {
-        return $this->createTime;
+        return $this->givenTime;
     }
 
     /**
@@ -274,13 +246,13 @@ class Project
     }
 
     /**
-     * Get endTime
+     * Get createTime
      *
      * @return \DateTime
      */
-    public function getEndTime()
+    public function getCreateTime()
     {
-        return $this->endTime;
+        return $this->createTime;
     }
 
     /**
@@ -298,99 +270,13 @@ class Project
     }
 
     /**
-     * Get boosterCommentaries
+     * Get endTime
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getBoosterCommentaries()
+    public function getEndTime()
     {
-        return $this->boosterCommentaries;
-    }
-
-    /**
-     * Set boosterCommentaries
-     *
-     * @param string $boosterCommentaries
-     *
-     * @return Project
-     */
-    public function setBoosterCommentaries($boosterCommentaries)
-    {
-        $this->boosterCommentaries = $boosterCommentaries;
-
-        return $this;
-    }
-
-    /**
-     * Get societyCommentaries
-     *
-     * @return string
-     */
-    public function getSocietyCommentaries()
-    {
-        return $this->societyCommentaries;
-    }
-
-    /**
-     * Set societyCommentaries
-     *
-     * @param string $societyCommentaries
-     *
-     * @return Project
-     */
-    public function setSocietyCommentaries($societyCommentaries)
-    {
-        $this->societyCommentaries = $societyCommentaries;
-
-        return $this;
-    }
-
-    /**
-     * Get boosterNote
-     *
-     * @return integer
-     */
-    public function getBoosterNote()
-    {
-        return $this->boosterNote;
-    }
-
-    /**
-     * Set boosterNote
-     *
-     * @param integer $boosterNote
-     *
-     * @return Project
-     */
-    public function setBoosterNote($boosterNote)
-    {
-        $this->boosterNote = $boosterNote;
-
-        return $this;
-    }
-
-    /**
-     * Get societyNote
-     *
-     * @return integer
-     */
-    public function getSocietyNote()
-    {
-        return $this->societyNote;
-    }
-
-    /**
-     * Set societyNote
-     *
-     * @param integer $societyNote
-     *
-     * @return Project
-     */
-    public function setSocietyNote($societyNote)
-    {
-        $this->societyNote = $societyNote;
-
-        return $this;
+        return $this->endTime;
     }
 
     /**
@@ -428,16 +314,6 @@ class Project
     }
 
     /**
-     * Get society
-     *
-     * @return \BoosterBundle\Entity\Society
-     */
-    public function getSociety()
-    {
-        return $this->society;
-    }
-
-    /**
      * Set society
      *
      * @param \BoosterBundle\Entity\Society $society
@@ -450,34 +326,15 @@ class Project
 
         return $this;
     }
-    /**
-     * @var \BoosterBundle\Entity\Booster
-     */
-    private $booster;
-
 
     /**
-     * Set booster
+     * Get society
      *
-     * @param \BoosterBundle\Entity\Booster $booster
-     *
-     * @return Project
+     * @return \BoosterBundle\Entity\Society
      */
-    public function setBooster(\BoosterBundle\Entity\Booster $booster = null)
+    public function getSociety()
     {
-        $this->booster = $booster;
-
-        return $this;
-    }
-
-    /**
-     * Get booster
-     *
-     * @return \BoosterBundle\Entity\Booster
-     */
-    public function getBooster()
-    {
-        return $this->booster;
+        return $this->society;
     }
 
     /**
@@ -489,7 +346,7 @@ class Project
      */
     public function addBooster(\BoosterBundle\Entity\Booster $booster)
     {
-        $this->booster[] = $booster;
+        $this->boosters[] = $booster;
 
         return $this;
     }
@@ -501,13 +358,8 @@ class Project
      */
     public function removeBooster(\BoosterBundle\Entity\Booster $booster)
     {
-        $this->booster->removeElement($booster);
+        $this->boosters->removeElement($booster);
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $boosters;
-
 
     /**
      * Get boosters
@@ -519,3 +371,4 @@ class Project
         return $this->boosters;
     }
 }
+

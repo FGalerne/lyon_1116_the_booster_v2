@@ -67,6 +67,7 @@ class ProjectController extends Controller
                     ),
                     'text/html'
                 );
+
             $this->get('mailer')->send($sendMessage);
 
             $em->persist($project);

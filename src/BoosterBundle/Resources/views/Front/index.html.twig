@@ -12,8 +12,6 @@
 {% endblock %}
 {% block body %}
 
-
-
     <section class="container-fluid home_carousel_container-fluid">
         <div class="videointro">
             <video autoplay loop id="videointro" class="hidden-xs hidden-sm">
@@ -84,10 +82,10 @@
                 {% for transaction in transactions %}
 
                     <div class="col-xs-12 col-sm-3 col-md-3">
-                        <a href="">
+                        <a href="{{ path('public_dashboard',{'id': transaction.society.id }) }}">
                             <div class="global-society">
                                 <div>
-                                    <img src="{{ transaction.society.photo|default ? asset('img/uploads/societies/' ~ transaction.society.photo) : asset('img/avatar-default.png') }}">
+                                    <img src="{{ transaction.society.photo|default ? asset('img/uploads/societies/' ~ transaction.society.photo) : asset('img/photo-couverture-profile-societe.png') }}">
                                 </div>
                                 <h5 class="name-list-society">{{ transaction.society.societyName }}</h5>
                                 <p class="nombre-de-projet">Nombre de projets : 100</p>
@@ -101,7 +99,7 @@
 
                     {% if not society.transaction|default %}
                         <div class="col-xs-12 col-sm-3 col-md-3">
-                            <a href="">
+                            <a href="{{ path('public_dashboard',{'id': society.id }) }}">
                                 <div class="global-society">
                                     <div>
                                         <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/avatar-default.png') }}">
@@ -114,7 +112,6 @@
                     {% endif %}
 
                 {% endfor %}
-
             </div>
         </div>
 
