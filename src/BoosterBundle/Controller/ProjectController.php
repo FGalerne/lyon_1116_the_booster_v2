@@ -46,9 +46,15 @@ class ProjectController extends Controller
             $project->setGivenTime(0);
 
             //Set the variable used for sending the email.
+            $title = $form["title"]->getData();
+            $name = $form["firstname"]->getData();
+            $surname = $form["lastname"]->getData();
+
+            $from = $this->getParameter('mailer_user');
+            $to = $this->getParameter('mailer_to');
 
             // Sends an email to warn the web site manager that a project is waiting for validation to be published.
-           /* $sendMessage = \Swift_Message::newInstance()
+            $sendMessage = \Swift_Message::newInstance()
                 ->setSubject($subject)
                 ->setFrom($from)
                 ->setTo($to)
@@ -60,13 +66,12 @@ class ProjectController extends Controller
                             'name' => $name,
                             'surname' => $surname,
                             'projectName' => $projectName,
-                            'siret' => $siret,
                         )
                     ),
                     'text/html'
                 );
             $this->get('mailer')->send($sendMessage);
-            return $response; */
+            return $response;
 
             $em->persist($project);
             $em->flush($project);
