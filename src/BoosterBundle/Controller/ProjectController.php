@@ -51,6 +51,7 @@ class ProjectController extends Controller
             $subject = 'Un projet est en attente de validation sur The-Booster.com';
             $from = $this->getParameter('mailer_user');
             $to = $this->getParameter('mailer_to');
+
             // Sends an email to warn the web site manager that a project is waiting for a validation to be published.
             $sendMessage = \Swift_Message::newInstance()
                 ->setSubject($subject)
@@ -67,7 +68,28 @@ class ProjectController extends Controller
                     ),
                     'text/html'
                 );
+            $subject2 = 'Votre projet est en attente de modération sur The-Booster.com';
+            // Here the code to get the email of the user when we use FosUserBundle.
+            $toUser = $this->get('security.context')->getToken()->getUser()->getEmail();
+            // Sends an email to warn the user that his project is waiting for a validation to be published.
+            $sendMessage2 = \Swift_Message::newInstance()
+                ->setSubject($subject2)
+                ->setFrom($from)
+                ->setTo($toUser)
+                ->setBody(
+                    $this->renderView(
+                        'BoosterBundle:Emails:project_booste_mail_validation.html.twig',
+                        array(
+                            'project_name' => $projectName,
+                            'category' => $category,
+                            'project'  => $project,
+                        )
+                    ),
+                    'text/html'
+                );
+
             $this->get('mailer')->send($sendMessage);
+            $this->get('mailer')->send($sendMessage2);
 
 
             $em->persist($project);
