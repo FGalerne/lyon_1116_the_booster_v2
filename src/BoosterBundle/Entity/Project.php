@@ -205,6 +205,7 @@ class Project
      *
      * @return string
      */
+
     public function getStatus()
     {
         return $this->status;
