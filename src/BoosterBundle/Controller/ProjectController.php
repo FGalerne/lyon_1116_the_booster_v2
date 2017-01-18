@@ -46,14 +46,12 @@ class ProjectController extends Controller
             $project->setGivenTime(0);
 
             //Set the variable used for sending the email.
-            $title = $form["title"]->getData();
-            $name = $form["firstname"]->getData();
-            $surname = $form["lastname"]->getData();
-
+            $title = $form['projectName']->getData();
+            $category = $form['category']->getData();
+            $subject = 'Un projet est en attente de validation sur The-Booster.com';
             $from = $this->getParameter('mailer_user');
             $to = $this->getParameter('mailer_to');
-
-            // Sends an email to warn the web site manager that a project is waiting for validation to be published.
+            // Sends an email to warn the web site manager that a project is waiting for a validation to be published.
             $sendMessage = \Swift_Message::newInstance()
                 ->setSubject($subject)
                 ->setFrom($from)
@@ -63,15 +61,13 @@ class ProjectController extends Controller
                         'BoosterBundle:Emails:project_validation_email.html.twig',
                         array(
                             'title' => $title,
-                            'name' => $name,
-                            'surname' => $surname,
-                            'projectName' => $projectName,
+                            'category' => $category,
+                            'project'  => $project,
                         )
                     ),
                     'text/html'
                 );
             $this->get('mailer')->send($sendMessage);
-            return $response;
 
             $em->persist($project);
             $em->flush($project);
