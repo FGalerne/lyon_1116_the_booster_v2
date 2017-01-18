@@ -41,9 +41,33 @@ class ProjectController extends Controller
             $em = $this->getDoctrine()->getManager();
             $project->setSociety($this->getUser()->getSociety());
             $project->setCreateTime($time);
-            $project->setCreationStatus('en attente');
+            $project->setCreationStatus(True);
             $project->setStatus('proposé');
             $project->setGivenTime(0);
+
+            //Set the variable used for sending the email.
+
+            // Sends an email to warn the web site manager that a project is waiting for validation to be published.
+            $sendMessage = \Swift_Message::newInstance()
+                ->setSubject($subject)
+                ->setFrom($from)
+                ->setTo($to)
+                ->setBody(
+                    $this->renderView(
+                        'BoosterBundle:Emails:validation_siret_email.html.twig',
+                        array(
+                            'title' => $title,
+                            'name' => $name,
+                            'surname' => $surname,
+                            'projectName' => $projectName,
+                            'siret' => $siret,
+                        )
+                    ),
+                    'text/html'
+                );
+            $this->get('mailer')->send($sendMessage);
+            return $response;
+
             $em->persist($project);
             $em->flush($project);
             return $this->redirectToRoute('dashboard_society', array('id' => $this->getUser()->getSociety()));

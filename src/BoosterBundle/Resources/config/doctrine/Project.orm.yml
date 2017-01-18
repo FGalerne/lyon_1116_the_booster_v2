@@ -22,9 +22,8 @@ BoosterBundle\Entity\Project:
             nullable: false
             length: 200
         creationStatus:
-            type: string
+            type: boolean
             nullable: false
-            length: 15
             column: creation_status
         status:
             type: string
