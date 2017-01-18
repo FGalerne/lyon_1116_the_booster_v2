@@ -270,7 +270,8 @@ class DashboardController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $society = $em->getRepository('BoosterBundle:Society')->findOneById($id);
-        $projects = $em->getRepository('BoosterBundle:Project')->getProjectBySociety($id);
+        //projectNames = Entity Project
+        $projects = $society->getProjectNames();
 
         return $this->render('BoosterBundle:Dashboard:public-dashboard.html.twig', array(
             'society' => $society,
