@@ -44,32 +44,14 @@ BoosterBundle\Entity\Project:
             type: datetime
             nullable: true
             column: end_time
-        boosterCommentaries:
-            type: string
-            nullable: true
-            length: 255
-            column: booster_commentaries
-        societyCommentaries:
-            type: string
-            nullable: true
-            length: 255
-            column: society_commentaries
-        boosterNote:
-            type: integer
-            nullable: true
-            column: booster_note
-        societyNote:
-            type: integer
-            nullable: true
-            column: society_note
 
     manyToOne:
         society:
             targetEntity: Society
             inversedBy: societyName
             joinColumn:
-                    name: society_id
-                    referencedColumnName: id
+                name: society_id
+                referencedColumnName: id
 
     manyToMany:
         boosters:
@@ -79,6 +61,6 @@ BoosterBundle\Entity\Project:
     oneToMany:
         project_subscriptions:
             targetEntity: BoosterBundle\Entity\ProjectSubscription
-            mappedBy: booster
+            mappedBy: project
 
     lifecycleCallbacks: {  }
