@@ -839,10 +839,10 @@ hr{
 	margin-bottom: 8vh;
 }
 
-.btn_subs {
+.btn_subs_how {
 	font-size:1.4em;
 	font-weight:900;
-	margin-bottom:2vh;
+	margin-bottom:1vh;
 	background-color: #eb0310;
 	color:white;
 	padding: 35px 45px;
@@ -1369,8 +1369,13 @@ and (-webkit-min-device-pixel-ratio: 1) {
 }
 
 .btn_subs {
+	font-size:1.4em;
+	font-weight:900;
 	margin-top: 20px;
 	margin-bottom: 8vh;
+	background-color: #eb0310;
+	color:white;
+	padding: 25px 35px;
 }
 
 .txt_subs{
