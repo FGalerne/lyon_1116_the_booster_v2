@@ -15,7 +15,7 @@
 	    <body>
 
 		    <img src="http://image.noelshack.com/fichiers/2017/52/1483301787-unnamed.png" style="width: 150px;">
-		    <h1 style="text-align: center;font-weight: 900; font-family: 'Roboto',sans-serif; font-size: 30px;" >Bienvenue {{ user.lastname}}</h1>
+		    <h1 style="text-align: center;font-weight: 900; font-family: 'Roboto',sans-serif; font-size: 30px;" >Bienvenue {{ user.firstName}}</h1>
 		    <hr style="border:none;width:90px;height:8px;background: #E60F33;margin-bottom: 15px;">
             {% if user.roles | join(' , ') == "ROLE_BOOSTER" %}
 			<p>Bonjour,</p>
