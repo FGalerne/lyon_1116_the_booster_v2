@@ -46,7 +46,7 @@ class ProjectController extends Controller
             $project->setGivenTime(0);
 
             //Set the variable used for sending the email.
-            $title = $form['projectName']->getData();
+            $projectName = $form['projectName']->getData();
             $category = $form['category']->getData();
             $subject = 'Un projet est en attente de validation sur The-Booster.com';
             $from = $this->getParameter('mailer_user');
@@ -60,7 +60,7 @@ class ProjectController extends Controller
                     $this->renderView(
                         'BoosterBundle:Emails:project_validation_email.html.twig',
                         array(
-                            'title' => $title,
+                            'project_name' => $projectName,
                             'category' => $category,
                             'project'  => $project,
                         )
