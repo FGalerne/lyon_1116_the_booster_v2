@@ -1977,4 +1977,11 @@ a:hover {
 	margin-top: 100px;
 	margin-bottom: 100px;
 }
-
+.icon-dashboard-sub{
+	color: #eb0310;
+}
+.sub-container{
+	border: 1px solid #696969;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
