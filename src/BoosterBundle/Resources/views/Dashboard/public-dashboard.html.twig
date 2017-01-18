@@ -104,12 +104,20 @@
                             {% endfor %}
 
                             {% if subscribed == 0 %}
-                                <a class="col-xs-6 col-md-4 postulation-button" href="{{ path('project_subscription', { 'boosterId': app.user.booster.id, 'societyId': society.id, 'projectId': project.id }) }}">
-                                    Je donne du temps à ce projet !
-                                </a>
+                                {#The booster have a 'booster' profile#}
+                                {% if app.user.booster %}
+                                    <a class="col-xs-6 col-md-4 postulation-button" href="{{ path('project_subscription', { 'boosterId': app.user.booster.id, 'societyId': society.id, 'projectId': project.id }) }}">
+                                        Je donne du temps à ce projet !
+                                    </a>
+                                    {#The booster do not have completed is profile#}
+                                {% else %}
+                                    <a class="col-xs-6 col-md-4 postuled-button" href="{{ path('dashboard_booster_new',{'id':app.user.id}) }}">
+                                        Completez votre profile pour pouvoir postuler !
+                                    </a>
+                                {% endif %}
                             {% else %}
                                 <a class="col-xs-6 col-md-4 postuled-button" href="">
-                                    Vous avez postulé pour ce projet
+                                    Vous avez postulé pour ce projet !
                                 </a>
                             {% endif %}
                             {#GUEST#}
@@ -119,7 +127,7 @@
                             </a>
                         {% endif %}
                         <div class="col-xs-12">
-                            <p>{{ project.description }}</p>
+                            <p class="text-left">{{ project.description }}</p>
                         </div>
                     </div>
                 {% endif %}
