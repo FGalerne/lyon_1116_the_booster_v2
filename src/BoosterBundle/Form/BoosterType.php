@@ -47,10 +47,16 @@ class BoosterType extends AbstractType
                 ),
             ))
             ->add('birthDate', BirthdayType::class, array(
+                'label' => 'Votre date de Naissance',
+                'choice_translation_domain' => null,
+                'years' => range(date('Y')-18, date('Y')-80),
+            ))
+
+            /*->add('birthDate', BirthdayType::class, array(
                 'label' => 'Date de Naissance',
                 'years' => range(1950, 2020),
-                'format' => ('D'-'m'-'Y'),
-            ))
+
+            ))*/
             ->add('workStatus')
             ->add('competence1', ChoiceType::class, array(
                 'label' => 'competence principale',

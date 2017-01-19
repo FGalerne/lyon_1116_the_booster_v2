@@ -1985,3 +1985,24 @@ a:hover {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
+
+
+/******************* BOOSTER COMPLETE YOUR PROFILE *******************/
+
+/***** That code allows to put the birthday form with Day Month Year Format *****/
+
+#boosterbundle_booster_birthDate {
+	display: flex;
+}
+
+#boosterbundle_booster_birthDate_year {
+	order:3;
+}
+
+#boosterbundle_booster_birthDate_month {
+	order:2;
+}
+
+#boosterbundle_booster_birthDate_day {
+	order:1;
+}
