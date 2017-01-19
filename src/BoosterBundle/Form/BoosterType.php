@@ -3,6 +3,7 @@
 namespace BoosterBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -45,128 +46,158 @@ class BoosterType extends AbstractType
                     'placeholder' => 'Ville'
                 ),
             ))
-            ->add('birthDate', DateTimeType::class, array(
+            ->add('birthDate', BirthdayType::class, array(
+                'label' => 'Date de Naissance',
                 'years' => range(1950, 2020),
-                'format' => 'ddMMyyyy',
+                'format' => ('D'-'m'-'Y'),
             ))
             ->add('workStatus')
             ->add('competence1', ChoiceType::class, array(
                 'label' => 'competence principale',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
-                    'competence1' => 'competence1',
-                    'competence2' => 'competence2',
-                    'competence3' => 'competence3',
-                    'competence4' => 'competence4',
-                    'competence5' => 'competence5',
-                    'competence6' => 'competence6',
-                    'competence7' => 'competence7',
-                    'competence8' => 'competence8',
-                    'competence9' => 'competence9',
-                    'competence10' => 'competence10',
-                    'competence11' => 'competence11',
-                    'competence12' => 'competence12',
-                )
+                    'category_1'  => 'Marketing',
+                    'category_2'  => 'Communication',
+                    'category_3'  => 'Développement Commercial',
+                    'category_4'  => 'Gestion financière (finance, comptabilité, …)',
+                    'category_5'  => 'Projet de financement, d’Investissement',
+                    'category_6'  => 'Ressources Humaines',
+                    'category_7'  => 'Digital',
+                    'category_8'  => 'Innovation',
+                    'category_9'  => 'Développement International',
+                    'category_10' => 'Design et Graphisme (logo, marque, …)',
+                    'category_11' => 'Juridique',
+                    'category_12' => 'Numérique (site internet, application, …)',
+                ),
+                'choices_as_values' => true,
+                'choice_label' => function ($currentChoiceKey) {
+                    return $currentChoiceKey;
+                },
             ))
+
             ->add('competence2', ChoiceType::class, array(
                 'label' => 'autre compétence',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
                     null => 'aucune',
-                    'competence1' => 'competence1',
-                    'competence2' => 'competence2',
-                    'competence3' => 'competence3',
-                    'competence4' => 'competence4',
-                    'competence5' => 'competence5',
-                    'competence6' => 'competence6',
-                    'competence7' => 'competence7',
-                    'competence8' => 'competence8',
-                    'competence9' => 'competence9',
-                    'competence10' => 'competence10',
-                    'competence11' => 'competence11',
-                    'competence12' => 'competence12',
+                    'category_1'  => 'Marketing',
+                    'category_2'  => 'Communication',
+                    'category_3'  => 'Développement Commercial',
+                    'category_4'  => 'Gestion financière (finance, comptabilité, …)',
+                    'category_5'  => 'Projet de financement, d’Investissement',
+                    'category_6'  => 'Ressources Humaines',
+                    'category_7'  => 'Digital',
+                    'category_8'  => 'Innovation',
+                    'category_9'  => 'Développement International',
+                    'category_10' => 'Design et Graphisme (logo, marque, …)',
+                    'category_11' => 'Juridique',
+                    'category_12' => 'Numérique (site internet, application, …)',
                 ),
                 'required' => false,
+                'choices_as_values' => true,
+                'choice_label' => function ($currentChoiceKey) {
+                    return $currentChoiceKey;
+                },
             ))
+
             ->add('competence3', ChoiceType::class, array(
                 'label' => 'autre compétence',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
                     null => 'aucune',
-                    'competence1' => 'competence1',
-                    'competence2' => 'competence2',
-                    'competence3' => 'competence3',
-                    'competence4' => 'competence4',
-                    'competence5' => 'competence5',
-                    'competence6' => 'competence6',
-                    'competence7' => 'competence7',
-                    'competence8' => 'competence8',
-                    'competence9' => 'competence9',
-                    'competence10' => 'competence10',
-                    'competence11' => 'competence11',
-                    'competence12' => 'competence12',
+                    'category_1'  => 'Marketing',
+                    'category_2'  => 'Communication',
+                    'category_3'  => 'Développement Commercial',
+                    'category_4'  => 'Gestion financière (finance, comptabilité, …)',
+                    'category_5'  => 'Projet de financement, d’Investissement',
+                    'category_6'  => 'Ressources Humaines',
+                    'category_7'  => 'Digital',
+                    'category_8'  => 'Innovation',
+                    'category_9'  => 'Développement International',
+                    'category_10' => 'Design et Graphisme (logo, marque, …)',
+                    'category_11' => 'Juridique',
+                    'category_12' => 'Numérique (site internet, application, …)',
                 ),
                 'required' => false,
+                'choices_as_values' => true,
+                'choice_label' => function ($currentChoiceKey) {
+                    return $currentChoiceKey;
+                },
             ))
+
             ->add('competence4', ChoiceType::class, array(
                 'label' => 'autre compétence',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
                     null => 'aucune',
-                    'competence1' => 'competence1',
-                    'competence2' => 'competence2',
-                    'competence3' => 'competence3',
-                    'competence4' => 'competence4',
-                    'competence5' => 'competence5',
-                    'competence6' => 'competence6',
-                    'competence7' => 'competence7',
-                    'competence8' => 'competence8',
-                    'competence9' => 'competence9',
-                    'competence10' => 'competence10',
-                    'competence11' => 'competence11',
-                    'competence12' => 'competence12',
+                    'category_1'  => 'Marketing',
+                    'category_2'  => 'Communication',
+                    'category_3'  => 'Développement Commercial',
+                    'category_4'  => 'Gestion financière (finance, comptabilité, …)',
+                    'category_5'  => 'Projet de financement, d’Investissement',
+                    'category_6'  => 'Ressources Humaines',
+                    'category_7'  => 'Digital',
+                    'category_8'  => 'Innovation',
+                    'category_9'  => 'Développement International',
+                    'category_10' => 'Design et Graphisme (logo, marque, …)',
+                    'category_11' => 'Juridique',
+                    'category_12' => 'Numérique (site internet, application, …)',
                 ),
                 'required' => false,
+                'choices_as_values' => true,
+                'choice_label' => function ($currentChoiceKey) {
+                    return $currentChoiceKey;
+                },
             ))
+
             ->add('competence5', ChoiceType::class, array(
                 'label' => 'autre compétence',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
                     null => 'aucune',
-                    'competence1' => 'competence1',
-                    'competence2' => 'competence2',
-                    'competence3' => 'competence3',
-                    'competence4' => 'competence4',
-                    'competence5' => 'competence5',
-                    'competence6' => 'competence6',
-                    'competence7' => 'competence7',
-                    'competence8' => 'competence8',
-                    'competence9' => 'competence9',
-                    'competence10' => 'competence10',
-                    'competence11' => 'competence11',
-                    'competence12' => 'competence12',
+                    'category_1'  => 'Marketing',
+                    'category_2'  => 'Communication',
+                    'category_3'  => 'Développement Commercial',
+                    'category_4'  => 'Gestion financière (finance, comptabilité, …)',
+                    'category_5'  => 'Projet de financement, d’Investissement',
+                    'category_6'  => 'Ressources Humaines',
+                    'category_7'  => 'Digital',
+                    'category_8'  => 'Innovation',
+                    'category_9'  => 'Développement International',
+                    'category_10' => 'Design et Graphisme (logo, marque, …)',
+                    'category_11' => 'Juridique',
+                    'category_12' => 'Numérique (site internet, application, …)',
                 ),
                 'required' => false,
+                'choices_as_values' => true,
+                'choice_label' => function ($currentChoiceKey) {
+                    return $currentChoiceKey;
+                },
             ))
+
             ->add('competence6', ChoiceType::class, array(
                 'label' => 'autre compétence',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
                     null => 'aucune',
-                    'competence1' => 'competence1',
-                    'competence2' => 'competence2',
-                    'competence3' => 'competence3',
-                    'competence4' => 'competence4',
-                    'competence5' => 'competence5',
-                    'competence6' => 'competence6',
-                    'competence7' => 'competence7',
-                    'competence8' => 'competence8',
-                    'competence9' => 'competence9',
-                    'competence10' => 'competence10',
-                    'competence11' => 'competence11',
-                    'competence12' => 'competence12',
+                    'category_1'  => 'Marketing',
+                    'category_2'  => 'Communication',
+                    'category_3'  => 'Développement Commercial',
+                    'category_4'  => 'Gestion financière (finance, comptabilité, …)',
+                    'category_5'  => 'Projet de financement, d’Investissement',
+                    'category_6'  => 'Ressources Humaines',
+                    'category_7'  => 'Digital',
+                    'category_8'  => 'Innovation',
+                    'category_9'  => 'Développement International',
+                    'category_10' => 'Design et Graphisme (logo, marque, …)',
+                    'category_11' => 'Juridique',
+                    'category_12' => 'Numérique (site internet, application, …)',
                 ),
                 'required' => false,
+                'choices_as_values' => true,
+                'choice_label' => function ($currentChoiceKey) {
+                    return $currentChoiceKey;
+                },
             ))
         ;
     }

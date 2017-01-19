@@ -177,6 +177,7 @@ class Project
      *
      * @return string
      */
+
     public function getCreationStatus()
     {
         return $this->creationStatus;
