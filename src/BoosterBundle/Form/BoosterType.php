@@ -46,8 +46,9 @@ class BoosterType extends AbstractType
                 ),
             ))
             ->add('birthDate', DateTimeType::class, array(
+                'label' => 'Date de Naissance',
                 'years' => range(1950, 2020),
-                'format' => 'ddMMyyyy',
+                'format' => ('d-m-Y'),
             ))
             ->add('workStatus')
             ->add('competence1', ChoiceType::class, array(
@@ -66,8 +67,13 @@ class BoosterType extends AbstractType
                     'category_10' => 'Design et Graphisme (logo, marque, …)',
                     'category_11' => 'Juridique',
                     'category_12' => 'Numérique (site internet, application, …)',
-                )
+                ),
+                'choices_as_values' => true,
+                'choice_label' => function ($currentChoiceKey) {
+                    return $currentChoiceKey;
+                },
             ))
+
             ->add('competence2', ChoiceType::class, array(
                 'label' => 'autre compétence',
                 'attr' => array('class' => 'form-control form-group'),
@@ -87,7 +93,12 @@ class BoosterType extends AbstractType
                     'category_12' => 'Numérique (site internet, application, …)',
                 ),
                 'required' => false,
+                'choices_as_values' => true,
+                'choice_label' => function ($currentChoiceKey) {
+                    return $currentChoiceKey;
+                },
             ))
+
             ->add('competence3', ChoiceType::class, array(
                 'label' => 'autre compétence',
                 'attr' => array('class' => 'form-control form-group'),
@@ -107,7 +118,12 @@ class BoosterType extends AbstractType
                     'category_12' => 'Numérique (site internet, application, …)',
                 ),
                 'required' => false,
+                'choices_as_values' => true,
+                'choice_label' => function ($currentChoiceKey) {
+                    return $currentChoiceKey;
+                },
             ))
+
             ->add('competence4', ChoiceType::class, array(
                 'label' => 'autre compétence',
                 'attr' => array('class' => 'form-control form-group'),
@@ -127,7 +143,12 @@ class BoosterType extends AbstractType
                     'category_12' => 'Numérique (site internet, application, …)',
                 ),
                 'required' => false,
+                'choices_as_values' => true,
+                'choice_label' => function ($currentChoiceKey) {
+                    return $currentChoiceKey;
+                },
             ))
+
             ->add('competence5', ChoiceType::class, array(
                 'label' => 'autre compétence',
                 'attr' => array('class' => 'form-control form-group'),
@@ -147,7 +168,12 @@ class BoosterType extends AbstractType
                     'category_12' => 'Numérique (site internet, application, …)',
                 ),
                 'required' => false,
+                'choices_as_values' => true,
+                'choice_label' => function ($currentChoiceKey) {
+                    return $currentChoiceKey;
+                },
             ))
+
             ->add('competence6', ChoiceType::class, array(
                 'label' => 'autre compétence',
                 'attr' => array('class' => 'form-control form-group'),
@@ -167,6 +193,10 @@ class BoosterType extends AbstractType
                     'category_12' => 'Numérique (site internet, application, …)',
                 ),
                 'required' => false,
+                'choices_as_values' => true,
+                'choice_label' => function ($currentChoiceKey) {
+                    return $currentChoiceKey;
+                },
             ))
         ;
     }
