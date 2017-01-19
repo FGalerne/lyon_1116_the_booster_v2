@@ -53,7 +53,7 @@ class ProjectController extends Controller
             $to = $this->getParameter('mailer_to');
 
             // Sends an email to warn the web site manager that a project is waiting for a validation to be published.
-            $sendMessage = \Swift_Message::newInstance()
+            $sendMessageToWebmaster = \Swift_Message::newInstance()
                 ->setSubject($subject)
                 ->setFrom($from)
                 ->setTo($to)
@@ -72,7 +72,7 @@ class ProjectController extends Controller
             // Here the code to get the email of the user when we use FosUserBundle.
             $toUser = $this->get('security.context')->getToken()->getUser()->getEmail();
             // Sends an email to warn the user that his project is waiting for a validation to be published.
-            $sendMessage2 = \Swift_Message::newInstance()
+            $sendMessageToSociety = \Swift_Message::newInstance()
                 ->setSubject($subject2)
                 ->setFrom($from)
                 ->setTo($toUser)
@@ -88,8 +88,8 @@ class ProjectController extends Controller
                     'text/html'
                 );
 
-            $this->get('mailer')->send($sendMessage);
-            $this->get('mailer')->send($sendMessage2);
+            $this->get('mailer')->send($sendMessageToWebmaster);
+            $this->get('mailer')->send($sendMessageToSociety);
 
 
             $em->persist($project);
