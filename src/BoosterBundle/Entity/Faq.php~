@@ -110,3 +110,4 @@ class Faq
         return $this->category;
     }
 }
+

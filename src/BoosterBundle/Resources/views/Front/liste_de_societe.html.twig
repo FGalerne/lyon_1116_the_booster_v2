@@ -1,5 +1,8 @@
 {% extends 'base.html.twig' %}
-{% block title %} Liste des Sociétés | The Booster{% endblock %}
+{% block title %} Découvrez les Boostés | The Booster{% endblock %}
+{% block pageDescription %}C'est très simple. Inscrivez-vous gratuitement sur The Booster. Vous êtes un Booster :  créez votre espace personnel et choisissez les projets que vous souhaitez aider. Vous êtes un Boosté : présentez votre projet, votre entreprise et déposez vos besoins : vos demandes de Coups de Boost. {% endblock %}
+
+
 {% block body %}
     <section class="container-fluid" id ="list-society">
         <div class="row" id="home_startup_title">
@@ -29,10 +32,10 @@
         </ul>
         {% for society in societies %}
         <div class="col-xs-12 col-sm-4 col-md-3">
-            <a href="{{ path('dashboard_society',{'id':society.id}) }}">
+            <a href="{{ path('public_dashboard',{'id':society.id}) }}">
                 <div class="global-society">
                     <div>
-                        <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/avatar-default.png') }}">
+                        <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/photo-couverture-profile-societe.png') }}">
                     </div>
                     <h5 class="name-list-society">{{ society.societyName }}</h5>
                     <p class="nombre-de-projet">Nombre de projets : 100</p>

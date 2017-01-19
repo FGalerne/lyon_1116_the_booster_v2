@@ -7,11 +7,6 @@ namespace BoosterBundle\Entity;
  */
 class ProjectSubscription
 {
-
-	public function __toString()
-	{
-		return ProjectSubscription::get;
-	}
     /**
      * @var integer
      */
@@ -26,6 +21,36 @@ class ProjectSubscription
      * @var string
      */
     private $status;
+
+    /**
+     * @var integer
+     */
+    private $givenTime;
+
+    /**
+     * @var \DateTime
+     */
+    private $createTime = 'CURRENT_TIMESTAMP';
+
+    /**
+     * @var string
+     */
+    private $boosterCommentaries;
+
+    /**
+     * @var string
+     */
+    private $societyCommentaries;
+
+    /**
+     * @var integer
+     */
+    private $boosterNote;
+
+    /**
+     * @var integer
+     */
+    private $societyNote;
 
     /**
      * @var \BoosterBundle\Entity\Booster
@@ -49,16 +74,6 @@ class ProjectSubscription
     }
 
     /**
-     * Get message
-     *
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->message;
-    }
-
-    /**
      * Set message
      *
      * @param string $message
@@ -73,13 +88,13 @@ class ProjectSubscription
     }
 
     /**
-     * Get status
+     * Get message
      *
      * @return string
      */
-    public function getStatus()
+    public function getMessage()
     {
-        return $this->status;
+        return $this->message;
     }
 
     /**
@@ -97,13 +112,157 @@ class ProjectSubscription
     }
 
     /**
-     * Get booster
+     * Get status
      *
-     * @return \BoosterBundle\Entity\Booster
+     * @return string
      */
-    public function getBooster()
+    public function getStatus()
     {
-        return $this->booster;
+        return $this->status;
+    }
+
+    /**
+     * Set givenTime
+     *
+     * @param integer $givenTime
+     *
+     * @return ProjectSubscription
+     */
+    public function setGivenTime($givenTime)
+    {
+        $this->givenTime = $givenTime;
+
+        return $this;
+    }
+
+    /**
+     * Get givenTime
+     *
+     * @return integer
+     */
+    public function getGivenTime()
+    {
+        return $this->givenTime;
+    }
+
+    /**
+     * Set createTime
+     *
+     * @param \DateTime $createTime
+     *
+     * @return ProjectSubscription
+     */
+    public function setCreateTime($createTime)
+    {
+        $this->createTime = $createTime;
+
+        return $this;
+    }
+
+    /**
+     * Get createTime
+     *
+     * @return \DateTime
+     */
+    public function getCreateTime()
+    {
+        return $this->createTime;
+    }
+
+    /**
+     * Set boosterCommentaries
+     *
+     * @param string $boosterCommentaries
+     *
+     * @return ProjectSubscription
+     */
+    public function setBoosterCommentaries($boosterCommentaries)
+    {
+        $this->boosterCommentaries = $boosterCommentaries;
+
+        return $this;
+    }
+
+    /**
+     * Get boosterCommentaries
+     *
+     * @return string
+     */
+    public function getBoosterCommentaries()
+    {
+        return $this->boosterCommentaries;
+    }
+
+    /**
+     * Set societyCommentaries
+     *
+     * @param string $societyCommentaries
+     *
+     * @return ProjectSubscription
+     */
+    public function setSocietyCommentaries($societyCommentaries)
+    {
+        $this->societyCommentaries = $societyCommentaries;
+
+        return $this;
+    }
+
+    /**
+     * Get societyCommentaries
+     *
+     * @return string
+     */
+    public function getSocietyCommentaries()
+    {
+        return $this->societyCommentaries;
+    }
+
+    /**
+     * Set boosterNote
+     *
+     * @param integer $boosterNote
+     *
+     * @return ProjectSubscription
+     */
+    public function setBoosterNote($boosterNote)
+    {
+        $this->boosterNote = $boosterNote;
+
+        return $this;
+    }
+
+    /**
+     * Get boosterNote
+     *
+     * @return integer
+     */
+    public function getBoosterNote()
+    {
+        return $this->boosterNote;
+    }
+
+    /**
+     * Set societyNote
+     *
+     * @param integer $societyNote
+     *
+     * @return ProjectSubscription
+     */
+    public function setSocietyNote($societyNote)
+    {
+        $this->societyNote = $societyNote;
+
+        return $this;
+    }
+
+    /**
+     * Get societyNote
+     *
+     * @return integer
+     */
+    public function getSocietyNote()
+    {
+        return $this->societyNote;
     }
 
     /**
@@ -121,13 +280,13 @@ class ProjectSubscription
     }
 
     /**
-     * Get project
+     * Get booster
      *
-     * @return \BoosterBundle\Entity\Project
+     * @return \BoosterBundle\Entity\Booster
      */
-    public function getProject()
+    public function getBooster()
     {
-        return $this->project;
+        return $this->booster;
     }
 
     /**
@@ -142,5 +301,15 @@ class ProjectSubscription
         $this->project = $project;
 
         return $this;
+    }
+
+    /**
+     * Get project
+     *
+     * @return \BoosterBundle\Entity\Project
+     */
+    public function getProject()
+    {
+        return $this->project;
     }
 }

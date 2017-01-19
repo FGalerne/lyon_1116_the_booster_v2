@@ -84,18 +84,10 @@ BoosterBundle\Entity\Booster:
             length: 50
             unique: true
 
-    manyToMany:
-        projects:
-            targetEntity: BoosterBundle\Entity\Project
-            inversedBy: projects
-            joinTable:
-              name:  booster_project
-              joinColumns:
-                booster_id:
-                  referencedColumnName: id
-              inverseJoinColumns:
-                project_id:
-                  referenceColumnName: id
+    oneToMany:
+        project_subscriptions:
+            targetEntity: BoosterBundle\Entity\ProjectSubscription
+            mappedBy: booster
 
     oneToOne:
         user:

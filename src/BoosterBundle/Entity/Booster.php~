@@ -492,6 +492,35 @@ class Booster
         return $this->averageNotation;
     }
     /**
+     * @var string
+     */
+    private $slug;
+
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Booster
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+    /**
      * @var \Doctrine\Common\Collections\Collection
      */
     private $projects;
@@ -536,73 +565,5 @@ class Booster
     public function getProjects()
     {
         return $this->projects;
-    }
-    /**
-     * @var string
-     */
-    private $slug;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $project_subscriptions;
-
-
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     *
-     * @return Booster
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
-
-    /**
-     * Add projectSubscription
-     *
-     * @param \BoosterBundle\Entity\ProjectSubscription $projectSubscription
-     *
-     * @return Booster
-     */
-    public function addProjectSubscription(\BoosterBundle\Entity\ProjectSubscription $projectSubscription)
-    {
-        $this->project_subscriptions[] = $projectSubscription;
-
-        return $this;
-    }
-
-    /**
-     * Remove projectSubscription
-     *
-     * @param \BoosterBundle\Entity\ProjectSubscription $projectSubscription
-     */
-    public function removeProjectSubscription(\BoosterBundle\Entity\ProjectSubscription $projectSubscription)
-    {
-        $this->project_subscriptions->removeElement($projectSubscription);
-    }
-
-    /**
-     * Get projectSubscriptions
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getProjectSubscriptions()
-    {
-        return $this->project_subscriptions;
     }
 }

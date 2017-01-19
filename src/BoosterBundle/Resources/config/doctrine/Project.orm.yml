@@ -22,9 +22,8 @@ BoosterBundle\Entity\Project:
             nullable: false
             length: 200
         creationStatus:
-            type: string
+            type: boolean
             nullable: false
-            length: 15
             column: creation_status
         status:
             type: string
@@ -44,41 +43,18 @@ BoosterBundle\Entity\Project:
             type: datetime
             nullable: true
             column: end_time
-        boosterCommentaries:
-            type: string
-            nullable: true
-            length: 255
-            column: booster_commentaries
-        societyCommentaries:
-            type: string
-            nullable: true
-            length: 255
-            column: society_commentaries
-        boosterNote:
-            type: integer
-            nullable: true
-            column: booster_note
-        societyNote:
-            type: integer
-            nullable: true
-            column: society_note
 
     manyToOne:
         society:
             targetEntity: Society
             inversedBy: societyName
             joinColumn:
-                    name: society_id
-                    referencedColumnName: id
-
-    manyToMany:
-        boosters:
-            targetEntity: BoosterBundle\Entity\Booster
-            mappedBy: projects
+                name: society_id
+                referencedColumnName: id
 
     oneToMany:
         project_subscriptions:
             targetEntity: BoosterBundle\Entity\ProjectSubscription
-            mappedBy: booster
+            mappedBy: project
 
     lifecycleCallbacks: {  }
