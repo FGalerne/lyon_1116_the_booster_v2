@@ -3,6 +3,7 @@
 namespace BoosterBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -45,10 +46,10 @@ class BoosterType extends AbstractType
                     'placeholder' => 'Ville'
                 ),
             ))
-            ->add('birthDate', DateTimeType::class, array(
+            ->add('birthDate', BirthdayType::class, array(
                 'label' => 'Date de Naissance',
                 'years' => range(1950, 2020),
-                'format' => ('d-m-Y'),
+                'format' => ('D'-'m'-'Y'),
             ))
             ->add('workStatus')
             ->add('competence1', ChoiceType::class, array(
