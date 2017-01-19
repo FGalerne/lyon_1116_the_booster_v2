@@ -98,9 +98,9 @@ project_subscription:
     methods: [GET, POST]
 
 dashboard_contact_booster:
-    path:     /dashboard-contact-booster/{subscriberId}/{societyId}/{projectId}/{subscriptionId}
+    path:     /dashboard-contact-booster/{societyId}/{projectId}/{subscriptionId}
     defaults: { _controller: BoosterBundle:Dashboard:contactBooster }
-    methods: GET
+    methods: [GET, POST]
 
 
 

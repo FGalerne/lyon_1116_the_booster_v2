@@ -5,9 +5,8 @@ namespace BoosterBundle\Controller;
 use BoosterBundle\Entity\Society;
 use BoosterBundle\Entity\Booster;
 use BoosterBundle\Entity\Messenger;
-use BoosterBundle\Repository\messengerRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpFoundation\Request;
 
 class DashboardController extends Controller
@@ -280,18 +279,65 @@ class DashboardController extends Controller
         ));
     }
 
-    public function contactBoosterAction($subscriberId, $societyId, $projectId, $subscriptionId)
+    public function contactBoosterAction(Request $request, $societyId, $projectId, $subscriptionId)
     {
+        $message = new Messenger();
+        $form = $this->createForm('BoosterBundle\Form\MessengerType', $message);
+        $form->add('message', TextareaType::class, array(
+            'label' => 'Message: ',
+            'attr' => array(
+                'class' => 'WYSIWYG form-control form-group',
+            ),
+            'required'    => false,
+            'empty_data'  => "J'accepete votre coup de boost"
+        ));
+
         $em = $this->getDoctrine()->getManager();
+
         //set project-subscription status to 'en cours'
-        $projectRepository = $em->getRepository('BoosterBundle:projectSubscription');
-        $projectRepository->chooseProjectSubscriber($subscriptionId);
+        $subscriptionRepository = $em->getRepository('BoosterBundle:projectSubscription');
+        $subscriptionRepository->chooseProjectSubscriber($subscriptionId);
 
         //set project status to 'en cours'
         $projectRepository = $em->getRepository('BoosterBundle:project');
         $projectRepository->updateProjectStatus($projectId);
 
-        return $this->redirectToRoute('dashboard_society', array('id' => $societyId));
+        //Project entity
+        $project = $projectRepository->findOneById($projectId);
+        //ProjectSubscription entity
+        $subscription = $subscriptionRepository->findOneById($subscriptionId);
 
+        $user1 = $project->getSociety()->getUser();
+        $user2 = $subscription->getBooster()->getUser();
+        $title = $project->getProjectName();
+
+        $form->get('title')->setData($title);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+
+            //set project-subscription status to 'en cours'
+            $subscriptionRepository->chooseProjectSubscriber($subscriptionId);
+
+            //set project status to 'en cours'
+            $projectRepository->updateProjectStatus($projectId);
+
+            //send the message to the booster
+            $message->setUser1($user1);
+            $message->setUser2($user2);
+            $message->setUser1Read(1);
+            $message->setUser2Read(0);
+            $message->setCreateTime(new \DateTime('now'));
+            $em->persist($message);
+            $em->flush();
+
+            return $this->redirectToRoute('dashboard_society', array('id' => $societyId));
+        }
+        return $this->render('BoosterBundle:Dashboard:project-subscription-contact.html.twig', array(
+            'form' => $form->createView(),
+            'societyId' => $societyId,
+        ));
     }
 }

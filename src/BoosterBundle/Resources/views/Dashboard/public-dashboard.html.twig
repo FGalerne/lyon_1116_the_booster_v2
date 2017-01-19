@@ -73,67 +73,68 @@
                     {% set showSubscriptions = 0 %}
                 {% endif %}
                     <div class="container project-in-progress prelude">
-                        <div class="col-xs-6 col-md-2">
-                            <p>Nom de la société</p>
-                            <p>{{ society.societyName }}</p>
-                        </div>
-                        <div class="col-xs-6 col-md-2">
-                            <p>Nom du projet :</p>
-                            <p>{{ project.projectName }}</p>
-                        </div>
-                        <div class="col-xs-6 col-md-2">
-                            <p>Nombre d'heures:</p>
-                            <p>{{ project.givenTime }}</p>
-                        </div>
-                        <div class="col-xs-6 col-md-2">
-                            <p>Catégorie:</p>
-                            <p>{{ project.category }}</p>
+                        <div class="row">
+                            <div class="col-xs-6 col-md-3">
+                                <p>Nom de la société</p>
+                                <p>{{ society.societyName }}</p>
+                            </div>
+                            <div class="col-xs-6 col-md-3">
+                                <p>Nom du projet :</p>
+                                <p>{{ project.projectName }}</p>
+                            </div>
+                            <div class="col-xs-6 col-md-3">
+                                <p>Nombre d'heures:</p>
+                                <p>{{ project.givenTime }}</p>
+                            </div>
+                            <div class="col-xs-6 col-md-3">
+                                <p>Catégorie:</p>
+                                <p>{{ project.category }}</p>
+                            </div>
+                            <div class="col-xs-12">
+                                <p class="text-left">{{ project.description }}</p>
+                            </div>
                         </div>
                         {% if showSubscriptions %}
                             {#BOOSTE#}
-                        {% if is_granted("ROLE_BOOSTE") %}
-                            <a class="col-xs-6 col-md-4 postulation-button" href="{{ path('booster_inscription_choix') }}">
-                                Créer un compte 'Booster' pour donner du temps à ce projet !
-                            </a>
-                            {#BOOSTER#}
-                        {% elseif is_granted("ROLE_BOOSTER") %}
+                            {% if is_granted("ROLE_BOOSTE") %}
+                                <a class="col-xs-12 postulation-button" href="{{ path('booster_inscription_choix') }}">
+                                    Créer un compte 'Booster' pour donner du temps à ce projet !
+                                </a>
+                                {#BOOSTER#}
+                            {% elseif is_granted("ROLE_BOOSTER") %}
 
-                            {#Verify if the user already subscribed to the project#}
-                            {% set subscribed = 0 %}
-                            {% for sub in project.projectSubscriptions %}
-                                {% if sub.booster.id == app.user.booster.id %}
-                                    {% set subscribed = 1 %}
-                                {% endif %}
-                            {% endfor %}
+                                {#Verify if the user already subscribed to the project#}
+                                {% set subscribed = 0 %}
+                                {% for sub in project.projectSubscriptions %}
+                                    {% if sub.booster.id == app.user.booster.id %}
+                                        {% set subscribed = 1 %}
+                                    {% endif %}
+                                {% endfor %}
 
-                            {% if subscribed == 0 %}
-                                {#The booster have a 'booster' profile#}
-                                {% if app.user.booster %}
-                                    <a class="col-xs-6 col-md-4 postulation-button" href="{{ path('project_subscription', { 'boosterId': app.user.booster.id, 'societyId': society.id, 'projectId': project.id }) }}">
-                                        Je donne du temps à ce projet !
-                                    </a>
-                                    {#The booster do not have completed is profile#}
+                                {% if subscribed == 0 %}
+                                    {#The booster have a 'booster' profile#}
+                                    {% if app.user.booster %}
+                                        <a class="col-xs-12 postulation-button" href="{{ path('project_subscription', { 'boosterId': app.user.booster.id, 'societyId': society.id, 'projectId': project.id }) }}">
+                                            Je donne du temps à ce projet !
+                                        </a>
+                                        {#The booster do not have completed is profile#}
+                                    {% else %}
+                                        <a class="col-xs-12 postuled-button" href="{{ path('dashboard_booster_new',{'id':app.user.id}) }}">
+                                            Completez votre profile pour pouvoir postuler !
+                                        </a>
+                                    {% endif %}
                                 {% else %}
-                                    <a class="col-xs-6 col-md-4 postuled-button" href="{{ path('dashboard_booster_new',{'id':app.user.id}) }}">
-                                        Completez votre profile pour pouvoir postuler !
+                                    <a class="col-xs-12 postuled-button" href="">
+                                        Vous avez postulé pour ce projet !
                                     </a>
                                 {% endif %}
+                                {#GUEST#}
                             {% else %}
-                                <a class="col-xs-6 col-md-4 postuled-button" href="">
-                                    Vous avez postulé pour ce projet !
+                                <a class="col-xs-12 postulation-button" href="{{ path('booster_inscription_choix') }}">
+                                    Créer un compte pour donner du temps à ce projet !
                                 </a>
                             {% endif %}
-                            {#GUEST#}
                         {% else %}
-                            <a class="col-xs-6 col-md-4 postulation-button" href="{{ path('booster_inscription_choix') }}">
-                                Créer un compte pour donner du temps à ce projet !
-                            </a>
-                        {% endif %}
-                        {% endif %}
-                        <div class="col-xs-12">
-                            <p class="text-left">{{ project.description }}</p>
-                        </div>
-                        {% if not showSubscriptions %}
                             <div class="sub-container row">
                                 <div class="col-xs-12">
                                     Projet en cours de réalisation !

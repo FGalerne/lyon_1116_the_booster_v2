@@ -102,7 +102,7 @@
                             <a href="{{ path('public_dashboard',{'id': society.id }) }}">
                                 <div class="global-society">
                                     <div>
-                                        <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/avatar-default.png') }}">
+                                        <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/photo-couverture-profile-societe.png') }}">
                                     </div>
                                     <h5 class="name-list-society">{{ society.societyName }}</h5>
                                     <p class="nombre-de-projet">Nombre de projets : 100</p>

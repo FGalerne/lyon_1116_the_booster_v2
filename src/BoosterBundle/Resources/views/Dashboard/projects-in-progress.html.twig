@@ -53,7 +53,7 @@
                             <a href="{{ path('dashboard_booster', {'id': subscription.booster.id }) }}" title="Le voir">
                                 Le voir
                             </a><br/>
-                            <a href="{{ path('dashboard_contact_booster', {'subscriberId': subscription.booster.id, 'societyId': app.user.society.id, 'projectId': subscription.project.id, 'subscriptionId': subscription.id }) }}" title="Le contacter">
+                            <a href="{{ path('dashboard_contact_booster', {'societyId': app.user.society.id, 'projectId': subscription.project.id, 'subscriptionId': subscription.id }) }}" title="Le contacter">
                                 Le contacter
                             </a>
                         </div>
