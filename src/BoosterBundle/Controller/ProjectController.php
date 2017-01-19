@@ -48,13 +48,13 @@ class ProjectController extends Controller
             //Set the variable used for sending the email.
             $projectName = $form['projectName']->getData();
             $category = $form['category']->getData();
-            $subject = 'Un projet est en attente de validation sur The-Booster.com';
+            $subjectToWebmaster = 'Un projet est en attente de validation sur The-Booster.com';
             $from = $this->getParameter('mailer_user');
             $to = $this->getParameter('mailer_to');
 
             // Sends an email to warn the web site manager that a project is waiting for a validation to be published.
             $sendMessageToWebmaster = \Swift_Message::newInstance()
-                ->setSubject($subject)
+                ->setSubject($subjectToWebmaster)
                 ->setFrom($from)
                 ->setTo($to)
                 ->setBody(
@@ -68,12 +68,12 @@ class ProjectController extends Controller
                     ),
                     'text/html'
                 );
-            $subject2 = 'Votre projet est en attente de modération sur The-Booster.com';
+            $subjectToUser = 'Votre projet est en attente de modération sur The-Booster.com';
             // Here the code to get the email of the user when we use FosUserBundle.
             $toUser = $this->get('security.context')->getToken()->getUser()->getEmail();
             // Sends an email to warn the user that his project is waiting for a validation to be published.
             $sendMessageToSociety = \Swift_Message::newInstance()
-                ->setSubject($subject2)
+                ->setSubject($subjectToUser)
                 ->setFrom($from)
                 ->setTo($toUser)
                 ->setBody(
