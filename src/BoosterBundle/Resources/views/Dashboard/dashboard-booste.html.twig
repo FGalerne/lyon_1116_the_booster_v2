@@ -104,7 +104,7 @@
                 {#{% if {{ project.status }} ==  %} #}
                 <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
                 {% for project in projects %}
-                    {% if project.status == 'proposé' and project.creationStatus == True %}
+                    {% if project.status == 'proposé' and project.creationStatus == true %}
                     <div class="container project-in-progress prelude">
                         <div class="row">
                             <div class="col-xs-6 col-md-3">
