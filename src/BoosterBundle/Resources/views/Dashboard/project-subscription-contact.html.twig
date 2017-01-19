@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container project-subscription-container">
+        <h1>Proposer un coup de boost !</h1>
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <input class="postulation-button col-xs-12" type="submit" value="Contacter le booster" />
+            {{ form_end(form) }}
+
+            <a class="postulation-button col-xs-12" href="{{ path('public_dashboard', { 'id': societyId }) }}">Retourner au dashboard</a>
+
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/countdown.js')}}"></script>
+    <script>
+        tinymce.init({
+            selector:'.WYSIWYG',
+            forced_root_block: false,
+            menubar: 'tools',
+            toolbar: 'undo redo | bold italic underline strikethrough | fontsizeselect',
+            height : 200,
+        });
+    </script>
+{% endblock %}
