@@ -1,0 +1,170 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="container-fluid global-presentation blueHour">
+        <div class="container prelude">
+            <div class="col-xs-12 col-md-9 dashboard-society">
+                <div class="col-xs-12 col-md-4 society-photo">
+                    <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/photo-couverture-profile-societe.png') }}" alt="photo couverture société" />
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <h1 class="text-left">{{ society.societyName }}</h1>
+                    <div class="dashboard-social-media">
+                        {% if society.facebook %}<a href="{{ society.facebook | external_link }}" target="_blank"><li><i class="fa fa-facebook-official" aria-hidden="true"></i></li></a>{% endif %}
+                        {% if society.twitter %}<a href="{{ society.twitter | external_link }}" target="_blank"><li><i class="fa fa-twitter-square" aria-hidden="true"></i></li></a>{% endif %}
+                        {% if society.linkedin %}<a href="{{ society.linkedin | external_link }}" target="_blank"><li><i class="fa fa-linkedin-square" aria-hidden="true"></i></li></a>{% endif %}
+                        {% if society.youtube %}<a href="{{ society.youtube | external_link }}" target="_blank"><li><i class="fa fa-youtube-square" aria-hidden="true"></i></li></a>{% endif %}
+                    </div>
+                </div>
+            </div>
+
+            {# Here the right part of the dashboard we could found the statistic of the society and the button to add a new project #}
+
+            <div class="col-xs-12 col-md-3" id="statistic-society">
+                <p>Heures reçues : {{ society.hoursTaken }}</p>
+                <p>Projets réalisés : {{ society.projectDoneNumber }}</p>
+                <p>Note du booster : {{ society.averageNotation }}</p>
+                <ul>
+                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="container prelude">
+            <h2>{{ society.punchLine | raw }}</h2>
+        </div>
+
+        {# Dashboard #}
+        <section class="container-fluid">
+            <div class="container dashboard-nav-container">
+                <div class="col-xs-12" id="navbar-dashboard">
+                    <ul class="nav nav-pills dashboard-nav">
+                        <li><a id="project-home">Accueil</a></li>
+                        <li><a id="project-in-progress">Projets en cours</a></li>
+                        <li><a id="project-done">Projets réalisés</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        {# The presentation text of the society #}
+        <section id="dashboard-booster-home" class="container-fluid presentation-booster">
+            <section class="container prelude">
+                <div class="row">
+                    <h3 class="text-left">Ma présentation:</h3>
+                    <div class="col-xs-12 presentation-text">
+                        <p>{{ society.presentation | raw }}</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        {# The Project part "IN PROGRESS" #}
+
+        <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
+            {% for project in projects %}
+                {% if project.status == 'proposé' %}
+                    <div class="container project-in-progress prelude">
+                        <div class="col-xs-6 col-md-2">
+                            <p>Nom de la société</p>
+                            <p>{{ society.societyName }}</p>
+                        </div>
+                        <div class="col-xs-6 col-md-2">
+                            <p>Nom du projet :</p>
+                            <p>{{ project.projectName }}</p>
+                        </div>
+                        <div class="col-xs-6 col-md-2">
+                            <p>Nombre d'heures:</p>
+                            <p>{{ project.givenTime }}</p>
+                        </div>
+                        <div class="col-xs-6 col-md-2">
+                            <p>Catégorie:</p>
+                            <p>{{ project.category }}</p>
+                        </div>
+
+                            {#BOOSTE#}
+                        {% if is_granted("ROLE_BOOSTE") %}
+                            <a class="col-xs-6 col-md-4 postulation-button" href="{{ path('booster_inscription_choix') }}">
+                                Créer un compte 'Booster' pour donner du temps à ce projet !
+                            </a>
+                            {#BOOSTER#}
+                        {% elseif is_granted("ROLE_BOOSTER") %}
+
+                            {#Verify if the user already subscribed to the project#}
+                            {% set subscribed = 0 %}
+                            {% for sub in project.projectSubscriptions %}
+                                {% if sub.booster.id == app.user.booster.id %}
+                                    {% set subscribed = 1 %}
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if subscribed == 0 %}
+                                {#The booster have a 'booster' profile#}
+                                {% if app.user.booster %}
+                                    <a class="col-xs-6 col-md-4 postulation-button" href="{{ path('project_subscription', { 'boosterId': app.user.booster.id, 'societyId': society.id, 'projectId': project.id }) }}">
+                                        Je donne du temps à ce projet !
+                                    </a>
+                                    {#The booster do not have completed is profile#}
+                                {% else %}
+                                    <a class="col-xs-6 col-md-4 postuled-button" href="{{ path('dashboard_booster_new',{'id':app.user.id}) }}">
+                                        Complétez votre profil pour pouvoir postuler !
+                                    </a>
+                                {% endif %}
+                            {% else %}
+                                <a class="col-xs-6 col-md-4 postuled-button" href="">
+                                    Vous avez postulé pour ce projet !
+                                </a>
+                            {% endif %}
+                            {#GUEST#}
+                        {% else %}
+                            <a class="col-xs-6 col-md-4 postulation-button" href="{{ path('booster_inscription_choix') }}">
+                                Créer un compte pour donner du temps à ce projet !
+                            </a>
+                        {% endif %}
+                        <div class="col-xs-12">
+                            <p class="text-left">{{ project.description }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </section>
+
+        {# The Project part "DONE" #}
+
+        <section class="container-fluid presentation-booster" id="dashboard-booster-done">
+            {% for project in projects %}
+                <div class="container prelude project-done">
+                    <div class="col-xs-6 col-md-3">
+                        <p>Nom de la société</p>
+                        <p>{{ society.societyName }}</p>
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <p>Nom du projet :</p>
+                        <p>{{ project.projectName }}</p>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <p>Nombre d'heures:</p>
+                        <p>{{ project.givenTime }}</p>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <p>Catégorie:</p>
+                        <p>{{ project.category }}</p>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <p>Statut:</p>
+                        <p>{{ project.status }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/dashboards.js')}}"></script>
+{% endblock %}
