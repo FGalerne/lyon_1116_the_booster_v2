@@ -1985,11 +1985,3 @@ a:hover {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-
-
-/* Birthday Boosters don't diplay the time
-
-#boosterbundle_booster_birthDate_time_hour,
-#boosterbundle_booster_birthDate_time_minute {
-	display: none;
-}*/
