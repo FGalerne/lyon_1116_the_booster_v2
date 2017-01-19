@@ -20,7 +20,7 @@ class MessengerType extends AbstractType
         $builder
             ->add('title', TextType::class, array(
                 'label' => false,
-                'attr'=>array('style'=>'display:none;'),
+                'attr'=> array('style'=>'display:none;'),
             ))
             ->add('user1', EntityType::class, array(
                 'class' => 'BoosterBundle:User',
