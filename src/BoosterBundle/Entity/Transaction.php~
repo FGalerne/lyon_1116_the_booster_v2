@@ -18,13 +18,15 @@ class Transaction
     private $createTime = 'CURRENT_TIMESTAMP';
 
     /**
+     * @var \DateTime
+     */
+    private $endTime;
+
+    /**
      * @var \BoosterBundle\Entity\Society
      */
-    private $society_id;
+    private $society;
 
-    public function __toString() {
-        return $this->society->getSocietyName();
-    }
 
     /**
      * Get id
@@ -61,33 +63,28 @@ class Transaction
     }
 
     /**
-     * Set societyId
+     * Set endTime
      *
-     * @param \BoosterBundle\Entity\Society $societyId
+     * @param \DateTime $endTime
      *
      * @return Transaction
      */
-    public function setSocietyId(\BoosterBundle\Entity\Society $societyId = null)
+    public function setEndTime($endTime)
     {
-        $this->society_id = $societyId;
+        $this->endTime = $endTime;
 
         return $this;
     }
 
     /**
-     * Get transactionId
+     * Get endTime
      *
-     * @return \BoosterBundle\Entity\Society
+     * @return \DateTime
      */
-    public function getSocietyId()
+    public function getEndTime()
     {
-        return $this->society_id;
+        return $this->endTime;
     }
-    /**
-     * @var \BoosterBundle\Entity\Society
-     */
-    private $society;
-
 
     /**
      * Set society
@@ -111,63 +108,5 @@ class Transaction
     public function getSociety()
     {
         return $this->society;
-    }
-    /**
-     * @var \DateTime
-     */
-    private $duration;
-
-
-    /**
-     * Set duration
-     *
-     * @param \DateTime $duration
-     *
-     * @return Transaction
-     */
-    public function setDuration($duration)
-    {
-        $this->duration = $duration;
-
-        return $this;
-    }
-
-    /**
-     * Get duration
-     *
-     * @return \DateTime
-     */
-    public function getDuration()
-    {
-        return $this->duration;
-    }
-    /**
-     * @var \DateTime
-     */
-    private $endTime;
-
-
-    /**
-     * Set endTime
-     *
-     * @param \DateTime $endTime
-     *
-     * @return Transaction
-     */
-    public function setEndTime($endTime)
-    {
-        $this->endTime = $endTime;
-
-        return $this;
-    }
-
-    /**
-     * Get endTime
-     *
-     * @return \DateTime
-     */
-    public function getEndTime()
-    {
-        return $this->endTime;
     }
 }

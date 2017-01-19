@@ -8,7 +8,7 @@ namespace BoosterBundle\Entity;
 class Faq
 {
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -31,7 +31,7 @@ class Faq
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
