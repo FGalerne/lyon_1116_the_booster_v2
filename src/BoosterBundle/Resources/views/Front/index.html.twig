@@ -93,9 +93,8 @@
                     </div>
 
                 {% endfor %}
-
+                <div class="col-xs-10 col-xs-offset-1">
                 {% for society in societies | slice(0, 16 - transactions|length) %}
-
                     {% if not society.transaction|default %}
                         <div class="col-xs-12 col-sm-3 col-md-3">
                             <a href="{{ path('public_dashboard',{'id': society.id }) }}">
@@ -109,8 +108,8 @@
                             </a>
                         </div>
                     {% endif %}
-
                 {% endfor %}
+                </div>
             </div>
         </div>
 
