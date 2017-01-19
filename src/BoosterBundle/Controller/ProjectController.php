@@ -42,9 +42,57 @@ class ProjectController extends Controller
             $em = $this->getDoctrine()->getManager();
             $project->setSociety($this->getUser()->getSociety());
             $project->setCreateTime($time);
-            $project->setCreationStatus('en attente');
+            $project->setCreationStatus(False);
             $project->setStatus('proposé');
             $project->setGivenTime(0);
+
+            //Set the variable used for sending the email.
+            $projectName = $form['projectName']->getData();
+            $category = $form['category']->getData();
+            $subject = 'Un projet est en attente de validation sur The-Booster.com';
+            $from = $this->getParameter('mailer_user');
+            $to = $this->getParameter('mailer_to');
+
+            // Sends an email to warn the web site manager that a project is waiting for a validation to be published.
+            $sendMessageToWebmaster = \Swift_Message::newInstance()
+                ->setSubject($subject)
+                ->setFrom($from)
+                ->setTo($to)
+                ->setBody(
+                    $this->renderView(
+                        'BoosterBundle:Emails:project_validation_email.html.twig',
+                        array(
+                            'project_name' => $projectName,
+                            'category' => $category,
+                            'project'  => $project,
+                        )
+                    ),
+                    'text/html'
+                );
+            $subject2 = 'Votre projet est en attente de modération sur The-Booster.com';
+            // Here the code to get the email of the user when we use FosUserBundle.
+            $toUser = $this->get('security.context')->getToken()->getUser()->getEmail();
+            // Sends an email to warn the user that his project is waiting for a validation to be published.
+            $sendMessageToSociety = \Swift_Message::newInstance()
+                ->setSubject($subject2)
+                ->setFrom($from)
+                ->setTo($toUser)
+                ->setBody(
+                    $this->renderView(
+                        'BoosterBundle:Emails:project_booste_mail_validation.html.twig',
+                        array(
+                            'project_name' => $projectName,
+                            'category' => $category,
+                            'project'  => $project,
+                        )
+                    ),
+                    'text/html'
+                );
+
+            $this->get('mailer')->send($sendMessageToWebmaster);
+            $this->get('mailer')->send($sendMessageToSociety);
+
+
             $em->persist($project);
             $em->flush();
             return $this->redirectToRoute('dashboard_society', array(
