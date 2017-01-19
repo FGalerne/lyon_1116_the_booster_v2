@@ -110,4 +110,3 @@ class Transaction
         return $this->society;
     }
 }
-

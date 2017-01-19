@@ -566,4 +566,43 @@ class Booster
     {
         return $this->projects;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $project_subscriptions;
+
+
+    /**
+     * Add projectSubscription
+     *
+     * @param \BoosterBundle\Entity\ProjectSubscription $projectSubscription
+     *
+     * @return Booster
+     */
+    public function addProjectSubscription(\BoosterBundle\Entity\ProjectSubscription $projectSubscription)
+    {
+        $this->project_subscriptions[] = $projectSubscription;
+
+        return $this;
+    }
+
+    /**
+     * Remove projectSubscription
+     *
+     * @param \BoosterBundle\Entity\ProjectSubscription $projectSubscription
+     */
+    public function removeProjectSubscription(\BoosterBundle\Entity\ProjectSubscription $projectSubscription)
+    {
+        $this->project_subscriptions->removeElement($projectSubscription);
+    }
+
+    /**
+     * Get projectSubscriptions
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProjectSubscriptions()
+    {
+        return $this->project_subscriptions;
+    }
 }
