@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {%  block title %}L'équipe | The Booster{% endblock %}
 {% block body %}
-    <div class="container-fluid">
+    <section class="container-fluid">
         <div class="row all_blsp_xs all_blsp_sm all_blsp_md"></div>
 
         <div class="row all_blsp">
@@ -10,28 +10,200 @@
                 <hr>
             </div>
         </div>
-        <div class="row who_blocimg">
-            <div class="col-xs-offset-3 col-xs-6 col-sm-offset-2 col-sm-3 col-md-offset-3 col-md-2" id="who_blocimg_pic1">
-                <img src="{{ asset('/img/the-booster-guylaine-antonini.png')}}" class="img-responsive who_img_portrait" alt="Guylaine Antonini cofondatrice The Booster">
-                <div class="who_blocsoc">
+
+        {# Here we present the team who worked on the booster project desktop presentation #}
+        {# Team on the left of the screen #}
+        <div class="container team-presentation">
+            <div class="col-md-3 team-block-left">
+                <div class="all-team left-team" id="person1">
                     <h2>Guylaine Antonini</h2>
-                    <div>
-                        <a href="https://twitter.com/Guyylaine" target="_blank"><img src="{{ asset('/img/twitter-the-booster-black.png')}}" alt="Twitter guylaine The Booster"></a>
-                        <a href="https://fr.linkedin.com/in/guylaineantonini" target="_blank"><img src="{{ asset('/img/linkedin-the-booster-black.png')}}" alt="Linkedin Guylaine The Booster"></a>
-                    </div>
+                    <h3>Chief Magical Officer (CMO)</h3>
+                    <hr class="hr-team-rocket">
+                    <p>"L’important ce n’est pas la destination, c’est le voyage"</p>
+                    <ul>
+                        <li><a href="https://twitter.com/Guyylaine" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="https://fr.linkedin.com/in/guylaineantonini/fr" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="all-team left-team" id="person2">
+                    <h2>Laurie Gandon</h2>
+                    <h3>Chief Happiness Developer</h3>
+                    <hr class="hr-team-rocket">
+                    <p>"La vie est une aventure, tout débute en dehors de sa zone de confort!"</p>
+                    <ul>
+                        <li><a href="https://twitter.com/Laurie_Gandon" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/lauriegandon" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="https://github.com/lauriegandon" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="all-team left-team" id="person3">
+                    <h2>Yoann Gloaguen</h2>
+                    <h3>Chief Computer Addict</h3>
+                    <hr class="hr-team-rocket">
+                    <p>"L’important ce n’est pas la destination, c’est le voyage"</p>
+                    <ul>
+                        <li><a href="https://fr.linkedin.com/in/yoanngloaguen" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="https://github.com/yoannGloaguen" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-xs-offset-3 col-xs-6 col-sm-offset-2 col-sm-3 col-md-offset-2 col-md-2" id="who_blocimg_pic2">
-                <img src="{{ asset('/img/the-booster-nicolas-antonini.png')}}" class="img-responsive who_img_portrait" alt="Nicolas Antonini cofondateur The Booster">
-                <div class="who_blocsoc">
+
+            {# The div who's contain the rocket team image #}
+            <div class="col-md-6 team-rocket">
+                <img src="{{ asset('img/the-booster-equipe.png') }}" alt="Presentation de l'équipe the booster">
+            </div>
+            {# Team on the right of the screen #}
+            <div class="col-md-3 team-block-right">
+                <div class="all-team right-team" id="person4">
                     <h2>Nicolas Antonini</h2>
-                    <div>
-                        <a href="https://twitter.com/nicolasantonini" target="_blank"><img src="{{ asset('/img/twitter-the-booster-black.png')}}" alt="Twitter Nicolas The Booster"></a>
-                        <a href="https://fr.linkedin.com/in/nicolasantonini" target="_blank"><img src="{{ asset('/img/linkedin-the-booster-black.png')}}" alt="Linkedin Nicolas The Booster"></a>
-                    </div>
+                    <h3>Chief Enthusiastic Officer (CEO)</h3>
+                    <hr class="hr-team-rocket">
+                    <p>"La meilleure façon de prédire l'avenir est de le créer."</p>
+                    <ul>
+                        <li><a href="https://twitter.com/nicolasantonini" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="https://fr.linkedin.com/in/nicolasantonini" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="all-team right-team" id="person5">
+                    <h2>Riad Hacini</h2>
+                    <h3>Chief Web Panda Developer</h3>
+                    <hr class="hr-team-rocket">
+                    <p>"Bon, je vais mettre la cafetière en root!"</p>
+                    <ul>
+                        <li><a href="https://twitter.com/Riad_Hacini" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/hacini-riad" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="https://github.com/RiadHacini" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="all-team right-team" id="person6">
+                    <h2>Cédric Gamrat</h2>
+                    <h3>Chief Philosophical Developer</h3>
+                    <hr class="hr-team-rocket">
+                    <p>"Le code c'est comme un chapitre dans un livre, il y a toujours une suite"</p>
+                    <ul>
+                        <li><a href="https://twitter.com/CedricGamrat" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="https://fr.linkedin.com/in/cedric-gamrat" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="https://github.com/Wingelo" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
+    </section>
+
+    {# Here the mobile version of the team presentation #}
+
+    <section class="mobile-display">
+        <div class="col-xs-12">
+            {# Here we got a complete presentation of one person from the team #}
+            <div class="right-team all-team">
+                <div class="col-xs-4 img-portrait-mobile">
+                    <img src="{{ asset('img/guylaine-antonini.png') }}">
+                </div>
+                <div class="col-xs-8">
+                    <h2>Guylaine Antonini</h2>
+                    <h3>Chief Magical Officer (CMO)</h3>
+                    <hr class="hr-team-rocket">
+                    <p>"L’important ce n’est pas la destination, c’est le voyage"</p>
+                    <ul>
+                        <li><a href="https://twitter.com/Guyylaine" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="https://fr.linkedin.com/in/guylaineantonini/fr" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+           </div>
+
+            <div class="right-team all-team">
+                <div class="col-xs-4 img-portrait-mobile">
+                    <img src="{{ asset('img/nicolas-antonini.png') }}">
+                </div>
+                <div class="col-xs-8">
+                    <h2>Nicolas Antonini</h2>
+                    <h3>Chief Enthusiastic Officer (CEO)</h3>
+                    <hr class="hr-team-rocket">
+                    <p>"La meilleure façon de prédire l'avenir est de le créer."</p>
+                    <ul>
+                        <li><a href="https://twitter.com/nicolasantonini" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="https://fr.linkedin.com/in/nicolasantonini" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="right-team all-team">
+                <div class="col-xs-4 img-portrait-mobile">
+                    <img src="{{ asset('img/laurie-gandon.png') }}">
+                </div>
+                <div class="col-xs-8">
+                    <h2>Laurie Gandon</h2>
+                    <h3>Chief Happiness Developer</h3>
+                    <hr class="hr-team-rocket">
+                    <p>"La vie est une aventure, tout débute en dehors de sa zone de confort!"</p>
+                    <ul>
+                        <li><a href="https://twitter.com/Laurie_Gandon" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/lauriegandon" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="https://github.com/lauriegandon" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="right-team all-team">
+                <div class="col-xs-4 img-portrait-mobile">
+                    <img src="{{ asset('img/riad-hacini.png') }}">
+                </div>
+                <div class="col-xs-8">
+                    <h2>Riad Hacini</h2>
+                    <h3>Web Developer</h3>
+                    <hr class="hr-team-rocket">
+                    <p>"Bon, je vais mettre la cafetière en root!"</p>
+                    <ul>
+                        <li><a href="https://twitter.com/Riad_Hacini" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/hacini-riad" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="https://github.com/RiadHacini" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="right-team all-team">
+                <div class="col-xs-4 img-portrait-mobile">
+                    <img src="{{ asset('img/yoann-g.png') }}">
+                </div>
+                <div class="col-xs-8">
+                    <h2>Yoann Gloaguen</h2>
+                    <h3>Chief Computer Addict</h3>
+                    <hr class="hr-team-rocket">
+                    <p>"L’important ce n’est pas la destination, c’est le voyage"</p>
+                    <ul>
+                        <li><a href="https://fr.linkedin.com/in/yoanngloaguen" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="https://github.com/yoannGloaguen" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="right-team all-team">
+                <div class="col-xs-4 img-portrait-mobile">
+                    <img src="{{ asset('img/cedric-gamrat.png') }}">
+                </div>
+                <div class="col-xs-8">
+                    <h2>Cédric Gamrat</h2>
+                    <h3>Chief Philosophical Developer</h3>
+                    <hr class="hr-team-rocket">
+                    <p>"Le code c'est comme un chapitre dans un livre, il y a toujours une suite"</p>
+                    <ul>
+                        <li><a href="https://twitter.com/CedricGamrat" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="https://fr.linkedin.com/in/cedric-gamrat" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="https://github.com/Wingelo" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {# End of the team presentation MOBILE DISPLAY #}
+
+    <section class="container-fluid">
         <div class="row who_bltxt" id="who_bltxt_ext">
             <div class=" who_bltxt col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8" id="who_bltxt_int">
 
@@ -45,6 +217,5 @@
                 </p>
             </div>
         </div>
-
-    </div>
+    </section>
 {% endblock %}

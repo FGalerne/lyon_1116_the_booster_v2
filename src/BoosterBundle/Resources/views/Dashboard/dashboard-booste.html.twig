@@ -7,7 +7,7 @@
             <div class="container prelude">
                 <div class="col-xs-12 col-md-9 dashboard-society">
                     <div class="col-xs-12 col-md-4 society-photo">
-                        <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/avatar-default.png') }}" alt="photo couverture société" />
+                        <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/photo-couverture-profile-societe.png') }}" alt="photo couverture société" />
                     </div>
                     <div class="col-xs-12 col-md-4">
                         <h1 class="text-left">{{ society.societyName }}</h1>
@@ -104,6 +104,7 @@
                 {#{% if {{ project.status }} ==  %} #}
                 <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
                 {% for project in projects %}
+                    {% if project.status == 'proposé' %}
                     <div class="container project-in-progress prelude">
                         <div class="col-xs-6 col-md-3">
                             <p>Nom de la société</p>
@@ -126,13 +127,15 @@
                             <p>{{ project.status }}</p>
                         </div>
                     </div>
-                    {% endfor %}
+                    {% endif %}
+                {% endfor %}
                 </section>
 
                 {# The Project part "DONE" #}
 
                 <section class="container-fluid presentation-booster" id="dashboard-booster-done">
-                    {% for project in projects %}
+                {% for project in projects %}
+                    {% if project.status == 'accepté' %}
                     <div class="container prelude project-done">
                         <div class="col-xs-6 col-md-3">
                             <p>Nom de la société</p>
@@ -155,7 +158,8 @@
                             <p>{{ project.status }}</p>
                         </div>
                     </div>
-                    {% endfor %}
+                    {% endif %}
+                {% endfor %}
                 </section>
 
                 {# Options payantes #}

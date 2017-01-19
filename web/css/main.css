@@ -1009,7 +1009,7 @@ hr{
 /*********************** DASHBOARD BOOSTER ***********************/
 
 .global-presentation {
-	padding: 35px 0 0 0;
+	padding: 35px 0 65px 0;
 }
 
 #statistic-society,
@@ -1077,10 +1077,6 @@ hr{
 .drop-nav-perso i {
 	color: #000000;
 	padding-right: 10px;
-}
-
-.presentation-booster {
-	margin-bottom: 60px;
 }
 
 .booster-skill ul {
@@ -1768,3 +1764,190 @@ a:hover {
 .faq-height{
 	min-height: 500px;
 }
+
+
+
+/************************** TEAM PAGE **************************/
+
+.team-block-left {
+	margin-top: 280px;
+}
+
+.team-block-right {
+	margin-top: 340px;
+}
+
+.team-presentation {
+	margin-bottom: 75px;
+}
+
+.team-rocket img {
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+}
+
+/* Here we manage the css of the h2 h3 and p */
+
+.all-team h2 {
+	font-size: 1.2em;
+	padding: 0;
+	margin: 0;
+}
+
+.all-team h3 {
+	font-size: 1.1em;
+	padding: 10px 0 0 0;
+	margin: 0;
+}
+
+.all-team p {
+	font-size: 1em;
+	padding: 0;
+	margin: 0;
+}
+
+.all-team ul li {
+	list-style: none;
+	display: inline-block;
+	padding: 2px 0 0 8px;
+	color: #FFFFFF;
+	font-size: 1em;
+	background-color: #dd4444;
+	border-radius: 50%;
+	width: 33px;
+	height: 33px;
+	margin-top: 5px;
+}
+
+.all-team ul li:hover {
+	background-color: #363636;
+}
+.all-team a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.left-team ul li {
+	float: right;
+	margin-left: 10px;
+}
+
+.hr-team-rocket {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	height: 2px;
+}
+
+.left-team h2,
+.left-team h3,
+.left-team p {
+	text-align: right;
+}
+
+.right-team ul li {
+	float: left;
+	margin-right: 10px;
+}
+
+.right-team ul {
+	padding: 0;
+}
+
+.right-team h2,
+.right-team h3,
+.right-team p {
+	text-align: left;
+}
+/* Here we manage the disposition of the different person */
+
+#person1,
+#person2,
+#person3,
+#person4,
+#person5,
+#person6 {
+	margin-bottom: 50px;
+}
+
+/*************************** here the mobile version of the team page *****************************/
+
+@media screen and (max-width: 1199px){
+	.all-team h2 {
+		font-size: 1em;
+		padding: 0;
+		margin: 0;
+	}
+	.all-team h3 {
+		font-size: 1em;
+		padding: 10px 0 0 0;
+		margin: 0;
+	}
+	.all-team p {
+		font-size: 0.9em;
+		padding: 0;
+		margin: 0;
+	}
+	.team-block-left {
+		margin-top: 220px;
+	}
+	.team-block-right {
+		margin-top: 250px;
+	}
+}
+
+@media screen and (min-width : 530px) and (max-width: 994px){
+	.hr-team-rocket {
+		width: 60%;
+		padding: 0;
+		margin: 0;
+		height: 2px;
+	}
+}
+
+@media screen and (min-width : 995px) {
+	.mobile-display {
+		display: none;
+	}
+}
+
+@media screen and (max-width : 995px) {
+
+	.who_bltxt {
+		margin-bottom: 75px;
+	}
+
+	.team-rocket img,
+	.team-presentation {
+		display: none;
+	}
+	.team-block-left {
+		margin-top: 0;
+	}
+
+	.team-block-right {
+		margin-top: 0;
+	}
+
+	.img-portrait-mobile img {
+		display: block;
+		margin: 0 auto;
+		max-width: 120px;
+		min-width: 75px;
+		padding-top: 10px;
+	}
+
+	.all-team {
+		padding-bottom: 200px;
+	}
+}
+
+
+/*CGV/CGU*/
+.cgv-article{
+	margin-top: 60px;
+	font-size: 18px;
+	font-weight: bold;
+}
+

@@ -449,4 +449,72 @@ class Project
 
         return $this;
     }
+    /**
+     * @var \BoosterBundle\Entity\Booster
+     */
+    private $booster;
+
+
+    /**
+     * Set booster
+     *
+     * @param \BoosterBundle\Entity\Booster $booster
+     *
+     * @return Project
+     */
+    public function setBooster(\BoosterBundle\Entity\Booster $booster = null)
+    {
+        $this->booster = $booster;
+
+        return $this;
+    }
+
+    /**
+     * Get booster
+     *
+     * @return \BoosterBundle\Entity\Booster
+     */
+    public function getBooster()
+    {
+        return $this->booster;
+    }
+
+    /**
+     * Add booster
+     *
+     * @param \BoosterBundle\Entity\Booster $booster
+     *
+     * @return Project
+     */
+    public function addBooster(\BoosterBundle\Entity\Booster $booster)
+    {
+        $this->booster[] = $booster;
+
+        return $this;
+    }
+
+    /**
+     * Remove booster
+     *
+     * @param \BoosterBundle\Entity\Booster $booster
+     */
+    public function removeBooster(\BoosterBundle\Entity\Booster $booster)
+    {
+        $this->booster->removeElement($booster);
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $boosters;
+
+
+    /**
+     * Get boosters
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBoosters()
+    {
+        return $this->boosters;
+    }
 }

@@ -12,6 +12,8 @@ class BoosterRepository extends \Doctrine\ORM\EntityRepository
     /**
      * @param $id
      * @return array
+     *
+     * The function getDashboardById allowed to get all the dashboards
      */
 
 	public function getDashboardById($id)
@@ -23,5 +25,15 @@ class BoosterRepository extends \Doctrine\ORM\EntityRepository
 
         return $req->getResult();
     }
+	public function getDashboardBySlug($slug)
+	{
+		$req = $this->createQueryBuilder('a')
+			->where('a.slug = :slug')
+			->setParameter('slug', $slug)
+			->getQuery();
+
+		return $req->getResult();
+	}
+
 
 }
