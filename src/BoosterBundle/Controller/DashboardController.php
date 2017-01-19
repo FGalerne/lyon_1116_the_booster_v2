@@ -318,10 +318,10 @@ class DashboardController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
-            //set project-subscription status to 'en cours'
+            //set project-subscription status to 'In_progress'
             $subscriptionRepository->chooseProjectSubscriber($subscriptionId);
 
-            //set project status to 'en cours'
+            //set project status to 'In_progress'
             $projectRepository->updateProjectStatus($projectId);
 
             //send the message to the booster
