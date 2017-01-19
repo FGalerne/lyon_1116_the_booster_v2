@@ -1,74 +1,76 @@
 <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
     {% for project in projects %}
         {% set showSubscriptions = 1 %}
-        {% if project.status != 'proposé' %}
+        {% if project.status != 'Open' %}
             {% set showSubscriptions = 0 %}
         {% endif %}
-            <div class="container project-in-progress prelude">
-                <div class="row">
-                    <div class="col-xs-6 col-md-3">
-                        <p>Nom de la société</p>
-                        <p>{{ society.societyName }}</p>
+            {% if project.status != 'Done' and project.creationStatus == true %}
+                <div class="container project-in-progress prelude">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-3">
+                            <p>Nom de la société</p>
+                            <p>{{ society.societyName }}</p>
+                        </div>
+                        <div class="col-xs-6 col-md-3">
+                            <p>Nom du projet :</p>
+                            <p>{{ project.projectName }}</p>
+                        </div>
+                        <div class="col-xs-6 col-md-2">
+                            <p>Nombre d'heures:</p>
+                            <p>{{ project.givenTime }}</p>
+                        </div>
+                        <div class="col-xs-6 col-md-2">
+                            <p>Catégorie:</p>
+                            <p>{{ project.category }}</p>
+                        </div>
+                        <div class="col-xs-6 col-md-2">
+                            <p>Statut:</p>
+                            <p>{{ project.status }}</p>
+                        </div>
+                        <div class="col-xs-12 ">
+                            <p class="text-left">{{ project.description }}</p>
+                        </div>
                     </div>
-                    <div class="col-xs-6 col-md-3">
-                        <p>Nom du projet :</p>
-                        <p>{{ project.projectName }}</p>
-                    </div>
-                    <div class="col-xs-6 col-md-2">
-                        <p>Nombre d'heures:</p>
-                        <p>{{ project.givenTime }}</p>
-                    </div>
-                    <div class="col-xs-6 col-md-2">
-                        <p>Catégorie:</p>
-                        <p>{{ project.category }}</p>
-                    </div>
-                    <div class="col-xs-6 col-md-2">
-                        <p>Statut:</p>
-                        <p>{{ project.status }}</p>
-                    </div>
-                    <div class="col-xs-12 ">
-                        <p class="text-left">{{ project.description }}</p>
-                    </div>
-                </div>
-                {% if showSubscriptions %}
-                {% for subscription in project.projectSubscriptions %}
+                    {% if showSubscriptions %}
+                        {% for subscription in project.projectSubscriptions %}
 
-                    <div class="sub-container row">
-                        <div class="col-xs-3">
-                            <div class="col-xs-6">
-                                <em class="text-left">{{ subscription.createTime|date('Y-m-d') }}</em><br/>
-                                <em class="text-left">{{ subscription.createTime|date('H:i:s') }}</em><br/>
+                            <div class="sub-container row">
+                                <div class="col-xs-3">
+                                    <div class="col-xs-6">
+                                        <em class="text-left">{{ subscription.createTime|date('Y-m-d') }}</em><br/>
+                                        <em class="text-left">{{ subscription.createTime|date('H:i:s') }}</em><br/>
+                                    </div>
+                                    <div class="col-xs-6 avatar-messenger">
+                                        <img src="{{ subscription.booster.photo|default ? asset('img/uploads/societies/' ~ subscription.booster.photo) : asset('img/photo-couverture-profile-societe.png') }}" alt="photo-avatar"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p class="text-left"><strong>{{ subscription.booster.user.firstName }}</strong> : {{ subscription.message }}</p>
+                                </div>
+                                <div class="col-xs-1">
+                                    <p class="text-left"><strong>{{ subscription.givenTime }} H</strong></p>
+                                </div>
+                                <div class="col-xs-2">
+                                    <a href="{{ path('dashboard_booster', {'id': subscription.booster.id }) }}" title="Le voir">
+                                        Le voir
+                                    </a><br/>
+                                    <a href="{{ path('dashboard_contact_booster', {'societyId': app.user.society.id, 'projectId': subscription.project.id, 'subscriptionId': subscription.id }) }}" title="Le contacter">
+                                        Le contacter
+                                    </a>
+                                </div>
                             </div>
-                            <div class="col-xs-6 avatar-messenger">
-                                <img src="{{ subscription.booster.photo|default ? asset('img/uploads/societies/' ~ subscription.booster.photo) : asset('img/photo-couverture-profile-societe.png') }}" alt="photo-avatar"/>
-                            </div>
-                        </div>
-                        <div class="col-xs-6">
-                            <p class="text-left"><strong>{{ subscription.booster.user.firstName }}</strong> : {{ subscription.message }}</p>
-                        </div>
-                        <div class="col-xs-1">
-                            <p class="text-left"><strong>{{ subscription.givenTime }} H</strong></p>
-                        </div>
-                        <div class="col-xs-2">
-                            <a href="{{ path('dashboard_booster', {'id': subscription.booster.id }) }}" title="Le voir">
-                                Le voir
-                            </a><br/>
-                            <a href="{{ path('dashboard_contact_booster', {'societyId': app.user.society.id, 'projectId': subscription.project.id, 'subscriptionId': subscription.id }) }}" title="Le contacter">
-                                Le contacter
-                            </a>
-                        </div>
-                    </div>
 
-                {% endfor %}
-                    {% else %}
-                        <div class="sub-container row">
-                            <div class="col-xs-12">
-                                Projet en cours de réalisation !
+                        {% endfor %}
+
+                        {% else %}
+                            <div class="sub-container row">
+                                <div class="col-xs-12">
+                                    Projet en cours de réalisation !
+                                </div>
                             </div>
-                        </div>
+                    {% endif %}
+
                 {% endif %}
-
             </div>
-
     {% endfor %}
 </section>

@@ -69,9 +69,10 @@
         <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
             {% for project in projects %}
                 {% set showSubscriptions = 1 %}
-                {% if project.status != 'proposé' %}
+                {% if project.status != 'Open' %}
                     {% set showSubscriptions = 0 %}
                 {% endif %}
+                {% if project.status != 'Done' and project.creationStatus == true %}
                     <div class="container project-in-progress prelude">
                         <div class="row">
                             <div class="col-xs-6 col-md-3">
@@ -124,7 +125,7 @@
                                         </a>
                                     {% endif %}
                                 {% else %}
-                                    <a class="col-xs-12 postuled-button" href="">
+                                    <a class="col-xs-12 postuled-button">
                                         Vous avez postulé pour ce projet !
                                     </a>
                                 {% endif %}
@@ -142,6 +143,7 @@
                             </div>
                         {% endif %}
                     </div>
+                {% endif %}
             {% endfor %}
         </section>
 
@@ -149,28 +151,30 @@
 
         <section class="container-fluid presentation-booster" id="dashboard-booster-done">
             {% for project in projects %}
-                <div class="container prelude project-done">
-                    <div class="col-xs-6 col-md-3">
-                        <p>Nom de la société</p>
-                        <p>{{ society.societyName }}</p>
+                {% if project.status == 'Done' %}
+                    <div class="container prelude project-done">
+                        <div class="col-xs-6 col-md-3">
+                            <p>Nom de la société</p>
+                            <p>{{ society.societyName }}</p>
+                        </div>
+                        <div class="col-xs-6 col-md-3">
+                            <p>Nom du projet :</p>
+                            <p>{{ project.projectName }}</p>
+                        </div>
+                        <div class="col-xs-6 col-md-2">
+                            <p>Nombre d'heures:</p>
+                            <p>{{ project.givenTime }}</p>
+                        </div>
+                        <div class="col-xs-6 col-md-2">
+                            <p>Catégorie:</p>
+                            <p>{{ project.category }}</p>
+                        </div>
+                        <div class="col-xs-6 col-md-2">
+                            <p>Statut:</p>
+                            <p>{{ project.status }}</p>
+                        </div>
                     </div>
-                    <div class="col-xs-6 col-md-3">
-                        <p>Nom du projet :</p>
-                        <p>{{ project.projectName }}</p>
-                    </div>
-                    <div class="col-xs-6 col-md-2">
-                        <p>Nombre d'heures:</p>
-                        <p>{{ project.givenTime }}</p>
-                    </div>
-                    <div class="col-xs-6 col-md-2">
-                        <p>Catégorie:</p>
-                        <p>{{ project.category }}</p>
-                    </div>
-                    <div class="col-xs-6 col-md-2">
-                        <p>Statut:</p>
-                        <p>{{ project.status }}</p>
-                    </div>
-                </div>
+                {% endif %}
             {% endfor %}
         </section>
     </section>

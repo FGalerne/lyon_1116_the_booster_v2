@@ -35,7 +35,7 @@ class ProjectRepository extends \Doctrine\ORM\EntityRepository
             ->set('a.status', '?2')
             ->where('a.id = ?1')
             ->setParameter(1, $projectId)
-            ->setParameter(2, 'en cours')
+            ->setParameter(2, 'In_progress')
             ->getQuery();
 
         return $qb->execute();
