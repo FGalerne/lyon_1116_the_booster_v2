@@ -289,7 +289,7 @@ class DashboardController extends Controller
                 'class' => 'WYSIWYG form-control form-group',
             ),
             'required'    => false,
-            'empty_data'  => "J'accepete votre coup de boost"
+            'empty_data'  => "J'accepte votre coup de boost"
         ));
 
         $em = $this->getDoctrine()->getManager();
@@ -307,8 +307,9 @@ class DashboardController extends Controller
         //ProjectSubscription entity
         $subscription = $subscriptionRepository->findOneById($subscriptionId);
 
-        $user1 = $project->getSociety()->getUser();
-        $user2 = $subscription->getBooster()->getUser();
+
+        $messageSender = $project->getSociety()->getUser();
+        $messageReceiver = $subscription->getBooster()->getUser();
         $title = $project->getProjectName();
 
         $form->get('title')->setData($title);
@@ -324,9 +325,11 @@ class DashboardController extends Controller
             //set project status to 'In_progress'
             $projectRepository->updateProjectStatus($projectId);
 
-            //send the message to the booster
-            $message->setUser1($user1);
-            $message->setUser2($user2);
+            /*send the message to the booster*/
+            //sender of the message
+            $message->setUser1($messageSender);
+            //receiver of the message
+            $message->setUser2($messageReceiver);
             $message->setUser1Read(1);
             $message->setUser2Read(0);
             $message->setCreateTime(new \DateTime('now'));
