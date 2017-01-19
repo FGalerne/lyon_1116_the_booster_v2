@@ -43,19 +43,16 @@ class DashboardController extends Controller
             if(count($socOnHomePage) > 15) {
                 $avaliable = false;
             }
-
-                return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
-                    'socOnHomePage' => $socOnHomePage,
-                    'avaliable' => $avaliable,
-                    'societies' => $societies,
-                    'user' => $user,
-                    'messengers' => $messengers,
-                    'projects' => $projects,
-                    'form' => $form->createView(),
-                ));
+            return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
+                'socOnHomePage' => $socOnHomePage,
+                'avaliable' => $avaliable,
+                'societies' => $societies,
+                'user' => $user,
+                'messengers' => $messengers,
+                'projects' => $projects,
+                'form' => $form->createView(),
+            ));
         }
-
-
 
         return $this->redirectToRoute('booster_charte');
     }
@@ -266,6 +263,19 @@ class DashboardController extends Controller
             'id' => $booster->getId(),
             'booster' => $booster,
             'edit_form' => $editForm->createView(),
+        ));
+    }
+
+    public function publicDashboardAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $society = $em->getRepository('BoosterBundle:Society')->findOneById($id);
+        //projectNames = Entity Project
+        $projects = $society->getProjectNames();
+
+        return $this->render('BoosterBundle:Dashboard:public-dashboard.html.twig', array(
+            'society' => $society,
+            'projects' => $projects,
         ));
     }
 

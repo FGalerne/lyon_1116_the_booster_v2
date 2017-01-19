@@ -79,18 +79,10 @@ BoosterBundle\Entity\Booster:
             nullable: true
             column: average_notation
 
-    manyToMany:
-        projects:
-            targetEntity: BoosterBundle\Entity\Project
-            inversedBy: projects
-            joinTable:
-              name:  booster_project
-              joinColumns:
-                booster_id:
-                  referencedColumnName: id
-              inverseJoinColumns:
-                project_id:
-                  referenceColumnName: id
+    oneToMany:
+        project_subscriptions:
+            targetEntity: BoosterBundle\Entity\ProjectSubscription
+            mappedBy: booster
 
     oneToOne:
         user:
