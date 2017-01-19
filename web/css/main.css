@@ -828,47 +828,32 @@ hr{
 
 /******************** PAGE | COMMENT CA MARCHE ********************/
 
-#price {
-	background-color: rgba(0, 0, 0, 0.1);
-	padding-top: 35px;
-	padding-bottom: 100px;
-}
-
 .h1_toppage_CCM {
 	font-size: 37px;
 	letter-spacing: -2px;
 }
 
-#booster-prices{
-	margin-top: 50px;
-}
-
-.booster-formula {
+.btn_meshing {
 	text-align: center;
-	border-left: 4px solid #363636;
-	border-top: 4px solid #363636;
-	border-bottom: 4px solid #363636;
-	background-color: #ffffff;
-	height: 450px;
+	margin-top: 8vh;
+	margin-bottom: 8vh;
 }
 
-#last-booster-formula {
-	border-right: 4px solid #363636;
+.btn_subs_how {
+	font-size:1.4em;
+	font-weight:900;
+	margin-bottom:1vh;
+	background-color: #eb0310;
+	color:white;
+	padding: 35px 45px;
 }
 
-@media screen and (max-width: 991px) {
-	.booster-formula {
-		text-align: center;
-		border-left: 4px solid #363636;
-		border-top: 4px solid #363636;
-		border-right: 4px solid #363636;
-	}
-	#last-booster-formula {
-		border-bottom: 4px solid #363636;
-	}
-
+.video_how {
+	margin-top: 6vh;
+	margin-bottom:6vh;
 }
-.booster-formula h4 {
+
+/*.booster-formula h4 {
 	margin-top: 25px;
 }
 
@@ -915,7 +900,7 @@ hr{
 #limit-project p {
 	margin-top: 10px;
 	text-align: center;
-}
+}*/
 
 /* CSS tempo */
 
@@ -1388,8 +1373,13 @@ and (-webkit-min-device-pixel-ratio: 1) {
 }
 
 .btn_subs {
+	font-size:1.4em;
+	font-weight:900;
 	margin-top: 20px;
 	margin-bottom: 8vh;
+	background-color: #eb0310;
+	color:white;
+	padding: 25px 35px;
 }
 
 .txt_subs{
