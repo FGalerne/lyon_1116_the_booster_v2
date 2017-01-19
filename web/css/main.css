@@ -1649,6 +1649,7 @@ a:hover {
 }
 
 /* Pages notes and comments Booster and Society */
+
 .block_top {
 	text-align: center;
 	margin-top: 4vh;
@@ -1663,6 +1664,26 @@ a:hover {
 .btn_send_note {
 	margin-bottom: 7vh;
 }
+
+
+/* Page confirmation note and comment sent */
+
+.block_confirm_note_sent {
+	text-align: center;
+	margin-top: 6vh;
+	margin-bottom: 13vh;
+}
+
+.h1_conf_note {
+	margin-bottom: 5vh;
+}
+
+.p_txt_confirm_note {
+	margin-bottom: 18vh;
+}
+
+
+
 
 /* Dashboards */
 

@@ -42,7 +42,7 @@ class NotesBoosterType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BoosterBundle\Entity\Project'
+            'data_class' => 'BoosterBundle\Entity\ProjectSubscription'
         ));
     }
 

@@ -3,8 +3,6 @@
 namespace BoosterBundle\Controller;
 
 use BoosterBundle\Entity\Project;
-use BoosterBundle\Form\NotesBoosterType;
-use BoosterBundle\Form\NotesSocietyType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Console\Tests\Helper\FormatterHelperTest;
 use Symfony\Component\HttpFoundation\Request;
@@ -129,42 +127,6 @@ class ProjectController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
-    }
-
-    /**
-     * Page notation and comments
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function notesCommentsAction(Request $request, Project $projectId)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $project = $em->getRepository('BoosterBundle:Project')->find($projectId);
-
-        $form1 = $this->createForm(NotesBoosterType::class, $project);
-        $form1->handleRequest($request);
-        if ($form1->isSubmitted()) {
-            $project = $form1->getData();
-            $em->persist($project);
-            $em->flush();
-
-            return $this->render('BoosterBundle:Notes:confirmednote.html.twig');
-
-        }
-
-        $form2 = $this->createForm(NotesSocietyType::class, $project);
-        $form2->handleRequest($request);
-        if ($form2->isSubmitted() && $form2->isValid()) {
-            $project = $form2->getData();
-            $em->persist($project);
-            $em->flush();
-
-            return $this->render('BoosterBundle:Notes:confirmednote.html.twig');
-    }
-
-    return $this-> render('BoosterBundle:Notes:notes_comments.html.twig', array(
-        'form1' => $form1->createView(),
-        'form2' => $form2->createView(),
-    ));
     }
 
 }

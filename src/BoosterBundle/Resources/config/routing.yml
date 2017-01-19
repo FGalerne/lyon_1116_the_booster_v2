@@ -74,12 +74,12 @@ new_project:
 
 notes_comments:
     path:   /notez-votre-experience/{id}/
-    defaults: { _controller: BoosterBundle:Project:notesComments }
+    defaults: { _controller: BoosterBundle:ProjectSubscription:notesComments }
     methods:  [GET, POST]
 
 confirmation_notes:
     path:   /envoi-note-confirmation
-    defaults: { _controller: BoosterBundle:Project:notesComments}
+    defaults: { _controller: BoosterBundle:ProjectSubscription:notesComments}
     methods: GET
 
 show_projects:
