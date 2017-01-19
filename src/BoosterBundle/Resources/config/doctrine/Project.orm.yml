@@ -52,11 +52,6 @@ BoosterBundle\Entity\Project:
                 name: society_id
                 referencedColumnName: id
 
-    manyToMany:
-        boosters:
-            targetEntity: BoosterBundle\Entity\Booster
-            mappedBy: projects
-
     oneToMany:
         project_subscriptions:
             targetEntity: BoosterBundle\Entity\ProjectSubscription
