@@ -48,7 +48,7 @@ span {
 	background-color: #FAFAFA;
 	padding: 30px;
 }
-
+/******* Background Radial for Booste Dashboards *******/
 .blueHour {
 	background:
 			radial-gradient(55% 330%, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0.5) 550%),
@@ -77,6 +77,8 @@ span {
 .text-left{
 	text-align: left !important;
 }
+
+/************************ NAVBAR  ***********************/
 
 .navbar {
 	background-color: white;
