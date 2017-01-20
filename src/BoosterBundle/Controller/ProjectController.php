@@ -75,7 +75,7 @@ class ProjectController extends Controller
             $sendMessageToSociety = \Swift_Message::newInstance()
                 ->setSubject($subject2)
                 ->setFrom($from)
-                ->setTo($toUser)
+				->setTo($toUser)
                 ->setBody(
                     $this->renderView(
                         'BoosterBundle:Emails:project_booste_mail_validation.html.twig',
