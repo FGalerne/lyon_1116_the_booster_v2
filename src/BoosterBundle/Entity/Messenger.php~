@@ -226,3 +226,4 @@ class Messenger
         return $this->user2;
     }
 }
+

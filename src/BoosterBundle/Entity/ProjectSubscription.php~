@@ -313,3 +313,4 @@ class ProjectSubscription
         return $this->project;
     }
 }
+

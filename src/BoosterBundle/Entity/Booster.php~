@@ -573,3 +573,4 @@ class Booster
         return $this->projects;
     }
 }
+

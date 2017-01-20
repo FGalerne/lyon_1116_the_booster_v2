@@ -70,7 +70,7 @@ class ProjectController extends Controller
                 );
             $subjectToUser = 'Votre projet est en attente de modération sur The-Booster.com';
             // Here the code to get the email of the user when we use FosUserBundle.
-            $toUser = $this->get('security.context')->getToken()->getUser()->getEmail();
+            $toUser = $this->get('security.token_storage')->getToken()->getUser()->getEmail();;
             // Sends an email to warn the user that his project is waiting for a validation to be published.
             $sendMessageToSociety = \Swift_Message::newInstance()
                 ->setSubject($subjectToUser)

@@ -19,9 +19,8 @@ BoosterBundle\Entity\Society:
             length: 255
             column: society_name
         punchLine:
-            type: string
+            type: text
             nullable: false
-            length: 140
             column: punch_line
         presentation:
             type: text

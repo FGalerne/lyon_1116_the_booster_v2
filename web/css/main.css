@@ -1556,6 +1556,7 @@ a:hover {
 	border: solid white;
 	overflow: hidden;
 	height: 310px;
+	background-color: #ffffff;
 }
 
 .global-society:hover{
@@ -1563,6 +1564,8 @@ a:hover {
 }
 
 .global-society img {
+	display: block;
+	margin: 0 auto;
 	width: auto;
 	height: 250px;
 	position: relative;

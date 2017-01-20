@@ -504,3 +504,4 @@ class Society
         return $this->project_names;
     }
 }
+
