@@ -91,7 +91,6 @@ class ProjectController extends Controller
             $this->get('mailer')->send($sendMessageToWebmaster);
             $this->get('mailer')->send($sendMessageToSociety);
 
-
             $em->persist($project);
             $em->flush();
             return $this->redirectToRoute('dashboard_society', array(
