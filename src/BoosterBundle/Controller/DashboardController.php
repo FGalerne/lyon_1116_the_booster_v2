@@ -158,6 +158,8 @@ class DashboardController extends Controller
         $user = $this->getUser();
         $userId = $user->getId();
 
+        $subscriptions = $em->getRepository('BoosterBundle:ProjectSubscription')->getProjectsSubscriptionsById($id);
+
         if ($user != null) {
             //messages
             $messenger = new Messenger();
@@ -172,6 +174,7 @@ class DashboardController extends Controller
                 }
             }
             return $this->render('BoosterBundle:Dashboard:dashboard-booster.html.twig', array(
+                'subscriptions' => $subscriptions,
                 'boosters' => $boosters,
                 'user' => $user,
                 'messengers' => $messengers,

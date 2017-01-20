@@ -1975,3 +1975,6 @@ a:hover {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
+.button-cancel-subscription:hover{
+	cursor: pointer;
+}

@@ -102,6 +102,16 @@ dashboard_contact_booster:
     defaults: { _controller: BoosterBundle:Dashboard:contactBooster }
     methods: [GET, POST]
 
+subscription_cancel:
+    path:     /anulation_de_la_collaboration/{projectId}/{subscriptionId}/{dashboardId}/{role}
+    defaults: { _controller: BoosterBundle:ProjectSubscription:subscriptionCancel }
+    methods: [GET, POST]
+
+project_done:
+    path:     /projet_finit/{projectId}/{subscriptionId}/{dashboardId}/{role}
+    defaults: { _controller: BoosterBundle:Project:projectDone }
+    methods: [GET, POST]
+
 
 
 

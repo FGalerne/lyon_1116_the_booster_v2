@@ -176,4 +176,44 @@ class ProjectController extends Controller
         ;
     }
 
+    /**
+     * @param $projectId
+     * @param $subscriptionId
+     * @param $dashboardId
+     * @param $role
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function projectDoneAction($projectId, $subscriptionId, $dashboardId, $role)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        if($role == 'booster'){
+            //change the status of project subscription - booster_validation to true
+            $em->getRepository('BoosterBundle:ProjectSubscription')->validateSubscriptionBooster($subscriptionId);
+        } else{
+            //change the status of project subscription - society_validation to true
+            $em->getRepository('BoosterBundle:ProjectSubscription')->validateSubscriptionSociety($subscriptionId);
+
+        }
+
+        //validationMatch will be true if both booster and society have validated the project
+        $validationMatch = $em->getRepository('BoosterBundle:ProjectSubscription')->validationMatch($subscriptionId);
+        if($validationMatch){
+            //change the status of project and projectSubscription to 'Done'
+            $em->getRepository('BoosterBundle:Project')->projectDone($projectId);
+            $em->getRepository('BoosterBundle:ProjectSubscription')->projectSubscriptionDone($subscriptionId);
+        }
+
+        if($role == 'booster'){
+            return $this->redirectToRoute('dashboard_booster', array(
+                    'id' => $dashboardId,
+            ));
+        } else{
+            return $this->redirectToRoute('dashboard_society', array(
+                    'id' => $dashboardId,
+            ));
+
+        }
+    }
+
 }

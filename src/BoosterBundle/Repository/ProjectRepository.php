@@ -40,4 +40,31 @@ class ProjectRepository extends \Doctrine\ORM\EntityRepository
 
         return $qb->execute();
     }
+
+    public function cancelProject($projectId)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->update()
+            ->set('a.status', '?2')
+            ->where('a.id = ?1')
+            ->setParameter(1, $projectId)
+            ->setParameter(2, 'Open')
+            ->getQuery();
+
+        return $qb->execute();
+    }
+
+    public function projectDone($projectId)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->update()
+            ->set('a.status', '?2')
+            ->where('a.id = ?1')
+            ->setParameter(1, $projectId)
+            ->setParameter(2, 'Done')
+            ->getQuery();
+
+        return $qb->execute();
+    }
+
 }

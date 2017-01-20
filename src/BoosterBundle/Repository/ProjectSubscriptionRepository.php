@@ -25,4 +25,77 @@ class ProjectSubscriptionRepository extends \Doctrine\ORM\EntityRepository
 
         return $qb->execute();
     }
+
+    public function getProjectsSubscriptionsById($id)
+    {
+        $req = $this->createQueryBuilder('s')
+            ->where('s.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery();
+        return $req->getResult();
+    }
+
+    public function cancelProjectSubscription($subscriptionId)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->update()
+            ->set('a.status', '?2')
+            ->where('a.id = ?1')
+            ->setParameter(1, $subscriptionId)
+            ->setParameter(2, 'Canceled')
+            ->getQuery();
+
+        return $qb->execute();
+    }
+
+    public function validateSubscriptionBooster($subscriptionId)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->update()
+            ->set('a.boosterValidation', '?2')
+            ->where('a.id = ?1')
+            ->setParameter(1, $subscriptionId)
+            ->setParameter(2, True)
+            ->getQuery();
+
+        return $qb->execute();
+    }
+
+    public function validateSubscriptionSociety($subscriptionId)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->update()
+            ->set('a.societyValidation', '?2')
+            ->where('a.id = ?1')
+            ->setParameter(1, $subscriptionId)
+            ->setParameter(2, True)
+            ->getQuery();
+
+        return $qb->execute();
+    }
+
+    public function validationMatch($id)
+    {
+        $req = $this->createQueryBuilder('s')
+            ->where('s.id = :id')
+            ->andWhere('s.boosterValidation = :true')
+            ->andWhere('s.societyValidation = :true')
+            ->setParameter('id', $id)
+            ->setParameter('true', True)
+            ->getQuery();
+        return $req->getResult();
+    }
+
+    public function projectSubscriptionDone($subscriptionId)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->update()
+            ->set('a.status', '?2')
+            ->where('a.id = ?1')
+            ->setParameter(1, $subscriptionId)
+            ->setParameter(2, 'Done')
+            ->getQuery();
+
+        return $qb->execute();
+    }
 }

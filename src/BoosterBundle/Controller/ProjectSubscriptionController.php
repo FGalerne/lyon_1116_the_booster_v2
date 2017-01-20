@@ -43,4 +43,27 @@ class ProjectSubscriptionController extends Controller
             'societyId' => $societyId,
         ));
     }
+    public function subscriptionCancelAction($projectId, $subscriptionId, $dashboardId, $role)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        //change the status of project subscription to 'Canceled'
+        $em->getRepository('BoosterBundle:ProjectSubscription')->cancelProjectSubscription($subscriptionId);
+        //change the status of project to 'Open'
+        $em->getRepository('BoosterBundle:Project')->cancelProject($projectId);
+
+        if($role == 'booster'){
+            return $this->redirectToRoute('dashboard_booster', array(
+                    'id' => $dashboardId
+                )
+            );
+        } else{
+            return $this->redirectToRoute('dashboard_society', array(
+                    'id' => $dashboardId
+                )
+            );
+
+        }
+
+    }
 }
