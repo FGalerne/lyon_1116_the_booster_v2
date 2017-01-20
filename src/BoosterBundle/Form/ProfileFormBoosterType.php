@@ -21,10 +21,10 @@
 		{
 			parent::buildForm($builder, $options);
 			$builder
-				->add('last_name', TextType::class,array (
+				->add('last_name', TextType::class, array(
 					'required' => true,
 				))
-				->add('first_name', TextType::class,array (
+				->add('first_name', TextType::class, array(
 					'required' => true,))
 				->add('title', ChoiceType::class, array(
 					'choices' => array(
@@ -39,7 +39,6 @@
 		}
 
 
-
 		public function getParent()
 		{
 			return 'FOS\UserBundle\Form\Type\ProfileFormType';
@@ -49,12 +48,11 @@
 		{
 			return 'app_user_profile';
 		}
+
 		protected function buildUserForm(FormBuilderInterface $builder, array $options)
 		{
 			$builder
-
 				->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
-				->remove('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
-			;
+				->remove('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'));
 		}
 	}
