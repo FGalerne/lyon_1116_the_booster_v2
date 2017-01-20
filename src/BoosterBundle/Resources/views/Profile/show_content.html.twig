@@ -1,27 +1,25 @@
 {% trans_default_domain 'FOSUserBundle' %}
 {% if is_granted("ROLE_BOOSTER") %}
     <p><strong>Adresse-email :</strong> {{ user.username }}</p>
-    <div class=" col-xs-11 col-lg-offset-2 col-lg-10">
-        <p><strong>Adresse-email :</strong> {{ user.username }}</p>
-        <p><strong>Nom : </strong>{{ user.lastname}}</p>
-        <p><strong>Prénom : </strong>{{ user.firstname}}</p>
-    </div>
+    <p><strong>Nom : </strong>{{ user.lastname}}</p>
+    <p><strong>Prénom : </strong>{{ user.firstname}}</p>
+
 {% elseif is_granted("ROLE_BOOSTE") %}
-    <div class="col-xs-12 col-lg-offset-2 col-lg-8">
+
         <p><strong>Nom d'utilisateur :</strong> {{ user.username }}</p>
         <p><strong>Nom : </strong>{{ user.lastname}}</p>
         <p><strong>Prénom : </strong>{{ user.firstname}}</p>
         <p><strong>Fonction : </strong> <p>{{ user.professionalfunction }}</p>
-        {% if (user.siretnumber is not null)  %}
+        <p><strong>Téléphone : </strong> <p>{{ user.phone }}</p>
+    {% if (user.siretnumber is not null)  %}
         <p><strong>Siret : </strong>{{ user.siretnumber }}</p>
         {% endif %}
-    </div>
+
 {% endif %}
-<div class="btn_register col-xs-12 col-lg-offset-2 col-lg-8">
+
     <div class="btn_register">
         <a href="{{ path('fos_user_profile_edit') }}"><input type="submit" value="Modifier mon profil" class="btn btn-danger" /></a>
-    </div>
-    <div class="btn_register">
+
         <a href="{{ path('fos_user_change_password') }}" ><input type="submit" value="Modifier mon mot de passe" class="btn btn-danger" /></a>
     </div>
-</div>
+
