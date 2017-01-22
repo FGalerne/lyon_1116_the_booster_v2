@@ -269,12 +269,12 @@ span {
 	display: inline-block;
 	padding: 2px 0 3px 8px;;
 	color: #FFFFFF;
-	font-size: 1.4em;
+	font-size: 1em;
 	background-color: #dd4444;
 	border-radius: 50%;
 	width: 33px;
 	height: 33px;
-	margin-top: 5px;
+	margin-top: 8px;
 }
 
 .navbar-social ul li:hover {
