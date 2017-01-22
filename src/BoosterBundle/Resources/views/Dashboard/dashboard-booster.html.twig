@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+<div class="blueHour">
     {% for booster in boosters %}
         <section class="container-fluid global-presentation">
-            <div class="container">
+            <div class="container prelude">
                 <div class="col-md-3 avatar">
                     <img src="{{ booster.photo|default ? asset('img/uploads/boosters/' ~ booster.photo) : asset('img/photo-couverture-profile-booster.png') }}" alt="photo couverture société" />
                 </div>
@@ -55,7 +55,7 @@
         {# The personnal information of the booster #}
 
         <section id="dashboard-booster-home" class="container-fluid presentation-booster">
-            <div class="container">
+            <div class="container prelude">
                 <div class="row">
                     <div class="col-xs-12 col-md-4">
                         <h3 class="text-left">Mes coordonnées :</h3>
@@ -92,7 +92,7 @@
         {# The Project part "IN PROGRESS" #}
 
         <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
-            <div class="container project-in-progress">
+            <div class="container project-in-progress prelude">
                 <div class="col-xs-6 col-md-3">
                     <p>Nom de la société</p>
                     <p>blablabla</p>
@@ -115,7 +115,7 @@
         {# The Project part "DONE" #}
 
         <section class="container-fluid presentation-booster" id="dashboard-booster-done">
-            <div class="container project-done">
+            <div class="container project-done prelude">
                 <div class="col-xs-6 col-md-3">
                     <p>Nom de la société</p>
                 </div>
@@ -131,6 +131,7 @@
             </div>
         </section>
     {% endfor %}
+</div>
     {% include 'BoosterBundle:Dashboard:messenger.html.twig' %}
 {% endblock %}
 

@@ -1075,7 +1075,7 @@ hr{
 }
 
 #navbar-dashboard a {
-	line-height: 7vh;
+	line-height: 30px;
 	padding: 10px;
 	color: white;
 	font-weight: bold;
@@ -1129,6 +1129,10 @@ hr{
 
 .configuration-profile {
 	width: 20px;
+}
+
+.presentation-booster {
+	padding-bottom: 40px;
 }
 
 /*********************** DASHBOARD BOOSTE "SOCIETY" ***********************/
@@ -1704,7 +1708,7 @@ a:hover {
 }
 
 .dashboard-nav-container{
-	background-color: #eb0310;
+	background-color: #363636;
 	margin-bottom: 35px;
 }
 
