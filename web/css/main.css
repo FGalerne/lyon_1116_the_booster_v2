@@ -1107,6 +1107,10 @@ hr{
 	padding-right: 10px;
 }
 
+.icon-black {
+	color: #000000;
+}
+
 .booster-skill ul {
 	font-size: 1.2em;
 }
