@@ -117,7 +117,7 @@
                                 <p>{{ subscription.project.status }}</p>
                             </div>
                             <div class="col-xs-12 ">
-                                <p class="text-left">{{ subscription.project.description }}</p>
+                                <p class="text-left">{{ subscription.project.description | raw }}</p>
                             </div>
                         </div>
                         {% if subscription.project.status == 'In_progress' %}

@@ -1,9 +1,5 @@
 <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
     {% for project in projects %}
-        {% set showSubscriptions = 1 %}
-        {% if project.status != 'Open' %}
-            {% set showSubscriptions = 0 %}
-        {% endif %}
             {% if project.status != 'Done' and project.creationStatus == true %}
                 <div class="container project-in-progress prelude">
                     <div class="row">
@@ -28,12 +24,13 @@
                             <p>{{ project.status }}</p>
                         </div>
                         <div class="col-xs-12 ">
-                            <p class="text-left">{{ project.description }}</p>
+                            <p class="text-left">{{ project.description | raw }}</p>
                         </div>
                     </div>
 
                     {% for subscription in project.projectSubscriptions %}
-                        {% if showSubscriptions %}
+                        {# we allow society to contact and see subscribers if noone has been chosen yet #}
+                        {% if subscription.project.status == 'Open' %}
                             <div class="sub-container row">
                                 <div class="col-xs-3">
                                     <div class="col-xs-6">
@@ -50,22 +47,21 @@
                                 <div class="col-xs-1">
                                     <p class="text-left"><strong>{{ subscription.givenTime }} H</strong></p>
                                 </div>
-                                {% if subscription.project.status == 'Open' and subscription.status == 'Open' %}
+                                {% if subscription.status == 'Open' %}
                                 {# we allow society to contact and see subscribers if noone has been chosen yet #}
                                 <div class="col-xs-2">
                                     <a href="{{ path('dashboard_booster', {'id': subscription.booster.id }) }}" title="Le voir">
                                         Le voir
                                     </a><br/>
                                     <a href="{{ path('dashboard_contact_booster', {'societyId': app.user.society.id, 'projectId': subscription.project.id, 'subscriptionId': subscription.id }) }}" title="Le contacter">
-                                        Le contacter
+                                        Accepter le coup de boost
                                     </a>
                                 </div>
-                                {% elseif subscription.project.status == 'In_progress' %}
-                                    {# if the society already has chosen a subscriber it can't se the subscribers dashboard and canot contact them #}
+                                {% elseif subscription.status == 'In_progress' %}
                                     <div class="col-xs-2">
                                         <a title="En cours">projet en cours de réalisation</a>
                                     </div>
-                                {% elseif subscription.project.status == 'Open' and subscription.status == 'Canceled' %}
+                                {% elseif subscription.status == 'Canceled' %}
                                     {# if subscription has been canceled #}
                                     <div class="col-xs-2">
                                         <a title="En cours">La collaboration à été annulée</a>
@@ -96,7 +92,7 @@
                             </div>
                         {% endif %}
                     {% endfor %}
-
+                </div>
                 {% endif %}
             </div>
     {% endfor %}

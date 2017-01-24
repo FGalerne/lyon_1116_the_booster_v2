@@ -92,7 +92,7 @@
                                 <p>{{ project.category }}</p>
                             </div>
                             <div class="col-xs-12">
-                                <p class="text-left">{{ project.description }}</p>
+                                <p class="text-left">{{ project.description | raw }}</p>
                             </div>
                         </div>
                         {% if showSubscriptions %}
