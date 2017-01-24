@@ -1150,14 +1150,18 @@ hr{
 
 /*********************** DASHBOARD BOOSTE "SOCIETY" ***********************/
 
-
 .dashboard-society img {
 	width: 100%;
+}
+
+.h2-punch {
+	background-color: #FAFAFA
 }
 
 .h2-punch h2 {
 	font-size: 20px;
 	color: #363636;
+	padding-top: 0;
 }
 
 #statistic-society ul {
@@ -1226,7 +1230,7 @@ hr{
 	}
 }
 .dashboard-social-media {
-	margin-top: 35px;
+	margin-top: 15px;
 	font-size: 3em;
 	padding: 0;
 }
@@ -1441,13 +1445,13 @@ and (-webkit-min-device-pixel-ratio: 1) {
 }
 
 .btn_subs {
-	font-size:1.4em;
-	font-weight:900;
+	font-size: 1.2em;
 	margin-top: 20px;
 	margin-bottom: 8vh;
 	background-color: #eb0310;
-	color:white;
-	padding: 25px 35px;
+	color: white;
+	border-radius: 25px;
+	width: 170px;
 }
 
 .txt_subs{
@@ -1726,15 +1730,39 @@ a:hover {
 	display: block;
 	margin: 0 auto;
 }
+
 .society-photo{
-	width: 512px;
+	width: 702px;
 	height: 350px;
 	overflow: hidden;
 }
+
+@media (max-width: 991px){
+	.society-photo{
+		padding: 0;
+		margin: 0;
+	}
+}
+
 .society-photo img {
 	width: 100%;
 	display: block;
 	margin: 0 auto;
+}
+
+@media (max-width: 1200px){
+	.society-photo{
+		width: 600px;
+		height: 275px;
+	}
+}
+
+@media (max-width: 991px){
+	.society-photo{
+		width: auto;
+		height: auto;
+		padding-bottom: 35px;
+	}
 }
 
 .dashboard-nav-container{

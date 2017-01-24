@@ -11,11 +11,8 @@
 
         <section class="container-fluid global-presentation blueHour">
             <div class="container prelude">
-                <div class="col-xs-12 col-md-9 dashboard-society">
-                    <div class="col-xs-12 col-md-4 society-photo">
-                        <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/photo-couverture-profile-societe.png') }}" alt="photo couverture société" />
-                    </div>
-                    <div class="col-xs-12 col-md-4">
+                <div class="dashboard-society">
+                    <div class="col-xs-12">
                         <h1 class="text-left">{{ society.societyName }}</h1>
                         <div class="dashboard-social-media">
                             {% if society.facebook %}<a href="{{ society.facebook | external_link }}" target="_blank"><li><i class="fa fa-facebook-official" aria-hidden="true"></i></li></a>{% endif %}
@@ -24,29 +21,33 @@
                             {% if society.youtube %}<a href="{{ society.youtube | external_link }}" target="_blank"><li><i class="fa fa-youtube-square" aria-hidden="true"></i></li></a>{% endif %}
                         </div>
                     </div>
+                    <div class="col-xs-12 society-photo">
+                        <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/photo-couverture-profile-societe.png') }}" alt="photo couverture société" />
+                    </div>
                 </div>
 
                 {# Here the right part of the dashboard we could found the statistic of the society and the button to add a new project #}
 
-                <div class="col-xs-12 col-md-3" id="statistic-society">
-                    <p>Heures reçues : {{ society.hoursTaken }}</p>
-                    <p>Projets réalisés : {{ society.projectDoneNumber }}</p>
-                    <p>Note du booster : {{ society.averageNotation }}</p>
-                    <ul>
-                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-                    </ul>
+                <div>
+                    <div class="col-xs-12 col-md-4" id="statistic-society">
+                        <p>Heures reçues : {{ society.hoursTaken }}</p>
+                        <p>Projets réalisés : {{ society.projectDoneNumber }}</p>
+                        <p>Note du booster : {{ society.averageNotation }}</p>
+                        <ul>
+                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-md-3" id="add-project">
+                        {% if is_granted("ROLE_BOOSTE") %}<a class="bttn-gradient.bttn-md" href="{{ path('new_project') }}">JE DEPOSE UN PROJET</a>{% endif %}
+                    </div>
                 </div>
-                <div class="col-xs-12 col-md-3" id="add-project">
-                    {% if is_granted("ROLE_BOOSTE") %}<a class="bttn-gradient.bttn-md" href="{{ path('new_project') }}">JE DEPOSE UN PROJET</a>{% endif %}
-                </div>
-
             </div>
 
-            <div class="container prelude h2-punch">
+            <div class="container h2-punch">
                 <h2>{{ society.punchLine | raw }}</h2>
             </div>
             {% set pStatus = app.request.query.get("paymentStatus") %}
