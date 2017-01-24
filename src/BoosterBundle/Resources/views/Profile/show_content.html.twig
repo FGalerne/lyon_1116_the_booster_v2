@@ -7,8 +7,8 @@
     <p><strong>Nom d'utilisateur :</strong> {{ user.username }}</p>
     <p><strong>Nom : </strong>{{ user.lastname }}</p>
     <p><strong>Prénom : </strong>{{ user.firstname }}</p>
-    <p><strong>Fonction : </strong> <p>{{ user.professionalfunction }}</p>
-    <p><strong>Téléphone : </strong> <p>{{ user.phone }}</p>
+    <p><strong>Fonction : </strong>{{ user.professionalfunction }}</p>
+    <p><strong>Téléphone : </strong>{{ user.phone }}</p>
     {% if (user.siretnumber is not null)  %}
         <p><strong>Siret : </strong>{{ user.siretnumber }}</p>
     {% endif %}
