@@ -22,16 +22,13 @@
 		{
 			$em = $this->getDoctrine()->getManager();
 			$society = $em->getRepository('BoosterBundle:Society')->findOneBySlug($slug);
-			if(!isset($society)){
+			if (!isset($society)) {
 				return $this->redirectToRoute('booster_charte');
 			}
 			$id = $society->getId();
 
 			$societies = $em->getRepository('BoosterBundle:Society')->getDashboardById($id);
 			$projects = $em->getRepository('BoosterBundle:Project')->getProjectBySociety($id);
-
-
-
 
 
 			/**
@@ -49,25 +46,25 @@
 				$messengers = $em->getRepository('BoosterBundle:Messenger')->myMessages($userId);
 				$form->handleRequest($request);
 
-            //testing if a place is avaliable to buy on home page
-            $socOnHomePage = $em->getRepository('BoosterBundle:transaction')->actualTransactions();
-            $avaliable = true;
-            if(count($socOnHomePage) > 15) {
-                $avaliable = false;
-            }
-            return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
-                'socOnHomePage' => $socOnHomePage,
-                'avaliable' => $avaliable,
-                'societies' => $societies,
-                'user' => $user,
-                'messengers' => $messengers,
-                'projects' => $projects,
-                'form' => $form->createView(),
-            ));
-        }
+				//testing if a place is avaliable to buy on home page
+				$socOnHomePage = $em->getRepository('BoosterBundle:transaction')->actualTransactions();
+				$avaliable = true;
+				if (count($socOnHomePage) > 15) {
+					$avaliable = false;
+				}
+				return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
+					'socOnHomePage' => $socOnHomePage,
+					'avaliable' => $avaliable,
+					'societies' => $societies,
+					'user' => $user,
+					'messengers' => $messengers,
+					'projects' => $projects,
+					'form' => $form->createView(),
+				));
+			}
 
-        return $this->redirectToRoute('booster_charte');
-    }
+			return $this->redirectToRoute('booster_charte');
+		}
 
 		public function societyNewAction(Request $request)
 		{
@@ -176,7 +173,7 @@
 
 			$userId = $user->getId();
 
-			if ($slug != null ) {
+			if ($slug != null) {
 
 				//messages
 				$messenger = new Messenger();
@@ -185,10 +182,10 @@
 				$form->handleRequest($request);
 
 				//if ($user->getId() == $booster->getId()) {
-					if ($form->isSubmitted() && $form->isValid()) {
-						$em->persist($messengers);
-						$em->flush();
-					}
+				if ($form->isSubmitted() && $form->isValid()) {
+					$em->persist($messengers);
+					$em->flush();
+				}
 				//}
 				return $this->render('BoosterBundle:Dashboard:dashboard-booster.html.twig', array(
 					'boosters' => $boosters,
@@ -295,18 +292,17 @@
 			));
 		}
 
-			public
-			function publicDashboardAction($id)
-			{
-				$em = $this->getDoctrine()->getManager();
-				$society = $em->getRepository('BoosterBundle:Society')->findOneById($id);
-				//projectNames = Entity Project
-				$projects = $society->getProjectNames();
+		public function publicDashboardAction($id)
+		{
+			$em = $this->getDoctrine()->getManager();
+			$society = $em->getRepository('BoosterBundle:Society')->findOneById($id);
+			//projectNames = Entity Project
+			$projects = $society->getProjectNames();
 
-				return $this->render('BoosterBundle:Dashboard:public-dashboard.html.twig', array(
-					'society' => $society,
-					'projects' => $projects,
-				));
-			}
+			return $this->render('BoosterBundle:Dashboard:public-dashboard.html.twig', array(
+				'society' => $society,
+				'projects' => $projects,
+			));
+		}
 
 	}

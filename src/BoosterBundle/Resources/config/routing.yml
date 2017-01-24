@@ -97,6 +97,11 @@ project_subscription:
     defaults: { _controller: BoosterBundle:ProjectSubscription:subscription }
     methods: [GET, POST]
 
+dashboard_contact_booster:
+    path:     /dashboard-contact-booster/{societyId}/{projectId}/{subscriptionId}
+    defaults: { _controller: BoosterBundle:Dashboard:contactBooster }
+    methods: [GET, POST]
+
 
 
 
