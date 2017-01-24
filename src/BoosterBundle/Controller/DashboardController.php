@@ -36,7 +36,7 @@
 			 */
 
 
-			if ($slug != null) {
+			if (!is_null($slug)) {
 				$user = $this->getUser();
 				$userId = $user->getId();
 
@@ -48,13 +48,13 @@
 
 				//testing if a place is avaliable to buy on home page
 				$socOnHomePage = $em->getRepository('BoosterBundle:transaction')->actualTransactions();
-				$avaliable = true;
+				$available = true;
 				if (count($socOnHomePage) > 15) {
-					$avaliable = false;
+					$available = false;
 				}
 				return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
 					'socOnHomePage' => $socOnHomePage,
-					'avaliable' => $avaliable,
+					'avaliable' => $available,
 					'societies' => $societies,
 					'user' => $user,
 					'messengers' => $messengers,
@@ -173,7 +173,7 @@
 
 			$userId = $user->getId();
 
-			if ($slug != null) {
+			if (!is_null($slug)) {
 
 				//messages
 				$messenger = new Messenger();
