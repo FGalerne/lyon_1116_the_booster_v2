@@ -299,5 +299,4 @@
 					'projects' => $projects,
 				));
 			}
-
 	}
