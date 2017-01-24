@@ -78,6 +78,11 @@ BoosterBundle\Entity\Booster:
             type: integer
             nullable: true
             column: average_notation
+        slug:
+            type: string
+            nullable: true
+            length: 50
+            unique: true
 
     oneToMany:
         project_subscriptions:

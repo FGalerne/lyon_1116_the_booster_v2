@@ -63,6 +63,12 @@ BoosterBundle\Entity\Society:
             type: integer
             nullable: true
             column: denied_boosters
+        slug:
+            type: string
+            nullable: true
+            length: 50
+            unique: true
+
 
     oneToMany:
         project_names:
