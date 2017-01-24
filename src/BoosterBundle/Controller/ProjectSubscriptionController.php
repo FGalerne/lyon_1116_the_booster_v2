@@ -27,7 +27,7 @@ class ProjectSubscriptionController extends Controller
             $booster = $em->getRepository('BoosterBundle:Booster')->findOneById($boosterId);
             $project = $em->getRepository('BoosterBundle:Project')->findOneById($projectId);
 
-            $projectSubscription->setStatus('En attente');
+            $projectSubscription->setStatus('Open');
             $projectSubscription->setCreateTime(new \DateTime('now'));
             $projectSubscription->setBooster($booster);
             $projectSubscription->setProject($project);

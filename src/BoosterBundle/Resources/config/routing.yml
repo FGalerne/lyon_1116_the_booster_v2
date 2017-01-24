@@ -35,7 +35,7 @@ booster_inscription_choix:
     defaults: { _controller: BoosterBundle:Front:inscriptionChoix }
 
 dashboard_society:
-    path:     /dashboard-booste/{id}/
+    path:     /dashboard-booste/{slug}
     defaults: { _controller: BoosterBundle:Dashboard:society }
     methods: GET
 
@@ -45,22 +45,22 @@ dashboard_society_new:
     methods:  [GET, POST]
 
 dashboard_society_edit:
-    path:     /dashboard-booste-edit/{id}/
+    path:     /dashboard-booste-edit/{slug}/
     defaults: { _controller: BoosterBundle:Dashboard:societyEdit }
     methods:  [GET, POST]
 
 dashboard_booster:
-    path:     /dashboard-booster/{id}/
+    path:     /dashboard-booster/{slug}
     defaults: { _controller: BoosterBundle:Dashboard:booster }
     methods:  GET
 
 dashboard_booster_new:
-    path:     /dashboard-booster-new/{id}/
+    path:     /dashboard-booster-new/{id}
     defaults: { _controller: BoosterBundle:Dashboard:boosterNew }
     methods:  [GET, POST]
 
 dashboard_booster_edit:
-    path:     /dashboard-booster-edit/{id}/
+    path:     /dashboard-booster-edit/{slug}
     defaults: { _controller: BoosterBundle:Dashboard:boosterEdit }
     methods:  [GET, POST]
 

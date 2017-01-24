@@ -29,8 +29,8 @@ class ProjectController extends Controller
     }
 
     /**
-     * Creates a new project entity.
-     *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $request)
     {
@@ -43,7 +43,7 @@ class ProjectController extends Controller
             $project->setSociety($this->getUser()->getSociety());
             $project->setCreateTime($time);
             $project->setCreationStatus(False);
-            $project->setStatus('proposé');
+            $project->setStatus('Open');
             $project->setGivenTime(0);
 
             //Set the variable used for sending the email.
@@ -96,8 +96,8 @@ class ProjectController extends Controller
             $em->persist($project);
             $em->flush();
             return $this->redirectToRoute('dashboard_society', array(
-                'id' => $this->getUser()->getSociety()->getId()
-            ));
+                'slug' => $this->getUser()->getSociety()->getSlug()
+			));
         }
 
         return $this->render('BoosterBundle:Front:deposer_un_projet.html.twig', array(
