@@ -46,7 +46,7 @@
 
             </div>
 
-            <div class="container prelude">
+            <div class="container prelude h2-punch">
                 <h2>{{ society.punchLine | raw }}</h2>
             </div>
             {% set pStatus = app.request.query.get("paymentStatus") %}
@@ -115,23 +115,23 @@
                     {% if project.status == 'Done' %}
                     <div class="container prelude project-done">
                         <div class="col-xs-6 col-md-3">
-                            <p>Nom de la société</p>
+                            <p><strong>Nom de la société</strong></p>
                             <p>{{ society.societyName }}</p>
                         </div>
                         <div class="col-xs-6 col-md-3">
-                            <p>Nom du projet :</p>
+                            <p><strong>Nom du projet :</strong></p>
                             <p>{{ project.projectName }}</p>
                         </div>
                         <div class="col-xs-6 col-md-2">
-                            <p>Nombre d'heures:</p>
+                            <p><strong>Nombre d'heures:</strong></p>
                             <p>{{ project.givenTime }}</p>
                         </div>
                         <div class="col-xs-6 col-md-2">
-                            <p>Catégorie:</p>
+                            <p><strong>Catégorie:</strong></p>
                             <p>{{ project.category }}</p>
                         </div>
                         <div class="col-xs-6 col-md-2">
-                            <p>Statut:</p>
+                            <p><strong>Statut:</strong></p>
                             <p>{{ project.status }}</p>
                         </div>
                     </div>
@@ -148,8 +148,8 @@
                                 {% if society.transaction|default and "now"|date('m/d/Y H:i:s') < society.transaction.endTime|date("m/d/Y H:i:s") %}
                                     <div class="transactions-on">
                                         <a class="col-xs-12">
-                                            <div class="col-xs-6">MA SOCIETE EST EN HOME PAGE </div>
-                                            <div class="col-xs-6 prices">Jusqu'au: {{  society.transaction.endTime|date("m/d/Y") }}, {{  society.transaction.endTime|date("H") }}H{{  society.transaction.endTime|date("i") }}
+                                            <div class="col-xs-12 col-md-6">MA SOCIETE EST EN HOME PAGE </div>
+                                            <div class="col-xs-12 col-md-6 prices">Jusqu'au: {{  society.transaction.endTime|date("m/d/Y") }}, {{  society.transaction.endTime|date("H") }}H{{  society.transaction.endTime|date("i") }}
                                             </div>
                                         </a>
                                     </div>
@@ -160,19 +160,19 @@
                                         <a class="col-xs-11" href="{{ society.transaction|default
                                             ? path('order_new', { 'action': 'edit' , 'amount': 5.00 * taxes , 'clientId': app.user.society.id, 'slug': app.user.society.slug })
                                             : path('order_new', { 'action': 'new' , 'amount': 5.00 * taxes, 'clientId': app.user.society.id, 'slug': app.user.society.slug }) }}">
-                                            <div class="col-xs-6">ME METTRE EN AVANT SUR LA PAGE D'ACCUEIL</div>
-                                            <div class="row col-xs-3 prices">DUREE: 24H</div>
-                                            <div class="row col-xs-3 prices">PRIX: 5 &#8364; HT</div>
+                                            <div class="col-md-6">ME METTRE EN AVANT SUR LA PAGE D'ACCUEIL</div>
+                                            <div class="row col-md-3 prices">DUREE: 24H</div>
+                                            <div class="row col-md-3 prices">PRIX: 5 &#8364; HT</div>
                                         </a>
                                         <a class="col-xs-1 payment-infos" href="#">INFOS</a>
                                     </div>
                                     {% else %}
                                     <div class="transactions">
-                                        <span class="col-xs-11 no-dispo">
-                                            <span class="col-xs-6">ME METTRE EN AVANT SUR LA PAGE D'ACCUEIL</span>
-                                            <span class="row col-xs-6 prices">PROCHAINE PLACE DISPONIBLE LE: {{ socOnHomePage.0.endTime|date("m/d/Y H:i:s") }}</span>
+                                        <span class="col-md-11 no-dispo">
+                                            <span class="col-xs-12 col-md-6">ME METTRE EN AVANT SUR LA PAGE D'ACCUEIL</span>
+                                            <span class="row col-xs-12 col-md-6 prices">PROCHAINE PLACE DISPONIBLE LE: {{ socOnHomePage.0.endTime|date("m/d/Y H:i:s") }}</span>
                                         </span>
-                                        <a class="col-xs-1 payment-infos" href="#">INFOS</a>
+                                        <a class="col-md-1 payment-infos" href="#">INFOS</a>
                                     </div>
                                     {% endif %}
                                 {% endif %}
