@@ -28,8 +28,8 @@ class ProjectController extends Controller
     }
 
     /**
-     * Creates a new project entity.
-     *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $request)
     {
@@ -42,7 +42,7 @@ class ProjectController extends Controller
             $project->setSociety($this->getUser()->getSociety());
             $project->setCreateTime($time);
             $project->setCreationStatus(False);
-            $project->setStatus('proposé');
+            $project->setStatus('Open');
             $project->setGivenTime(0);
 
             //Set the variable used for sending the email.
@@ -75,7 +75,7 @@ class ProjectController extends Controller
             $sendMessageToSociety = \Swift_Message::newInstance()
                 ->setSubject($subject2)
                 ->setFrom($from)
-				->setTo($toUser)
+                ->setTo($toUser)
                 ->setBody(
                     $this->renderView(
                         'BoosterBundle:Emails:project_booste_mail_validation.html.twig',
@@ -119,11 +119,10 @@ class ProjectController extends Controller
         ));
     }
 
-	/**
-	 * @param Request $request
-	 * @param Project $project
-	 * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-	 */
+    /**
+     * Displays a form to edit an existing project entity.
+     *
+     */
     public function editAction(Request $request, Project $project)
     {
         $deleteForm = $this->createDeleteForm($project);

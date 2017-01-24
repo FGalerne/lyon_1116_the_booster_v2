@@ -87,6 +87,29 @@ class Booster
      */
     private $averageNotation;
 
+    /**
+     * @var \BoosterBundle\Entity\User
+     */
+    private $user;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $project_subscriptions;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $projects;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->project_subscriptions = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->projects = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -449,10 +472,14 @@ class Booster
     }
 
     /**
-     * @var \BoosterBundle\Entity\User
+     * Get averageNotation
+     *
+     * @return integer
      */
-
-    private $user;
+    public function getAverageNotation()
+    {
+        return $this->averageNotation;
+    }
 
     /**
      * Set user
@@ -464,6 +491,7 @@ class Booster
     public function setUser(\BoosterBundle\Entity\User $user = null)
     {
         $this->user = $user;
+
         return $this;
     }
 
@@ -477,60 +505,38 @@ class Booster
         return $this->user;
     }
 
-    public function __toString()
-    {
-        return strval($this->id);
-    }
-
     /**
-     * Get averageNotation
+     * Add projectSubscription
      *
-     * @return integer
-     */
-    public function getAverageNotation()
-    {
-        return $this->averageNotation;
-    }
-    /**
-     * @var string
-     */
-    private $slug;
-
-
-    /**
-     * Set slug
-     *
-     * @param string $slug
+     * @param \BoosterBundle\Entity\ProjectSubscription $projectSubscription
      *
      * @return Booster
      */
-    public function setSlug($slug)
+    public function addProjectSubscription(\BoosterBundle\Entity\ProjectSubscription $projectSubscription)
     {
-        $this->slug = $slug;
+        $this->project_subscriptions[] = $projectSubscription;
 
         return $this;
     }
 
     /**
-     * Get slug
+     * Remove projectSubscription
      *
-     * @return string
+     * @param \BoosterBundle\Entity\ProjectSubscription $projectSubscription
      */
-    public function getSlug()
+    public function removeProjectSubscription(\BoosterBundle\Entity\ProjectSubscription $projectSubscription)
     {
-        return $this->slug;
+        $this->project_subscriptions->removeElement($projectSubscription);
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $projects;
 
     /**
-     * Constructor
+     * Get projectSubscriptions
+     *
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function __construct()
+    public function getProjectSubscriptions()
     {
-        $this->projects = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->project_subscriptions;
     }
 
     /**
@@ -566,43 +572,5 @@ class Booster
     {
         return $this->projects;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $project_subscriptions;
-
-
-    /**
-     * Add projectSubscription
-     *
-     * @param \BoosterBundle\Entity\ProjectSubscription $projectSubscription
-     *
-     * @return Booster
-     */
-    public function addProjectSubscription(\BoosterBundle\Entity\ProjectSubscription $projectSubscription)
-    {
-        $this->project_subscriptions[] = $projectSubscription;
-
-        return $this;
-    }
-
-    /**
-     * Remove projectSubscription
-     *
-     * @param \BoosterBundle\Entity\ProjectSubscription $projectSubscription
-     */
-    public function removeProjectSubscription(\BoosterBundle\Entity\ProjectSubscription $projectSubscription)
-    {
-        $this->project_subscriptions->removeElement($projectSubscription);
-    }
-
-    /**
-     * Get projectSubscriptions
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getProjectSubscriptions()
-    {
-        return $this->project_subscriptions;
-    }
 }
+

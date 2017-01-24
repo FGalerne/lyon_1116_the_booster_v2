@@ -219,9 +219,5 @@ jms_payment_paypal:
     password: EDHLEQXXBJN6R4LN
     signature: AFcWxV21C7fd0v3bYYYRCpSSRl31Afl5RKAVs1nefl18qJaPaaganNf3
 
-stof_doctrine_extensions:
-    orm:
-        default:
-            sluggable: true
 
 

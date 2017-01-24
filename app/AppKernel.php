@@ -21,7 +21,7 @@ class AppKernel extends Kernel
             new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
             new JMS\Payment\CoreBundle\JMSPaymentCoreBundle(),
             new JMS\Payment\PaypalBundle\JMSPaymentPaypalBundle(),
-			new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle()
+
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
