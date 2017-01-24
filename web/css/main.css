@@ -1111,8 +1111,6 @@ hr{
 	font-size: 1.2em;
 }
 
-
-
 .presentation-text {
 	width: 100%;
 	margin: 0;
@@ -1520,9 +1518,9 @@ and (-webkit-min-device-pixel-ratio: 1) {
 	text-align: left;
 }
 .form-submit-center{
-	width: 40%;
-	font-size: 30px;
-	height: 50px;
+	width: 20%;
+	font-size: 20px;
+	height: 40px;
 	margin: 20px 0 40px 0;
 }
 @media (max-width: 770px) {
