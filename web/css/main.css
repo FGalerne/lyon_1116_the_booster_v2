@@ -1517,12 +1517,15 @@ and (-webkit-min-device-pixel-ratio: 1) {
 	font-size: 15px;
 	text-align: left;
 }
-.form-submit-center{
+
+.form-submit-center {
 	width: 20%;
 	font-size: 20px;
 	height: 40px;
 	margin: 20px 0 40px 0;
 }
+
+
 @media (max-width: 770px) {
 	.project-form{
 		width: 100%;
