@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container project-subscription-container">
+        <h1>Validez votre projet !</h1>
+        <div class="row">
+            <div class="col-xs-12 validation-subtitle">
+                Une fois votre projet Validé des deux coté, il sera déplacé dans l'onglet Projets Terminés
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <input class="postulation-button col-xs-12" type="submit" value="Valider" />
+                {{ form_end(form) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
+                <a class="postulation-button col-xs-12" href="{{ path('dashboard_society', { 'id': societyId }) }}">Retourner au dashboard</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

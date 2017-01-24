@@ -46,7 +46,7 @@ class SocietyType extends AbstractType
                     ),
                 ))
                 ->add('presentation', TextareaType::class, array(
-                    'label' => 'Texte de présentation de votre société (500 caractères max)',
+                    'label' => 'Texte de présentation de votre société (500 caractères min)',
                     'required' => false,
                     'attr'  => array(
                         'class' => 'WYSIWYG2 form-control form-group',

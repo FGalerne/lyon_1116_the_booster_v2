@@ -98,4 +98,35 @@ class ProjectSubscriptionRepository extends \Doctrine\ORM\EntityRepository
 
         return $qb->execute();
     }
+
+    public function setNoteAndComBooster($subscriptionId, $note, $commentaries)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->update()
+            ->set('a.boosterNote', '?1')
+            ->set('a.boosterCommentaries', '?3')
+            ->where('a.id = ?2')
+            ->setParameter(1, $note)
+            ->setParameter(2, $subscriptionId)
+            ->setParameter(3, $commentaries)
+            ->getQuery();
+
+        return $qb->execute();
+    }
+
+    public function setNoteAndComSociety($subscriptionId, $note, $commentaries)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->update()
+            ->set('a.societyNote', '?1')
+            ->set('a.societyCommentaries', '?3')
+            ->where('a.id = ?2')
+            ->setParameter(1, $note)
+            ->setParameter(2, $subscriptionId)
+            ->setParameter(3, $commentaries)
+            ->getQuery();
+
+        return $qb->execute();
+    }
+
 }

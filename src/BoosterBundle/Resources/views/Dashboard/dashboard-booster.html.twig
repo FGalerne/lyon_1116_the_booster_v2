@@ -127,14 +127,12 @@
                                         Projet en cours de réalisation !
                                     </div>
                                     <div class="col-xs-4">
-                                        <a data-toggle="collapse" data-target="#collapseFinished" class="button-cancel-subscription">Ce projet est terminé !</a><br/>
+                                        {% if not subscription.boosterValidation %}
+                                        <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardId': app.user.booster.id, 'role': 'booster' }) }}" class="button-cancel-subscription">Ce projet est terminé !</a><br/>
+                                        {% else %}
+                                            En attente de la validation de {{ subscription.project.society.user.firstname }}.<br/>
+                                        {% endif %}
                                         <a data-toggle="collapse" data-target="#collapseCancel" class="button-cancel-subscription">Annuler la collaboration</a>
-                                    </div>
-                                </div>
-                                {#Collapse for finishing project confirmation#}
-                                <div id="collapseFinished" class="collapse">
-                                    <div> <strong>En validant cette action vous confirmerez que votre projet est terminé, (la validation serra prise en compte après la validation de {{ subscription.project.society.user.firstName }})</strong><br/>
-                                        <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardId': app.user.booster.id, 'role': 'booster' }) }}">Je confirme que le projet est terminé</a>
                                     </div>
                                 </div>
                                 {#Collapse for cancelation confirmation#}
