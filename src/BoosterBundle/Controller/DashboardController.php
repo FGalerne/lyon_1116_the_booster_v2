@@ -235,7 +235,6 @@
 					'slug' => $booster->getSlug()
 				));
 			}
-			var_dump($booster->getSlug());
 			return $this->render('@Booster/Dashboard/dashboard-booster-new.html.twig', array(
 				'slug' => $booster->getSlug(),
 				'booster' => $booster,
