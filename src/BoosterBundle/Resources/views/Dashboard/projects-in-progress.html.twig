@@ -50,7 +50,7 @@
                                 {% if subscription.status == 'Open' %}
                                 {# we allow society to contact and see subscribers if noone has been chosen yet #}
                                 <div class="col-xs-2">
-                                    <a href="{{ path('dashboard_booster', {'id': subscription.booster.id }) }}" title="Le voir">
+                                    <a href="{{ path('dashboard_booster', {'slug': subscription.booster.slug }) }}" title="Le voir">
                                         Le voir
                                     </a><br/>
                                     <a href="{{ path('dashboard_contact_booster', {'societyId': app.user.society.id, 'projectId': subscription.project.id, 'subscriptionId': subscription.id }) }}" title="Le contacter">
@@ -76,7 +76,7 @@
                                     </div>
                                     <div class="col-xs-4">
                                         {% if not subscription.societyValidation %}
-                                        <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardId': app.user.society.id, 'role': 'society' }) }}" class="button-cancel-subscription">Ce projet est terminé !</a><br/>
+                                        <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardSlug': app.user.society.slug, 'role': 'society' }) }}" class="button-cancel-subscription">Ce projet est terminé !</a><br/>
                                         {% else %}
                                             En attente de la validation de {{ subscription.booster.user.firstname }}.<br/>
                                         {% endif %}

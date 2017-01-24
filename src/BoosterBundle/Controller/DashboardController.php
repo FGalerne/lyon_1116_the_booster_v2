@@ -9,25 +9,28 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpFoundation\Request;
 
+
 class DashboardController extends Controller
 {
     /**
-     * @param $id
+     * @param $slug
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function societyAction($id, Request $request)
+    public function societyAction($slug, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $society = $em->getRepository('BoosterBundle:Society')->findOneBySlug($slug);
+        if (!isset($society)) {
+            return $this->redirectToRoute('booster_charte');
+        }
+        $id = $society->getId();
+
         $societies = $em->getRepository('BoosterBundle:Society')->getDashboardById($id);
         $projects = $em->getRepository('BoosterBundle:Project')->getProjectBySociety($id);
 
-        /**
-         * @var Society $user
-         */
-
-        $user = $this->getUser();
-        if ($user != null) {
+        //$user = $this->getUser();
+        if ($slug != null && $this->getUser() != null) {
             $user = $this->getUser();
             $userId = $user->getId();
 
@@ -40,9 +43,11 @@ class DashboardController extends Controller
             //testing if a place is avaliable to buy on home page
             $socOnHomePage = $em->getRepository('BoosterBundle:transaction')->actualTransactions();
             $avaliable = true;
-            if(count($socOnHomePage) > 15) {
+
+            if (count($socOnHomePage) > 15) {
                 $avaliable = false;
             }
+
             return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
                 'socOnHomePage' => $socOnHomePage,
                 'avaliable' => $avaliable,
@@ -53,55 +58,15 @@ class DashboardController extends Controller
                 'form' => $form->createView(),
             ));
         }
-
         return $this->redirectToRoute('booster_charte');
     }
-
-    public function societyNewAction(Request $request)
-    {
-        $society = new Society();
-        $form = $this->createForm('BoosterBundle\Form\SocietyType', $society);
-        $form->handleRequest($request);
-
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $society->setUser($this->getUser());
-
-            if($file = $society->getPhoto()){
-                $tmp = $this->getParameter('photo_tmp');
-
-                $fileName = md5(uniqid()).'.'.$file->guessExtension();
-                $file->move(
-                    $this->getParameter('photo_tmp'),
-                    $fileName
-                );
-
-                $this->get('util.imageresizer')->resizeImage($tmp.'/'.$fileName, $this->getParameter('photo_society_directory').'/' , $width=1024);
-                unlink($tmp.'/'.$fileName);
-
-                $society->setPhoto($fileName);
-            }
-
-            $em->persist($society);
-            $em->flush($society);
-
-            return $this->redirectToRoute('dashboard_society', array('id' => $society->getId()));
-        }
-
-        return $this->render('@Booster/Dashboard/dashboard-booste-new.html.twig', array(
-            'society' => $society,
-            'form' => $form->createView(),
-        ));
-    }
-
 
     /**
      * @param Request $request
      * @param Society $society
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function societyEditAction(Request $request, Society $society)
+    /*public function societyEditAction(Request $request, Society $society)
     {
         $oldSocietyPhoto = $society->getPhoto();
         $editForm = $this->createForm('BoosterBundle\Form\SocietyType', $society);
@@ -144,35 +109,36 @@ class DashboardController extends Controller
             'society' => $society,
             'edit_form' => $editForm->createView(),
         ));
-    }
+    }*/
 
     /**
-     * @param $id
+     * @param $slug
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function boosterAction($id, Request $request)
+    /*public function boosterAction($slug, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $boosters = $em->getRepository('BoosterBundle:Booster')->getDashboardById($id);
+        $boosters = $em->getRepository('BoosterBundle:Booster')->getDashboardBySlug($slug);
         $user = $this->getUser();
         $userId = $user->getId();
 
         $subscriptions = $em->getRepository('BoosterBundle:ProjectSubscription')->getProjectsSubscriptionsById($id);
 
         if ($user != null) {
+
             //messages
             $messenger = new Messenger();
             $form = $this->createForm('BoosterBundle\Form\MessengerType', $messenger);
             $messengers = $em->getRepository('BoosterBundle:Messenger')->myMessages($userId);
             $form->handleRequest($request);
 
-            if ($user->getId() == $id) {
-                if ($form->isSubmitted() && $form->isValid()) {
-                    $em->persist($messengers);
-                    $em->flush();
-                }
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $em->persist($messengers);
+                $em->flush();
             }
+
             return $this->render('BoosterBundle:Dashboard:dashboard-booster.html.twig', array(
                 'subscriptions' => $subscriptions,
                 'boosters' => $boosters,
@@ -182,9 +148,175 @@ class DashboardController extends Controller
             ));
         }
         return $this->redirectToRoute('booster_charte');
+    }*/
+
+/*            return $this->render('BoosterBundle:Dashboard:dashboard-booster.html.twig', array(
+                'subscriptions' => $subscriptions,
+                'boosters' => $boosters,
+    =======
+            //testing if a place is avaliable to buy on home page
+            $socOnHomePage = $em->getRepository('BoosterBundle:transaction')->actualTransactions();
+            $avaliable = true;
+            if(count($socOnHomePage) > 15) {
+                $avaliable = false;
+            }
+            return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
+                'socOnHomePage' => $socOnHomePage,
+                'avaliable' => $avaliable,
+                'societies' => $societies,
+    >>>>>>> 5aab1a4fb45c40d3bde7cf06750a2b940b06351f
+                'user' => $user,
+                'messengers' => $messengers,
+                'projects' => $projects,
+                'form' => $form->createView(),
+            ));
+        }
+
+        return $this->redirectToRoute('booster_charte');
+    }*/
+
+    public function societyNewAction(Request $request)
+    {
+        $society = new Society();
+        $form = $this->createForm('BoosterBundle\Form\SocietyType', $society);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $em = $this->getDoctrine()->getManager();
+            $society->setUser($this->getUser());
+            $society->setSlug(md5(uniqid()));
+
+            if ($file = $society->getPhoto()) {
+                $tmp = $this->getParameter('photo_tmp');
+
+                $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+                $file->move(
+                    $this->getParameter('photo_tmp'),
+                    $fileName
+                );
+
+                $this->get('util.imageresizer')->resizeImage($tmp . '/' . $fileName, $this->getParameter('photo_society_directory') . '/', $width = 1024);
+                unlink($tmp . '/' . $fileName);
+
+                $society->setPhoto($fileName);
+            }
+
+            $em->persist($society);
+            $em->flush();
+
+            return $this->redirectToRoute('dashboard_society', array(
+                'slug' => $society->getSlug(),
+            ));
+        }
+
+        return $this->render('@Booster/Dashboard/dashboard-booste-new.html.twig', array(
+            'slug' => $society->getSlug(),
+            'society' => $society,
+            'form' => $form->createView(),
+        ));
     }
 
 
+    /**
+     * @param Request $request
+     * @param Society $society
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function societyEditAction(Request $request, Society $society)
+    {
+        $oldSocietyPhoto = $society->getPhoto();
+        $editForm = $this->createForm('BoosterBundle\Form\SocietyType', $society);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            if ($editForm->get('photo')->getData() == null) {
+                $society->setPhoto($oldSocietyPhoto);
+            } else {
+                $tmp = $this->getParameter('photo_tmp');
+                $dir = $this->getParameter('photo_society_directory');
+                $file = $society->getPhoto();
+
+                $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+                $file->move(
+                    $tmp,
+                    $fileName
+                );
+                $this->get('util.imageresizer')->resizeImage($tmp . '/' . $fileName, $dir . '/', $width = 1024);
+
+                if (isset($oldSocietyPhoto) && !empty($oldSocietyPhoto)) {
+                    unlink($dir . '/' . $oldSocietyPhoto);
+                }
+                unlink($tmp . '/' . $fileName);
+                $society->setPhoto($fileName);
+
+            }
+
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('dashboard_society',
+                array('id' => $society->getId()));
+        }
+
+        return $this->render('@Booster/Dashboard/dashboard-booste-edit.html.twig', array(
+            'id' => $society->getId(),
+            'society' => $society,
+            'edit_form' => $editForm->createView(),
+        ));
+    }
+
+    /**
+     * @param Request $request
+     * @param         $slug
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function boosterAction(Request $request, $slug)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $boosters = $em->getRepository('BoosterBundle:Booster')->getDashboardBySlug($slug);
+        $user = $this->getUser();
+
+        if (!is_null($slug) && !is_null($user)) {
+            if(!is_null($user->getBooster())){
+                $subscriber = $user->getBooster();
+            } else{
+                $subscriber = $boosters[0];
+            }
+
+            $subscriptions = $em->getRepository('BoosterBundle:ProjectSubscription')->getBoostersSubscriptions($subscriber);
+
+            $userId = $user->getId();
+            //messages
+            $messenger = new Messenger();
+            $form = $this->createForm('BoosterBundle\Form\MessengerType', $messenger);
+            $messengers = $em->getRepository('BoosterBundle:Messenger')->myMessages($userId);
+            $form->handleRequest($request);
+
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $em->persist($messengers);
+                $em->flush();
+            }
+
+            return $this->render('BoosterBundle:Dashboard:dashboard-booster.html.twig', array(
+                'subscriptions' => $subscriptions,
+                'boosters' => $boosters,
+                'user' => $user,
+                'messengers' => $messengers,
+                'form' => $form->createView(),
+            ));
+
+        }
+
+        return $this->redirectToRoute('booster_charte');
+    }
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function boosterNewAction(Request $request)
     {
         $booster = new Booster();
@@ -192,20 +324,22 @@ class DashboardController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
             $booster->setUser($this->getUser());
+            $booster->setSlug(md5(uniqid()));
 
-            if($file = $booster->getPhoto()){
+            if ($file = $booster->getPhoto()) {
                 $tmp = $this->getParameter('photo_tmp');
                 $dir = $this->getParameter('photo_booster_directory');
 
-                $fileName = md5(uniqid()).'.'.$file->guessExtension();
+                $fileName = md5(uniqid()) . '.' . $file->guessExtension();
                 $file->move(
                     $tmp,
                     $fileName
                 );
-                $this->get('util.imageresizer')->resizeImage($tmp.'/'.$fileName, $dir.'/' , $width=512);
-                unlink($tmp.'/'.$fileName);
+                $this->get('util.imageresizer')->resizeImage($tmp . '/' . $fileName, $dir . '/', $width = 512);
+                unlink($tmp . '/' . $fileName);
 
                 $booster->setPhoto($fileName);
             }
@@ -213,10 +347,14 @@ class DashboardController extends Controller
             $em->persist($booster);
             $em->flush($booster);
 
-            return $this->redirectToRoute('dashboard_booster', array('id' => $booster->getId()));
+            return $this->redirectToRoute('dashboard_booster', array(
+                'id' => $booster->getId(),
+                'slug' => $booster->getSlug()
+            ));
         }
-
+        var_dump($booster->getSlug());
         return $this->render('@Booster/Dashboard/dashboard-booster-new.html.twig', array(
+            'slug' => $booster->getSlug(),
             'booster' => $booster,
             'form' => $form->createView(),
         ));
@@ -233,36 +371,38 @@ class DashboardController extends Controller
         $oldBoosterPhoto = $booster->getPhoto();
         $editForm = $this->createForm('BoosterBundle\Form\BoosterType', $booster);
         $editForm->handleRequest($request);
+        //$user = $this->getUser();
+
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            if($editForm->get('photo')->getData() == null ){
+            if ($editForm->get('photo')->getData() == null) {
                 $booster->setPhoto($oldBoosterPhoto);
-            }
-            else{
+            } else {
                 $tmp = $this->getParameter('photo_tmp');
                 $dir = $this->getParameter('photo_booster_directory');
                 $file = $booster->getPhoto();
-                $fileName = md5(uniqid()).'.'.$file->guessExtension();
+                $fileName = md5(uniqid()) . '.' . $file->guessExtension();
                 $file->move(
                     $this->getParameter('photo_tmp'),
                     $fileName
                 );
-                $this->get('util.imageresizer')->resizeImage($tmp.'/'.$fileName, $dir.'/' , $width=512);
+                $this->get('util.imageresizer')->resizeImage($tmp . '/' . $fileName, $dir . '/', $width = 512);
 
                 if (isset($oldBoosterPhoto) && !empty($oldBoosterPhoto)) {
-                    unlink($dir.'/'.$oldBoosterPhoto);
+                    unlink($dir . '/' . $oldBoosterPhoto);
                 }
-                unlink($tmp.'/'.$fileName);
+                unlink($tmp . '/' . $fileName);
                 $booster->setPhoto($fileName);
             }
 
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('dashboard_booster',
-                array('id' => $booster->getId()));
+                array('slug' => $booster->getSlug()));
         }
 
         return $this->render('BoosterBundle:Dashboard:dashboard-booster-edit.html.twig', array(
+            'slug' => $booster->getSlug(),
             'id' => $booster->getId(),
             'booster' => $booster,
             'edit_form' => $editForm->createView(),
@@ -294,31 +434,29 @@ class DashboardController extends Controller
             'required'    => false,
             'empty_data'  => "J'accepte votre coup de boost"
         ));
-
         $em = $this->getDoctrine()->getManager();
 
         //set project-subscription status to 'en cours'
-        $subscriptionRepository = $em->getRepository('BoosterBundle:projectSubscription');
+        $subscriptionRepository = $em->getRepository('BoosterBundle:ProjectSubscription');
         $subscriptionRepository->chooseProjectSubscriber($subscriptionId);
 
         //set project status to 'en cours'
-        $projectRepository = $em->getRepository('BoosterBundle:project');
+        $projectRepository = $em->getRepository('BoosterBundle:Project');
         $projectRepository->updateProjectStatus($projectId);
 
         //Project entity
         $project = $projectRepository->findOneById($projectId);
+
         //ProjectSubscription entity
         $subscription = $subscriptionRepository->findOneById($subscriptionId);
-
-
         $messageSender = $project->getSociety()->getUser();
         $messageReceiver = $subscription->getBooster()->getUser();
         $title = $project->getProjectName();
 
         $form->get('title')->setData($title);
-
         $form->handleRequest($request);
 
+        $slug = $em->getRepository('BoosterBundle:Society')->findOneById($societyId)->getSlug();
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
@@ -331,18 +469,24 @@ class DashboardController extends Controller
             /*send the message to the booster*/
             //sender of the message
             $message->setUser1($messageSender);
+
             //receiver of the message
             $message->setUser2($messageReceiver);
             $message->setUser1Read(1);
             $message->setUser2Read(0);
             $message->setCreateTime(new \DateTime('now'));
+
             $em->persist($message);
             $em->flush();
 
-            return $this->redirectToRoute('dashboard_society', array('id' => $societyId));
+
+            return $this->redirectToRoute('dashboard_society', array(
+                'slug' => $slug
+            ));
         }
         return $this->render('BoosterBundle:Dashboard:project-subscription-contact.html.twig', array(
             'form' => $form->createView(),
+            'slug' => $slug,
             'societyId' => $societyId,
         ));
     }

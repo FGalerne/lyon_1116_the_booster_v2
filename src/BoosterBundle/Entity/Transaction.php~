@@ -110,4 +110,7 @@ class Transaction
         return $this->society;
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5aab1a4fb45c40d3bde7cf06750a2b940b06351f

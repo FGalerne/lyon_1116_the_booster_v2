@@ -26,11 +26,11 @@ class ProjectSubscriptionRepository extends \Doctrine\ORM\EntityRepository
         return $qb->execute();
     }
 
-    public function getProjectsSubscriptionsById($id)
+    public function getBoostersSubscriptions($subscriber)
     {
         $req = $this->createQueryBuilder('s')
-            ->where('s.id = :id')
-            ->setParameter('id', $id)
+            ->where('s.booster = :booster')
+            ->setParameter('booster', $subscriber)
             ->getQuery();
         return $req->getResult();
     }

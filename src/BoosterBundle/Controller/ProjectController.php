@@ -97,8 +97,8 @@ class ProjectController extends Controller
             $em->persist($project);
             $em->flush();
             return $this->redirectToRoute('dashboard_society', array(
-                'id' => $this->getUser()->getSociety()->getId()
-            ));
+                'slug' => $this->getUser()->getSociety()->getSlug()
+			));
         }
 
         return $this->render('BoosterBundle:Front:deposer_un_projet.html.twig', array(
@@ -182,11 +182,11 @@ class ProjectController extends Controller
      * @param Request $request
      * @param $projectId
      * @param $subscriptionId
-     * @param $dashboardId
+     * @param $dashboardSlug
      * @param $role
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function projectDoneAction(Request $request, $projectId, $subscriptionId, $dashboardId, $role)
+    public function projectDoneAction(Request $request, $projectId, $subscriptionId, $dashboardSlug, $role)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -218,7 +218,7 @@ class ProjectController extends Controller
         }
         else{
             $form->add('society_note', ChoiceType::class, array(
-                'label' => 'Notez le booster',
+                'label' => 'Notez le boosté',
                 'attr' => array('class' => 'form-control form-group'),
                 'required' => false,
                 'choices' => array(
@@ -229,7 +229,7 @@ class ProjectController extends Controller
                 },
             ));
             $form->add('society_commentaries', TextType::class, array(
-                'label' => 'Laissez un commentaire pour le booster',
+                'label' => 'Laissez un commentaire pour le boosté',
                 'attr' => array('class' => 'form-control form-group'),
                 'required' => false,
             ));
@@ -269,19 +269,20 @@ class ProjectController extends Controller
 
             if ($role == 'booster') {
                 return $this->redirectToRoute('dashboard_booster', array(
-                    'id' => $dashboardId,
+                    'slug' => $dashboardSlug,
                 ));
             } else {
                 return $this->redirectToRoute('dashboard_society', array(
-                    'id' => $dashboardId,
+                    'slug' => $dashboardSlug,
                 ));
 
             }
         }
+
         return $this->render('BoosterBundle:Dashboard:project-note.html.twig', array(
             'projectId' => $projectId,
             'subscriptionId' => $subscriptionId,
-            'dashboardId' => $dashboardId,
+            'slug' => $dashboardSlug,
             'role' => $role,
             'societyId' => $subscription->getProject()->getId(),
             'form' => $form->createView(),

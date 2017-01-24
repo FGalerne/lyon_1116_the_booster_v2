@@ -18,7 +18,11 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-md-8 col-md-offset-2">
-                <a class="postulation-button col-xs-12" href="{{ path('dashboard_society', { 'id': societyId }) }}">Retourner au dashboard</a>
+                {% if is_granted('Role_Booster') %}
+                    <a class="postulation-button col-xs-12" href="{{ path('dashboard_booster', { 'slug': slug }) }}">Retourner au dashboard</a>
+                {% else %}
+                    <a class="postulation-button col-xs-12" href="{{ path('dashboard_society', { 'slug': slug }) }}">Retourner au dashboard</a>
+                {% endif %}
             </div>
         </div>
     </div>

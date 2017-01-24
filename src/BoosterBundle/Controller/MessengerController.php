@@ -75,15 +75,15 @@ class MessengerController extends Controller
             }
         }
 
-        $id = $request->query->get('id');
+        $slug = $request->query->get('slug');
         $role = $request->query->get('role');
         if($role == 'booster'){
             return $this->redirectToRoute('dashboard_booster',
-                array('id' => $id));
+                array('slug' => $slug));
         }
         else{
             return $this->redirectToRoute('dashboard_society',
-                array('id' => $id));
+                array('slug' => $slug));
         }
     }
 

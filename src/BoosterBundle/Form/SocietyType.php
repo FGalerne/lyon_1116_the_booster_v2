@@ -9,7 +9,6 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Routing\Tests\Generator\UrlGeneratorTest;
 
 class SocietyType extends AbstractType
 {
@@ -20,20 +19,18 @@ class SocietyType extends AbstractType
     {
         $builder->add('photo', FileType::class, array(
                     'label' => 'Votre société (format paysage)',
-                    'required' => false,
                     'data_class' => null
                     )
                 )
-
                 ->add('societyName', TextType::class, array(
                     'label' => 'Nom de la société ou du projet',
                     'attr'  => array(
                         'placeholder' => 'Nom de votre société ou de votre projet'
                         ),
                     ))
-
                 ->add('websiteLink', TextType::class, array(
                     'label' => 'Site internet',
+                    'required' => false,
                     'attr'  => array(
                         'placeholder' => 'URL du site internet'
                     ),

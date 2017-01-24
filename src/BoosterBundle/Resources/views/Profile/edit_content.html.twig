@@ -1,22 +1,34 @@
 {% trans_default_domain 'FOSUserBundle' %}
 <div class="col-xs-12 col-lg-offset-2 col-lg-8">
-    {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
-    {{ form_label(form.title, 'Civilité')}}
-        {{ form_widget(form.title, {'attr':{'class' :'form-control text-center'}}) }}
-    {{ form_label(form.last_name, 'Nom')}}
-        {{ form_widget(form.last_name, {'attr':{'class' :'form-control text-center'}}) }}
-    {{ form_label(form.first_name, 'Prénom')}}
-        {{ form_widget(form.first_name, {'attr':{'class' :'form-control text-center'}}) }}
-
     {% if is_granted("ROLE_BOOSTE") %}
-        {{ form_label(form.professional_function, 'Fonction')}}
+        {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+        {{ form_label(form.title, 'Civilité') }}
+        {{ form_widget(form.title, {'attr':{'class' :'form-control text-center'}}) }}
+        {{ form_label(form.last_name, 'Nom') }}
+        {{ form_widget(form.last_name, {'attr':{'class' :'form-control text-center'}}) }}
+        {{ form_label(form.first_name, 'Prénom') }}
+        {{ form_widget(form.first_name, {'attr':{'class' :'form-control text-center'}}) }}
+        {{ form_label(form.professional_function, 'Fonction') }}
         {{ form_widget(form.professional_function, {'attr':{'class' :'form-control text-center'}}) }}
-        {{ form_label(form.phone, 'Téléphone Portable')}}
+        {{ form_label(form.phone, 'Téléphone Portable') }}
         {{ form_widget(form.phone, {'attr':{'class' :'form-control text-center'}}) }}
-
+        <div class="btn_register">
+            <input type="submit" value="Envoyer" class="btn btn-danger"/>
+        </div>
+        {{ form_end(form) }}
     {% endif %}
-    <div class="btn_register">
-        <input type="submit" value="Envoyer" class="btn btn-danger" />
-    </div>
-    {{ form_end(form) }}
+    {% if is_granted("ROLE_BOOSTER") %}
+        {{ form_start(formBooster, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+        {{ form_label(formBooster.title, 'Civilité') }}
+        {{ form_widget(formBooster.title, {'attr':{'class' :'form-control text-center'}}) }}
+        {{ form_label(formBooster.last_name, 'Nom') }}
+        {{ form_widget(formBooster.last_name, {'attr':{'class' :'form-control text-center'}}) }}
+        {{ form_label(formBooster.first_name, 'Prénom') }}
+        {{ form_widget(formBooster.first_name, {'attr':{'class' :'form-control text-center'}}) }}
+        <div class="btn_register">
+            <input type="submit" value="Envoyer" class="btn btn-danger"/>
+        </div>
+        {{ form_end(formBooster) }}
+    {% endif %}
 </div>
+

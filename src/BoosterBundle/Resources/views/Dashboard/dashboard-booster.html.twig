@@ -46,7 +46,9 @@
                         <li><a id="project-home">Accueil</a></li>
                         <li><a id="project-in-progress">Projets en cours</a></li>
                         <li><a id="project-done">Projets réalisés</a></li>
+                        {% if app.user.booster %}
                         <li><a id="messenger">Messages</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -90,9 +92,9 @@
         </section>
 
         {# The Project part "IN PROGRESS" #}
-
         <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
             {% for subscription in subscriptions %}
+
                 {% if subscription.project.status == 'In_progress' or subscription.project.status == 'Open'%}
                     <div class="container project-in-progress prelude">
                         <div class="row">
@@ -128,7 +130,7 @@
                                     </div>
                                     <div class="col-xs-4">
                                         {% if not subscription.boosterValidation %}
-                                        <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardId': app.user.booster.id, 'role': 'booster' }) }}" class="button-cancel-subscription">Ce projet est terminé !</a><br/>
+                                        <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardSlug': app.user.booster.slug, 'role': 'booster' }) }}" class="button-cancel-subscription">Ce projet est terminé !</a><br/>
                                         {% else %}
                                             En attente de la validation de {{ subscription.project.society.user.firstname }}.<br/>
                                         {% endif %}
@@ -185,7 +187,9 @@
             {% endfor %}
         </section>
     {% endfor %}
-    {% include 'BoosterBundle:Dashboard:messenger.html.twig' %}
+    {% if app.user.booster %}
+        {% include 'BoosterBundle:Dashboard:messenger.html.twig' %}
+    {% endif %}
 {% endblock %}
 
 {% block javascripts %}

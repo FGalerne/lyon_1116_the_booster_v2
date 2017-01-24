@@ -312,6 +312,7 @@ class ProjectSubscription
     {
         return $this->project;
     }
+
     /**
      * @var boolean
      */
@@ -370,4 +371,5 @@ class ProjectSubscription
     {
         return $this->societyValidation;
     }
+
 }
