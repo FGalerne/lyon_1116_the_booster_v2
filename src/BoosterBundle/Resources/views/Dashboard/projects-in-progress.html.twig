@@ -51,7 +51,7 @@
                                     <p class="text-left"><strong>{{ subscription.givenTime }} H</strong></p>
                                 </div>
                                 <div class="col-xs-2">
-                                    <a href="{{ path('dashboard_booster', {'id': subscription.booster.id }) }}" title="Le voir">
+                                    <a href="{{ path('dashboard_booster', {'slug': subscription.booster.slug }) }}" title="Le voir">
                                         Le voir
                                     </a><br/>
                                     <a href="{{ path('dashboard_contact_booster', {'societyId': app.user.society.id, 'projectId': subscription.project.id, 'subscriptionId': subscription.id }) }}" title="Le contacter">
