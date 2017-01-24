@@ -1,20 +1,20 @@
 order_new:
-    path:     /new/{amount}/{action}/{clientId}
+    path:     /new/{amount}/{action}/{clientId}/{slug}
     defaults: { _controller: "BoosterBundle:Orders:new" }
     methods:  [GET, POST]
 
 order_show:
-    path:     /{id}/show/{action}/{clientId}
+    path:     /{id}/show/{action}/{clientId}/{slug}
     defaults: { _controller: "BoosterBundle:Orders:show" }
     methods:  [GET, POST]
 
 order_payment_create:
-    path:     /{id}/payment/create/{clientId}/{action}
+    path:     /{id}/payment/create/{clientId}/{action}/{slug}
     defaults: { _controller: "BoosterBundle:Orders:paymentCreate" }
     methods:  [GET, POST]
 
 order_payment_complete:
-    path:     /{id}/payment/complete/{clientId}
+    path:     /{id}/payment/complete/{clientId}/{slug}
     defaults: { _controller: "BoosterBundle:Orders:paymentComplete" }
     methods:  [GET, POST]
 
