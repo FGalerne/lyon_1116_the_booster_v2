@@ -305,4 +305,68 @@
 			));
 		}
 
-	}
+    public function contactBoosterAction(Request $request, $societyId, $projectId, $subscriptionId)
+    {
+        $message = new Messenger();
+        $form = $this->createForm('BoosterBundle\Form\MessengerType', $message);
+        $form->add('message', TextareaType::class, array(
+            'label' => 'Message: ',
+            'attr' => array(
+                'class' => 'WYSIWYG form-control form-group',
+            ),
+            'required'    => false,
+            'empty_data'  => "J'accepte votre coup de boost"
+        ));
+
+        $em = $this->getDoctrine()->getManager();
+
+        //set project-subscription status to 'en cours'
+        $subscriptionRepository = $em->getRepository('BoosterBundle:projectSubscription');
+        $subscriptionRepository->chooseProjectSubscriber($subscriptionId);
+
+        //set project status to 'en cours'
+        $projectRepository = $em->getRepository('BoosterBundle:project');
+        $projectRepository->updateProjectStatus($projectId);
+
+        //Project entity
+        $project = $projectRepository->findOneById($projectId);
+        //ProjectSubscription entity
+        $subscription = $subscriptionRepository->findOneById($subscriptionId);
+
+
+        $messageSender = $project->getSociety()->getUser();
+        $messageReceiver = $subscription->getBooster()->getUser();
+        $title = $project->getProjectName();
+
+        $form->get('title')->setData($title);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+
+            //set project-subscription status to 'In_progress'
+            $subscriptionRepository->chooseProjectSubscriber($subscriptionId);
+
+            //set project status to 'In_progress'
+            $projectRepository->updateProjectStatus($projectId);
+
+            /*send the message to the booster*/
+            //sender of the message
+            $message->setUser1($messageSender);
+            //receiver of the message
+            $message->setUser2($messageReceiver);
+            $message->setUser1Read(1);
+            $message->setUser2Read(0);
+            $message->setCreateTime(new \DateTime('now'));
+            $em->persist($message);
+            $em->flush();
+
+            return $this->redirectToRoute('dashboard_society', array('id' => $societyId));
+        }
+        return $this->render('BoosterBundle:Dashboard:project-subscription-contact.html.twig', array(
+            'form' => $form->createView(),
+            'societyId' => $societyId,
+        ));
+    }
+}
