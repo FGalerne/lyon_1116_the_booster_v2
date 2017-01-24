@@ -31,14 +31,6 @@
 			$projects = $em->getRepository('BoosterBundle:Project')->getProjectBySociety($id);
 
 
-
-
-
-			/**
-			 * @var Society $user
-			 */
-
-
 			if ($slug != null) {
 				$user = $this->getUser();
 				$userId = $user->getId();
@@ -55,6 +47,7 @@
             if(count($socOnHomePage) > 15) {
                 $avaliable = false;
             }
+
             return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
                 'socOnHomePage' => $socOnHomePage,
                 'avaliable' => $avaliable,
@@ -64,10 +57,10 @@
                 'projects' => $projects,
                 'form' => $form->createView(),
             ));
-        }
+            }
 
         return $this->redirectToRoute('booster_charte');
-    }
+        }
 
 		public function societyNewAction(Request $request)
 		{
@@ -145,9 +138,7 @@
 					unlink($tmp . '/' . $fileName);
 					$society->setPhoto($fileName);
 
-
 				}
-
 				$this->getDoctrine()->getManager()->flush();
 
 				return $this->redirectToRoute('dashboard_society',
