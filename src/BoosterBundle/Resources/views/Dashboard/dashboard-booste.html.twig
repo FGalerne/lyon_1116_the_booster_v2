@@ -1,5 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <!-- CSS File for custom buttons -->
+    <link rel="stylesheet" href="{{ asset('css/button.css')}}" >
+
+{% endblock %}
+
 {% block body %}
     {% for society in societies %}
 
@@ -35,7 +41,7 @@
                     </ul>
                 </div>
                 <div class="col-xs-12 col-md-3" id="add-project">
-                    {% if is_granted("ROLE_BOOSTE") %}<a href="{{ path('new_project') }}">JE DEPOSE UN PROJET</a>{% endif %}
+                    {% if is_granted("ROLE_BOOSTE") %}<a class="bttn-gradient.bttn-md" href="{{ path('new_project') }}">JE DEPOSE UN PROJET</a>{% endif %}
                 </div>
 
             </div>

@@ -18,7 +18,6 @@ p {
  }
 
 ul {
-	font-size:1.35em;
 	text-align:justify;
 	font-family: 'Source Sans Pro', sans-serif;
 }
@@ -43,6 +42,10 @@ span {
  h1{
 	 font-weight: 900;
  }
+
+#myNavbar {
+	list-style: none;
+}
 
 .prelude {
 	background-color: #FAFAFA;
@@ -93,7 +96,9 @@ span {
 	color: black;
 	display: inline-block;
 	text-align: center;
+	font-size: 1.35em;
  }
+
 
 .navbar-brand img {
 	height: 9vh;
@@ -183,7 +188,7 @@ span {
 	display: inline-block;
 }
 
-#connection-nav ul {
+.connection-nav {
 	font-size: 1em;
 }
 
@@ -269,12 +274,12 @@ span {
 	display: inline-block;
 	padding: 2px 0 3px 8px;;
 	color: #FFFFFF;
-	font-size: 1em;
-	background-color: #dd4444;
+	background-color: #eb0310;
 	border-radius: 50%;
 	width: 33px;
 	height: 33px;
 	margin-top: 8px;
+	font-size: 1.35em;
 }
 
 .navbar-social ul li:hover {
@@ -1024,7 +1029,7 @@ hr{
 /*********************** DASHBOARD BOOSTER ***********************/
 
 .global-presentation {
-	padding: 35px 0 65px 0;
+	padding: 35px 0 0 0;
 }
 
 #statistic-society,
@@ -1039,14 +1044,22 @@ hr{
 	font-size: 1.2em;
 }
 
+#statistic-society ul,
 #statistic-booster ul {
-	margin-top: 15px;
+	margin-top: 30px;
 	padding: 0;
+	text-align: center;
+	font-size: 1.7em;
 }
 
 #statistic-booster ul li {
 	list-style: none;
 	display: inline-block;
+
+}
+
+.personnal-information {
+	padding-bottom: 35px;
 }
 
 .personnal-information p {
@@ -1095,15 +1108,10 @@ hr{
 }
 
 .booster-skill ul {
-	text-align: center;
-	padding: 0;
+	font-size: 1.2em;
 }
 
-.booster-skill li {
-	display: inline-block;
-	list-style: none;
-	padding: 15px;
-}
+
 
 .presentation-text {
 	width: 100%;
@@ -1185,18 +1193,24 @@ hr{
 }
 #add-project a{
 	background-color: rgba(235,3,16,1);
-	margin: 35px auto;
+	margin: 30px auto;
 	display: block;
-	padding: 40px;
+	padding: 10px;
 	color: #FFFFFF;
 	text-decoration: none;
 	text-align: center;
+	border-radius: 35px;
 }
 
 #add-project a:hover, .transactions a:hover {
 	background-color: rgba(235,3,16,0.9)!important;
 }
 
+@media (max-width: 991px) {
+	#add-project a{
+		width: 250px;
+	}
+}
 .dashboard-social-media {
 	margin-top: 35px;
 	font-size: 3.5em;
@@ -1695,13 +1709,6 @@ a:hover {
 	overflow: hidden;
 }
 .society-photo img {
-	position: relative;
-	top: 50%;
-	transform: translate(0, -50%);
-	-moz-transform: translate(0, -50%);
-	-webkit-transform: translate(0, -50%);
-	-ms-transform: translate(0, -50%);
-	-o-transform: translate(0, -50%);
 	width: 100%;
 	display: block;
 	margin: 0 auto;
@@ -1892,7 +1899,7 @@ a:hover {
 	margin-bottom: 50px;
 }
 
-/*************************** here the mobile version of the team page *****************************/
+/*************************** Here the mobile version of the team page *****************************/
 
 @media screen and (max-width: 1199px){
 	.all-team h2 {
