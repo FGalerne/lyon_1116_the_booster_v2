@@ -13,16 +13,9 @@ class NotesBoosterType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        //Form to allow Boostés/Society to vote and comment about the Booster at the end of the project
+        //The vote from this form is sent to the table Booster
         $builder
-
-            ->add('boosterNote', IntegerType::class, array(
-                'label' => 'Attribuez une note au Booster : ',
-                'attr' => array(
-                    'class' => 'form-control form-group',
-                ),
-                'required'    => true
-            ))
-
             ->add('boosterCommentaries', TextareaType::class, array(
                 'label' => 'Écrivez un commentaire à propos du Booster : ',
                 'attr' => array(

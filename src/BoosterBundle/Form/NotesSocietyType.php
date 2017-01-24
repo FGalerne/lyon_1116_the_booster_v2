@@ -3,6 +3,7 @@
 namespace BoosterBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -13,9 +14,11 @@ class NotesSocietyType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        //Form to allow Boosters to vote and comment about the Boosté/Society at the end of the project
+        //The vote from this form is sent to the table Society
         $builder
-            ->add('societyNote', IntegerType::class, array(
-                'label' => 'Attribuez une note au Booster : ',
+            ->add('societyNote', HiddenType::class, array(
+                'label' => 'Attribuez une note au Boosté : ',
                 'attr' => array(
                     'class' => 'form-control form-group',
                 ),
@@ -23,7 +26,7 @@ class NotesSocietyType extends AbstractType
             ))
 
             ->add('societyCommentaries', TextareaType::class, array(
-                'label' => 'Écrivez un commentaire à propos du Booster : ',
+                'label' => 'Écrivez un commentaire à propos du Boosté : ',
                 'attr' => array(
                     'class' => 'form-control form-group',
                     'placeholder' => 'Écrivez votre commentaire'
