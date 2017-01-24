@@ -78,27 +78,10 @@ class Society
     private $deniedBoosters;
 
     /**
-     * @var \BoosterBundle\Entity\User
+     * @var string
      */
-    private $user;
+    private $oneToMany;
 
-    /**
-     * @var \BoosterBundle\Entity\Transaction
-     */
-    private $transaction;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $project_names;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->project_names = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Get id
@@ -108,6 +91,16 @@ class Society
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get photo
+     *
+     * @return string
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
     }
 
     /**
@@ -125,13 +118,13 @@ class Society
     }
 
     /**
-     * Get photo
+     * Get societyName
      *
      * @return string
      */
-    public function getPhoto()
+    public function getSocietyName()
     {
-        return $this->photo;
+        return $this->societyName;
     }
 
     /**
@@ -149,13 +142,13 @@ class Society
     }
 
     /**
-     * Get societyName
+     * Get punchLine
      *
      * @return string
      */
-    public function getSocietyName()
+    public function getPunchLine()
     {
-        return $this->societyName;
+        return $this->punchLine;
     }
 
     /**
@@ -173,13 +166,13 @@ class Society
     }
 
     /**
-     * Get punchLine
+     * Get presentation
      *
      * @return string
      */
-    public function getPunchLine()
+    public function getPresentation()
     {
-        return $this->punchLine;
+        return $this->presentation;
     }
 
     /**
@@ -197,13 +190,13 @@ class Society
     }
 
     /**
-     * Get presentation
+     * Get linkedin
      *
      * @return string
      */
-    public function getPresentation()
+    public function getLinkedin()
     {
-        return $this->presentation;
+        return $this->linkedin;
     }
 
     /**
@@ -221,13 +214,13 @@ class Society
     }
 
     /**
-     * Get linkedin
+     * Get facebook
      *
      * @return string
      */
-    public function getLinkedin()
+    public function getFacebook()
     {
-        return $this->linkedin;
+        return $this->facebook;
     }
 
     /**
@@ -245,13 +238,13 @@ class Society
     }
 
     /**
-     * Get facebook
+     * Get twitter
      *
      * @return string
      */
-    public function getFacebook()
+    public function getTwitter()
     {
-        return $this->facebook;
+        return $this->twitter;
     }
 
     /**
@@ -269,13 +262,13 @@ class Society
     }
 
     /**
-     * Get twitter
+     * Get youtube
      *
      * @return string
      */
-    public function getTwitter()
+    public function getYoutube()
     {
-        return $this->twitter;
+        return $this->youtube;
     }
 
     /**
@@ -293,13 +286,13 @@ class Society
     }
 
     /**
-     * Get youtube
+     * Get websiteLink
      *
      * @return string
      */
-    public function getYoutube()
+    public function getWebsiteLink()
     {
-        return $this->youtube;
+        return $this->websiteLink;
     }
 
     /**
@@ -317,13 +310,13 @@ class Society
     }
 
     /**
-     * Get websiteLink
+     * Get hoursTaken
      *
-     * @return string
+     * @return integer
      */
-    public function getWebsiteLink()
+    public function getHoursTaken()
     {
-        return $this->websiteLink;
+        return $this->hoursTaken;
     }
 
     /**
@@ -341,13 +334,13 @@ class Society
     }
 
     /**
-     * Get hoursTaken
+     * Get averageNotation
      *
      * @return integer
      */
-    public function getHoursTaken()
+    public function getAverageNotation()
     {
-        return $this->hoursTaken;
+        return $this->averageNotation;
     }
 
     /**
@@ -365,13 +358,13 @@ class Society
     }
 
     /**
-     * Get averageNotation
+     * Get projectDoneNumber
      *
      * @return integer
      */
-    public function getAverageNotation()
+    public function getProjectDoneNumber()
     {
-        return $this->averageNotation;
+        return $this->projectDoneNumber;
     }
 
     /**
@@ -389,13 +382,13 @@ class Society
     }
 
     /**
-     * Get projectDoneNumber
+     * Get deniedBoosters
      *
      * @return integer
      */
-    public function getProjectDoneNumber()
+    public function getDeniedBoosters()
     {
-        return $this->projectDoneNumber;
+        return $this->deniedBoosters;
     }
 
     /**
@@ -413,61 +406,77 @@ class Society
     }
 
     /**
-     * Get deniedBoosters
+     * Get oneToMany
      *
-     * @return integer
+     * @return string
      */
-    public function getDeniedBoosters()
+    public function getOneToMany()
     {
-        return $this->deniedBoosters;
+        return $this->oneToMany;
     }
 
     /**
-     * Set user
+     * Set oneToMany
      *
-     * @param \BoosterBundle\Entity\User $user
+     * @param string $oneToMany
      *
      * @return Society
      */
-    public function setUser(\BoosterBundle\Entity\User $user = null)
+    public function setOneToMany($oneToMany)
     {
-        $this->user = $user;
+        $this->oneToMany = $oneToMany;
+
+        return $this;
+    }
+    
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+    	return strval($this->id);
+    }
+
+    /**
+     * @var \BoosterBundle\Entity\User
+     */
+    private $users;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $project_names;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->project_names = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set users
+     *
+     * @param \BoosterBundle\Entity\User $users
+     *
+     * @return Society
+     */
+    public function setUsers(\BoosterBundle\Entity\User $users = null)
+    {
+        $this->users = $users;
 
         return $this;
     }
 
     /**
-     * Get user
+     * Get users
      *
      * @return \BoosterBundle\Entity\User
      */
-    public function getUser()
+    public function getUsers()
     {
-        return $this->user;
-    }
-
-    /**
-     * Set transaction
-     *
-     * @param \BoosterBundle\Entity\Transaction $transaction
-     *
-     * @return Society
-     */
-    public function setTransaction(\BoosterBundle\Entity\Transaction $transaction = null)
-    {
-        $this->transaction = $transaction;
-
-        return $this;
-    }
-
-    /**
-     * Get transaction
-     *
-     * @return \BoosterBundle\Entity\Transaction
-     */
-    public function getTransaction()
-    {
-        return $this->transaction;
+        return $this->users;
     }
 
     /**
@@ -502,5 +511,123 @@ class Society
     public function getProjectNames()
     {
         return $this->project_names;
+    }
+
+    /**
+     * @var \BoosterBundle\Entity\User
+     */
+    private $user;
+
+
+    /**
+     * Set user
+     *
+     * @param \BoosterBundle\Entity\User $user
+     *
+     * @return Society
+     */
+    public function setUser(\BoosterBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \BoosterBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+    /**
+     * @var \BoosterBundle\Entity\Transaction
+     */
+    private $transaction;
+
+
+    /**
+     * Set transaction
+     *
+     * @param \BoosterBundle\Entity\Transaction $transaction
+     *
+     * @return Society
+     */
+    public function setTransaction(\BoosterBundle\Entity\Transaction $transaction = null)
+    {
+        $this->transaction = $transaction;
+
+        return $this;
+    }
+
+    /**
+     * Get transaction
+     *
+     * @return \BoosterBundle\Entity\Transaction
+     */
+    public function getTransaction()
+    {
+        return $this->transaction;
+    }
+
+    /**
+     * @var \BoosterBundle\Entity\Transaction
+     */
+    private $society_id;
+
+
+    /**
+     * Set transactionId
+     *
+     * @param \BoosterBundle\Entity\Transaction $societyId
+     *
+     * @return Society
+     */
+    public function setSocietyId(\BoosterBundle\Entity\Transaction $societyId = null)
+    {
+        $this->society_id = $societyId;
+
+        return $this;
+    }
+
+    /**
+     * Get societyId
+     *
+     * @return \BoosterBundle\Entity\Transaction
+     */
+    public function getSocietyId()
+    {
+        return $this->society_id;
+    }
+    /**
+     * @var string
+     */
+    private $slug;
+
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Society
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

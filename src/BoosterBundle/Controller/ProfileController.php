@@ -11,6 +11,7 @@
 
 namespace BoosterBundle\Controller;
 
+use BoosterBundle\Form\ProfileFormBoosterType;
 use BoosterBundle\Form\ProfileFormType;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\Event\FormEvent;
@@ -78,12 +79,19 @@ class ProfileController extends BaseController
 
         /** @var $formFactory FactoryInterface */
 
+
         $form = $this->createForm(ProfileFormType::class);
         $form->setData($user);
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        $form2 = $this->createForm(ProfileFormBoosterType::class);
+        $form2->setData($user);
+
+        $form2->handleRequest($request);
+
+
+        if ($form->isValid() || $form2->isValid()) {
             /** @var $userManager UserManagerInterface */
             $userManager = $this->get('fos_user.user_manager');
 
@@ -104,6 +112,7 @@ class ProfileController extends BaseController
 
         return $this->render('BoosterBundle:Profile:edit.html.twig', array(
             'form' => $form->createView(),
+			'formBooster' => $form2->createView(),
         ));
     }
 }

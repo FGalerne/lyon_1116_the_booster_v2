@@ -13,7 +13,7 @@ use JMS\Payment\CoreBundle\Plugin\Exception\ActionRequiredException;
 
 class OrdersController extends Controller
 {
-    public function newAction($amount, $action, $clientId)
+    public function newAction($amount, $action, $clientId, $slug)
     {
         $em = $this->getDoctrine()->getManager();
         $order = new Order($amount);
@@ -21,13 +21,14 @@ class OrdersController extends Controller
         $em->flush();
 
         return $this->redirect($this->generateUrl('order_show', array(
-            'id' => $order->getId(),
+            'slug' => $slug,
+        	'id' => $order->getId(),
             'clientId' => $clientId,
             'action' => $action,
         )));
     }
 
-    public function showAction(Request $request, Order $order, $clientId, $action)
+    public function showAction(Request $request, Order $order, $clientId, $action, $slug)
     {
         $config = array(
             'paypal_express_checkout' => array(
@@ -35,10 +36,11 @@ class OrdersController extends Controller
                     'id' => $order->getId(),
                     'clientId' => $clientId,
                     'action' => $action,
+					'slug' => $slug,
                 ), UrlGeneratorInterface::ABSOLUTE_URL),
 
                 'cancel_url' => $this->generateUrl('dashboard_society', array(
-                'id' => $clientId,
+                'slug' => $slug,
                 'paymentStatus' => 'error',
                 ), UrlGeneratorInterface::ABSOLUTE_URL),
 
@@ -66,7 +68,8 @@ class OrdersController extends Controller
             $em->flush($order);
 
             return $this->redirect($this->generateUrl('order_payment_create', array(
-                'id' => $order->getId(),
+                'slug' => $slug,
+            	'id' => $order->getId(),
                 'clientId' => $clientId,
                 'action' => $action,
             )));
@@ -75,10 +78,11 @@ class OrdersController extends Controller
         return $this->render('BoosterBundle:Orders:show.html.twig', array(
             'order' => $order,
             'form'  => $form->createView(),
+			'slug' => $slug,
         ));
     }
 
-    private function createPayment($order, $clientId)
+    private function createPayment($order, $clientId, $slug)
     {
         $instruction = $order->getPaymentInstruction();
         $pendingTransaction = $instruction->getPendingTransaction();
@@ -90,12 +94,12 @@ class OrdersController extends Controller
         $ppc = $this->get('payment.plugin_controller');
         $amount = $instruction->getAmount() - $instruction->getDepositedAmount();
 
-        return $ppc->createPayment($instruction->getId(), $amount, $clientId);
+        return $ppc->createPayment($instruction->getId(), $amount, $clientId, $slug);
     }
 
-    public function paymentCreateAction(Order $order, $clientId, $action, Request $request)
+    public function paymentCreateAction(Order $order, $clientId, $action, Request $request, $slug)
     {
-        $payment = $this->createPayment($order, $clientId);
+        $payment = $this->createPayment($order, $clientId, $slug);
 
         $ppc = $this->get('payment.plugin_controller');
         $result = $ppc->approveAndDeposit($payment->getId(), $payment->getTargetAmount());
@@ -123,12 +127,14 @@ class OrdersController extends Controller
             } else {
                 //this should never append
                 return $this->redirect($this->generateUrl('dashboard_society', array(
-                'id' => $clientId,
-                'paymentStatus' => 'error',
+                	'slug' => $slug,
+                	'id' => $clientId,
+                	'paymentStatus' => 'error',
                 )));
             }
 
             return $this->redirect($this->generateUrl('order_payment_complete', array(
+				'slug' => $slug,
                 'id' => $order->getId(),
                 'clientId' => $clientId,
             )));
@@ -150,9 +156,10 @@ class OrdersController extends Controller
         throw new \Exception('Transaction was not successful: '.$result->getReasonCode());
     }
 
-    public function paymentCompleteAction(Order $order, $clientId)
+    public function paymentCompleteAction($clientId, $slug)
     {
         return $this->redirectToRoute('dashboard_society', array(
+        	'slug' => $slug,
             'id' => $clientId,
             'paymentStatus' => 'success',
         ));
