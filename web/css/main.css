@@ -1683,10 +1683,22 @@ li.star-active i {
 }
 
 .star_grey {
-	color: dimgrey;
+	color: darkgrey;
 }
 
+.form_btn {
+	font-size:1.5em;
+	font-weight:700;
+	background-color: #eb0310;
+	color:white;
+	margin-top: 5vh;
+}
 
+.form_btn:hover {
+	background-color: rgb(255, 50, 80);
+	color: white;
+	text-decoration: none;
+}
 
 /* Page confirmation note and comment sent */
 

@@ -36,7 +36,7 @@ class NotesSocietyType extends AbstractType
 
             ->add('save', SubmitType::class, array(
                 'label' => 'Envoyer',
-                'attr' => array('class' => 'form-submit-center'),
+                'attr' => array('class' => 'form-submit-center form_btn'),
             ))
         ;
     }
