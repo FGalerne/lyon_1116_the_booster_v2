@@ -1638,6 +1638,91 @@ a:hover {
 	margin-top: 20px;
 }
 
+/* Pages notes and comments Booster and Society */
+
+.block_top {
+	text-align: center;
+	margin-top: 4vh;
+}
+
+.block_content_notes {
+	margin-bottom: 6vh;
+}
+
+.block_n {
+	margin-top: 2vh;
+	line-height: 40px;
+	margin-bottom: 7vh;
+}
+
+.btn_send_note {
+	margin-bottom: 7vh;
+}
+
+li.star-active i {
+	color : gold;
+}
+
+.stars_list_page {
+	margin-bottom: 4vh;
+}
+
+#stars_list_notes ul li {
+	list-style: none;
+	display: inline-block;
+}
+
+.stars_list_page p {
+	font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #333;
+	font-weight: 700;
+	margin-bottom: 15px;
+	margin-top: 10vh;
+}
+
+.stars_list_page ul {
+	text-align: center;
+	padding: 0;
+}
+
+.star_grey {
+	color: darkgrey;
+}
+
+.form_btn {
+	font-size:1.5em;
+	font-weight:700;
+	background-color: #eb0310;
+	color:white;
+	margin-top: 5vh;
+}
+
+.form_btn:hover {
+	background-color: rgb(255, 50, 80);
+	color: white;
+	text-decoration: none;
+}
+
+/* Page confirmation note and comment sent */
+
+.block_confirm_note_sent {
+	text-align: center;
+	margin-top: 6vh;
+	margin-bottom: 13vh;
+}
+
+.h1_conf_note {
+	margin-bottom: 5vh;
+}
+
+.p_txt_confirm_note {
+	margin-bottom: 18vh;
+}
+
+
+
 
 /* Dashboards */
 
