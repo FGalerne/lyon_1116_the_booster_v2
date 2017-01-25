@@ -52,14 +52,15 @@ class ProjectSubscriptionController extends Controller
         //change the status of project to 'Open'
         $em->getRepository('BoosterBundle:Project')->cancelProject($projectId);
 
+        $subscriber = $em->getRepository('BoosterBundle:ProjectSubscription')->findOneById($subscriptionId);
         if($role == 'booster'){
             return $this->redirectToRoute('dashboard_booster', array(
-                    'id' => $dashboardId
+                    'slug' => $subscriber->getBooster()->getSlug(),
                 )
             );
         } else{
             return $this->redirectToRoute('dashboard_society', array(
-                    'id' => $dashboardId
+                    'slug' => $subscriber->getProject()->getSociety()->getSlug(),
                 )
             );
 
