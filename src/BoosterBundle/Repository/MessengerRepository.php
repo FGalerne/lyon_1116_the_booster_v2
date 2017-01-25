@@ -10,7 +10,7 @@ namespace BoosterBundle\Repository;
  */
 class MessengerRepository extends \Doctrine\ORM\EntityRepository
 {
-    function myMessages($userId){
+    public function myMessages($userId){
         $req = $this->createQueryBuilder('a')
             ->where('a.user1 = :userId')
             ->orWhere('a.user2 = :userId')
@@ -19,5 +19,16 @@ class MessengerRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery();
 
         return $req->getResult();
+    }
+    public function cancelMessages($title){
+        $qb = $this->createQueryBuilder('a')
+            ->update()
+            ->set('a.title', '?1')
+            ->where('a.title = ?2')
+            ->setParameter(1, $title.' (Annulé)')
+            ->setParameter(2, $title)
+            ->getQuery();
+
+        return $qb->execute();
     }
 }

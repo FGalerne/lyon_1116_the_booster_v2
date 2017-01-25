@@ -573,4 +573,7 @@ class Booster
         return $this->projects;
     }
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> masterdev

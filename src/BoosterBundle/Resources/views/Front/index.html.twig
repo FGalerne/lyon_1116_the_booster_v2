@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}The Booster, le 1er site de Crowdfunding de compétences au service des Entrepreneurs !{% endblock %}
-{% block pageDescription %}The Booster est le 1er site de Crowdfunding de compétences au service des Entrepreneurs et de l'Économie !{% endblock %}
+{% block title %}The Booster, le 1er site de CrowdHelping de compétences au service des Entrepreneurs !{% endblock %}
+{% block pageDescription %}The Booster est le 1er site de CrowdHelping de compétences au service des Entrepreneurs et de l'Économie !{% endblock %}
 
 {% block stylesheets %}
     <!-- Fichier CSS custom -->
@@ -12,23 +12,22 @@
 {% block body %}
 
     <section class="container-fluid home_carousel_container-fluid">
+        <div class="container home-title">
+            <img class="img-responsive" id="logo-booster-home" src="{{ asset('img/logo-booster-det.png') }}" alt="logo the booster" />
+            <h1>Le 1er site de CrowdHelping<br/> au service des Entrepreneurs</h1>
+            <h3 class="home_carousel_inscription">Inscrivez-vous dès aujourd'hui</h3>
+            <div id="sign-in">
+                <p>Envie de donner votre temps ou proposer un projet ?</p>
+                <br>
+                <a href="{{ path('booster_inscription_choix') }}" class="home_carousel_btn_lien"><strong>S'inscrire</strong></a>
+            </div>
+        </div>
+
         <div class="videointro">
             <video autoplay loop id="videointro" class="hidden-xs hidden-sm">
                 <source src="{{ asset('media/booster.webm') }}" type="video/webm">
                 <source src="{{ asset('media/booster.mp4') }}" type="video/mp4">
             </video>
-        </div>
-        <div class="row home_carousel_over">
-            <div class="col-xs-12 home_carousel_block-over  bl home_carousel_title-over">
-                <h1 id="title-video">The Booster</h1>
-                <h1 class="home_carousel_slogan">Le 1er site de Crowdfunding de compétences <br/> au service des Entrepreneurs</h1>
-                <h3 class="home_carousel_inscription">Inscrivez-vous dès aujourd'hui</h3>
-                <div id="sign-in">
-                    <p>Envie de donner votre temps ou proposer un projet ?</p>
-                    <br>
-                    <a href="{{ path('booster_inscription_choix') }}" class="home_carousel_btn_lien"><strong>S'inscrire</strong></a>
-                </div>
-            </div>
         </div>
 
         <!-- Transition row -->
@@ -80,7 +79,7 @@
             <div class="row" id="home_startup_list">
                 {% for transaction in transactions %}
                     {% if transaction.society.user.validationSociety %}
-                        <div class="col-xs-12 col-sm-3 col-md-3">
+                        <div class="col-xs-12 col-sm-2 col-md-3">
                             <a href="{{ path('public_dashboard',{'id': transaction.society.id }) }}">
                                 <div class="global-society">
                                     <div>
@@ -93,24 +92,25 @@
                         </div>
                     {% endif %}
                 {% endfor %}
-
-                {% for society in societies | slice(0, 16 - transactions|length) %}
-                    {% if society.user.validationSociety %}
-                        {% if not society.transaction|default %}
-                            <div class="col-xs-12 col-sm-3 col-md-3">
-                                <a href="{{ path('public_dashboard',{'id': society.id }) }}">
-                                    <div class="global-society">
-                                        <div>
-                                            <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/photo-couverture-profile-societe.png') }}">
+                <div class="col-xs-12">
+                    {% for society in societies | slice(0, 16 - transactions|length) %}
+                        {% if society.user.validationSociety %}
+                            {% if not society.transaction|default %}
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <a href="{{ path('public_dashboard',{'id': society.id }) }}">
+                                        <div class="global-society">
+                                            <div>
+                                                <img src="{{ transaction.society.photo|default ? asset('img/uploads/societies/' ~ transaction.society.photo) : asset('img/photo-couverture-profile-societe.png') }}">
+                                            </div>
+                                            <h5 class="name-list-society">{{ transaction.society.societyName }}</h5>
+                                            <p class="nombre-de-projet">Nombre de projets : 100</p>
                                         </div>
-                                        <h5 class="name-list-society">{{ society.societyName }}</h5>
-                                        <p class="nombre-de-projet">Nombre de projets : 100</p>
-                                    </div>
-                                </a>
-                            </div>
+                                    </a>
+                                </div>
+                            {% endif %}
                         {% endif %}
-                    {% endif %}
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
 

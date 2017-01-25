@@ -28,8 +28,8 @@
 					'required' => true,))
 				->add('title', ChoiceType::class, array(
 					'choices' => array(
-						'MR' => "M.",
-						'MME' => "Mme",
+						'M.' => "M.",
+						'Mme' => "Mme",
 					),
 				))
 				->remove('username')

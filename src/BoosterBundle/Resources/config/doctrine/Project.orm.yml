@@ -18,9 +18,8 @@ BoosterBundle\Entity\Project:
             nullable: false
             length: 100
         description:
-            type: string
+            type: text
             nullable: false
-            length: 200
         creationStatus:
             type: boolean
             nullable: false
