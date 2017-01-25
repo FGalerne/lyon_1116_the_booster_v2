@@ -9,7 +9,6 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Routing\Tests\Generator\UrlGeneratorTest;
 
 class SocietyType extends AbstractType
 {
@@ -24,16 +23,15 @@ class SocietyType extends AbstractType
                     'data_class' => null
                     )
                 )
-
                 ->add('societyName', TextType::class, array(
                     'label' => 'Nom de la société ou du projet',
                     'attr'  => array(
                         'placeholder' => 'Nom de votre société ou de votre projet'
                         ),
                     ))
-
                 ->add('websiteLink', TextType::class, array(
                     'label' => 'Site internet',
+                    'required' => false,
                     'attr'  => array(
                         'placeholder' => 'URL du site internet'
                     ),
@@ -46,7 +44,7 @@ class SocietyType extends AbstractType
                     ),
                 ))
                 ->add('presentation', TextareaType::class, array(
-                    'label' => 'Texte de présentation de votre société (500 caractères max)',
+                    'label' => 'Texte de présentation de votre société (500 caractères min)',
                     'required' => false,
                     'attr'  => array(
                         'class' => 'WYSIWYG2 form-control form-group',

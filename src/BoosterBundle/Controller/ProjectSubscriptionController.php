@@ -82,5 +82,28 @@ class ProjectSubscriptionController extends Controller
         'form2' => $form2->createView(),
     ));
 
+    public function subscriptionCancelAction($projectId, $subscriptionId, $dashboardId, $role)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        //change the status of project subscription to 'Canceled'
+        $em->getRepository('BoosterBundle:ProjectSubscription')->cancelProjectSubscription($subscriptionId);
+        //change the status of project to 'Open'
+        $em->getRepository('BoosterBundle:Project')->cancelProject($projectId);
+
+        $subscriber = $em->getRepository('BoosterBundle:ProjectSubscription')->findOneById($subscriptionId);
+        if($role == 'booster'){
+            return $this->redirectToRoute('dashboard_booster', array(
+                    'slug' => $subscriber->getBooster()->getSlug(),
+                )
+            );
+        } else{
+            return $this->redirectToRoute('dashboard_society', array(
+                    'slug' => $subscriber->getProject()->getSociety()->getSlug(),
+                )
+            );
+
+        }
+
     }
 }
