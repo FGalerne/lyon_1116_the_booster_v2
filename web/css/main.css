@@ -1296,24 +1296,6 @@ hr{
 	}
 }
 
-.home_carousel_slogan{
-	font-size: 1.3em;
-	font-weight: 900;
-}
-
-#home_carousel h2, .home_carousel_over h2{
-	font-size: 1.4em;
-	font-weight: 500;
-}
-
-#home_carousel h3, .home_carousel_over h3{
-	font-size: 1em;
-}
-#home_carousel p, .home_carousel_over p {
-	font-size: 1.2em;
-}
-
-
 .home_carousel_btn_lien {
 	font-size:1.2em;
 	font-weight:900;
