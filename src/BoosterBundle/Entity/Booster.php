@@ -572,6 +572,7 @@ class Booster
     {
         return $this->projects;
     }
+
     /**
      * @var string
      */
@@ -601,4 +602,5 @@ class Booster
     {
         return $this->slug;
     }
+
 }

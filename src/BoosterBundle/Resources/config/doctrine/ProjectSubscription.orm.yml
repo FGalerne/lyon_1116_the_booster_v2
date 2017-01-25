@@ -45,6 +45,18 @@ BoosterBundle\Entity\ProjectSubscription:
             type: integer
             nullable: true
             column: society_note
+        boosterValidation:
+            type: boolean
+            nullable: false
+            options:
+                default: false
+            column: booster_validation
+        societyValidation:
+            type: boolean
+            nullable: false
+            options:
+                default: false
+            column: society_validation
 
     manyToOne:
         booster:

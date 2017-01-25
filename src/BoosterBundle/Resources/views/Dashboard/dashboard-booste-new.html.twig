@@ -21,7 +21,7 @@
                 <div class="col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-4 fform_new_">
                     {{ form_start(form) }}
                         {{ form_widget(form) }}
-                    <div class="btn_new"><input type="submit" value="Envoyer" class="btn btn-danger"/></div>
+                        <div class="btn_new"><input type="submit" value="Envoyer" class="btn btn-danger"/></div>
                     {{ form_end(form) }}
                 </div>
             </div>
@@ -52,8 +52,8 @@
             toolbar: 'undo redo | bold italic underline strikethrough | fontsizeselect',
             height : 300,
             plugins: "charactercount",
-            maxCount: 500,
-            minCount: 1
+            maxCount: 10000,
+            minCount: 500
         });
     </script>
 {% endblock %}

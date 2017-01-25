@@ -630,4 +630,5 @@ class Society
     {
         return $this->slug;
     }
+
 }
