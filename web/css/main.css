@@ -1933,7 +1933,6 @@ a:hover {
 	}
 }
 
-
 /*CGV/CGU*/
 .cgv-article{
 	margin-top: 60px;
@@ -1974,4 +1973,12 @@ a:hover {
 	border: 1px solid #696969;
 	padding-top: 10px;
 	padding-bottom: 10px;
+}
+.button-cancel-subscription:hover{
+	cursor: pointer;
+}
+.validation-subtitle{
+	text-align: center;
+	font-style: italic;
+	margin-bottom: 30px;
 }

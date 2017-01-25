@@ -59,10 +59,9 @@
     {% endfor %}
 
     <div class="col-xs-12">
-        {% set userId = app.user.booster ? app.user.booster.id : app.user.society.id %}
+        {% set userSlug = app.user.booster ? app.user.booster.slug : app.user.society.slug %}
         {% set userRole = app.user.booster ? 'booster' : 'society' %}
-
-        {{ form_start(form, {'action': path('messenger_new', {'id': userId, 'role': userRole }), 'attr': { 'id':'messengerSubmit' }}) }}
+        {{ form_start(form, {'action': path('messenger_new', {'slug': userSlug, 'role': userRole }), 'attr': { 'id':'messengerSubmit' }}) }}
         {{ form_end(form) }}
     </div>
 </section>
