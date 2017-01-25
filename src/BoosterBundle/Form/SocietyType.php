@@ -19,6 +19,7 @@ class SocietyType extends AbstractType
     {
         $builder->add('photo', FileType::class, array(
                     'label' => 'Votre société (format paysage)',
+                    'required' => false,
                     'data_class' => null
                     )
                 )

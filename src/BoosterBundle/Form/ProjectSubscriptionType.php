@@ -29,6 +29,8 @@ class ProjectSubscriptionType extends AbstractType
                 'label' => 'Heures données: ',
                 'attr' => array(
                     'class' => 'form-control form-group',
+                    'min' => 1,
+                    'max' => 12,
                 ),
             ))
         ;

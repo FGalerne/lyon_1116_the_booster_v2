@@ -40,17 +40,17 @@ class DashboardController extends Controller
             $messengers = $em->getRepository('BoosterBundle:Messenger')->myMessages($userId);
             $form->handleRequest($request);
 
-            //testing if a place is avaliable to buy on home page
+            //testing if a place is available to buy on home page
             $socOnHomePage = $em->getRepository('BoosterBundle:transaction')->actualTransactions();
-            $avaliable = true;
+            $available = true;
 
             if (count($socOnHomePage) > 15) {
-                $avaliable = false;
+                $available = false;
             }
 
             return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
                 'socOnHomePage' => $socOnHomePage,
-                'avaliable' => $avaliable,
+                'available' => $available,
                 'societies' => $societies,
                 'user' => $user,
                 'messengers' => $messengers,
@@ -60,120 +60,6 @@ class DashboardController extends Controller
         }
         return $this->redirectToRoute('booster_charte');
     }
-
-    /**
-     * @param Request $request
-     * @param Society $society
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     */
-    /*public function societyEditAction(Request $request, Society $society)
-    {
-        $oldSocietyPhoto = $society->getPhoto();
-        $editForm = $this->createForm('BoosterBundle\Form\SocietyType', $society);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-
-            if($editForm->get('photo')->getData() == null ){
-                $society->setPhoto($oldSocietyPhoto);
-            }
-            else{
-                $tmp = $this->getParameter('photo_tmp');
-                $dir = $this->getParameter('photo_society_directory');
-                $file = $society->getPhoto();
-
-                $fileName = md5(uniqid()).'.'.$file->guessExtension();
-                $file->move(
-                    $tmp,
-                    $fileName
-                );
-                $this->get('util.imageresizer')->resizeImage($tmp.'/'.$fileName, $dir.'/' , $width=1024);
-
-                if (isset($oldSocietyPhoto) && !empty($oldSocietyPhoto)) {
-                    unlink($dir.'/'.$oldSocietyPhoto);
-                }
-                unlink($tmp.'/'.$fileName);
-                $society->setPhoto($fileName);
-
-
-            }
-
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('dashboard_society',
-                array('id' => $society->getId()));
-        }
-
-        return $this->render('@Booster/Dashboard/dashboard-booste-edit.html.twig', array(
-            'id' => $society->getId(),
-            'society' => $society,
-            'edit_form' => $editForm->createView(),
-        ));
-    }*/
-
-    /**
-     * @param $slug
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     */
-    /*public function boosterAction($slug, Request $request)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $boosters = $em->getRepository('BoosterBundle:Booster')->getDashboardBySlug($slug);
-        $user = $this->getUser();
-        $userId = $user->getId();
-
-        $subscriptions = $em->getRepository('BoosterBundle:ProjectSubscription')->getProjectsSubscriptionsById($id);
-
-        if ($user != null) {
-
-            //messages
-            $messenger = new Messenger();
-            $form = $this->createForm('BoosterBundle\Form\MessengerType', $messenger);
-            $messengers = $em->getRepository('BoosterBundle:Messenger')->myMessages($userId);
-            $form->handleRequest($request);
-
-
-            if ($form->isSubmitted() && $form->isValid()) {
-                $em->persist($messengers);
-                $em->flush();
-            }
-
-            return $this->render('BoosterBundle:Dashboard:dashboard-booster.html.twig', array(
-                'subscriptions' => $subscriptions,
-                'boosters' => $boosters,
-                'user' => $user,
-                'messengers' => $messengers,
-                'form' => $form->createView(),
-            ));
-        }
-        return $this->redirectToRoute('booster_charte');
-    }*/
-
-/*            return $this->render('BoosterBundle:Dashboard:dashboard-booster.html.twig', array(
-                'subscriptions' => $subscriptions,
-                'boosters' => $boosters,
-    =======
-            //testing if a place is avaliable to buy on home page
-            $socOnHomePage = $em->getRepository('BoosterBundle:transaction')->actualTransactions();
-            $avaliable = true;
-            if(count($socOnHomePage) > 15) {
-                $avaliable = false;
-            }
-            return $this->render('BoosterBundle:Dashboard:dashboard-booste.html.twig', array(
-                'socOnHomePage' => $socOnHomePage,
-                'avaliable' => $avaliable,
-                'societies' => $societies,
-    >>>>>>> 5aab1a4fb45c40d3bde7cf06750a2b940b06351f
-                'user' => $user,
-                'messengers' => $messengers,
-                'projects' => $projects,
-                'form' => $form->createView(),
-            ));
-        }
-
-        return $this->redirectToRoute('booster_charte');
-    }*/
 
     public function societyNewAction(Request $request)
     {
@@ -217,7 +103,6 @@ class DashboardController extends Controller
         ));
     }
 
-
     /**
      * @param Request $request
      * @param Society $society
@@ -256,7 +141,7 @@ class DashboardController extends Controller
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('dashboard_society',
-                array('id' => $society->getId()));
+                array('slug' => $society->getSlug()));
         }
 
         return $this->render('@Booster/Dashboard/dashboard-booste-edit.html.twig', array(
