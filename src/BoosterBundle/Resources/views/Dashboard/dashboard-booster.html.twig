@@ -21,15 +21,18 @@
                 {# The statistic of the booster hour given / projects done and average notation #}
 
                 <div class="col-md-3 col-md-offset-3" id="statistic-booster">
-                    <p>Heures données : {{ booster.hoursGiven }}</p>
-                    <p>Projets soutenus : {{ booster.projectDoneNumber }}</p>
-                    <p>Note des boostés : {{ booster.averageNotation }}</p>
+                    {% set noteBooster = (booster.averageNotation / booster.projectDoneNumber) | round %}
+                    <p>Heures reçues : {{ booster.hoursGiven }}</p>
+                    <p>Projets réalisés : {{ booster.projectDoneNumber }}</p>
+                    <p>Note du booster : {{ noteBooster }}</p>
                     <ul>
-                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                        {% for i in 1..noteBooster %}
+                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        {% endfor %}
+
+                        {% for i in 1..5 - noteBooster %}
+                            <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
@@ -130,7 +133,7 @@
                                     </div>
                                     <div class="col-xs-4">
                                         {% if not subscription.boosterValidation %}
-                                        <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardSlug': app.user.booster.slug, 'role': 'booster' }) }}" class="button-cancel-subscription">Ce projet est terminé !</a><br/>
+                                        <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardSlug': subscription.booster.slug, 'role': 'booster' }) }}" class="button-cancel-subscription">Ce projet est terminé !</a><br/>
                                         {% else %}
                                             En attente de la validation de {{ subscription.project.society.user.firstname }}.<br/>
                                         {% endif %}
@@ -140,7 +143,7 @@
                                 {#Collapse for cancelation confirmation#}
                                 <div id="collapseCancel" class="collapse">
                                     <div> <strong>Attention, en annulant cette collaboration, vous n'aurez plus la possibilité de terminer ce projet avec {{ subscription.project.society.user.firstName }}: </strong><br/>
-                                        <a href="{{ path('subscription_cancel', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardId': app.user.booster.id, 'role': 'booster' }) }}">Je confirme l'annulation</a>
+                                        <a href="{{ path('subscription_cancel', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardId': subscription.booster.id, 'role': 'booster' }) }}">Je confirme l'annulation</a>
                                     </div>
                                 </div>
                             {% endif %}
