@@ -72,6 +72,11 @@ new_project:
     path:     /deposer-un-projet
     defaults: { _controller: BoosterBundle:Project:new }
 
+confirmation_notes:
+    path:   /envoi-note-confirmation
+    defaults: { _controller: BoosterBundle:ProjectSubscription:notesComments}
+    methods: GET
+
 show_projects:
     path:     /{id}/projet
     defaults: { _controller: "BoosterBundle:Project:show" }
@@ -108,10 +113,9 @@ subscription_cancel:
     methods: [GET, POST]
 
 project_done:
-    path:     /projet_finit/{projectId}/{subscriptionId}/{dashboardSlug}/{role}
-    defaults: { _controller: BoosterBundle:Project:projectDone }
+    path:     /notez-votre-experience/{projectId}/{subscriptionId}/{dashboardSlug}/{role}
+    defaults: { _controller: BoosterBundle:ProjectSubscription:notesComments }
     methods: [GET, POST]
-
 
 
 

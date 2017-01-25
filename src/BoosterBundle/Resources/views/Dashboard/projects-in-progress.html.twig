@@ -72,6 +72,22 @@
                                     {% endif %}
                                 </div>
 
+                                <div class="col-xs-6">
+                                    <p class="text-left"><strong>{{ subscription.booster.user.firstName }}</strong> : {{ subscription.message }}</p>
+                                </div>
+                                <div class="col-xs-1">
+                                    <p class="text-left"><strong>{{ subscription.givenTime }} H</strong></p>
+                                </div>
+                                <div class="col-xs-2">
+                                    <a href="{{ path('dashboard_booster', {'slug': subscription.booster.slug }) }}" title="Le voir">
+                                        Le voir
+                                    </a><br/>
+                                    <a href="{{ path('dashboard_contact_booster', {'societyId': app.user.society.id, 'projectId': subscription.project.id, 'subscriptionId': subscription.id }) }}" title="Le contacter">
+                                        Le contacter
+                                    </a>
+                                </div>
+                            </div>
+
                             {% else %}
                                 <div class="sub-container row">
                                         <div class="col-xs-8">
