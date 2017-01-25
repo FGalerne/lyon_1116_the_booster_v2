@@ -1682,6 +1682,11 @@ li.star-active i {
 	margin-top: 10vh;
 }
 
+.stars_list_page ul {
+	text-align: center;
+	padding: 0;
+}
+
 .star_grey {
 	color: darkgrey;
 }
