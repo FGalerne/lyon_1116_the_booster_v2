@@ -18,7 +18,17 @@
                 <source src="{{ asset('media/booster.mp4') }}" type="video/mp4">
             </video>
         </div>
-        <div class="row home_carousel_over">
+        <div class="row home-title">
+            <h1 id="title-video">The Booster</h1>
+            <h1 class="home_carousel_slogan">Le 1er site de CrowdHelping<br/> au service des Entrepreneurs</h1>
+            <h3 class="home_carousel_inscription">Inscrivez-vous dès aujourd'hui</h3>
+            <div id="sign-in">
+                <p>Envie de donner votre temps ou proposer un projet ?</p>
+                <br>
+                <a href="{{ path('booster_inscription_choix') }}" class="home_carousel_btn_lien"><strong>S'inscrire</strong></a>
+            </div>
+        </div>
+        {# <div class="row home_carousel_over">
             <div class="col-xs-12 home_carousel_block-over  bl home_carousel_title-over">
                 <h1 id="title-video">The Booster</h1>
                 <h1 class="home_carousel_slogan">Le 1er site de CrowdHelping<br/> au service des Entrepreneurs</h1>
@@ -29,7 +39,7 @@
                     <a href="{{ path('booster_inscription_choix') }}" class="home_carousel_btn_lien"><strong>S'inscrire</strong></a>
                 </div>
             </div>
-        </div>
+        </div>#}
 
         <!-- Transition row -->
         <section class="container-fluid home_carousel_container-fluid">
