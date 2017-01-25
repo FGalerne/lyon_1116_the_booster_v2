@@ -81,7 +81,6 @@ class DashboardController extends Controller
                     $this->getParameter('photo_tmp'),
                     $fileName
                 );
-
                 $this->get('util.imageresizer')->resizeImage($tmp . '/' . $fileName, $this->getParameter('photo_society_directory') . '/', $width = 1024);
                 unlink($tmp . '/' . $fileName);
 
@@ -193,10 +192,10 @@ class DashboardController extends Controller
                 'form' => $form->createView(),
             ));
 
-        }
 
+        }
         return $this->redirectToRoute('booster_charte');
-    }
+        }
 
     /**
      * @param Request $request
@@ -237,7 +236,6 @@ class DashboardController extends Controller
                 'slug' => $booster->getSlug()
             ));
         }
-        var_dump($booster->getSlug());
         return $this->render('@Booster/Dashboard/dashboard-booster-new.html.twig', array(
             'slug' => $booster->getSlug(),
             'booster' => $booster,

@@ -69,7 +69,7 @@
                             <li class="dropdown">
                                 {% if app.user.booster == null  %}
                                 <a href="{{ path('dashboard_booster_new',{'id':app.user.id}) }}" class="log-nav">
-                                    <i class="fa fa-user" aria-hidden="true"></i>Complétez votre profil!
+                                    <i class="fa fa-user icon-black" aria-hidden="true"></i>Complétez votre profil
                                 </a>
                                 {% else %}
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>Bonjour {{ app.user.firstName }} <span class="caret"></span></a>
@@ -93,7 +93,7 @@
                                 <li class="dropdown">
                                 {% if app.user.society == null  %}
                                     <a href="{{ path('dashboard_society_new',{'id':app.user.id})}}" class="log-nav">
-                                        <i class="fa fa-user" aria-hidden="true"></i>Complétez votre profil
+                                        <i class="fa fa-user icon-black" aria-hidden="true"></i>Complétez votre profil
                                     </a>
                                 {% else %}
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -114,15 +114,17 @@
                     {# THIRD PART LAST PART #}
 
                     {% else %}
-                    <div class=" navbar-right btn-group" id="connection-nav">
+                    <div class=" navbar-right btn-group">
                         <ul class="nav navbar-nav">
-                            <li><a href="{{ path('booster_inscription_choix') }}" class="login-index">Inscription</a></li>
-                            <li><a href="{{ path('fos_user_security_login') }}" class="login-index">Connexion</a></li>{% endif %}
-                            <li class="social-nav">
-                                <div class="nav navbar-nav navbar-right nav-social nav_networks">
-                                    <a href="https://www.facebook.com/The-Booster-1775588599376645/" target="_blank"><img src="{{ asset('img/facebook-tb-black.png')}}" alt="facebook"></a>
-                                    <a href="https://twitter.com/ZeBooster" target="_blank"><img src="{{ asset('img/twitter-the-booster-black.png')}}" alt="twitter"></a>
-                                    <a href="https://fr.linkedin.com/in/the-booster-059bb1130" target="_blank"><img src="{{ asset('img/linkedin-the-booster-black.png')}}" alt="linkedin"></a>
+                            <li><a href="{{ path('booster_inscription_choix') }}" class="login-index connection-nav">Inscription</a></li>
+                            <li><a href="{{ path('fos_user_security_login') }}" class="login-index connection-nav">Connexion</a></li>{% endif %}
+                            <li>
+                                <div class="navbar-right navbar-social">
+                                    <ul>
+                                        <li><a href="https://www.facebook.com/The-Booster-1775588599376645/" target="_blank" ><i class="fa fa-facebook" id="ico-white-fb" aria-hidden="true"></i></a></li>
+                                        <li><a href="https://twitter.com/ZeBooster" target="_blank"><i class="fa fa-twitter" id="ico-white-tw" aria-hidden="true"></i></a></li>
+                                        <li><a href="https://fr.linkedin.com/in/the-booster-059bb1130" target="_blank"><i class="fa fa-linkedin" id="ico-white-lk" aria-hidden="true"></i></a></li>
+                                    </ul>
                                 </div>
                             </li>
                         </ul>

@@ -28,8 +28,8 @@ class ProfileFormType extends AbstractType
 		'required' => true,))
 			->add('title', ChoiceType::class, array(
 				'choices' => array(
-					'MR' => "M.",
-					'MME' => "Mme",
+					'M.' => "M.",
+					'Mme' => "Mme",
 				),
 			))
 			->add('professional_function', TextType::class,array (
