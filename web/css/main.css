@@ -1217,6 +1217,8 @@ hr{
 .prices{
 	text-align: right;
 }
+
+#new-inscription-button a,
 #add-project a{
 	background-color: rgba(235,3,16,1);
 	margin: 30px auto;
@@ -1226,6 +1228,10 @@ hr{
 	text-decoration: none;
 	text-align: center;
 	border-radius: 35px;
+}
+
+#new-inscription-button a {
+	width: 250px;
 }
 
 #add-project a:hover, .transactions a:hover {
