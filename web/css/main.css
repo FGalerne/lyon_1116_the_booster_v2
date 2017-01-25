@@ -1266,12 +1266,39 @@ hr{
 
 /* CAROUSEL */
 
+.home-title {
+	position : absolute;
+	top:30%;
+	width:100%;
+}
 
+.home-title h1 {
+	font-size: 3.5em;
+	text-align: center;
+	z-index: 5;
+	color: #ffffff;
+}
+
+
+#logo-booster-home {
+	margin: 0 auto;
+}
+
+@media screen and (max-width: 1000px){
+	.home-title h1 {
+		font-size: 2em;
+	}
+}
+
+@media screen and (max-width: 450px){
+	.home-title h1 {
+		font-size: 1.5em;
+	}
+}
 
 .home_carousel_slogan{
 	font-size: 1.3em;
 	font-weight: 900;
-	color: #eb0310;
 }
 
 #home_carousel h2, .home_carousel_over h2{
