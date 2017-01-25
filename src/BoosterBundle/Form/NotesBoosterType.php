@@ -4,6 +4,7 @@ namespace BoosterBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -16,6 +17,14 @@ class NotesBoosterType extends AbstractType
         //Form to allow Boostés/Society to vote and comment about the Booster at the end of the project
         //The vote from this form is sent to the table Booster
         $builder
+            ->add('boosterNote', HiddenType::class, array(
+                'label' => 'Attribuez une note au Booster : ',
+                'attr' => array(
+                    'class' => 'form-control form-group',
+                ),
+                'required'    => true
+            ))
+
             ->add('boosterCommentaries', TextareaType::class, array(
                 'label' => 'Écrivez un commentaire à propos du Booster : ',
                 'attr' => array(

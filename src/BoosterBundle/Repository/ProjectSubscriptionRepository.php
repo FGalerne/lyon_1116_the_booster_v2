@@ -25,4 +25,10 @@ class ProjectSubscriptionRepository extends \Doctrine\ORM\EntityRepository
 
         return $qb->execute();
     }
+
+    public function getNote()
+    {
+
+    }
+
 }
