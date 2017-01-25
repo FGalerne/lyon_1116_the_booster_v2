@@ -284,6 +284,10 @@ h1{
 	text-decoration-color: rgba(255,255,255,0.7);
 }
 
+.navbar-social ul {
+	padding-top: 3vh;
+}
+
 .navbar-social ul li {
 	list-style: none;
 	display: inline-block;
@@ -1175,10 +1179,6 @@ hr{
 
 .dashboard-society img {
 	width: 100%;
-}
-
-.h2-punch {
-	background-color: #FAFAFA
 }
 
 .h2-punch h2 {

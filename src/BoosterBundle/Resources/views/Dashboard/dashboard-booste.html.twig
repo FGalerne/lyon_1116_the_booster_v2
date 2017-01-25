@@ -45,11 +45,12 @@
                         {% if is_granted("ROLE_BOOSTE") %}<a class="bttn-gradient.bttn-md" href="{{ path('new_project') }}">JE DEPOSE UN PROJET</a>{% endif %}
                     </div>
                 </div>
+                <div class="col-xs-12 h2-punch">
+                    <h2>{{ society.punchLine | raw }}</h2>
+                </div>
             </div>
 
-            <div class="container h2-punch">
-                <h2>{{ society.punchLine | raw }}</h2>
-            </div>
+
             {% set pStatus = app.request.query.get("paymentStatus") %}
             {% if pStatus %}
                 {% if pStatus == 'success' %}
