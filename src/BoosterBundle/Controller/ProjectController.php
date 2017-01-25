@@ -242,7 +242,7 @@ class ProjectController extends Controller
 
             if ($role == 'booster') {
 
-                //its not realy clear but societyNote is not givent TO society (by the booster)
+                //its not really clear but societyNote is not given TO society (by the booster)
                 $em->getRepository('BoosterBundle:ProjectSubscription')
                     ->setNoteAndComSociety($subscriptionId, $form->get('society_note')->getData(), $form->get('society_commentaries')->getData());
 
@@ -250,7 +250,7 @@ class ProjectController extends Controller
                 $em->getRepository('BoosterBundle:ProjectSubscription')
                     ->validateSubscriptionBooster($subscriptionId);
             } else {
-                //its not realy clear but boosterNote is not givent TO booster (by the society)
+                //its not really clear but boosterNote is not given TO booster (by the society)
                 $em->getRepository('BoosterBundle:ProjectSubscription')
                     ->setNoteAndComBooster($subscriptionId, $form->get('booster_note')->getData(), $form->get('booster_commentaries')->getData());
 
@@ -265,6 +265,7 @@ class ProjectController extends Controller
                 //change the status of project and projectSubscription to 'Done'
                 $em->getRepository('BoosterBundle:Project')->projectDone($projectId);
                 $em->getRepository('BoosterBundle:ProjectSubscription')->projectSubscriptionDone($subscriptionId);
+
             }
 
             if ($role == 'booster') {

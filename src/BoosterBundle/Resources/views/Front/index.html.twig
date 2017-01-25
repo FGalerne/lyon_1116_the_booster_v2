@@ -79,37 +79,37 @@
 
             <div class="row" id="home_startup_list">
                 {% for transaction in transactions %}
-
-                    <div class="col-xs-12 col-sm-3 col-md-3">
-                        <a href="{{ path('public_dashboard',{'id': transaction.society.id }) }}">
-                            <div class="global-society">
-                                <div>
-                                    <img src="{{ transaction.society.photo|default ? asset('img/uploads/societies/' ~ transaction.society.photo) : asset('img/photo-couverture-profile-societe.png') }}">
-                                </div>
-                                <h5 class="name-list-society">{{ transaction.society.societyName }}</h5>
-                                <p class="nombre-de-projet">Nombre de projets : 100</p>
-                            </div>
-                        </a>
-                    </div>
-
-                {% endfor %}
-
-                {% for society in societies | slice(0, 16 - transactions|length) %}
-
-                    {% if not society.transaction|default %}
+                    {% if transaction.society.user.validationSociety %}
                         <div class="col-xs-12 col-sm-3 col-md-3">
-                            <a href="{{ path('public_dashboard',{'id': society.id }) }}">
+                            <a href="{{ path('public_dashboard',{'id': transaction.society.id }) }}">
                                 <div class="global-society">
                                     <div>
-                                        <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/photo-couverture-profile-societe.png') }}">
+                                        <img src="{{ transaction.society.photo|default ? asset('img/uploads/societies/' ~ transaction.society.photo) : asset('img/photo-couverture-profile-societe.png') }}">
                                     </div>
-                                    <h5 class="name-list-society">{{ society.societyName }}</h5>
+                                    <h5 class="name-list-society">{{ transaction.society.societyName }}</h5>
                                     <p class="nombre-de-projet">Nombre de projets : 100</p>
                                 </div>
                             </a>
                         </div>
                     {% endif %}
+                {% endfor %}
 
+                {% for society in societies | slice(0, 16 - transactions|length) %}
+                    {% if society.user.validationSociety %}
+                        {% if not society.transaction|default %}
+                            <div class="col-xs-12 col-sm-3 col-md-3">
+                                <a href="{{ path('public_dashboard',{'id': society.id }) }}">
+                                    <div class="global-society">
+                                        <div>
+                                            <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/photo-couverture-profile-societe.png') }}">
+                                        </div>
+                                        <h5 class="name-list-society">{{ society.societyName }}</h5>
+                                        <p class="nombre-de-projet">Nombre de projets : 100</p>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
