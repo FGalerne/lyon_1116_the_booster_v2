@@ -140,7 +140,7 @@
                                 {#Collapse for cancelation confirmation#}
                                 <div id="collapseCancel" class="collapse">
                                     <div> <strong>Attention, en annulant cette collaboration, vous n'aurez plus la possibilité de terminer ce projet avec {{ subscription.project.society.user.firstName }}: </strong><br/>
-                                        <a href="{{ path('subscription_cancel', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardId': app.user.booster.id, 'role': 'booster' }) }}">Je confirme l'annulation</a>
+                                        <a href="{{ path('subscription_cancel', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'role': 'booster' }) }}">Je confirme l'annulation</a>
                                     </div>
                                 </div>
                             {% endif %}

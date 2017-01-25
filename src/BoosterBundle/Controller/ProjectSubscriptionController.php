@@ -43,7 +43,7 @@ class ProjectSubscriptionController extends Controller
             'societyId' => $societyId,
         ));
     }
-    public function subscriptionCancelAction($projectId, $subscriptionId, $dashboardId, $role)
+    public function subscriptionCancelAction($projectId, $subscriptionId, $role)
     {
         $em = $this->getDoctrine()->getManager();
 
