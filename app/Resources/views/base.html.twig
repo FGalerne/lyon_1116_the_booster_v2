@@ -69,7 +69,7 @@
                             <li class="dropdown">
                                 {% if app.user.booster == null  %}
                                 <a href="{{ path('dashboard_booster_new',{'id':app.user.id}) }}" class="log-nav">
-                                    <i class="fa fa-user user-black icon-black" aria-hidden="true"></i>Complétez votre profil
+                                    <i class="fa fa-user icon-black" aria-hidden="true"></i>Complétez votre profil
                                 </a>
                                 {% else %}
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>Bonjour {{ app.user.firstName }} <span class="caret"></span></a>
