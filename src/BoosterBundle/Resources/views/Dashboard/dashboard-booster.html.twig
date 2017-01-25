@@ -46,7 +46,9 @@
                         <li><a id="project-home">Accueil</a></li>
                         <li><a id="project-in-progress">Projets en cours</a></li>
                         <li><a id="project-done">Projets réalisés</a></li>
+                        {% if app.user.booster %}
                         <li><a id="messenger">Messages</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -88,49 +90,108 @@
         </section>
 
         {# The Project part "IN PROGRESS" #}
-
         <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
-            <div class="container project-in-progress prelude">
-                <div class="col-xs-6 col-md-3">
-                    <p>Nom de la société</p>
-                    <p>blablabla</p>
-                </div>
-                <div class="col-xs-6 col-md-3">
-                    <p>Nom du projet :</p>
-                    <p>blablabla</p>
-                </div>
-                <div class="col-xs-6 col-md-3">
-                    <p>Nombre d'heures:</p>
-                    <p>blablabla</p>
-                </div>
-                <div class="col-xs-6 col-md-3">
-                    <p>Statut:</p>
-                    <p>Réalisé</p>
-                </div>
-            </div>
+            {% for subscription in subscriptions %}
+
+                {% if subscription.project.status == 'In_progress' or subscription.project.status == 'Open'%}
+                    <div class="container project-in-progress prelude" id="dashboard-booster-inProgress">
+                        <div class="container project-in-progress prelude">
+                            <div class="col-xs-6 col-md-3">
+                                <p>Nom de la société</p>
+                                <p>{{ subscription.project.society.societyName }}</p>
+                            </div>
+                            <div class="col-xs-6 col-md-3">
+                                <p>Nom du projet :</p>
+                                <p>{{ subscription.project.projectName }}</p>
+                            </div>
+                            <div class="col-xs-6 col-md-2">
+                                <p>Nombre d'heures:</p>
+                                <p>{{ subscription.project.givenTime }}</p>
+                            </div>
+                            <div class="col-xs-6 col-md-2">
+                                <p>Catégorie:</p>
+                                <p>{{ subscription.project.category }}</p>
+                            </div>
+                            <div class="col-xs-6 col-md-2">
+                                <p>Statut:</p>
+                                <p>{{ subscription.project.status }}</p>
+                            </div>
+                            <div class="col-xs-12 ">
+                                <p class="text-left">{{ subscription.project.description | raw }}</p>
+                            </div>
+                        </div>
+                        {% if subscription.project.status == 'In_progress' %}
+                            {% if subscription.status == 'In_progress' %}
+                                <div class="sub-container row">
+                                    <div class="col-xs-8">
+                                        Projet en cours de réalisation !
+                                    </div>
+                                    <div class="col-xs-4">
+                                        {% if not subscription.boosterValidation %}
+                                        <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardSlug': app.user.booster.slug, 'role': 'booster' }) }}" class="button-cancel-subscription">Ce projet est terminé !</a><br/>
+                                        {% else %}
+                                            En attente de la validation de {{ subscription.project.society.user.firstname }}.<br/>
+                                        {% endif %}
+                                        <a data-toggle="collapse" data-target="#collapseCancel" class="button-cancel-subscription">Annuler la collaboration</a>
+                                    </div>
+                                </div>
+                                {#Collapse for cancelation confirmation#}
+                                <div id="collapseCancel" class="collapse">
+                                    <div> <strong>Attention, en annulant cette collaboration, vous n'aurez plus la possibilité de terminer ce projet avec {{ subscription.project.society.user.firstName }}: </strong><br/>
+                                        <a href="{{ path('subscription_cancel', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardId': app.user.booster.id, 'role': 'booster' }) }}">Je confirme l'annulation</a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% else %}
+                            {# project status = 'Open' #}
+                            {% if subscription.status == 'Canceled' %}
+                                {# if subscription has been canceled #}
+                                <div class="col-xs-12">
+                                    La collaboration à été annulée
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                {% endif %}
+
         </section>
 
         {# The Project part "DONE" #}
 
         <section class="container-fluid presentation-booster" id="dashboard-booster-done">
-            <div class="container project-done prelude">
-                <div class="col-xs-6 col-md-3">
-                    <p>Nom de la société</p>
-                </div>
-                <div class="col-xs-6 col-md-3">
-                    <p>Nom du projet :</p>
-                </div>
-                <div class="col-xs-6 col-md-3">
-                    <p>Nombre d'heures:</p>
-                </div>
-                <div class="col-xs-6 col-md-3">
-                    <p>Statut:</p>
+
+            {% if subscription.project.status == 'Done' %}
+            <div class="container prelude project-done" id="dashboard-booster-done">
+                <div class="container project-done prelude">
+                    <div class="col-xs-6 col-md-3">
+                        <p>Nom de la société : </p>
+                        <p>{{ subscription.project.society.societyName }}</p>
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <p>Nom du projet : </p>
+                        <p>{{ subscription.project.projectName }}</p>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <p>Nombre d'heures : </p>
+                        <p>{{ subscription.project.givenTime }}</p>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <p>Catégorie : </p>
+                        <p>{{ subscription.project.category }}</p>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <p>Statut : </p>
+                        <p>{{ subscription.project.status }}</p>
+                    </div>
                 </div>
             </div>
+            {% endif %}
+            {% endfor %}
         </section>
     {% endfor %}
-    {% include 'BoosterBundle:Dashboard:messenger.html.twig' %}
-</div>
+    {% if app.user.booster %}
+        {% include 'BoosterBundle:Dashboard:messenger.html.twig' %}
+    {% endif %}
 {% endblock %}
 
 {% block javascripts %}

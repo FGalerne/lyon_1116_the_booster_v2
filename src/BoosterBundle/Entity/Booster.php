@@ -602,4 +602,5 @@ class Booster
     {
         return $this->slug;
     }
+
 }

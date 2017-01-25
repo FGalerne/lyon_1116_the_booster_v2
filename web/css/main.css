@@ -2047,7 +2047,6 @@ a:hover {
 	}
 }
 
-
 /*CGV/CGU*/
 .cgv-article{
 	margin-top: 60px;
@@ -2090,6 +2089,16 @@ a:hover {
 	padding-bottom: 10px;
 }
 
+.button-cancel-subscription:hover{
+	cursor: pointer;
+}
+
+.validation-subtitle{
+	text-align: center;
+	font-style: italic;
+	margin-bottom: 30px;
+}
+
 /******************* BOOSTER COMPLETE YOUR PROFILE *******************/
 
 /***** That code allows to put the birthday form with Day Month Year Format *****/
@@ -2104,5 +2113,5 @@ a:hover {
 	order:2;
 }
 #boosterbundle_booster_birthDate_day {
-	order:1;
+	order: 1;
 }

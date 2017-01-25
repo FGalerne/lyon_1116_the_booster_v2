@@ -133,6 +133,10 @@ class Society
     public function getPhoto()
     {
         return $this->photo;
+<<<<<<< HEAD
+>>>>>>> masterdev
+=======
+>>>>>>> 5aab1a4fb45c40d3bde7cf06750a2b940b06351f
 >>>>>>> masterdev
     }
 
@@ -167,6 +171,10 @@ class Society
     public function getSocietyName()
     {
         return $this->societyName;
+<<<<<<< HEAD
+>>>>>>> masterdev
+=======
+>>>>>>> 5aab1a4fb45c40d3bde7cf06750a2b940b06351f
 >>>>>>> masterdev
     }
 
@@ -201,6 +209,10 @@ class Society
     public function getPunchLine()
     {
         return $this->punchLine;
+<<<<<<< HEAD
+>>>>>>> masterdev
+=======
+>>>>>>> 5aab1a4fb45c40d3bde7cf06750a2b940b06351f
 >>>>>>> masterdev
     }
 
@@ -235,6 +247,10 @@ class Society
     public function getPresentation()
     {
         return $this->presentation;
+<<<<<<< HEAD
+>>>>>>> masterdev
+=======
+>>>>>>> 5aab1a4fb45c40d3bde7cf06750a2b940b06351f
 >>>>>>> masterdev
     }
 
@@ -269,6 +285,10 @@ class Society
     public function getLinkedin()
     {
         return $this->linkedin;
+<<<<<<< HEAD
+>>>>>>> masterdev
+=======
+>>>>>>> 5aab1a4fb45c40d3bde7cf06750a2b940b06351f
 >>>>>>> masterdev
     }
 
@@ -303,6 +323,10 @@ class Society
     public function getFacebook()
     {
         return $this->facebook;
+<<<<<<< HEAD
+>>>>>>> masterdev
+=======
+>>>>>>> 5aab1a4fb45c40d3bde7cf06750a2b940b06351f
 >>>>>>> masterdev
     }
 
@@ -337,6 +361,10 @@ class Society
     public function getTwitter()
     {
         return $this->twitter;
+<<<<<<< HEAD
+>>>>>>> masterdev
+=======
+>>>>>>> 5aab1a4fb45c40d3bde7cf06750a2b940b06351f
 >>>>>>> masterdev
     }
 
@@ -371,6 +399,10 @@ class Society
     public function getYoutube()
     {
         return $this->youtube;
+<<<<<<< HEAD
+>>>>>>> masterdev
+=======
+>>>>>>> 5aab1a4fb45c40d3bde7cf06750a2b940b06351f
 >>>>>>> masterdev
     }
 
@@ -405,6 +437,10 @@ class Society
     public function getWebsiteLink()
     {
         return $this->websiteLink;
+<<<<<<< HEAD
+>>>>>>> masterdev
+=======
+>>>>>>> 5aab1a4fb45c40d3bde7cf06750a2b940b06351f
 >>>>>>> masterdev
     }
 
@@ -439,6 +475,10 @@ class Society
     public function getHoursTaken()
     {
         return $this->hoursTaken;
+<<<<<<< HEAD
+>>>>>>> masterdev
+=======
+>>>>>>> 5aab1a4fb45c40d3bde7cf06750a2b940b06351f
 >>>>>>> masterdev
     }
 
@@ -473,6 +513,10 @@ class Society
     public function getAverageNotation()
     {
         return $this->averageNotation;
+<<<<<<< HEAD
+>>>>>>> masterdev
+=======
+>>>>>>> 5aab1a4fb45c40d3bde7cf06750a2b940b06351f
 >>>>>>> masterdev
     }
 
@@ -507,6 +551,10 @@ class Society
     public function getProjectDoneNumber()
     {
         return $this->projectDoneNumber;
+<<<<<<< HEAD
+>>>>>>> masterdev
+=======
+>>>>>>> 5aab1a4fb45c40d3bde7cf06750a2b940b06351f
 >>>>>>> masterdev
     }
 
@@ -541,6 +589,10 @@ class Society
     public function getDeniedBoosters()
     {
         return $this->deniedBoosters;
+<<<<<<< HEAD
+>>>>>>> masterdev
+=======
+>>>>>>> 5aab1a4fb45c40d3bde7cf06750a2b940b06351f
 >>>>>>> masterdev
     }
 
@@ -685,6 +737,10 @@ class Society
 
 
     /**
+<<<<<<< HEAD
+>>>>>>> masterdev
+=======
+>>>>>>> 5aab1a4fb45c40d3bde7cf06750a2b940b06351f
 >>>>>>> masterdev
      * Set user
      *
@@ -715,6 +771,10 @@ class Society
      */
     private $transaction;
 
+<<<<<<< HEAD
+>>>>>>> masterdev
+=======
+>>>>>>> 5aab1a4fb45c40d3bde7cf06750a2b940b06351f
 >>>>>>> masterdev
 
     /**
@@ -768,6 +828,10 @@ class Society
     public function setSocietyId(\BoosterBundle\Entity\Transaction $societyId = null)
     {
         $this->society_id = $societyId;
+<<<<<<< HEAD
+>>>>>>> masterdev
+=======
+>>>>>>> 5aab1a4fb45c40d3bde7cf06750a2b940b06351f
 >>>>>>> masterdev
 
         return $this;
@@ -792,6 +856,12 @@ class Society
     public function getProjectNames()
     {
         return $this->project_names;
+<<<<<<< HEAD
+=======
+    }
+}
+
+>>>>>>> masterdev
 =======
      * Get societyId
      *
@@ -832,3 +902,4 @@ class Society
 >>>>>>> masterdev
     }
 }
+>>>>>>> 5aab1a4fb45c40d3bde7cf06750a2b940b06351f

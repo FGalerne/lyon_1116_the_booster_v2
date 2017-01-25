@@ -2,11 +2,11 @@
 
 {% block body %}
     <div class="container project-subscription-container">
-        <h1>Proposer un coup de boost !</h1>
+        <h1>Accepter le coup de boost !</h1>
         <div class="col-xs-12 col-md-8 col-md-offset-2">
             {{ form_start(form) }}
             {{ form_widget(form) }}
-            <input class="postulation-button col-xs-12" type="submit" value="Contacter le booster" />
+            <input class="postulation-button col-xs-12" type="submit" value="Accepter le coup de boost" />
             {{ form_end(form) }}
 
             <a class="postulation-button col-xs-12" href="{{ path('public_dashboard', { 'id': societyId }) }}">Retourner au dashboard</a>
