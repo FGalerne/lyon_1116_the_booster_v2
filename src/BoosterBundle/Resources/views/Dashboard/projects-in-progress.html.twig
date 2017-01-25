@@ -4,23 +4,23 @@
                 <div class="container project-in-progress prelude">
                     <div class="row">
                         <div class="col-xs-6 col-md-3">
-                            <p>Nom de la société</p>
+                            <p>Nom de la société : </p>
                             <p>{{ society.societyName }}</p>
                         </div>
                         <div class="col-xs-6 col-md-3">
-                            <p>Nom du projet :</p>
+                            <p>Nom du projet : </p>
                             <p>{{ project.projectName }}</p>
                         </div>
                         <div class="col-xs-6 col-md-2">
-                            <p>Nombre d'heures:</p>
+                            <p>Nombre d'heures : </p>
                             <p>{{ project.givenTime }}</p>
                         </div>
                         <div class="col-xs-6 col-md-2">
-                            <p>Catégorie:</p>
+                            <p>Catégorie : </p>
                             <p>{{ project.category }}</p>
                         </div>
                         <div class="col-xs-6 col-md-2">
-                            <p>Statut:</p>
+                            <p>Statut : </p>
                             <p>{{ project.status }}</p>
                         </div>
                         <div class="col-xs-12 ">
@@ -59,12 +59,12 @@
                                     </div>
                                     {% elseif subscription.status == 'In_progress' %}
                                         <div class="col-xs-2">
-                                            <a title="En cours">projet en cours de réalisation</a>
+                                            <a title="En cours">Projet en cours de réalisation</a>
                                         </div>
                                     {% elseif subscription.status == 'Canceled' %}
                                         {# if subscription has been canceled #}
                                         <div class="col-xs-2">
-                                            <a title="En cours">La collaboration à été annulée</a>
+                                            <a title="En cours">La collaboration a été annulée</a>
                                         </div>
                                     {% endif %}
                                 </div>

@@ -103,7 +103,7 @@ dashboard_contact_booster:
     methods: [GET, POST]
 
 subscription_cancel:
-    path:     /anulation_de_la_collaboration/{projectId}/{subscriptionId}/{dashboardId}/{role}
+    path:     /annulation-de-la-collaboration/{projectId}/{subscriptionId}/{dashboardId}/{role}
     defaults: { _controller: BoosterBundle:ProjectSubscription:subscriptionCancel }
     methods: [GET, POST]
 
