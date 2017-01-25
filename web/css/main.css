@@ -1300,7 +1300,8 @@ hr{
 }
 
 @media screen and (max-width: 768px){
-	.home-title h3 {
+	.home-title h3,
+	.home-title p {
 		color: #ffffff;
 	}
 }
