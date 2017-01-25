@@ -12,13 +12,13 @@
                 {% set newMessage = '' %}
             {% endif %}
         {% endfor %}
-        <div class="container messenger-container">
-            <div class="row messenger-title">
+        <div class="container blueHour messenger-container">
+            <div class="prelude row messenger-title">
                 <div class="col-xs-12">
                     <p class="text-left"><strong id="subject{{ index }}">{{ title }}</strong>{{ newMessage }}</p>
                 </div>
             </div>
-            <div class="row display-messages" onclick="displayMessages({{ index }})"><img src="{{ asset( 'img/arrowdown.png' ) }}"/></div>
+            <div class="prelude row display-messages" onclick="displayMessages({{ index }})"><img src="{{ asset( 'img/arrowdown.png' ) }}"/></div>
             <div class="messenger-messages">
                 {% for messenger in group %}
                     <div class="messenger-row row {{ color }}">
@@ -47,10 +47,10 @@
                     {% else %}{% set color = 'messenger-color-1' %}
                     {% endif %}
                 {% endfor %}
-                <div class="row messenger-area">
+                <div class="prelude row messenger-area">
                     <textarea id="message{{ index }}" class="WYSIWYG"></textarea>
                 </div>
-                <div class="row">
+                <div class="prelude row">
                     <input class="messenger-response" type="button" value="ENVOYER" onclick="messengerForm({{ index }})"/>
                 </div>
             </div>
