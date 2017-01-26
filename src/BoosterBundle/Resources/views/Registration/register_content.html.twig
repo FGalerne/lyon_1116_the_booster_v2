@@ -18,7 +18,11 @@
     <div class="block_subs_forms">
         {{ form_start(form, {'method': 'post', 'attr': {'class': 'fos_user_registration_register'}}) }}
             {{ form_row(form.email) }}
-            {{ form_row(form.plainPassword) }}
+            {{ form_label(form.plainPassword.first, 'Mot de passe')}}
+                <p class="tiny">Le mot de passe doit contenir minimums 8 caractères</p>
+                {{form_widget(form.plainPassword.first, {'attr' : {'placeholder' : 'Mot de passe' , 'pattern' : '([A-Za-z0-9]{8,16}'}})}}
+            {{ form_label(form.plainPassword.second, 'Retaper le mot de passe ')}}
+                {{ form_widget(form.plainPassword.second) }}
             {{ form_row(form.title) }}
             {{ form_row(form.firstname) }}
             {{ form_row(form.lastname) }}

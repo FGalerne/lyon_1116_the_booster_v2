@@ -1982,3 +1982,7 @@ a:hover {
 	font-style: italic;
 	margin-bottom: 30px;
 }
+.tiny{
+	font-size: 10px;
+	font-weight: 700;
+}
