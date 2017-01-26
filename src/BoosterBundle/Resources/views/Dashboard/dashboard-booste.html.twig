@@ -22,18 +22,23 @@
 
                 {# Here the right part of the dashboard we could found the statistic of the society and the button to add a new project #}
                 <div class="col-xs-12 col-md-3" id="statistic-society">
-                    {% set noteBooster = (society.averageNotation / society.projectDoneNumber) | round %}
+                    {% if society.projectDoneNumber != 0 %}
+                        {% set noteBooster = (society.averageNotation / society.projectDoneNumber) | round %}
+                    {% else %}
+                        {% set noteBooster = 0 %}
+                    {% endif %}
                     <p>Heures reçues : {{ society.hoursTaken }}</p>
                     <p>Projets réalisés : {{ society.projectDoneNumber }}</p>
                     <p>Note du boosté : {{ noteBooster }}</p>
                     <ul>
-                        {% for i in 1..noteBooster %}
-                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                        {% endfor %}
-
-                        {% for i in 1..5 - noteBooster %}
-                            <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-                        {% endfor %}
+                        {% if noteBooster != 0 %}
+                            {% for i in 1..noteBooster %}
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                            {% endfor %}
+                        {% endif %}
+                            {% for i in 1..5 - noteBooster %}
+                                <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                            {% endfor %}
                     </ul>
                 </div>
 

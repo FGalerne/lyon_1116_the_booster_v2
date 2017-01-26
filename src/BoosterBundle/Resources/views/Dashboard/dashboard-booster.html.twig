@@ -21,15 +21,20 @@
                 {# The statistic of the booster hour given / projects done and average notation #}
 
                 <div class="col-md-3 col-md-offset-3" id="statistic-booster">
+                {% if booster.projectDoneNumber != 0 %}
                     {% set noteBooster = (booster.averageNotation / booster.projectDoneNumber) | round %}
+                {% else %}
+                    {% set noteBooster = 0 %}
+                {% endif %}
                     <p>Heures reçues : {{ booster.hoursGiven }}</p>
                     <p>Projets réalisés : {{ booster.projectDoneNumber }}</p>
                     <p>Note du booster : {{ noteBooster }}</p>
                     <ul>
+                    {% if noteBooster != 0 %}
                         {% for i in 1..noteBooster %}
                             <li><i class="fa fa-star" aria-hidden="true"></i></li>
                         {% endfor %}
-
+                    {% endif %}
                         {% for i in 1..5 - noteBooster %}
                             <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
                         {% endfor %}
