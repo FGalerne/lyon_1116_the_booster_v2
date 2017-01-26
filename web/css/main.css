@@ -2040,6 +2040,17 @@ li.star-active i {
 	width: 100%;
 }
 
+
+/* PAGE PARAMETERS ACCOUNT */
+.acc_btn{
+	font-size:1.2em;
+	font-weight:900;
+	background-color: #eb0310;
+	color:white;
+	padding: 10px 30px;
+}
+
+
 /* Here we manage the css of the h2 h3 and p */
 
 .all-team h2 {
