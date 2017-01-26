@@ -124,7 +124,7 @@ class RegistrationController extends BaseController
             $typeProject = $form["typeproject"]->getData();
             $siret = $form["siretnumber"]->getData();
             $phone = $form["phone"]->getData();
-			if (($typeProject == 0 && $siret != null && $phone != null) //Soiety
+			if (($typeProject == 0 && $siret != null && $phone != null) //Society
                 || ($typeProject == 1 && $phone != null)                //Project
             ) {
                 $event = new FormEvent($form, $request);

@@ -1762,6 +1762,37 @@ a:hover {
 	margin-top: 20px;
 }
 
+.dashb_btn {
+	font-size:1.2em;
+	font-weight:900;
+	margin-bottom:6vh;
+	background-color: #eb0310;
+	color:white;
+	padding: 10px 30px;
+}
+
+.fieldfoto {
+	margin-bottom: 2vh;
+}
+
+.fieldbirthd {
+	margin-bottom: 2vh;
+}
+
+.block_hedit {
+	margin-top:10vh;
+	margin-bottom: 3vh;
+}
+
+.btn_ed {
+	text-align: center;
+	margin-top: 5vh;
+}
+
+.btn_ed_booste {
+	margin-top: 5vh;
+}
+
 /* Pages notes and comments Booster and Society */
 
 .block_top {
@@ -2008,6 +2039,17 @@ li.star-active i {
 	margin: 0 auto;
 	width: 100%;
 }
+
+
+/* PAGE PARAMETERS ACCOUNT */
+.acc_btn{
+	font-size:1.2em;
+	font-weight:900;
+	background-color: #eb0310;
+	color:white;
+	padding: 10px 30px;
+}
+
 
 /* Here we manage the css of the h2 h3 and p */
 

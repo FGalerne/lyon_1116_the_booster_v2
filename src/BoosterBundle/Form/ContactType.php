@@ -21,35 +21,36 @@ class ContactType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, array(
-                'label' => 'Nom: ',
+                'label' => 'Nom : ',
                 'attr' => array(
                     'class' => 'form-control form-group',
                     'placeholder' => 'Nom'
                 ),
             ))
             ->add('surname', TextType::class, array(
-                'label' => 'Prénom: ',
+                'label' => 'Prénom : ',
                 'attr' => array(
                     'class' => 'form-control form-group',
                     'placeholder' => 'Prénom'
                 ),
             ))
             ->add('email', EmailType::class, array(
-                'label' => 'Email: ',
+                'label' => 'Email : ',
                 'attr' => array(
                     'class' => 'form-control form-group',
                     'placeholder' => 'Email'
                 ),
             ))
             ->add('type', ChoiceType::class, array(
-                'label' => 'Type de demande: ',
+                'label' => 'Type de demande : ',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
-                    'Press' => 'Press',
-                    'RH' => 'RH',
-                    'Infos générales' => 'Infos générales',
-                    'Problème de paiement' => 'Problème de paiement',
-                    'Problème technique' => 'Problème technique',
+                    'general_informations' => "Demande d'informations générales",
+                    'press' => 'Presse',
+                    'payment_issue' => 'Problème de paiement',
+                    'technical_issue' => 'Problème technique',
+                    'hr' => 'Recrutement',
+                    'other' => 'Autre',
                 ),
                 'choices_as_values' => true,
                 'choice_label' => function ($currentChoiceKey) {
@@ -57,14 +58,14 @@ class ContactType extends AbstractType
                 },
                 ))
             ->add('subject', TextType::class, array(
-                'label' => 'Sujet: ',
+                'label' => 'Sujet : ',
                 'attr' => array(
                     'class' => 'form-control form-group',
                     'placeholder' => 'Sujet'
                 ),
             ))
             ->add('message', TextareaType::class, array(
-                'label' => 'Message: ',
+                'label' => 'Message : ',
                 'attr' => array(
                     'class' => 'WYSIWYG form-control form-group',
                     'placeholder' => 'Message'
