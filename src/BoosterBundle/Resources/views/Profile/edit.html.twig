@@ -1,11 +1,13 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
-{% block title %}Modifier mon profil | The Booster{% endblock %}
-{% block h1 %}
-    <div class="text-center">
-        <h1 class="h1_top_page">Editer mon Profil</h1>
-        <hr class="hr_">
-    </div>
-{% endblock %}
-{% block fos_user_content %}
-    {% include "FOSUserBundle:Profile:edit_content.html.twig" %}
-{% endblock fos_user_content %}
+{% block title %}Modifier mes informations personnelles | The Booster{% endblock %}
+
+    {% block h1 %}
+        <div class="text-center">
+            <h1 class="h1_top_page">Modifier mes informations personnelles</h1>
+            <hr class="hr_">
+        </div>
+    {% endblock %}
+    {% block fos_user_content %}
+        {% include "FOSUserBundle:Profile:edit_content.html.twig" %}
+    {% endblock fos_user_content %}
+

@@ -1595,6 +1595,13 @@ and (-webkit-min-device-pixel-ratio: 1) {
 	height: 40px;
 	margin: 20px 0 40px 0;
 }
+.tiny{
+	font-size: 10px;
+	font-weight: 700;
+}
+.text-center-fos p{
+	text-align: center;
+}
 
 
 @media (max-width: 770px) {
@@ -2252,6 +2259,7 @@ li.star-active i {
 	font-style: italic;
 	margin-bottom: 30px;
 }
+
 
 /******************* BOOSTER COMPLETE YOUR PROFILE *******************/
 

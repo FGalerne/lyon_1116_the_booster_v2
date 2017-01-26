@@ -1,7 +1,7 @@
 {% trans_default_domain 'FOSUserBundle' %}
 {% block subject %}
     {% autoescape false %}
-       {% if user.roles | join(' , ') == "ROLE_BOOSTER, ROLE_USER" %}
+       {% if user.roles == ['ROLE_BOOSTER', 'ROLE_USER'] %}
 		Bienvenue Booster {{ user.firstName }}
        {% else %}
 		Bienvenue Boosté {{ user.firstName }}
@@ -17,7 +17,7 @@
 		    <img src="http://image.noelshack.com/fichiers/2017/52/1483301787-unnamed.png" style="width: 150px;">
 		    <h1 style="text-align: center;font-weight: 900; font-family: 'Roboto',sans-serif; font-size: 30px;" >Bienvenue {{ user.firstName}}</h1>
 		    <hr style="border:none;width:90px;height:8px;background: #E60F33;margin-bottom: 15px;">
-            {% if user.roles | join(' , ') == "ROLE_BOOSTER" %}
+            {% if user.roles == ['ROLE_BOOSTER', 'ROLE_USER']  %}
 			<p>Bonjour,</p>
 			<p>En suivant ce lien, vous pourrez valider votre adresse email : <a href="{{ confirmationUrl }}">En Cliquant ici</a></p>
 			<p>Une fois votre adresse mail validée, vous pourrez créer votre espace personnel et commencer à choisir les projets que vous désirez aider en donnant de votre temps et de vos compétences</p>
