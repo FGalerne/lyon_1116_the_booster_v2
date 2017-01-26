@@ -336,7 +336,7 @@ class DashboardController extends Controller
         $messageReceiver = $subscription->getBooster()->getUser();
         $title = $project->getProjectName();
 
-        $form->get('title')->setData($title);
+        $form->get('title')->setData($title . ' - ' . $subscription->getBooster()->getUser()->getFirstName());
         $form->handleRequest($request);
 
         $slug = $em->getRepository('BoosterBundle:Society')->findOneById($societyId)->getSlug();
