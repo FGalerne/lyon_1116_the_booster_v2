@@ -355,6 +355,12 @@ h1{
 	z-index: -2;
 }
 
+@media screen and (max-width: 1024px){
+	.videointro {
+		background-attachment: scroll;
+	}
+}
+
 @media screen and (max-width: 300px){
 	.videointro {
 		height: 80vh;
