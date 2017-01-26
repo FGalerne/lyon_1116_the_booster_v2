@@ -1,10 +1,10 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
-{% block h1 %}
-    <div class="text-center">
-        <h1 class="h1_top_page">Editer mon Profil</h1>
-        <hr class="hr_">
-    </div>
-{% endblock %}
-{% block fos_user_content %}
-    {% include "FOSUserBundle:Profile:edit_content.html.twig" %}
-{% endblock fos_user_content %}
+    {% block h1 %}
+        <div class="text-center">
+            <h1 class="h1_top_page">Editer mon Profil</h1>
+            <hr class="hr_">
+        </div>
+    {% endblock %}
+    {% block fos_user_content %}
+        {% include "FOSUserBundle:Profile:edit_content.html.twig" %}
+    {% endblock fos_user_content %}

@@ -1,5 +1,5 @@
-var dashboardNavBackground = '#eb0310';
-var dashboardNavColor = 'white';
+var dashboardNavBackground = '#363636';
+var dashboardNavColor = '#ffffff';
 
 
 $( document ).ready(function() {

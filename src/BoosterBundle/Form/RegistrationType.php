@@ -25,7 +25,7 @@ class RegistrationType extends AbstractType
             ->add('title', ChoiceType::class, array(
                 'label'         => 'Civilité ',
                 'required'      => true,
-                'choices'       => array('Mr'=>'M.', 'Mme'=>'Mme')
+                'choices'       => array('M.' => 'M.', 'Mme'=>'Mme')
             ))
             ->add('firstname', TextType::class, array(
                 'label'         => "Prénom",
