@@ -36,7 +36,7 @@
     <link rel="icon" type="image/png" href="{{ asset('img/the-booster-favicon-16X16.png')}}" />
 
 
-    <title>{% block title %}The Booster | La 1ere plateforme de crowdfunding de compétences {% endblock %}</title>
+    <title>{% block title %}The Booster | Le 1er site de Crowdhelping pour l'Entrepreneuriat {% endblock %}</title>
     <meta name="description" content="{% block pageDescription %}{% endblock %}"/>
 
     {% block stylesheets %}{% endblock %}
@@ -75,9 +75,9 @@
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>Bonjour {{ app.user.firstName }} <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ path('dashboard_booster',{'slug' : app.user.booster.slug }) }}" class="log-nav"><i class="fa fa-user" aria-hidden="true"></i>Dashboard</a></li>
-                                    <li><a href="{{ path('dashboard_booster_edit',{'slug':app.user.booster.slug}) }}" class="log-nav"><i class="fa fa-cog" aria-hidden="true"></i>Editez votre profil</a></li>
+                                    <li><a href="{{ path('dashboard_booster_edit',{'slug':app.user.booster.slug}) }}" class="log-nav"><i class="fa fa-cog" aria-hidden="true"></i>Modifiez votre profil</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="{{ path('fos_user_profile_show')}}"><i class="fa fa-cog" aria-hidden="true"></i>Paramètre du compte</a></li>
+                                    <li><a href="{{ path('fos_user_profile_show')}}"><i class="fa fa-cog" aria-hidden="true"></i>Paramètres du compte</a></li>
                                     <li><a href="{{ path('fos_user_security_logout') }}" class="log-nav"><i class="fa fa-power-off" aria-hidden="true"></i> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
                                 </ul>
                             </li>
@@ -101,9 +101,9 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li><a href="{{ path('dashboard_society',{'slug': app.user.society.slug}) }}" class="log-nav" ><i class="fa fa-user" aria-hidden="true"></i>Dashboard</a></li>
-                                        <li><a href="{{ path('dashboard_society_edit',{'slug':app.user.society.slug}) }}" class="log-nav"><i class="fa fa-cog" aria-hidden="true"></i>Editez votre profile</a></li>
+                                        <li><a href="{{ path('dashboard_society_edit',{'slug':app.user.society.slug}) }}" class="log-nav"><i class="fa fa-cog" aria-hidden="true"></i>Modifiez votre profil</a></li>
                                         <li role="separator" class="divider"></li>
-                                        <li><a href="{{ path('fos_user_profile_show')}}"><i class="fa fa-cog" aria-hidden="true"></i>Paramètre du compte</a></li>
+                                        <li><a href="{{ path('fos_user_profile_show')}}"><i class="fa fa-cog" aria-hidden="true"></i>Paramètres du compte</a></li>
                                         <li><a href="{{ path('fos_user_security_logout') }}" class="log-nav"><i class="fa fa-power-off" aria-hidden="true"></i>Déconnexion</a></li>
                                     </ul>
                                 </li>
