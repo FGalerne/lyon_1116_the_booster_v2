@@ -1611,7 +1611,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
 /** List Society **/
 .nombre-de-projet {
 	width: 100%;
-	background-color: dimgray;
+	background-color: #363636;
 	font-size: 13px;
 	text-transform: uppercase;
 	padding: 5px;
@@ -2206,6 +2206,10 @@ li.star-active i {
 	border: 1px solid #696969;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	text-align: center;
+	margin:15px auto;
+	background-color: #363636;
+	color: white;
 }
 
 .button-cancel-subscription:hover{

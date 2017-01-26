@@ -12,9 +12,9 @@
                         {% if society.linkedin %}<a href="{{ society.linkedin | external_link }}" target="_blank"><li><i class="fa fa-linkedin-square" aria-hidden="true"></i></li></a>{% endif %}
                         {% if society.youtube %}<a href="{{ society.youtube | external_link }}" target="_blank"><li><i class="fa fa-youtube-square" aria-hidden="true"></i></li></a>{% endif %}
                     </div>
-                    <div class="col-xs-12 society-photo">
-                        <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/photo-couverture-profile-societe.png') }}" alt="photo couverture société" />
-                    </div>
+                </div>
+                <div class="col-xs-12 society-photo">
+                    <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/photo-couverture-profile-societe.png') }}" alt="photo couverture société" />
                 </div>
             </div>
 
