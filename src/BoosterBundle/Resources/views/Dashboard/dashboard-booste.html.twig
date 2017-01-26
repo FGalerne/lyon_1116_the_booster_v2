@@ -27,24 +27,24 @@
                 </div>
 
                 {# Here the right part of the dashboard we could found the statistic of the society and the button to add a new project #}
+                <div class="col-xs-12 col-md-3" id="statistic-society">
+                    {% set noteBooster = (society.averageNotation / society.projectDoneNumber) | round %}
+                    <p>Heures reçues : {{ society.hoursTaken }}</p>
+                    <p>Projets réalisés : {{ society.projectDoneNumber }}</p>
+                    <p>Note du boosté : {{ noteBooster }}</p>
+                    <ul>
+                        {% for i in 1..noteBooster %}
+                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        {% endfor %}
 
-                <div>
-                    <div class="col-xs-12 col-md-4" id="statistic-society">
-                        <p>Heures reçues : {{ society.hoursTaken }}</p>
-                        <p>Projets réalisés : {{ society.projectDoneNumber }}</p>
-                        <p>Note du booster : {{ society.averageNotation }}</p>
-                        <ul>
-                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        {% for i in 1..5 - noteBooster %}
                             <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-12 col-md-3" id="add-project">
-                        {% if is_granted("ROLE_BOOSTE") %}<a class="bttn-gradient.bttn-md" href="{{ path('new_project') }}">JE DEPOSE UN PROJET</a>{% endif %}
-                    </div>
+                        {% endfor %}
+                    </ul>
                 </div>
+                <div class="col-xs-12 col-md-3" id="add-project">
+                    {% if is_granted("ROLE_BOOSTE") %}<a href="{{ path('new_project') }}">JE DEPOSE UN PROJET</a>{% endif %}
+
             </div>
 
             <div class="container h2-punch">
