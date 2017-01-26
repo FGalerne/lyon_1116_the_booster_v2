@@ -57,7 +57,8 @@ h1{
 
 .prelude {
 	background-color: #FAFAFA;
-	padding: 30px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 #ico-white-fb,
@@ -2252,13 +2253,17 @@ li.star-active i {
 	color: #eb0310;
 }
 .sub-container{
-	border: 1px solid #696969;
+	/*border: 1px solid #696969;
 	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-bottom: 10px;*/
 	text-align: center;
 	margin:15px auto;
 	background-color: #363636;
 	color: white;
+}
+.sub-container div{
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .button-cancel-subscription:hover{
