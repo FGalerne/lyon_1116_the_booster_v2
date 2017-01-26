@@ -20,12 +20,12 @@ class MessengerRepository extends \Doctrine\ORM\EntityRepository
 
         return $req->getResult();
     }
-    public function cancelMessages($title){
+    public function cancelMessages($title, $newTitle){
         $qb = $this->createQueryBuilder('a')
             ->update()
             ->set('a.title', '?1')
             ->where('a.title = ?2')
-            ->setParameter(1, $title.' (Annulé)')
+            ->setParameter(1, $newTitle)
             ->setParameter(2, $title)
             ->getQuery();
 
