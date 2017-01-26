@@ -9,13 +9,17 @@
                     <img src="{{ booster.photo|default ? asset('img/uploads/boosters/' ~ booster.photo) : asset('img/photo-couverture-profile-booster.png') }}" alt="photo couverture société" />
                 </div>
 
-            {# Personnal information of the booster #}
+                {# Personnal information of the booster #}
 
                 <div class="col-md-3 personnal-information">
                     <p><strong>Civilité</strong> : {{ booster.user.title }}</p>
                     <p><strong>Prénom</strong> : {{ booster.user.firstName }}</p>
-                    <p><strong>Nom</strong> : {{ booster.user.lastName }}</p>
-                    <p><strong>Email</strong> : {{ booster.user.email }}</p>
+
+                    {# we hide this for visitors #}
+                    {% if app.user.booster %}
+                        <p><strong>Nom</strong> : {{ booster.user.lastName }}</p>
+                        <p><strong>Email</strong> : {{ booster.user.email }}</p>
+                    {% endif %}
                 </div>
 
                 {# The statistic of the booster hour given / projects done and average notation #}
@@ -54,8 +58,10 @@
                         <li><a id="project-home">Accueil</a></li>
                         <li><a id="project-in-progress">Projets en cours</a></li>
                         <li><a id="project-done">Projets réalisés</a></li>
+
+                        {# we hide this for visitors #}
                         {% if app.user.booster %}
-                        <li><a id="messenger">Messages</a></li>
+                            <li><a id="messenger">Messages</a></li>
                         {% endif %}
                     </ul>
                 </div>
@@ -69,9 +75,19 @@
                 <div class="row">
                     <div class="col-xs-12 col-md-4">
                         <h3 class="text-left">Mes coordonnées :</h3>
-                        <p><strong>Lieu de résidence</strong> : {{ booster.city }} </p>
+
+                        {# we hide this for visitors #}
+                        {% if app.user.booster %}
+                            <p><strong>Lieu de résidence</strong> : {{ booster.city }} </p>
+                        {% endif %}
+
                         <p><strong>Code Postal</strong> : {{ booster.zipCode }}</p>
-                        <p><strong>Date de naissance</strong> : {% if booster.birthDate %}{{ booster.birthDate|date('d-m-Y') }}{% endif %} </p>
+
+                        {# we hide this for visitors #}
+                        {% if app.user.booster %}
+                            <p><strong>Date de naissance</strong> : {% if booster.birthDate %}{{ booster.birthDate|date('d-m-Y') }}
+                        {% endif %} </p>{% endif %}
+
                         <p><strong>Métier</strong> : {{ booster.workStatus }}</p>
                     </div>
 
@@ -80,11 +96,11 @@
                         <p><strong>Compétence principale</strong> : {{ booster.competence1 }}</p>
                         <p><strong>Mes autres compétences</strong> : </p>
                         <ul>
-                            <li>{% if booster.competence2 %}{{ booster.competence2 }}{% endif %}</li>
-                            <li>{% if booster.competence3 %}{{ booster.competence3 }}{% endif %}</li>
-                            <li>{% if booster.competence4 %}{{ booster.competence4 }}{% endif %}</li>
-                            <li>{% if booster.competence5 %}{{ booster.competence5 }}{% endif %}</li>
-                            <li>{% if booster.competence6 %}{{ booster.competence6 }}{% endif %}</li>
+                            {% if booster.competence2 %}<li>{{ booster.competence2 }}</li>{% endif %}
+                            {% if booster.competence3 %}<li>{{ booster.competence3 }}</li>{% endif %}
+                            {% if booster.competence4 %}<li>{{ booster.competence4 }}</li>{% endif %}
+                            {% if booster.competence5 %}<li>{{ booster.competence5 }}</li>{% endif %}
+                            {% if booster.competence6 %}<li>{{ booster.competence6 }}</li>{% endif %}
                         </ul>
                     </div>
                 </div>
@@ -101,105 +117,119 @@
         <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
             {% for subscription in subscriptions %}
 
-                {% if subscription.project.status == 'In_progress' or subscription.project.status == 'Open'%}
-                    <div class="container project-in-progress prelude" id="dashboard-booster-inProgress">
-                        <div class="container project-in-progress prelude">
-                            <div class="col-xs-6 col-md-3">
-                                <p>Nom de la société</p>
-                                <p>{{ subscription.project.society.societyName }}</p>
+                {# If project has not been deleted #}
+                {% if subscription.project.status != 'Delete'%}
+                    <div class="container project-in-progress prelude">
+                        {# if project is opened (in this case it would be subrsiption canceled) or in-progress on in-progress part of the dashboard#}
+                        {% if subscription.project.status != 'Done'%}
+
+                            <div class="row">
+                                <div class="col-xs-6 col-md-3">
+                                    <p>Nom de la société</p>
+                                    <p>{{ subscription.project.society.societyName }}</p>
+                                </div>
+                                <div class="col-xs-6 col-md-3">
+                                    <p>Nom du projet :</p>
+                                    <p>{{ subscription.project.projectName }}</p>
+                                </div>
+                                <div class="col-xs-6 col-md-2">
+                                    <p>Nombre d'heures:</p>
+                                    <p>{{ subscription.project.givenTime }}</p>
+                                </div>
+                                <div class="col-xs-6 col-md-2">
+                                    <p>Catégorie:</p>
+                                    <p>{{ subscription.project.category }}</p>
+                                </div>
+                                <div class="col-xs-6 col-md-2">
+                                    <p>Statut:</p>
+                                    <p>{{ subscription.project.status }}</p>
+                                </div>
+                                <div class="col-xs-12 ">
+                                    <p class="text-left">{{ subscription.project.description | raw }}</p>
+                                </div>
                             </div>
-                            <div class="col-xs-6 col-md-3">
-                                <p>Nom du projet :</p>
-                                <p>{{ subscription.project.projectName }}</p>
-                            </div>
-                            <div class="col-xs-6 col-md-2">
-                                <p>Nombre d'heures:</p>
-                                <p>{{ subscription.project.givenTime }}</p>
-                            </div>
-                            <div class="col-xs-6 col-md-2">
-                                <p>Catégorie:</p>
-                                <p>{{ subscription.project.category }}</p>
-                            </div>
-                            <div class="col-xs-6 col-md-2">
-                                <p>Statut:</p>
-                                <p>{{ subscription.project.status }}</p>
-                            </div>
-                            <div class="col-xs-12 ">
-                                <p class="text-left">{{ subscription.project.description | raw }}</p>
-                            </div>
-                        </div>
-                        {% if subscription.project.status == 'In_progress' %}
+
+                            {# if project is in_progress #}
                             {% if subscription.status == 'In_progress' %}
                                 <div class="sub-container row">
                                     <div class="col-xs-8">
                                         Projet en cours de réalisation !
                                     </div>
                                     <div class="col-xs-4">
+                                        {# if booster have no terminated the project #}
                                         {% if not subscription.boosterValidation %}
-                                        <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardSlug': subscription.booster.slug, 'role': 'booster' }) }}" class="button-cancel-subscription">Ce projet est terminé !</a><br/>
+                                            <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardSlug': subscription.booster.slug, 'role': 'booster' }) }}" class="button-cancel-subscription">Ce projet est terminé !</a><br/>
+
+                                        {# if booster have terminated the project and wait for society validation #}
                                         {% else %}
                                             En attente de la validation de {{ subscription.project.society.user.firstname }}.<br/>
                                         {% endif %}
+                                        {# open the collapse with confiramtion for cancel collaboration on click #}
                                         <a data-toggle="collapse" data-target="#collapseCancel" class="button-cancel-subscription">Annuler la collaboration</a>
                                     </div>
                                 </div>
+
                                 {#Collapse for cancelation confirmation#}
                                 <div id="collapseCancel" class="collapse">
                                     <div> <strong>Attention, en annulant cette collaboration, vous n'aurez plus la possibilité de terminer ce projet avec {{ subscription.project.society.user.firstName }}: </strong><br/>
                                         <a href="{{ path('subscription_cancel', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardId': subscription.booster.id, 'role': 'booster' }) }}">Je confirme l'annulation</a>
                                     </div>
                                 </div>
-                            {% endif %}
-                        {% else %}
-                            {# project status = 'Open' #}
-                            {% if subscription.status == 'Canceled' %}
+
                                 {# if subscription has been canceled #}
-                                <div class="col-xs-12">
-                                    La collaboration à été annulée
+                            {% elseif subscription.status == 'Canceled' %}
+                                <div class="sub-container row">
+                                    <div class="col-xs-8">
+                                        La collaboration à été annulée
+                                    </div>
                                 </div>
                             {% endif %}
-                        {% endif %}
-                    </div>
+                        </div>
+                    {% endif %}
                 {% endif %}
-
+            {% endfor %}
         </section>
 
         {# The Project part "DONE" #}
 
         <section class="container-fluid presentation-booster" id="dashboard-booster-done">
+            {% for subscription in subscriptions %}
 
-            {% if subscription.project.status == 'Done' %}
-            <div class="container prelude project-done" id="dashboard-booster-done">
-                <div class="container project-done prelude">
-                    <div class="col-xs-6 col-md-3">
-                        <p>Nom de la société : </p>
-                        <p>{{ subscription.project.society.societyName }}</p>
+                {# if project is done #}
+                {% if subscription.status == 'Done' %}
+
+                    <div class="container project-done prelude">
+                        <div class="col-xs-6 col-md-3">
+                            <p>Nom de la société : </p>
+                            <p>{{ subscription.project.society.societyName }}</p>
+                        </div>
+                        <div class="col-xs-6 col-md-3">
+                            <p>Nom du projet : </p>
+                            <p>{{ subscription.project.projectName }}</p>
+                        </div>
+                        <div class="col-xs-6 col-md-2">
+                            <p>Nombre d'heures : </p>
+                            <p>{{ subscription.project.givenTime }}</p>
+                        </div>
+                        <div class="col-xs-6 col-md-2">
+                            <p>Catégorie : </p>
+                            <p>{{ subscription.project.category }}</p>
+                        </div>
+                        <div class="col-xs-6 col-md-2">
+                            <p>Statut : </p>
+                            <p>{{ subscription.project.status }}</p>
+                        </div>
                     </div>
-                    <div class="col-xs-6 col-md-3">
-                        <p>Nom du projet : </p>
-                        <p>{{ subscription.project.projectName }}</p>
-                    </div>
-                    <div class="col-xs-6 col-md-2">
-                        <p>Nombre d'heures : </p>
-                        <p>{{ subscription.project.givenTime }}</p>
-                    </div>
-                    <div class="col-xs-6 col-md-2">
-                        <p>Catégorie : </p>
-                        <p>{{ subscription.project.category }}</p>
-                    </div>
-                    <div class="col-xs-6 col-md-2">
-                        <p>Statut : </p>
-                        <p>{{ subscription.project.status }}</p>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
+
+                {% endif %}
             {% endfor %}
         </section>
+
     {% endfor %}
     {% if app.user.booster %}
         {% include 'BoosterBundle:Dashboard:messenger.html.twig' %}
     {% endif %}
+</div>
 {% endblock %}
 
 {% block javascripts %}
@@ -207,6 +237,7 @@
     <script src="{{ asset('js/messenger.js')}}"></script>
     <script>
         tinymce.init({
+            elementpath: false,
             selector:'.WYSIWYG',
             forced_root_block: false,
             menubar: 'tools',
