@@ -102,7 +102,7 @@
                             {#BOOSTE#}
                             {% if is_granted("ROLE_BOOSTE") %}
                                 <a class="col-xs-12 postulation-button" href="{{ path('booster_inscription_choix') }}">
-                                    Créer un compte 'Booster' pour donner du temps à ce projet !
+                                    Créez un compte 'Booster' pour donner du temps à ce projet !
                                 </a>
                                 {#BOOSTER#}
                             {% elseif is_granted("ROLE_BOOSTER") %}
@@ -129,7 +129,7 @@
                                     {% endif %}
                                 {% else %}
                                     <a class="col-xs-12 postuled-button">
-                                        Vous avez postulé pour ce projet !
+                                        Vous avez postulé à ce projet !
                                     </a>
                                 {% endif %}
                                 {#GUEST#}
