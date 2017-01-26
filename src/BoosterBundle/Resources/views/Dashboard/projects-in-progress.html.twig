@@ -1,7 +1,7 @@
 <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
     {% for project in projects %}
     {# if the project have not been deleted (status -> Delete)#}
-        {% if subscription.project.status != 'Delete'%}
+        {% if project.status != 'Delete'%}
             {# we display project if not blocked and if status is open or in_progress #}
             {% if project.status != 'Done'%}
                 <div class="container project-in-progress prelude">
