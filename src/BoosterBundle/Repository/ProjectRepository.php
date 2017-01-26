@@ -59,9 +59,11 @@ class ProjectRepository extends \Doctrine\ORM\EntityRepository
         $qb = $this->createQueryBuilder('a')
             ->update()
             ->set('a.status', '?2')
+            ->set('a.endTime', '?3')
             ->where('a.id = ?1')
             ->setParameter(1, $projectId)
             ->setParameter(2, 'Done')
+            ->setParameter(3, new \DateTime('now'))
             ->getQuery();
 
         return $qb->execute();

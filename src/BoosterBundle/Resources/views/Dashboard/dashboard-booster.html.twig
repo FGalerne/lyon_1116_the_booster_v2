@@ -39,9 +39,11 @@
                             <li><i class="fa fa-star" aria-hidden="true"></i></li>
                         {% endfor %}
                     {% endif %}
+                    {% if noteBooster != 5 %}
                         {% for i in 1..5 - noteBooster %}
                             <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
                         {% endfor %}
+                    {% endif %}
                     </ul>
                 </div>
             </div>
@@ -198,26 +200,47 @@
                 {# if project is done #}
                 {% if subscription.status == 'Done' %}
 
-                    <div class="container project-done prelude">
-                        <div class="col-xs-6 col-md-3">
-                            <p>Nom de la société : </p>
-                            <p>{{ subscription.project.society.societyName }}</p>
+                    <div class="container prelude project-done">
+                        <div class="row">
+                            <p class="text-left"><strong>{{ subscription.project.projectName }}</strong>:
+                                Projet terminé le {{ subscription.project.endTime|date('d/m/Y') }} grace à la collaboration de {{ subscription.booster.user.firstName }} en {{ subscription.GivenTime }}H.
+                            </p>
                         </div>
-                        <div class="col-xs-6 col-md-3">
-                            <p>Nom du projet : </p>
-                            <p>{{ subscription.project.projectName }}</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <strong>Note du Booster</strong>:
+                                {% if subscription.boosterNote != 0 %}
+                                    {% for i in 1..subscription.boosterNote %}
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if subscription.boosterNote != 5 %}
+                                    {% for i in 1..5 - subscription.boosterNote %}
+                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-9">
+                                <strong>Son commentaire</strong>: {{ subscription.boosterCommentaries }}
+                            </div>
                         </div>
-                        <div class="col-xs-6 col-md-2">
-                            <p>Catégorie : </p>
-                            <p>{{ subscription.project.category }}</p>
-                        </div>
-                        <div class="col-xs-6 col-md-2">
-                            <p>Note reçue par le Booster : </p>
-                            <p>{{ subscription.boosterNote}}</p>
-                        </div>
-                        <div class="col-xs-6 col-md-2">
-                            <p>Commentaire reçu par le Booster : </p>
-                            <p>{{ subscription.boosterCommentaries}}</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <strong>Note du Boosté</strong>:
+                                {% if subscription.boosterNote != 0 %}
+                                    {% for i in 1..subscription.societyNote %}
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if subscription.societyNote != 5 %}
+                                    {% for i in 1..5 - subscription.societyNote %}
+                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-9">
+                                <strong>Son commentaire</strong>: {{ subscription.societyCommentaries }}
+                            </div>
                         </div>
                     </div>
 
