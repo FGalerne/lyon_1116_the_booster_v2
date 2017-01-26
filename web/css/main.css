@@ -2167,16 +2167,23 @@ li.star-active i {
 
 /*public dashboard*/
 
+.fa-thumbs-up,
+.fa-arrow-circle-right {
+	margin-left: 10px;
+}
+
 .postulation-button, .postuled-button{
 	text-align: center;
-	margin-top: 7px;
-	font-size:1.2em;
-	font-weight:900;
-	background-color: #696969;
+	font-size: 1.2em;
+	font-weight: 900;
+	background-color: #363636;
 	padding: 10px 30px;
 	border: none;
-	border-radius: 5px;
-	color:white;
+	border-radius: 30px;
+	color: white;
+	width: 50%;
+	margin: 7px auto;
+	display: block;
 }
 .postuled-button:hover{
 	background-color: #696969;
@@ -2187,6 +2194,7 @@ li.star-active i {
 	background-color: #eb0310;
 	color:white;
 }
+
 .project-subscription-container{
 	margin-top: 100px;
 	margin-bottom: 100px;

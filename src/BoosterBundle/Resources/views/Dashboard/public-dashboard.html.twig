@@ -98,8 +98,8 @@
                         {% if showSubscriptions %}
                             {#BOOSTE#}
                             {% if is_granted("ROLE_BOOSTE") %}
-                                <a class="col-xs-12 postulation-button" href="{{ path('booster_inscription_choix') }}">
-                                    Créer un compte 'Booster' pour donner du temps à ce projet !
+                                <a class="postulation-button" href="{{ path('booster_inscription_choix') }}">
+                                    Créer un compte 'Booster' pour donner du temps à ce projet<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a>
                                 {#BOOSTER#}
                             {% elseif is_granted("ROLE_BOOSTER") %}
@@ -115,24 +115,20 @@
                                 {% if subscribed == 0 %}
                                     {#The booster have a 'booster' profile#}
                                     {% if app.user.booster %}
-                                        <a class="col-xs-12 postulation-button" href="{{ path('project_subscription', { 'boosterId': app.user.booster.id, 'societyId': society.id, 'projectId': project.id }) }}">
+                                        <a class="postulation-button" href="{{ path('project_subscription', { 'boosterId': app.user.booster.id, 'societyId': society.id, 'projectId': project.id }) }}">
                                             Je donne du temps à ce projet !
-                                        </a>
+                                            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                                         {#The booster do not have completed is profile#}
                                     {% else %}
-                                        <a class="col-xs-12 postuled-button" href="{{ path('dashboard_booster_new',{'id':app.user.id}) }}">
-                                            Completez votre profil pour pouvoir postuler !
-                                        </a>
+                                        <a class="postuled-button" href="{{ path('dashboard_booster_new',{'id':app.user.id}) }}">Completez votre profil pour pouvoir postuler<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+
                                     {% endif %}
                                 {% else %}
-                                    <a class="col-xs-12 postuled-button">
-                                        Vous avez postulé pour ce projet !
-                                    </a>
+                                    <a class="postuled-button">Vous avez postulé pour ce projet !<i class="fa fa-thumbs-up" aria-hidden="true"></i>                                    </a>
                                 {% endif %}
                                 {#GUEST#}
                             {% else %}
-                                <a class="col-xs-12 postulation-button" href="{{ path('booster_inscription_choix') }}">
-                                    Créez un compte pour donner du temps à ce projet !
+                                <a class="postulation-button" href="{{ path('booster_inscription_choix') }}">Créez un compte pour donner du temps à ce projet<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a>
                             {% endif %}
                         {% else %}
