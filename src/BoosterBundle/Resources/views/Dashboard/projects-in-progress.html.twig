@@ -2,31 +2,34 @@
     {% for project in projects %}
             {% if project.status != 'Done' %}
                 <div class="container project-in-progress prelude">
+
                     <div class="row">
-                        <div class="col-xs-6 col-md-3">
-                            <p>Nom de la société : </p>
+                        <div class="col-xs-12 col-md-3">
+                            <p><strong>Nom de la société</strong></p>
                             <p>{{ society.societyName }}</p>
                         </div>
-                        <div class="col-xs-6 col-md-3">
-                            <p>Nom du projet : </p>
+                        <div class="col-xs-12 col-md-3">
+                            <p><strong>Nom du projet :</strong></p>
                             <p>{{ project.projectName }}</p>
                         </div>
-                        <div class="col-xs-6 col-md-2">
-                            <p>Nombre d'heures : </p>
+                        <div class="col-xs-12 col-md-2">
+                            <p><strong>Nombre d'heures:</strong></p>
                             <p>{{ project.givenTime }}</p>
                         </div>
-                        <div class="col-xs-6 col-md-2">
-                            <p>Catégorie : </p>
+                        <div class="col-xs-12 col-md-2">
+                            <p><strong>Catégorie:</strong></p>
                             <p>{{ project.category }}</p>
                         </div>
-                        <div class="col-xs-6 col-md-2">
-                            <p>Statut : </p>
+                        <div class="col-xs-12 col-md-2">
+                            <p><strong>Statut:</strong></p>
                             <p>{{ project.status }}</p>
                         </div>
                         <div class="col-xs-12 ">
+                            <hr class="hr-project">
                             <p class="text-left">{{ project.description | raw }}</p>
                         </div>
                     </div>
+
                     {% if project.creationStatus == true %}
                         {% for subscription in project.projectSubscriptions %}
                             {# we allow society to contact and see subscribers if noone has been chosen yet #}

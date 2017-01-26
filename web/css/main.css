@@ -18,7 +18,6 @@ p {
  }
 
 ul {
-	font-size:1.35em;
 	text-align:justify;
 	font-family: 'Source Sans Pro', sans-serif;
 }
@@ -34,21 +33,40 @@ span {
 	font-style: italic;
 }
 
- h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5 {
 	 font-family: 'Roboto', sans-serif;
 	 text-align:center;
 	 margin-bottom:3vh;
- }
+}
 
- h1{
+h1{
 	 font-weight: 900;
- }
+}
+
+/**** Gold color for stars rate system ****/
+
+.fa-star-o,
+.fa-star {
+	color: #ffd700
+}
+
+
+#myNavbar {
+	list-style: none;
+}
 
 .prelude {
 	background-color: #FAFAFA;
 	padding: 30px;
 }
 
+#ico-white-fb,
+#ico-white-tw,
+#ico-white-lk {
+	color: #ffffff;
+}
+
+/******* Background Radial for Booste Dashboards *******/
 .blueHour {
 	background:
 			radial-gradient(55% 330%, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0.5) 550%),
@@ -78,6 +96,8 @@ span {
 	text-align: left !important;
 }
 
+/************************ NAVBAR  ***********************/
+
 .navbar {
 	background-color: white;
 	box-shadow: 0 3px 0 rgba(235,3,16,1);
@@ -91,7 +111,9 @@ span {
 	color: black;
 	display: inline-block;
 	text-align: center;
+	font-size: 1.35em;
  }
+
 
 .navbar-brand img {
 	height: 9vh;
@@ -181,7 +203,7 @@ span {
 	display: inline-block;
 }
 
-#connection-nav ul {
+.connection-nav {
 	font-size: 1em;
 }
 
@@ -262,7 +284,44 @@ span {
 	text-decoration-color: rgba(255,255,255,0.7);
 }
 
+.navbar-social ul li {
+	list-style: none;
+	display: inline-block;
+	padding: 2px 0 3px 8px;;
+	color: #FFFFFF;
+	background-color: #eb0310;
+	border-radius: 50%;
+	width: 33px;
+	height: 33px;
+	margin-top: 8px;
+	font-size: 1.35em;
+}
 
+.navbar-social ul li:hover {
+	background-color: #363636;
+}
+.navbar-social a {
+	text-decoration: none;
+
+}
+
+/**** Social Icons for Desktop ****/
+
+@media (min-width: 1075px) {
+	.navbar-social ul {
+		padding-top: 25px;
+		padding-right: 30px;
+		padding-left: 0;
+	}
+}
+
+/**** Social Icons for mobile ****/
+
+@media (max-width: 1075px) {
+	.navbar-social ul {
+		padding-left: 15px;
+	}
+}
 /* Button CSS when people are logged */
 
 .navbar-right {
@@ -284,8 +343,11 @@ span {
 	position : relative;
 	width : 100%;
 	height: 85vh;
-	background: url(../img/office-336368_1920.jpg) no-repeat center center fixed;
+	background-image: url(../img/image-remplacement-video-the-booster.jpg);
+	background-repeat: no-repeat;
 	background-size: cover;
+	background-attachment: fixed;
+	background-position: center center;
 	z-index: -2;
 }
 
@@ -365,17 +427,9 @@ span {
 	margin-bottom: 10vh;
 }
 
+
 #home_startup_list {
-	text-align: center;
-	margin-left: -60px;
-}
-#home_startup_list a {
-	display:inline-block;
-	margin-left: 5%;
-	margin-right: 5%;
-	float:none;
-	text-align:left;
-	margin-bottom: 30px;
+
 }
 
 .home_blimg_startup {
@@ -994,7 +1048,7 @@ hr{
 /*********************** DASHBOARD BOOSTER ***********************/
 
 .global-presentation {
-	padding: 35px 0 65px 0;
+	padding: 35px 0 0 0;
 }
 
 #statistic-society,
@@ -1009,14 +1063,22 @@ hr{
 	font-size: 1.2em;
 }
 
+#statistic-society ul,
 #statistic-booster ul {
-	margin-top: 15px;
+	margin-top: 30px;
 	padding: 0;
+	text-align: center;
+	font-size: 1.7em;
 }
 
 #statistic-booster ul li {
 	list-style: none;
 	display: inline-block;
+
+}
+
+.personnal-information {
+	padding-bottom: 35px;
 }
 
 .personnal-information p {
@@ -1045,7 +1107,7 @@ hr{
 }
 
 #navbar-dashboard a {
-	line-height: 7vh;
+	line-height: 30px;
 	padding: 10px;
 	color: white;
 	font-weight: bold;
@@ -1064,15 +1126,12 @@ hr{
 	padding-right: 10px;
 }
 
-.booster-skill ul {
-	text-align: center;
-	padding: 0;
+.icon-black {
+	color: #000000;
 }
 
-.booster-skill li {
-	display: inline-block;
-	list-style: none;
-	padding: 15px;
+.booster-skill ul {
+	font-size: 1.2em;
 }
 
 .presentation-text {
@@ -1097,17 +1156,36 @@ hr{
 	padding-top: 5px;
 }
 
+@media (max-width: 991px){
+	.project-in-progress p,
+	.project-done p {
+		text-align: left;
+	}
+}
+
 .configuration-profile {
 	width: 20px;
 }
 
-/*********************** DASHBOARD BOOSTE "SOCIETY" ***********************/
+.presentation-booster {
+	padding-bottom: 40px;
+}
 
+/*********************** DASHBOARD BOOSTE "SOCIETY" ***********************/
 
 .dashboard-society img {
 	width: 100%;
 }
 
+.h2-punch {
+	background-color: #FAFAFA
+}
+
+.h2-punch h2 {
+	font-size: 20px;
+	color: #363636;
+	padding-top: 0;
+}
 
 #statistic-society ul {
 	padding: 0;
@@ -1134,6 +1212,7 @@ hr{
 	margin-top: 15px;
 	text-decoration: none;
 }
+
 .payment-infos{
 	background-color: #2b2b2b !important;
 	text-align: center;
@@ -1149,53 +1228,91 @@ hr{
 .prices{
 	text-align: right;
 }
+
+#new-inscription-button a,
 #add-project a{
 	background-color: rgba(235,3,16,1);
-	margin: 35px auto;
+	margin: 30px auto;
 	display: block;
-	padding: 40px;
+	padding: 10px;
 	color: #FFFFFF;
 	text-decoration: none;
 	text-align: center;
+	border-radius: 35px;
+}
+
+#new-inscription-button a {
+	width: 250px;
 }
 
 #add-project a:hover, .transactions a:hover {
 	background-color: rgba(235,3,16,0.9)!important;
 }
 
+@media (max-width: 991px) {
+	.prices,
+	.transactions-on {
+		text-align: left;
+	}
+	#add-project a{
+		width: 250px;
+	}
+}
 .dashboard-social-media {
-	margin-top: 35px;
-	font-size: 3.5em;
+	margin-top: 15px;
+	font-size: 3em;
 	padding: 0;
 }
 
 .dashboard-social-media li {
 	list-style: none;
 	display: inline-block;
+	text-decoration: none;
+	color: #eb0310;
+}
+
+.dashboard-social-media li:hover {
+	color: #363636;
 }
 
 /* CAROUSEL */
 
-
-.home_carousel_slogan{
-	font-size: 1.3em;
-	font-weight: 900;
-	color: #eb0310;
+.home-title {
+	position : absolute;
+	top:30%;
+	width:100%;
 }
 
-#home_carousel h2, .home_carousel_over h2{
-	font-size: 1.4em;
-	font-weight: 500;
-}
-
-#home_carousel h3, .home_carousel_over h3{
-	font-size: 1em;
-}
-#home_carousel p, .home_carousel_over p {
-	font-size: 1.2em;
+.home-title h1 {
+	font-size: 3.5em;
+	text-align: center;
+	z-index: 5;
+	color: #ffffff;
 }
 
 
+#logo-booster-home {
+	margin: 0 auto;
+}
+
+@media screen and (max-width: 1000px){
+	.home-title h1 {
+		font-size: 2em;
+	}
+}
+
+@media screen and (max-width: 450px){
+	.home-title h1 {
+		font-size: 1.5em;
+	}
+}
+
+@media screen and (max-width: 768px){
+	.home-title h3,
+	.home-title p {
+		color: #ffffff;
+	}
+}
 .home_carousel_btn_lien {
 	font-size:1.2em;
 	font-weight:900;
@@ -1373,13 +1490,13 @@ and (-webkit-min-device-pixel-ratio: 1) {
 }
 
 .btn_subs {
-	font-size:1.4em;
-	font-weight:900;
+	font-size: 1.2em;
 	margin-top: 20px;
 	margin-bottom: 8vh;
 	background-color: #eb0310;
-	color:white;
-	padding: 25px 35px;
+	color: white;
+	border-radius: 25px;
+	width: 170px;
 }
 
 .txt_subs{
@@ -1471,12 +1588,15 @@ and (-webkit-min-device-pixel-ratio: 1) {
 	font-size: 15px;
 	text-align: left;
 }
-.form-submit-center{
-	width: 40%;
-	font-size: 30px;
-	height: 50px;
+
+.form-submit-center {
+	width: 20%;
+	font-size: 20px;
+	height: 40px;
 	margin: 20px 0 40px 0;
 }
+
+
 @media (max-width: 770px) {
 	.project-form{
 		width: 100%;
@@ -1522,26 +1642,23 @@ a:hover {
 }
 
 .global-society {
-	margin-bottom: 60px;
+	margin-bottom: 50px;
 	border: solid white;
-}
-.global-society div{
-	height: 200px;
 	overflow: hidden;
+	height: 310px;
+	background-color: #ffffff;
 }
+
 .global-society:hover{
 	border: #eb0310 solid;
 }
 
 .global-society img {
-	width: 100%;
+	display: block;
+	margin: 0 auto;
+	width: auto;
+	height: 250px;
 	position: relative;
-	top: 50%;
-	transform: translate(0, -50%);
-	-moz-transform: translate(0, -50%);
-	-webkit-transform: translate(0, -50%);
-	-ms-transform: translate(0, -50%);
-	-o-transform: translate(0, -50%);
 }
 
 .fa{
@@ -1743,26 +1860,43 @@ li.star-active i {
 	display: block;
 	margin: 0 auto;
 }
+
 .society-photo{
-	width: 512px;
+	width: 702px;
 	height: 350px;
 	overflow: hidden;
 }
+
+@media (max-width: 991px){
+	.society-photo{
+		padding: 0;
+		margin: 0;
+	}
+}
+
 .society-photo img {
-	position: relative;
-	top: 50%;
-	transform: translate(0, -50%);
-	-moz-transform: translate(0, -50%);
-	-webkit-transform: translate(0, -50%);
-	-ms-transform: translate(0, -50%);
-	-o-transform: translate(0, -50%);
 	width: 100%;
 	display: block;
 	margin: 0 auto;
 }
 
+@media (max-width: 1200px){
+	.society-photo{
+		width: 600px;
+		height: 275px;
+	}
+}
+
+@media (max-width: 991px){
+	.society-photo{
+		width: auto;
+		height: auto;
+		padding-bottom: 35px;
+	}
+}
+
 .dashboard-nav-container{
-	background-color: #eb0310;
+	background-color: #363636;
 	margin-bottom: 35px;
 }
 
@@ -1840,7 +1974,13 @@ li.star-active i {
 	min-height: 500px;
 }
 
-
+.hr-project {
+	height: 2px;
+	background-color: #727272;
+	margin: 15px auto;
+	display: block;
+	width: 33%;
+}
 
 /************************** TEAM PAGE **************************/
 
@@ -1946,7 +2086,7 @@ li.star-active i {
 	margin-bottom: 50px;
 }
 
-/*************************** here the mobile version of the team page *****************************/
+/*************************** Here the mobile version of the team page *****************************/
 
 @media screen and (max-width: 1199px){
 	.all-team h2 {
@@ -2059,11 +2199,30 @@ li.star-active i {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
+
 .button-cancel-subscription:hover{
 	cursor: pointer;
 }
+
 .validation-subtitle{
 	text-align: center;
 	font-style: italic;
 	margin-bottom: 30px;
+}
+
+/******************* BOOSTER COMPLETE YOUR PROFILE *******************/
+
+/***** That code allows to put the birthday form with Day Month Year Format *****/
+
+#boosterbundle_booster_birthDate {
+	display: flex;
+}
+#boosterbundle_booster_birthDate_year {
+	order:3;
+}
+#boosterbundle_booster_birthDate_month {
+	order:2;
+}
+#boosterbundle_booster_birthDate_day {
+	order: 1;
 }

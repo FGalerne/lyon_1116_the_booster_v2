@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+<div class="blueHour">
     {% for booster in boosters %}
         <section class="container-fluid global-presentation">
-            <div class="container">
+            <div class="container prelude">
                 <div class="col-md-3 avatar">
                     <img src="{{ booster.photo|default ? asset('img/uploads/boosters/' ~ booster.photo) : asset('img/photo-couverture-profile-booster.png') }}" alt="photo couverture société" />
                 </div>
@@ -60,7 +60,7 @@
         {# The personnal information of the booster #}
 
         <section id="dashboard-booster-home" class="container-fluid presentation-booster">
-            <div class="container">
+            <div class="container prelude">
                 <div class="row">
                     <div class="col-xs-12 col-md-4">
                         <h3 class="text-left">Mes coordonnées :</h3>
@@ -74,15 +74,13 @@
                         <h3 class="text-left">Mes principales compétences :</h3>
                         <p><strong>Compétence principale</strong> : {{ booster.competence1 }}</p>
                         <p><strong>Mes autres compétences</strong> : </p>
-                        <p>
-                            {% if booster.competence2 %}{{ booster.competence2 }}{% endif %}
-                            {% if booster.competence3 %}, {{ booster.competence3 }}{% endif %}
-                            {% if booster.competence4 %}, {{ booster.competence4 }}{% endif %}
-                        </p>
-                        <p>
-                            {% if booster.competence5 %} {{ booster.competence5 }}{% endif %}
-                            {% if booster.competence6 %}, {{ booster.competence6 }}{% endif %}
-                        </p>
+                        <ul>
+                            <li>{% if booster.competence2 %}{{ booster.competence2 }}{% endif %}</li>
+                            <li>{% if booster.competence3 %}{{ booster.competence3 }}{% endif %}</li>
+                            <li>{% if booster.competence4 %}{{ booster.competence4 }}{% endif %}</li>
+                            <li>{% if booster.competence5 %}{{ booster.competence5 }}{% endif %}</li>
+                            <li>{% if booster.competence6 %}{{ booster.competence6 }}{% endif %}</li>
+                        </ul>
                     </div>
                 </div>
                 {# The presentation text of the booster #}
@@ -99,8 +97,8 @@
             {% for subscription in subscriptions %}
 
                 {% if subscription.project.status == 'In_progress' or subscription.project.status == 'Open'%}
-                    <div class="container project-in-progress prelude">
-                        <div class="row">
+                    <div class="container project-in-progress prelude" id="dashboard-booster-inProgress">
+                        <div class="container project-in-progress prelude">
                             <div class="col-xs-6 col-md-3">
                                 <p>Nom de la société</p>
                                 <p>{{ subscription.project.society.societyName }}</p>
@@ -158,13 +156,16 @@
                         {% endif %}
                     </div>
                 {% endif %}
+
         </section>
 
         {# The Project part "DONE" #}
 
         <section class="container-fluid presentation-booster" id="dashboard-booster-done">
+
             {% if subscription.project.status == 'Done' %}
-                <div class="container prelude project-done">
+            <div class="container prelude project-done" id="dashboard-booster-done">
+                <div class="container project-done prelude">
                     <div class="col-xs-6 col-md-3">
                         <p>Nom de la société : </p>
                         <p>{{ subscription.project.society.societyName }}</p>
@@ -186,6 +187,7 @@
                         <p>{{ subscription.project.status }}</p>
                     </div>
                 </div>
+            </div>
             {% endif %}
             {% endfor %}
         </section>
