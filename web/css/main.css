@@ -1404,7 +1404,7 @@ hr{
 }
 /* ----------- iPad mini ----------- */
 
-/* Portrait and Landscape */
+/* Portrait and Landscape *//*
 @media only screen
 and (min-device-width: 768px)
 and (max-device-width: 1024px)
@@ -1477,8 +1477,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
 		position: relative;
 		background-size: cover;
 	}
-}
-
+}*/
 /* INSCRIPTION CHOIX */
 
 .title_subs {
