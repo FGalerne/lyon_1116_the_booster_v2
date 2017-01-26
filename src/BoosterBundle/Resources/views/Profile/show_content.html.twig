@@ -1,20 +1,26 @@
 {% trans_default_domain 'FOSUserBundle' %}
+{% block body %}
 {% if is_granted("ROLE_BOOSTER") %}
-    <p><strong>Adresse-email :</strong> {{ user.username }}</p>
-    <p><strong>Nom : </strong>{{ user.lastname}}</p>
-    <p><strong>Prénom : </strong>{{ user.firstname}}</p>
-{% elseif is_granted("ROLE_BOOSTE") %}
-    <p><strong>Nom d'utilisateur :</strong> {{ user.username }}</p>
-    <p><strong>Nom : </strong>{{ user.lastname }}</p>
-    <p><strong>Prénom : </strong>{{ user.firstname }}</p>
-    <p><strong>Fonction : </strong>{{ user.professionalfunction }}</p>
-    <p><strong>Téléphone : </strong>{{ user.phone }}</p>
-    {% if (user.siretnumber is not null)  %}
-        <p><strong>Siret : </strong>{{ user.siretnumber }}</p>
-    {% endif %}
-{% endif %}
-    <div class="btn_register">
-        <a href="{{ path('fos_user_profile_edit') }}"><input type="submit" value="Modifier mon profil" class="btn btn-danger" /></a>
-        <a href="{{ path('fos_user_change_password') }}" ><input type="submit" value="Modifier mon mot de passe" class="btn btn-danger" /></a>
-    </div>
+        <div class="text-center-fos">
+            <p><strong>Email :</strong> {{ user.username }}</p>
+            <p><strong>Nom :</strong> {{ user.lastname }}</p>
+            <p><strong>Prénom :</strong> {{ user.firstname }}</p>
+            {% elseif is_granted("ROLE_BOOSTE") %}
+                <p><strong>Nom d'utilisateur :</strong> {{ user.username }}</p>
+                <p><strong>Nom :</strong> {{ user.lastname }}</p>
+                <p><strong>Prénom :</strong> {{ user.firstname }}</p>
+                <p><strong>Fonction :</strong> {{ user.professionalfunction }}</p>
+                <p><strong>Téléphone :</strong> {{ user.phone }}</p>
+                {% if (user.siretnumber is not null) %}
+                    <p><strong>Siret :</strong> {{ user.siretnumber }}</p>
+                {% endif %}
+            {% endif %}
+            <div class="btn_register">
+                <a href="{{ path('fos_user_change_password') }}"><input type="submit" value="Modifier mon mot de passe" class="btn btn-danger"/></a>
+            </div>
+            <div class="btn_register">
+                <a href="{{ path('fos_user_profile_edit') }}"><input type="submit" value="Modifier mes infos personnelles" class="btn btn-danger"/></a>
+            </div>
+        </div>
+{% endblock %}
 
