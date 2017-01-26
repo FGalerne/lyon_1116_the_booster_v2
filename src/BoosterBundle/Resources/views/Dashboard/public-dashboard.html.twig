@@ -3,8 +3,8 @@
 {% block body %}
     <section class="container-fluid global-presentation blueHour">
         <div class="container prelude">
-            <div class="col-xs-12 col-md-9 dashboard-society">
-                <div class="col-xs-12 col-md-4 society-photo">
+            <div class="dashboard-society">
+                <div class="col-xs-12 society-photo">
                     <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/photo-couverture-profile-societe.png') }}" alt="photo couverture société" />
                 </div>
                 <div class="col-xs-12 col-md-4">
@@ -76,19 +76,19 @@
                     <div class="container project-in-progress prelude">
                         <div class="row">
                             <div class="col-xs-6 col-md-3">
-                                <p>Nom de la société : </p>
+                                <p><strong>Nom de la société :</strong></p>
                                 <p>{{ society.societyName }}</p>
                             </div>
                             <div class="col-xs-6 col-md-3">
-                                <p>Nom du projet : </p>
+                                <p><strong>Nom du projet :</strong></p>
                                 <p>{{ project.projectName }}</p>
                             </div>
                             <div class="col-xs-6 col-md-3">
-                                <p>Nombre d'heures : </p>
+                                <p><strong>Nombre d'heures :</strong></p>
                                 <p>{{ project.givenTime }}</p>
                             </div>
                             <div class="col-xs-6 col-md-3">
-                                <p>Catégorie : </p>
+                                <p><strong>Catégorie :</strong></p>
                                 <p>{{ project.category }}</p>
                             </div>
                             <div class="col-xs-12">
