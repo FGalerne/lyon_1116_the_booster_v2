@@ -70,14 +70,43 @@ class ProjectSubscriptionController extends Controller
             $em->persist($project);
             $em->flush();
 
+            $booster = $subscription->getBooster();
+            $society = $subscription->getProject()->getSociety();
+            //Update total notation into average notation for vote for Booster
+            $currentNote = $subscription->getBooster()->getAverageNotation();
+            $currentNote += $form1->get('boosterNote')->getData();
+            $booster->setAverageNotation($currentNote);
+
+
             //validationMatch will be true if both booster and society have validated the project
             $validationMatch = $em->getRepository('BoosterBundle:ProjectSubscription')->validationMatch($subscriptionId);
-            if ($validationMatch) {
+            if ($validationMatch && $subscription->getStatus() !== "Done")  {
 
-            //change the status of project and projectSubscription to 'Done'
-            $em->getRepository('BoosterBundle:Project')->projectDone($projectId);
-            $em->getRepository('BoosterBundle:ProjectSubscription')->projectSubscriptionDone($subscriptionId);
+                //Number projects done
+                $projectDoneBooster = $booster->getProjectDoneNumber();
+                $projectDoneBooster ++ ;
+                $booster->setProjectDoneNumber($projectDoneBooster);
+                $projectDoneSociety = $society->getProjectDoneNumber();
+                $projectDoneSociety ++ ;
+                $society->setProjectDoneNumber($projectDoneSociety);
+
+                //Number hours given by Booster (+ number hours taken by Society)
+                $hoursGiven = $booster->getHoursGiven();
+                $hoursGiven += $subscription->getGivenTime() ;
+                $booster->setHoursGiven($hoursGiven);
+                $hoursTaken = $society->getHoursTaken();
+                $hoursTaken += $subscription->getGivenTime() ;
+                $society->setHoursTaken($hoursTaken);
+
+                //change the status of project and projectSubscription to 'Done'
+                $em->getRepository('BoosterBundle:Project')->projectDone($projectId);
+                $em->getRepository('BoosterBundle:ProjectSubscription')->projectSubscriptionDone($subscriptionId);
             }
+
+            $em->persist($booster);
+            $em->persist($society);
+
+            $em->flush();
 
             return $this->render('BoosterBundle:Notes:confirmed_note.html.twig');
         }
@@ -93,14 +122,43 @@ class ProjectSubscriptionController extends Controller
             $em->persist($project);
             $em->flush();
 
+            //Update total notation into average notation for vote for Society
+            $currentNote = $subscription->getProject()->getSociety()->getAverageNotation();
+            $currentNote += $form2->get('societyNote')->getData();
+            $society = $subscription->getProject()->getSociety();
+            $booster = $subscription->getBooster();
+            $society->setAverageNotation($currentNote);
+
+
             //validationMatch will be true if both booster and society have validated the project
             $validationMatch = $em->getRepository('BoosterBundle:ProjectSubscription')->validationMatch($subscriptionId);
-            if ($validationMatch) {
+            if ($validationMatch && $subscription->getStatus() !== "Done")  {
 
-            //change the status of project and projectSubscription to 'Done'
-            $em->getRepository('BoosterBundle:Project')->projectDone($projectId);
-            $em->getRepository('BoosterBundle:ProjectSubscription')->projectSubscriptionDone($subscriptionId);
+                //Number projects done
+                $projectDone = $society->getProjectDoneNumber();
+                $projectDone ++ ;
+                $society->setProjectDoneNumber($projectDone);
+
+                $projectDoneBooster = $booster->getProjectDoneNumber();
+                $projectDoneBooster ++ ;
+                $booster->setProjectDoneNumber($projectDoneBooster);
+
+                //Number hours taken by Society (+ number given by Boosters)
+                $hoursTaken = $society->getHoursTaken();
+                $hoursTaken += $subscription->getGivenTime() ;
+                $society->setHoursTaken($hoursTaken);
+                $hoursGiven = $booster->getHoursGiven();
+                $hoursGiven += $subscription->getGivenTime() ;
+                $booster->setHoursGiven($hoursGiven);
+
+                //change the status of project and projectSubscription to 'Done'
+                $em->getRepository('BoosterBundle:Project')->projectDone($projectId);
+                $em->getRepository('BoosterBundle:ProjectSubscription')->projectSubscriptionDone($subscriptionId);
             }
+
+            $em->persist($society);
+            $em->persist($booster);
+            $em->flush();
 
             return $this->render('BoosterBundle:Notes:confirmed_note.html.twig');
         }
