@@ -2,7 +2,7 @@ tinymce.PluginManager.add('charactercount', function (editor) {
     var self = this;
 
     function update() {
-        editor.theme.panel.find('#charactercount').text(['Characters: {0}', self.getCount()]);
+        editor.theme.panel.find('#charactercount').text(['Caractères: {0}', self.getCount()]);
     }
 
     editor.on('init', function () {
@@ -13,7 +13,7 @@ tinymce.PluginManager.add('charactercount', function (editor) {
                 statusbar.insert({
                     type: 'label',
                     name: 'charactercount',
-                    text: ['Characters: {0}', self.getCount()],
+                    text: ['Caractères: {0}', self.getCount()],
                     classes: 'charactercount',
                     disabled: editor.settings.readonly
                 }, 0);
@@ -36,10 +36,10 @@ tinymce.PluginManager.add('charactercount', function (editor) {
         var decodedStripped = decoded.replace(/(<([^>]+)>)/ig, "").trim();
         var tc = decodedStripped.length;
 
-        if (tc > maxCount)
-            editor.contentDocument.body.style.color = 'red';
+        if (tc > maxCount || tc < minCount)
+            editor.contentDocument.body.style.borderBottom = '1px solid red';
         else
-            editor.contentDocument.body.style.color = '';
+            editor.contentDocument.body.style.border = '';
 
         return tc;
     };

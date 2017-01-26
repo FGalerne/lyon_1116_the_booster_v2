@@ -174,7 +174,7 @@ class ProjectSubscriptionController extends Controller
         ));
     }
 
-    public function subscriptionCancelAction($projectId, $subscriptionId, $dashboardId, $role)
+    public function subscriptionCancelAction($projectId, $subscriptionId, $role)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -183,15 +183,23 @@ class ProjectSubscriptionController extends Controller
         //change the status of project to 'Open'
         $em->getRepository('BoosterBundle:Project')->cancelProject($projectId);
 
-        $subscriber = $em->getRepository('BoosterBundle:ProjectSubscription')->findOneById($subscriptionId);
+        $subscription = $em->getRepository('BoosterBundle:ProjectSubscription')->findOneById($subscriptionId);
+
+        //change the name of the title of the message by title - id - (Annulé) to avoid problems
+        $title = $subscription->getProject()->getProjectName();
+        $boosterId = $subscription->getBooster()->getId();
+        $newTitle = $title . ' ' . $boosterId . ' (Annulé)' ;
+        $em->getRepository('BoosterBundle:Messenger')->cancelMessages($title, $newTitle);
+
+
         if($role == 'booster'){
             return $this->redirectToRoute('dashboard_booster', array(
-                    'slug' => $subscriber->getBooster()->getSlug(),
+                    'slug' => $subscription->getBooster()->getSlug(),
                 )
             );
         } else{
             return $this->redirectToRoute('dashboard_society', array(
-                    'slug' => $subscriber->getProject()->getSociety()->getSlug(),
+                    'slug' => $subscription->getProject()->getSociety()->getSlug(),
                 )
             );
 
