@@ -78,31 +78,32 @@
 
             <div class="row" id="home_startup_list">
                 {% for transaction in transactions %}
-
-                    <div class="col-xs-12 col-sm-2 col-md-3">
-                        <a href="{{ path('public_dashboard',{'id': transaction.society.id }) }}">
-                            <div class="global-society">
-                                <div>
-                                    <img src="{{ transaction.society.photo|default ? asset('img/uploads/societies/' ~ transaction.society.photo) : asset('img/photo-couverture-profile-societe.png') }}">
+                    {% if transaction.society.user.validationSociety %}
+                        <div class="col-xs-12 col-sm-2 col-md-3">
+                            <a href="{{ path('public_dashboard',{'id': transaction.society.id }) }}">
+                                <div class="global-society">
+                                    <div>
+                                        <img src="{{ transaction.society.photo|default ? asset('img/uploads/societies/' ~ transaction.society.photo) : asset('img/photo-couverture-profile-societe.png') }}">
+                                    </div>
+                                    <h5 class="name-list-society">{{ transaction.society.societyName }}</h5>
+                                    <p class="nombre-de-projet">Nombre de projets : 100</p>
                                 </div>
-                                <h5 class="name-list-society">{{ transaction.society.societyName }}</h5>
-                                <p class="nombre-de-projet">Nombre de projets : 100</p>
-                            </div>
-                        </a>
-                    </div>
-
+                            </a>
+                        </div>
+                    {% endif %}
                 {% endfor %}
                 <div class="col-xs-12">
-                {% for society in societies | slice(0, 16 - transactions|length) %}
-                    {% set projectCount = 0 %}
-                    {% for project in society.projectNames %}
-                        {% if project.creationStatus %}
-                            {% if project.status == "Open" or project.status == "In_progress" %}
-                                {% set projectCount = projectCount + 1 %}
-                            {% endif %}
-                        {% endif %}
-                    {% endfor %}
-                    {% if not society.transaction|default %}
+                    {% for society in societies | slice(0, 16 - transactions|length) %}
+                        {% if society.user.validationSociety %}
+                            {% if not society.transaction|default %}
+                            {% set projectCount = 0 %}
+                            {% for project in society.projectNames %}
+                                {% if project.creationStatus %}
+                                    {% if project.status == "Open" or project.status == "In_progress" %}
+                                        {% set projectCount = projectCount + 1 %}
+                                    {% endif %}
+                                {% endif %}
+                             {% endfor %}
                         <div class="col-xs-12 col-sm-6 col-md-3">
                             <a href="{{ path('public_dashboard',{'id': society.id }) }}">
                                 <div class="global-society">
@@ -114,6 +115,7 @@
                                 </div>
                             </a>
                         </div>
+                        {% endif %}
                     {% endif %}
                 {% endfor %}
                 </div>
