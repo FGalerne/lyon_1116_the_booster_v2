@@ -22,13 +22,13 @@ class BoosterType extends AbstractType
     {
         $builder
             ->add('photo', FileType::class, array(
-                'label' => 'Avatar (format portrait)',
+                'label' => 'Avatar (Format portrait)',
                 'required' => false,
                 'data_class' => null
                 )
             )
             ->add('presentation', TextareaType::class, array(
-                'label' => 'Texte de présentation (200 caractères max)',
+                'label' => 'Phrase de présentation (200 caractères max)',
                 'required' => false,
                 'attr' => array(
                     'class' => 'WYSIWYG form-control form-group',
@@ -37,13 +37,15 @@ class BoosterType extends AbstractType
             ->add('zipCode', NumberType::class, array(
                 'label' => 'Code Postal',
                 'attr'  => array(
-                    'placeholder' => 'Code Postal'
+                    'placeholder' => 'Code Postal',
+                    'class'        => 'form-control form-group',
                 ),
             ))
             ->add('city', TextType::class, array(
                 'label' => 'Ville',
                 'attr'  => array(
-                    'placeholder' => 'Ville'
+                    'placeholder' => 'Ville',
+                    'class'        => 'form-control form-group',
                 ),
             ))
             ->add('birthDate', BirthdayType::class, array(
@@ -51,9 +53,27 @@ class BoosterType extends AbstractType
                 'years' => range(1950, 2020),
                 'format' => ('D'-'m'-'Y'),
             ))
-            ->add('workStatus')
+            ->add('workStatus', ChoiceType::class, array(
+                'label'     => 'Je suis',
+                'attr'      => array('class' => 'form-control form-group'),
+                'choices'   => array(
+                    'student'       =>  'Étudiant',
+                    'employee'      =>  'Employé du secteur privé',
+                    'unemployed'    =>  'Entre 2 jobs',
+                    'public_service'=>  'Fonction publique',
+                    'independent'   =>  'Indépendant',
+                    'entrepreneur'  =>  'Entrepreneur',
+                    'senior'        =>  'Senior',
+                ),
+                'required' => true,
+                'choices_as_values' => true,
+                'choice_label'  => function ($currentChoiceKey) {
+                    return $currentChoiceKey;
+                },
+            ))
+
             ->add('competence1', ChoiceType::class, array(
-                'label' => 'competence principale',
+                'label' => 'Compétence principale',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
                     'category_1'  => 'Marketing',
@@ -76,7 +96,7 @@ class BoosterType extends AbstractType
             ))
 
             ->add('competence2', ChoiceType::class, array(
-                'label' => 'autre compétence',
+                'label' => 'Autre compétence',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
                     null => 'aucune',
@@ -101,7 +121,7 @@ class BoosterType extends AbstractType
             ))
 
             ->add('competence3', ChoiceType::class, array(
-                'label' => 'autre compétence',
+                'label' => 'Autre compétence',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
                     null => 'aucune',
@@ -126,7 +146,7 @@ class BoosterType extends AbstractType
             ))
 
             ->add('competence4', ChoiceType::class, array(
-                'label' => 'autre compétence',
+                'label' => 'Autre compétence',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
                     null => 'aucune',
@@ -151,7 +171,7 @@ class BoosterType extends AbstractType
             ))
 
             ->add('competence5', ChoiceType::class, array(
-                'label' => 'autre compétence',
+                'label' => 'Autre compétence',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
                     null => 'aucune',
@@ -176,7 +196,7 @@ class BoosterType extends AbstractType
             ))
 
             ->add('competence6', ChoiceType::class, array(
-                'label' => 'autre compétence',
+                'label' => 'Autre compétence',
                 'attr' => array('class' => 'form-control form-group'),
                 'choices'  => array(
                     null => 'aucune',
