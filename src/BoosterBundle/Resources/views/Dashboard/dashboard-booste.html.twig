@@ -113,32 +113,32 @@
                 {# The Project part "DONE" #}
 
                 <section class="container-fluid presentation-booster" id="dashboard-booster-done">
-                {% for project in projects %}
-                    {% if project.status == 'Done' %}
-                    <div class="container prelude project-done">
-                        <div class="col-xs-6 col-md-3">
-                            <p><strong>Nom de la société</strong></p>
-                            <p>{{ society.societyName }}</p>
+                    {% for project in projects %}
+                        {% if project.status == 'Done' %}
+                        <div class="container prelude project-done">
+                            <div class="col-xs-6 col-md-3">
+                                <p><strong>Nom de la société</strong></p>
+                                <p>{{ society.societyName }}</p>
+                            </div>
+                            <div class="col-xs-6 col-md-3">
+                                <p><strong>Nom du projet :</strong></p>
+                                <p>{{ project.projectName }}</p>
+                            </div>
+                            <div class="col-xs-6 col-md-2">
+                                <p><strong>Nombre d'heures:</strong></p>
+                                <p>{{ project.givenTime }}</p>
+                            </div>
+                            <div class="col-xs-6 col-md-2">
+                                <p><strong>Catégorie:</strong></p>
+                                <p>{{ project.category }}</p>
+                            </div>
+                            <div class="col-xs-6 col-md-2">
+                                <p><strong>Statut:</strong></p>
+                                <p>{{ project.status }}</p>
+                            </div>
                         </div>
-                        <div class="col-xs-6 col-md-3">
-                            <p><strong>Nom du projet :</strong></p>
-                            <p>{{ project.projectName }}</p>
-                        </div>
-                        <div class="col-xs-6 col-md-2">
-                            <p><strong>Nombre d'heures:</strong></p>
-                            <p>{{ project.givenTime }}</p>
-                        </div>
-                        <div class="col-xs-6 col-md-2">
-                            <p><strong>Catégorie:</strong></p>
-                            <p>{{ project.category }}</p>
-                        </div>
-                        <div class="col-xs-6 col-md-2">
-                            <p><strong>Statut:</strong></p>
-                            <p>{{ project.status }}</p>
-                        </div>
-                    </div>
-                    {% endif %}
-                {% endfor %}
+                        {% endif %}
+                    {% endfor %}
                 </section>
 
                 {# Options payantes #}
