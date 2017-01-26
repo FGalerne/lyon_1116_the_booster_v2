@@ -1,10 +1,11 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'fos_user_resetting_reset  col-xs-12 col-lg-offset-2 col-lg-8' } }) }}
-{{ form_label(form.plainPassword.first, 'Nouveau mot de passe')}}
-    {{form_widget(form.plainPassword.first, {'attr' : {'class' :'form-control text-center' ,'placeholder' : 'Nouveau mot de passe'}})}}
+{{ form_label(form.plainPassword.first, ' Nouveau mot de passe')}}
+<p class="tiny">Le mot de passe doit contenir 6 caractères minimum</p>
+{{form_widget(form.plainPassword.first, {'attr' : {'class': 'form-control text-center', 'pattern' : '.{6,}'}})}}
 {{ form_label(form.plainPassword.second, 'Votre nouveau mot de passe ')}}
-    {{ form_widget(form.plainPassword.second, { 'label': 'Submit me','attr': { 'class': 'form-control text-center','placeholder' : 'Retaper le mot de passe'}}) }}
+    {{ form_widget(form.plainPassword.second, { 'label': 'Submit me','attr': { 'class': 'form-control text-center'}}) }}
 
 <div class="btn_register">
     <input type="submit" value="Envoyer" class="btn btn-danger" />

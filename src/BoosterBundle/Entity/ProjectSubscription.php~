@@ -312,8 +312,64 @@ class ProjectSubscription
     {
         return $this->project;
     }
-}
-<<<<<<< HEAD
 
-=======
->>>>>>> 5aab1a4fb45c40d3bde7cf06750a2b940b06351f
+    /**
+     * @var boolean
+     */
+    private $boosterValidation = false;
+
+    /**
+     * @var boolean
+     */
+    private $societyValidation = false;
+
+
+    /**
+     * Set boosterValidation
+     *
+     * @param boolean $boosterValidation
+     *
+     * @return ProjectSubscription
+     */
+    public function setBoosterValidation($boosterValidation)
+    {
+        $this->boosterValidation = $boosterValidation;
+
+        return $this;
+    }
+
+    /**
+     * Get boosterValidation
+     *
+     * @return boolean
+     */
+    public function getBoosterValidation()
+    {
+        return $this->boosterValidation;
+    }
+
+    /**
+     * Set societyValidation
+     *
+     * @param boolean $societyValidation
+     *
+     * @return ProjectSubscription
+     */
+    public function setSocietyValidation($societyValidation)
+    {
+        $this->societyValidation = $societyValidation;
+
+        return $this;
+    }
+
+    /**
+     * Get societyValidation
+     *
+     * @return boolean
+     */
+    public function getSocietyValidation()
+    {
+        return $this->societyValidation;
+    }
+
+}
