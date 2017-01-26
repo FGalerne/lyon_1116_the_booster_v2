@@ -24,14 +24,16 @@ class BoosterType extends AbstractType
             ->add('photo', FileType::class, array(
                 'label' => 'Avatar (Format portrait)',
                 'required' => false,
-                'data_class' => null
-                )
-            )
+                'data_class' => null,
+                'attr'  => array(
+                    'class' => 'fieldfoto',
+                ),
+            ))
             ->add('presentation', TextareaType::class, array(
                 'label' => 'Phrase de présentation (200 caractères max)',
                 'required' => false,
                 'attr' => array(
-                    'class' => 'WYSIWYG form-control form-group',
+                    'class' => 'WYSIWYG form-control form-group fieldt',
                 ),
             ))
             ->add('zipCode', NumberType::class, array(
@@ -52,6 +54,9 @@ class BoosterType extends AbstractType
                 'label' => 'Date de Naissance',
                 'years' => range(1950, 2020),
                 'format' => ('D'-'m'-'Y'),
+                'attr'  => array(
+                    'class' => 'fieldbirthd',
+                ),
             ))
             ->add('workStatus', ChoiceType::class, array(
                 'label'     => 'Je suis',
