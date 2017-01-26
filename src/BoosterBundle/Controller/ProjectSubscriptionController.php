@@ -206,4 +206,30 @@ class ProjectSubscriptionController extends Controller
         }
 
     }
+    public function subscriptionDeleteAction($projectId){
+
+        $em = $this->getDoctrine()->getManager();
+
+
+
+        //change the  status of project to "Delete"
+
+        $project = $em->getRepository('BoosterBundle:Project')->findOneById($projectId);
+        $project->setStatus('Delete');
+        $project->setCreationStatus(0);
+
+
+        $em->persist($project);
+        $em->flush();
+
+        return $this->redirectToRoute('dashboard_society', array(
+                'slug' => $project->getSociety()->getSlug(),
+            )
+        );
+
+
+
+
+    }
+
 }

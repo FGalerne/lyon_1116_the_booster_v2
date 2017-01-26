@@ -1677,11 +1677,14 @@ a:hover {
 .pager li > a{
 	background-color: #eb0310;
 	border: none;
+	text-decoration: none;
+	color : #FFFFFF;
 }
 
 .pager li > a:hover
 {
 	background-color: #860f27;
+	color : #FFFFFF;
 }
 
 /*messenger*/
