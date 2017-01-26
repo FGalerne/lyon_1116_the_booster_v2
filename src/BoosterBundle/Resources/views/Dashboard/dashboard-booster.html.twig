@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}Dashboard Booster | The Booster{% endblock %}
 {% block body %}
 <div class="blueHour">
     {% for booster in boosters %}
@@ -88,7 +88,7 @@
                             <p><strong>Date de naissance</strong> : {% if booster.birthDate %}{{ booster.birthDate|date('d-m-Y') }}
                         {% endif %} </p>{% endif %}
 
-                        <p><strong>Métier</strong> : {{ booster.workStatus }}</p>
+                        <p><strong>Je suis</strong> : {{ booster.workStatus }}</p>
                     </div>
 
                     <div class="col-xs-12 col-md-8 booster-skill">
@@ -208,16 +208,16 @@
                             <p>{{ subscription.project.projectName }}</p>
                         </div>
                         <div class="col-xs-6 col-md-2">
-                            <p>Nombre d'heures : </p>
-                            <p>{{ subscription.project.givenTime }}</p>
-                        </div>
-                        <div class="col-xs-6 col-md-2">
                             <p>Catégorie : </p>
                             <p>{{ subscription.project.category }}</p>
                         </div>
                         <div class="col-xs-6 col-md-2">
-                            <p>Statut : </p>
-                            <p>{{ subscription.project.status }}</p>
+                            <p>Note reçue par le Booster : </p>
+                            <p>{{ subscription.boosterNote}}</p>
+                        </div>
+                        <div class="col-xs-6 col-md-2">
+                            <p>Commentaire reçu par le Booster : </p>
+                            <p>{{ subscription.boosterCommentaries}}</p>
                         </div>
                     </div>
 

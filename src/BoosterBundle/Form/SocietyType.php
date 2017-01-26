@@ -18,64 +18,72 @@ class SocietyType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('photo', FileType::class, array(
-                    'label' => 'Votre société (format paysage)',
-                    'required' => false,
-                    'data_class' => null
-                    )
-                )
+                    'label'     => 'Votre société (format paysage)',
+                    'required'  => false,
+                    'data_class'=> null,
+                    'attr'      =>  array(
+                        'class' => 'fieldfoto',
+                    ),
+                    ))
                 ->add('societyName', TextType::class, array(
                     'label' => 'Nom de la société ou du projet',
                     'attr'  => array(
-                        'placeholder' => 'Nom de votre société ou de votre projet'
+                        'placeholder' => 'Nom de votre société ou de votre projet',
+                        'class'       => 'form-control form-group',
                         ),
                     ))
                 ->add('websiteLink', TextType::class, array(
-                    'label' => 'Site internet',
-                    'required' => false,
-                    'attr'  => array(
-                        'placeholder' => 'URL du site internet'
+                    'label'     => 'URL de votre site internet',
+                    'required'  => false,
+                    'attr'      => array(
+                        'placeholder' => 'Votre site internet',
+                        'class'       => 'form-control form-group',
                     ),
                 ))
                 ->add('punchLine', TextType::class, array(
-                    'label' => 'Phrase courte de présentation (140 caractères max)',
-                    'required' => false,
-                    'attr'  => array(
+                    'label'     => "Phrase d'accroche (140 caractères max)",
+                    'required'  => false,
+                    'attr'      => array(
                         'class' => 'WYSIWYG1 form-control form-group',
                     ),
                 ))
                 ->add('presentation', TextareaType::class, array(
-                    'label' => 'Texte de présentation de votre société (500 caractères min)',
-                    'required' => false,
-                    'attr'  => array(
+                    'label'     => 'Texte de présentation de votre société (500 caractères min)',
+                    'required'  => false,
+                    'attr'      => array(
                         'class' => 'WYSIWYG2 form-control form-group',
                     ),
                 ))
                 ->add('linkedin', TextType::class, array(
-                    'label' => 'Profil Linkedin',
-                    'required' => false,
-                    'attr'  => array(
-                        'placeholder' => 'Lien vers votre profil société Linkedin'
+                    'label'     => 'URL page Linkedin',
+                    'required'  => false,
+                    'attr'      => array(
+                        'placeholder' => 'Lien vers votre page Linkedin',
+                        'class'       => 'form-control form-group',
                     ),
                 ))
                 ->add('facebook' , TextType::class, array(
-                    'label' => 'Page Facebook',
-                    'required' => false,
-                    'attr'  => array(
-                        'placeholder' => 'Lien vers votre page Facebook'
+                    'label'     => 'URL page Facebook',
+                    'required'  => false,
+                    'attr'      => array(
+                        'placeholder' => 'Lien vers votre page Facebook',
+                        'class'       => 'form-control form-group',
                     ),
                 ))
                 ->add('twitter', TextType::class, array(
-                    'label' => 'Profil Twitter',
-                    'required' => false,
-                    'attr'  => array(
-                        'placeholder' => 'Lien vers votre profil Twitter'
+                    'label'     => 'URL profil Twitter',
+                    'required'  => false,
+                    'attr'      => array(
+                        'placeholder' => 'Lien vers votre profil Twitter',
+                        'class'       => 'form-control form-group',
                     ),
                 ))
                 ->add('youtube', TextType::class, array(
-                    'label' => 'Profil Youtube',
-                    'required' => false,
-                    'attr'  => array(
-                        'placeholder' => 'Lien vers votre profil Youtube'
+                    'label'     => 'URL page Youtube',
+                    'required'  => false,
+                    'attr'      => array(
+                        'placeholder' => 'Lien vers votre page Youtube',
+                        'class'       => 'form-control form-group',
                     ),
                 ))
         ;

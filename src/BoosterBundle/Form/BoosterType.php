@@ -22,40 +22,65 @@ class BoosterType extends AbstractType
     {
         $builder
             ->add('photo', FileType::class, array(
-                'label' => 'Avatar (format portrait)',
-                'required' => false,
-                'data_class' => null
-                )
-            )
+                'label'     => 'Avatar (Format portrait)',
+                'required'  => false,
+                'data_class'=> null,
+                'attr'      => array(
+                    'class' => 'fieldfoto',
+                ),
+            ))
             ->add('presentation', TextareaType::class, array(
-                'label' => 'Texte de présentation (200 caractères max)',
-                'required' => false,
-                'attr' => array(
-                    'class' => 'WYSIWYG form-control form-group',
+                'label'     => 'Phrase de présentation (200 caractères max)',
+                'required'  => false,
+                'attr'      => array(
+                    'class' => 'WYSIWYG form-control form-group fieldt',
                 ),
             ))
             ->add('zipCode', NumberType::class, array(
                 'label' => 'Code Postal',
                 'attr'  => array(
-                    'placeholder' => 'Code Postal'
+                    'placeholder' => 'Code Postal',
+                    'class'       => 'form-control form-group',
                 ),
             ))
             ->add('city', TextType::class, array(
                 'label' => 'Ville',
                 'attr'  => array(
-                    'placeholder' => 'Ville'
+                    'placeholder' => 'Ville',
+                    'class'       => 'form-control form-group',
                 ),
             ))
             ->add('birthDate', BirthdayType::class, array(
                 'label' => 'Date de Naissance',
                 'years' => range(1950, 2020),
-                'format' => ('D'-'m'-'Y'),
+                'format'=> ('D'-'m'-'Y'),
+                'attr'  => array(
+                    'class' => 'fieldbirthd',
+                ),
             ))
-            ->add('workStatus')
+            ->add('workStatus', ChoiceType::class, array(
+                'label'     => 'Je suis',
+                'attr'      => array('class' => 'form-control form-group'),
+                'choices'   => array(
+                    'student'       =>  'Étudiant',
+                    'employee'      =>  'Employé du secteur privé',
+                    'unemployed'    =>  'Entre 2 jobs',
+                    'public_service'=>  'Fonction publique',
+                    'independent'   =>  'Indépendant',
+                    'entrepreneur'  =>  'Entrepreneur',
+                    'senior'        =>  'Senior',
+                ),
+                'required'          => true,
+                'choices_as_values' => true,
+                'choice_label'      => function ($currentChoiceKey) {
+                    return $currentChoiceKey;
+                },
+            ))
+
             ->add('competence1', ChoiceType::class, array(
-                'label' => 'competence principale',
-                'attr' => array('class' => 'form-control form-group'),
-                'choices'  => array(
+                'label'     => 'Compétence principale',
+                'attr'      => array('class' => 'form-control form-group'),
+                'choices'   => array(
                     'category_1'  => 'Marketing',
                     'category_2'  => 'Communication',
                     'category_3'  => 'Développement Commercial',
@@ -70,16 +95,16 @@ class BoosterType extends AbstractType
                     'category_12' => 'Numérique (site internet, application, …)',
                 ),
                 'choices_as_values' => true,
-                'choice_label' => function ($currentChoiceKey) {
+                'choice_label'      => function ($currentChoiceKey) {
                     return $currentChoiceKey;
                 },
             ))
 
             ->add('competence2', ChoiceType::class, array(
-                'label' => 'autre compétence',
-                'attr' => array('class' => 'form-control form-group'),
-                'choices'  => array(
-                    null => 'aucune',
+                'label'     => 'Autre compétence',
+                'attr'      => array('class' => 'form-control form-group'),
+                'choices'   => array(
+                    null          => 'Aucune',
                     'category_1'  => 'Marketing',
                     'category_2'  => 'Communication',
                     'category_3'  => 'Développement Commercial',
@@ -93,18 +118,18 @@ class BoosterType extends AbstractType
                     'category_11' => 'Juridique',
                     'category_12' => 'Numérique (site internet, application, …)',
                 ),
-                'required' => false,
+                'required'          => false,
                 'choices_as_values' => true,
-                'choice_label' => function ($currentChoiceKey) {
+                'choice_label'      => function ($currentChoiceKey) {
                     return $currentChoiceKey;
                 },
             ))
 
             ->add('competence3', ChoiceType::class, array(
-                'label' => 'autre compétence',
-                'attr' => array('class' => 'form-control form-group'),
-                'choices'  => array(
-                    null => 'aucune',
+                'label'     => 'Autre compétence',
+                'attr'      => array('class' => 'form-control form-group'),
+                'choices'   => array(
+                    null          => 'Aucune',
                     'category_1'  => 'Marketing',
                     'category_2'  => 'Communication',
                     'category_3'  => 'Développement Commercial',
@@ -118,18 +143,18 @@ class BoosterType extends AbstractType
                     'category_11' => 'Juridique',
                     'category_12' => 'Numérique (site internet, application, …)',
                 ),
-                'required' => false,
+                'required'          => false,
                 'choices_as_values' => true,
-                'choice_label' => function ($currentChoiceKey) {
+                'choice_label'      => function ($currentChoiceKey) {
                     return $currentChoiceKey;
                 },
             ))
 
             ->add('competence4', ChoiceType::class, array(
-                'label' => 'autre compétence',
-                'attr' => array('class' => 'form-control form-group'),
-                'choices'  => array(
-                    null => 'aucune',
+                'label'     => 'Autre compétence',
+                'attr'      => array('class' => 'form-control form-group'),
+                'choices'   => array(
+                    null          => 'Aucune',
                     'category_1'  => 'Marketing',
                     'category_2'  => 'Communication',
                     'category_3'  => 'Développement Commercial',
@@ -143,18 +168,18 @@ class BoosterType extends AbstractType
                     'category_11' => 'Juridique',
                     'category_12' => 'Numérique (site internet, application, …)',
                 ),
-                'required' => false,
+                'required'          => false,
                 'choices_as_values' => true,
-                'choice_label' => function ($currentChoiceKey) {
+                'choice_label'      => function ($currentChoiceKey) {
                     return $currentChoiceKey;
                 },
             ))
 
             ->add('competence5', ChoiceType::class, array(
-                'label' => 'autre compétence',
-                'attr' => array('class' => 'form-control form-group'),
-                'choices'  => array(
-                    null => 'aucune',
+                'label'     => 'Autre compétence',
+                'attr'      => array('class' => 'form-control form-group'),
+                'choices'   => array(
+                    null          => 'aucune',
                     'category_1'  => 'Marketing',
                     'category_2'  => 'Communication',
                     'category_3'  => 'Développement Commercial',
@@ -168,18 +193,20 @@ class BoosterType extends AbstractType
                     'category_11' => 'Juridique',
                     'category_12' => 'Numérique (site internet, application, …)',
                 ),
-                'required' => false,
+                'required'          => false,
                 'choices_as_values' => true,
-                'choice_label' => function ($currentChoiceKey) {
+                'choice_label'      => function ($currentChoiceKey) {
                     return $currentChoiceKey;
                 },
             ))
 
             ->add('competence6', ChoiceType::class, array(
-                'label' => 'autre compétence',
-                'attr' => array('class' => 'form-control form-group'),
-                'choices'  => array(
-                    null => 'aucune',
+                'label'     => 'Autre compétence',
+                'attr'      => array(
+                    'class' => 'form-control form-group',
+                ),
+                'choices'   => array(
+                    null          => 'Aucune',
                     'category_1'  => 'Marketing',
                     'category_2'  => 'Communication',
                     'category_3'  => 'Développement Commercial',
