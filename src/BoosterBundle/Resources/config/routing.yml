@@ -112,10 +112,17 @@ subscription_cancel:
     defaults: { _controller: BoosterBundle:ProjectSubscription:subscriptionCancel }
     methods: [GET, POST]
 
+subscription_delete:
+    path:     /supprimer-le-projet/{projectId}
+    defaults: { _controller: BoosterBundle:ProjectSubscription:subscriptionDelete }
+    methods: [GET, POST]
+
 project_done:
     path:     /notez-votre-experience/{projectId}/{subscriptionId}/{dashboardSlug}/{role}
     defaults: { _controller: BoosterBundle:ProjectSubscription:notesComments }
     methods: [GET, POST]
+
+
 
 
 

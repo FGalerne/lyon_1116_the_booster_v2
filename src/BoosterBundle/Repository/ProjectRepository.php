@@ -66,5 +66,17 @@ class ProjectRepository extends \Doctrine\ORM\EntityRepository
 
         return $qb->execute();
     }
+    public function projectDelete($projectId)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->update()
+            ->set('a.status', '?2')
+            ->where('a.id = ?1')
+            ->setParameter(1, $projectId)
+            ->setParameter(2, 'Delete')
+            ->getQuery();
+
+        return $qb->execute();
+    }
 
 }
