@@ -8,7 +8,9 @@
     </div>
 {% endblock %}
 {% block fos_user_content %}
-<div class="new-profil">
-    <p class = "text-center">{{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}</p>
+<div class="new-profil text-center-fos">
+    <p>Un e-mail a été envoyé. Il contient un lien sur lequel il vous faudra cliquer pour réinitialiser votre mot de passe.</p>
+    <p>Remarque : Vous ne pouvez demander un nouveau mot de passe que toutes les 24 heures.</p>
+    <p>Si vous ne recevez pas un email, vérifiez votre dossier spam ou essayez à nouveau.</p>
 </div>
 {% endblock %}

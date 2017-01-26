@@ -115,15 +115,14 @@
 
         {# The Project part "IN PROGRESS" #}
         <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
-            {% for subscription in subscriptions %}
+            <div class="container project-in-progress">
+                {% for subscription in subscriptions %}
+                    {# If project has not been deleted #}
+                    {% if subscription.project.status != 'Delete'%}
+                            {# if project is opened (in this case it would be subrsiption canceled) or in-progress on in-progress part of the dashboard#}
+                            {% if subscription.project.status != 'Done'%}
 
-                {# If project has not been deleted #}
-                {% if subscription.project.status != 'Delete'%}
-                    <div class="container project-in-progress prelude">
-                        {# if project is opened (in this case it would be subrsiption canceled) or in-progress on in-progress part of the dashboard#}
-                        {% if subscription.project.status != 'Done'%}
-
-                            <div class="row">
+                            <div class="row prelude">
                                 <div class="col-xs-6 col-md-3">
                                     <p>Nom de la société</p>
                                     <p>{{ subscription.project.society.societyName }}</p>
@@ -158,20 +157,22 @@
                                     <div class="col-xs-4">
                                         {# if booster have no terminated the project #}
                                         {% if not subscription.boosterValidation %}
-                                            <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardSlug': subscription.booster.slug, 'role': 'booster' }) }}" class="button-cancel-subscription">Ce projet est terminé !</a><br/>
+                                            <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardSlug': subscription.booster.slug, 'role': 'booster' }) }}" class="button-cancel-subscription"><i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                                Ce projet est terminé !</a><br/>
 
                                         {# if booster have terminated the project and wait for society validation #}
                                         {% else %}
                                             En attente de la validation de {{ subscription.project.society.user.firstname }}.<br/>
                                         {% endif %}
                                         {# open the collapse with confiramtion for cancel collaboration on click #}
-                                        <a data-toggle="collapse" data-target="#collapseCancel" class="button-cancel-subscription">Annuler la collaboration</a>
+                                        <a data-toggle="collapse" data-target="#collapseCancel" class="button-cancel-subscription"><i class="fa fa-ban" aria-hidden="true"></i>
+                                            Annuler la collaboration</a>
                                     </div>
                                 </div>
 
                                 {#Collapse for cancelation confirmation#}
                                 <div id="collapseCancel" class="collapse">
-                                    <div> <strong>Attention, en annulant cette collaboration, vous n'aurez plus la possibilité de terminer ce projet avec {{ subscription.project.society.user.firstName }}: </strong><br/>
+                                    <div><strong>Attention, en annulant cette collaboration, vous n'aurez plus la possibilité de terminer ce projet avec {{ subscription.project.society.user.firstName }}: </strong><br/>
                                         <a href="{{ path('subscription_cancel', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardId': subscription.booster.id, 'role': 'booster' }) }}">Je confirme l'annulation</a>
                                     </div>
                                 </div>
@@ -184,10 +185,10 @@
                                     </div>
                                 </div>
                             {% endif %}
-                        </div>
+                        {% endif %}
                     {% endif %}
-                {% endif %}
-            {% endfor %}
+                {% endfor %}
+            </div>
         </section>
 
         {# The Project part "DONE" #}

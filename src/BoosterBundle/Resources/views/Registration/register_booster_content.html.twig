@@ -5,7 +5,15 @@
 {% block body %}
     <div class="block_subs_forms">
         {{ form_start(form, {'method': 'post', 'attr': {'class': 'fos_user_registration_register'}}) }}
-        {{ form_widget(form) }}
+        {{ form_row(form.email) }}
+        {{ form_label(form.plainPassword.first, 'Créez un mot de passe')}}
+        <p class="tiny">Le mot de passe doit contenir 6 caractères minimum</p>
+        {{form_widget(form.plainPassword.first, {'attr' : {'pattern' : '.{6,}'}})}}
+        {{ form_label(form.plainPassword.second, 'Confirmez votre mot de passe')}}
+        {{ form_widget(form.plainPassword.second) }}
+        {{ form_row(form.title) }}
+        {{ form_row(form.firstname) }}
+        {{ form_row(form.lastname) }}
         <label class="checkbox-inline"><input type="checkbox" value="" required>« En m’inscrivant sur The Booster, je respecte les valeurs mises
             en avant par le site : <a href ="{{ path('booster_charte') }}" target="_blank"> La Charte</a> </label>
         <div class="btn_register">

@@ -13,7 +13,6 @@
                 <hr>
             </div>
         </div>
-
         <div class="col-xs-12">
             <ul class="pager">
                 <li id="previous">
@@ -33,6 +32,14 @@
             </ul>
             {% for society in societies %}
                 {% if society.user.validationSociety %}
+                    {% set projectCount = 0 %}
+                    {% for project in society.projectNames %}
+                        {% if project.creationStatus %}
+                            {% if project.status == "Open" or project.status == "In_progress" %}
+                                {% set projectCount = projectCount + 1 %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
                     <div class="col-xs-12 col-sm-6 col-md-3">
                         <a href="{{ path('public_dashboard',{'id':society.id}) }}">
                             <div class="global-society">
@@ -40,7 +47,7 @@
                                     <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/photo-couverture-profile-societe.png') }}">
                                 </div>
                                 <h5 class="name-list-society">{{ society.societyName }}</h5>
-                                <p class="nombre-de-projet">Nombre de projets : 100</p>
+                                <p class="nombre-de-projet">Nombre de projets : {{ projectCount }}</p>
                             </div>
                         </a>
                     </div>

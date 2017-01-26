@@ -55,7 +55,8 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li>{% if is_granted("ROLE_BOOSTE") %}<a href="{{ path('new_project') }}">Proposer un projet</a>{% endif %}</li>
+                        <li>{% if is_granted("ROLE_BOOSTE") %}{% if app.user.society %}<a href="{{ path('new_project') }}">Proposer un projet</a>{% endif %}</li>
+                        {% endif %}
                         <li><a href="{{ path('list_society') }}">Découvrez les Boostés</a></li>
                         <li><a href="{{ path('booster_how_it_works') }}">Comment ça marche</a></li>
                     </ul>
@@ -75,9 +76,9 @@
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>Bonjour {{ app.user.firstName }} <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ path('dashboard_booster',{'slug' : app.user.booster.slug }) }}" class="log-nav"><i class="fa fa-user" aria-hidden="true"></i>Dashboard</a></li>
-                                    <li><a href="{{ path('dashboard_booster_edit',{'slug':app.user.booster.slug}) }}" class="log-nav"><i class="fa fa-cog" aria-hidden="true"></i>Editez votre profil</a></li>
+                                    <li><a href="{{ path('dashboard_booster_edit',{'slug':app.user.booster.slug}) }}" class="log-nav"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Editez votre profil</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="{{ path('fos_user_profile_show')}}"><i class="fa fa-cog" aria-hidden="true"></i>Paramètre du compte</a></li>
+                                    <li><a href="{{ path('fos_user_profile_show')}}"><i class="fa fa-cog" aria-hidden="true"></i>Mon compte</a></li>
                                     <li><a href="{{ path('fos_user_security_logout') }}" class="log-nav"><i class="fa fa-power-off" aria-hidden="true"></i> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
                                 </ul>
                             </li>
@@ -101,9 +102,9 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li><a href="{{ path('dashboard_society',{'slug': app.user.society.slug}) }}" class="log-nav" ><i class="fa fa-user" aria-hidden="true"></i>Dashboard</a></li>
-                                        <li><a href="{{ path('dashboard_society_edit',{'slug':app.user.society.slug}) }}" class="log-nav"><i class="fa fa-cog" aria-hidden="true"></i>Editez votre profile</a></li>
+                                        <li><a href="{{ path('dashboard_society_edit',{'slug':app.user.society.slug}) }}" class="log-nav"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Editez votre profil</a></li>
                                         <li role="separator" class="divider"></li>
-                                        <li><a href="{{ path('fos_user_profile_show')}}"><i class="fa fa-cog" aria-hidden="true"></i>Paramètre du compte</a></li>
+                                        <li><a href="{{ path('fos_user_profile_show')}}"><i class="fa fa-cog" aria-hidden="true"></i>Mon compte</a></li>
                                         <li><a href="{{ path('fos_user_security_logout') }}" class="log-nav"><i class="fa fa-power-off" aria-hidden="true"></i>Déconnexion</a></li>
                                     </ul>
                                 </li>
