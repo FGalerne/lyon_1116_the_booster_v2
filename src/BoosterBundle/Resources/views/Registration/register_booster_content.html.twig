@@ -7,7 +7,7 @@
         {{ form_start(form, {'method': 'post', 'attr': {'class': 'fos_user_registration_register'}}) }}
         {{ form_row(form.email) }}
         {{ form_label(form.plainPassword.first, 'Mot de passe')}}
-        <p class="tiny">Le mot de passe doit contenir minimum 8 caractères.</p>
+        <p class="tiny">Le mot de passe doit contenir minimum 6 caractères.</p>
         {{form_widget(form.plainPassword.first, {'attr' : {'pattern' : '.{6,}'}})}}
         {{ form_label(form.plainPassword.second, 'Retaper le mot de passe ')}}
         {{ form_widget(form.plainPassword.second) }}
