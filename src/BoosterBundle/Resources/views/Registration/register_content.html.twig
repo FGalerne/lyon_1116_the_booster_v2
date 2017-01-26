@@ -20,7 +20,7 @@
             {{ form_row(form.email) }}
             {{ form_label(form.plainPassword.first, 'Mot de passe')}}
                 <p class="tiny">Le mot de passe doit contenir minimum 8 caractères</p>
-                {{form_widget(form.plainPassword.first, {'attr' : {'placeholder' : 'Mot de passe' , 'pattern' : '([A-Za-z0-9]{8,16}'}})}}
+                {{form_widget(form.plainPassword.first, {'attr' : {'placeholder' : 'Mot de passe' , 'pattern' : '.{6,}'}})}}
             {{ form_label(form.plainPassword.second, 'Retaper le mot de passe ')}}
                 {{ form_widget(form.plainPassword.second) }}
             {{ form_row(form.title) }}
