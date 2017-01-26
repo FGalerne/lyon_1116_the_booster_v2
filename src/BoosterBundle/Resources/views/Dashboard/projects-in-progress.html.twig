@@ -82,7 +82,8 @@
 
                                     {# if status is in_progress we display that the project is in progress #}
                                 {% else %}
-                                    <div class="row">
+                                    {% if subscription.status == 'In_progress' %}
+                                        <div class="row">
                                             <div class="col-xs-8">
                                                 Projet en cours de réalisation !
                                             </div>
@@ -99,14 +100,18 @@
                                                 <a data-toggle="collapse" data-target="#collapseCancel" class="button-cancel-subscription">Annuler la collaboration</a>
                                             </div>
 
-                                    </div>
-
-                                    {#Collapse for cancelation confirmation#}
-                                    <div id="collapseCancel" class="collapse">
-                                        <div> <strong>Attention, en annulant cette collaboration, vous n'aurez plus la possibilité de terminer ce projet avec {{ subscription.booster.user.firstName }}: </strong><br/>
-                                        <a href="{{ path('subscription_cancel', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'role': 'society' }) }}">Je confirme l'annulation</a>
                                         </div>
-                                    </div>
+
+                                        {#Collapse for cancelation confirmation#}
+                                        <div id="collapseCancel" class="collapse">
+                                            <div> <strong>Attention, en annulant cette collaboration, vous n'aurez plus la possibilité de terminer ce projet avec {{ subscription.booster.user.firstName }}: </strong><br/>
+                                            <a href="{{ path('subscription_cancel', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'role': 'society' }) }}">Je confirme l'annulation</a>
+                                            </div>
+                                        </div>
+                                        {# if a booster has already been chosen #}
+                                    {% elseif subscription.status == 'Open' %}
+                                        {# nothing append... yet #}
+                                    {% endif %}
                                 {% endif %}
 
                             {% endfor %}
