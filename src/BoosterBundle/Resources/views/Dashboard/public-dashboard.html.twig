@@ -4,16 +4,16 @@
     <section class="container-fluid global-presentation blueHour">
         <div class="container prelude">
             <div class="dashboard-society">
-                <div class="col-xs-12 society-photo">
-                    <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/photo-couverture-profile-societe.png') }}" alt="photo couverture société" />
-                </div>
-                <div class="col-xs-12 col-md-4">
+                <div class="col-xs-12">
                     <h1 class="text-left">{{ society.societyName }}</h1>
                     <div class="dashboard-social-media">
                         {% if society.facebook %}<a href="{{ society.facebook | external_link }}" target="_blank"><li><i class="fa fa-facebook-official" aria-hidden="true"></i></li></a>{% endif %}
                         {% if society.twitter %}<a href="{{ society.twitter | external_link }}" target="_blank"><li><i class="fa fa-twitter-square" aria-hidden="true"></i></li></a>{% endif %}
                         {% if society.linkedin %}<a href="{{ society.linkedin | external_link }}" target="_blank"><li><i class="fa fa-linkedin-square" aria-hidden="true"></i></li></a>{% endif %}
                         {% if society.youtube %}<a href="{{ society.youtube | external_link }}" target="_blank"><li><i class="fa fa-youtube-square" aria-hidden="true"></i></li></a>{% endif %}
+                    </div>
+                    <div class="col-xs-12 society-photo">
+                        <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/photo-couverture-profile-societe.png') }}" alt="photo couverture société" />
                     </div>
                 </div>
             </div>
