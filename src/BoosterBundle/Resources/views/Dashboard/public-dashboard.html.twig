@@ -3,11 +3,8 @@
 {% block body %}
     <section class="container-fluid global-presentation blueHour">
         <div class="container prelude">
-            <div class="col-xs-12 col-md-9 dashboard-society">
-                <div class="col-xs-12 col-md-4 society-photo">
-                    <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/photo-couverture-profile-societe.png') }}" alt="photo couverture société" />
-                </div>
-                <div class="col-xs-12 col-md-4">
+            <div class="dashboard-society">
+                <div class="col-xs-12">
                     <h1 class="text-left">{{ society.societyName }}</h1>
                     <div class="dashboard-social-media">
                         {% if society.facebook %}<a href="{{ society.facebook | external_link }}" target="_blank"><li><i class="fa fa-facebook-official" aria-hidden="true"></i></li></a>{% endif %}
@@ -16,26 +13,33 @@
                         {% if society.youtube %}<a href="{{ society.youtube | external_link }}" target="_blank"><li><i class="fa fa-youtube-square" aria-hidden="true"></i></li></a>{% endif %}
                     </div>
                 </div>
+                <div class="col-xs-12 society-photo">
+                    <img src="{{ society.photo|default ? asset('img/uploads/societies/' ~ society.photo) : asset('img/photo-couverture-profile-societe.png') }}" alt="photo couverture société" />
+                </div>
             </div>
 
             {# Here the right part of the dashboard we could found the statistic of the society and the button to add a new project #}
 
             <div class="col-xs-12 col-md-3" id="statistic-society">
+            {% if society.projectDoneNumber != 0 %}
                 {% set noteBooster = (society.averageNotation / society.projectDoneNumber) | round %}
+            {% else %}
+                {% set noteBooster = 0 %}
+            {% endif %}
                 <p>Heures reçues : {{ society.hoursTaken }}</p>
                 <p>Projets réalisés : {{ society.projectDoneNumber }}</p>
                 <p>Note du boosté : {{ noteBooster }}</p>
                 <ul>
+                    {% if noteBooster != 0 %}
                     {% for i in 1..noteBooster %}
                         <li><i class="fa fa-star" aria-hidden="true"></i></li>
                     {% endfor %}
-
+                {% endif %}
                     {% for i in 1..5 - noteBooster %}
                         <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
                     {% endfor %}
                 </ul>
             </div>
-
         </div>
 
         <div class="container prelude">
@@ -79,19 +83,19 @@
                     <div class="container project-in-progress prelude">
                         <div class="row">
                             <div class="col-xs-6 col-md-3">
-                                <p>Nom de la société : </p>
+                                <p><strong>Nom de la société :</strong></p>
                                 <p>{{ society.societyName }}</p>
                             </div>
                             <div class="col-xs-6 col-md-3">
-                                <p>Nom du projet : </p>
+                                <p><strong>Nom du projet :</strong></p>
                                 <p>{{ project.projectName }}</p>
                             </div>
                             <div class="col-xs-6 col-md-3">
-                                <p>Nombre d'heures : </p>
+                                <p><strong>Nombre d'heures :</strong></p>
                                 <p>{{ project.givenTime }}</p>
                             </div>
                             <div class="col-xs-6 col-md-3">
-                                <p>Catégorie : </p>
+                                <p><strong>Catégorie :</strong></p>
                                 <p>{{ project.category }}</p>
                             </div>
                             <div class="col-xs-12">
@@ -101,8 +105,8 @@
                         {% if showSubscriptions %}
                             {#BOOSTE#}
                             {% if is_granted("ROLE_BOOSTE") %}
-                                <a class="col-xs-12 postulation-button" href="{{ path('booster_inscription_choix') }}">
-                                    Créez un compte 'Booster' pour donner du temps à ce projet !
+                                <a class="postulation-button" href="{{ path('booster_inscription_choix') }}">
+                                    Créez un compte 'Booster' pour donner du temps à ce projet<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a>
                                 {#BOOSTER#}
                             {% elseif is_granted("ROLE_BOOSTER") %}
@@ -118,24 +122,20 @@
                                 {% if subscribed == 0 %}
                                     {#The booster have a 'booster' profile#}
                                     {% if app.user.booster %}
-                                        <a class="col-xs-12 postulation-button" href="{{ path('project_subscription', { 'boosterId': app.user.booster.id, 'societyId': society.id, 'projectId': project.id }) }}">
+                                        <a class="postulation-button" href="{{ path('project_subscription', { 'boosterId': app.user.booster.id, 'societyId': society.id, 'projectId': project.id }) }}">
                                             Je donne du temps à ce projet !
-                                        </a>
+                                            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                                         {#The booster do not have completed is profile#}
                                     {% else %}
-                                        <a class="col-xs-12 postuled-button" href="{{ path('dashboard_booster_new',{'id':app.user.id}) }}">
-                                            Completez votre profil pour pouvoir postuler !
-                                        </a>
+                                        <a class="postuled-button" href="{{ path('dashboard_booster_new',{'id':app.user.id}) }}">Completez votre profil pour pouvoir postuler<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+
                                     {% endif %}
                                 {% else %}
-                                    <a class="col-xs-12 postuled-button">
-                                        Vous avez postulé à ce projet !
-                                    </a>
+                                    <a class="postuled-button">Vous avez postulé pour ce projet !<i class="fa fa-thumbs-up" aria-hidden="true"></i>                                    </a>
                                 {% endif %}
                                 {#GUEST#}
                             {% else %}
-                                <a class="col-xs-12 postulation-button" href="{{ path('booster_inscription_choix') }}">
-                                    Créez un compte pour donner du temps à ce projet !
+                                <a class="postulation-button" href="{{ path('booster_inscription_choix') }}">Créez un compte pour donner du temps à ce projet<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a>
                             {% endif %}
                         {% else %}
