@@ -7,6 +7,10 @@ namespace BoosterBundle\Entity;
  */
 class ProjectSubscription
 {
+    public function __toString()
+    {
+        return 'Candidature';
+    }
     /**
      * @var integer
      */

@@ -97,26 +97,7 @@ easy_admin:
     design:
         brand_color: 'rgba(230,15,51,1)'
     entities:
-        Utilisateur:
-            class: BoosterBundle\Entity\User
-            label: "Utilisateur"
-            list:
-                fields:
-                    - firstName
-                    - { property: 'firstName', label: 'Prénom' }
-                    - lastName
-                    - { property: 'lastName', label: 'Nom' }
-                    - createTime
-                    - { property: 'createTime', label: 'Création' }
-                    - username
-                    - { property: 'username', label: 'Identifiant' }
-                    - nameProject
-                    - { property: 'nameProject', label: 'Projet' }
-                    - siretNumber
-                    - { property: 'siretNumber', label: 'Siret' }
-                    - validationSociety
-                    - { property: 'validationSociety', label: 'Validation',  type: 'toggle' }
-                    - enabled
+
         Booster:
             class: BoosterBundle\Entity\Booster
             label: "Booster"
@@ -124,6 +105,16 @@ easy_admin:
                 fields:
                     - photo
                     - { property: 'photo', type: 'image', base_path: 'img/uploads/boosters' }
+                    - user.firstName
+                    - { property: 'user.firstName', label: 'Prénom' }
+                    - user.lastName
+                    - { property: 'user.lastName', label: 'Nom' }
+                    #- user.createTime
+                    #- { property: 'user.createTime', label: 'Création' }
+                    - user.username
+                    - { property: 'user.username', label: 'Identifiant' }
+                    - user.enabled
+                    - { property: 'user.enabled', label: 'Activation du compte',  type: 'toggle' }
                     - competence1
                     - { property: 'competence1', label: 'Competence principale' }
                     - averageNotation
@@ -134,6 +125,7 @@ easy_admin:
                     - { property: 'hoursGiven', label: 'Temps offert' }
                     - projectDoneNumber
                     - { property: 'projectDoneNumber', label: 'Projets réalisés' }
+
         Booste:
             class: BoosterBundle\Entity\Society
             label: "Booste"
@@ -141,6 +133,22 @@ easy_admin:
                 fields:
                     - photo
                     - { property: 'photo', type: 'image', base_path: 'img/uploads/societies' }
+                    - user.firstName
+                    - { property: 'user.firstName', label: 'Prénom' }
+                    - user.lastName
+                    - { property: 'user.lastName', label: 'Nom' }
+                    #- user.createTime
+                    #- { property: 'user.createTime', label: 'Création' }
+                    - user.username
+                    - { property: 'user.username', label: 'Identifiant' }
+                    - user.enabled
+                    - { property: 'user.enabled', label: 'Activation du compte',  type: 'toggle' }
+                    - user.nameProject
+                    - { property: 'user.nameProject', label: 'Projet' }
+                    - user.siretNumber
+                    - { property: 'user.siretNumber', label: 'Siret' }
+                    - user.validationSociety
+                    - { property: 'user.validationSociety', label: 'Validation',  type: 'toggle' }
                     - societyName
                     - { property: 'societyName', label: 'Societé' }
                     - averageNotation
@@ -149,8 +157,9 @@ easy_admin:
                     - { property: 'hoursTaken', label: 'Temps reçu' }
                     - projectDoneNumber
                     - { property: 'projectDoneNumber', label: 'Projets réalisés' }
-                    - deniedBoosters
-                    - { property: 'deniedBoosters', label: 'Aides refusés' }
+                    #- deniedBoosters
+                    #- { property: 'deniedBoosters', label: 'Aides refusés' }
+
         Project:
             class: BoosterBundle\Entity\Project
             label: "Projet"
@@ -170,10 +179,6 @@ easy_admin:
                     - { property: 'createTime', label: 'Création' }
                     - endTime
                     - { property: 'endTime', label: 'Fin' }
-                    - boosterNote
-                    - { property: 'boosterNote', label: 'Note Booster' }
-                    - societyNote
-                    - { property: 'societyNote', label: 'Note Boosté' }
 
             form:
                 fields:
@@ -199,6 +204,33 @@ easy_admin:
                     - { property: 'question', label: 'Questions' }
                     - answer
                     - { property: 'answer', label: 'Réponse' }
+        Subscriptions:
+            class: BoosterBundle\Entity\ProjectSubscription
+            label: "Candidatures"
+            list:
+                fields:
+                    - booster.user.username
+                    - { property: 'booster.user.username', label: 'Booster' }
+                    - project.projectName
+                    - { property: 'project.projectName', label: 'Projet' }
+                    - status
+                    - { property: 'status', label: 'Status' }
+                    - createTime
+                    - { property: 'createTime', label: 'Création' }
+        Transactions:
+            class: BoosterBundle\Entity\Transaction
+            label: "Transactions"
+            list:
+                fields:
+                    - society.societyName
+                    - { property: 'society.societyName', label: 'Societé' }
+                    - society.user.username
+                    - { property: 'society.user.username', label: 'Référent' }
+                    - createTime
+                    - { property: 'createTime', label: 'Date de paiement' }
+                    - endTime
+                    - { property: 'endTime', label: 'Date de fin de mise en avant' }
+
 
 ewz_recaptcha:
     public_key: 6LenAQsUAAAAADIzPqfQyen9j7GbLkVEXJ0gzBAj

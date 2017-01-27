@@ -27,6 +27,9 @@
                     {% else %}
                         {% set noteBooster = 0 %}
                     {% endif %}
+                    {% if noteBooster > 5 %}
+                        {% set noteBooster = 5 %}
+                    {% endif %}
                     <p>Heures reçues : {{ society.hoursTaken }}</p>
                     <p>Projets réalisés : {{ society.projectDoneNumber }}</p>
                     <p>Note du boosté : {{ noteBooster }}</p>
