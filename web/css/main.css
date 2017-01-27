@@ -50,7 +50,6 @@ h1{
 	color: #ffd700
 }
 
-
 #myNavbar {
 	list-style: none;
 }
@@ -354,6 +353,12 @@ h1{
 	background-attachment: fixed;
 	background-position: center center;
 	z-index: -2;
+}
+
+@media screen and (max-width: 1024px){
+	.videointro {
+		background-attachment: scroll;
+	}
 }
 
 @media screen and (max-width: 300px){
@@ -1062,7 +1067,10 @@ hr{
 	padding: 20px;
 	border: 2px solid #222222;
 	box-sizing: border-box;
+	margin-top: 25px;
+	margin-bottom: 25px;
 }
+
 #statistic-booster p{
 	margin-top: 15px;
 	font-size: 1.2em;
@@ -1397,82 +1405,6 @@ hr{
 		height: auto;
 	}
 }
-/* ----------- iPad mini ----------- */
-
-/* Portrait and Landscape */
-@media only screen
-and (min-device-width: 768px)
-and (max-device-width: 1024px)
-and (max-width: 1075px)
-and (-webkit-min-device-pixel-ratio: 1) {
-
-	.txt_car{
-		margin-bottom: 20px !important;
-	}
-	.navbar-collapse.collapse {
-		display: none !important;
-	}
-	.navbar-collapse.collapse.in {
-		display: block !important;
-		margin-top: 4vh;
-		text-align: center;
-	}
-	.navbar-header .collapse, .navbar-toggle {
-		display:block !important;
-	}
-	.navbar-collapse {
-		padding-bottom: 2vh;
-		max-height: unset !important;
-	}
-	.navbar-header {
-		float: none;
-	}
-	.navbar-nav {
-		float: none !important;
-	}
-	#myNavbar li {
-		width: 100% !important;
-	}
-	.navbar-right {
-		float: none !important;
-		margin-right: 0 !important;
-	}
-	.navbar-toggle {
-		display: block !important;
-	}
-	.nav_networks {
-		margin-top: -2vh !important;
-		flex-direction: row !important;
-	}
-	#nav_aboutus {
-		margin-top: 0 !important;
-	}
-	.navbar {
-		font-size: 1em !important;
-	}
-	.nav_networks img {
-		height: 35px !important;
-	}
-	.navbar-collapse.in {
-		overflow-y: unset;
-		padding-bottom: 3vh;
-	}
-	.home_time_booster {
-		margin: auto;
-	}
-	.how_je_donne {
-		background: url("../img/the-booster-jedonne-responsive.jpg") no-repeat center;
-		height: 50vh;
-		position: relative;
-		background-size: cover;
-	}
-	.how_je_propose {
-		background: url("../img/the-booster-je-propose-responsive.jpg") no-repeat center;
-		height: 50vh;
-		position: relative;
-		background-size: cover;
-	}
-}
 
 /* INSCRIPTION CHOIX */
 
@@ -1617,6 +1549,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
 	}
 }
 /** List Society **/
+
 .nombre-de-projet {
 	width: 100%;
 	background-color: #363636;
@@ -1689,6 +1622,16 @@ a:hover {
 }
 
 /*messenger*/
+
+.messenger-title {
+	text-align: center;
+}
+
+.messenger-title i {
+	font-size: 2em;
+	cursor: pointer;
+}
+
 .messenger-user2{
 	display:none;
 }
@@ -1697,7 +1640,7 @@ a:hover {
 }
 .messenger-title{
 	padding-top: 10px;
-	background-color: #eb0310;
+	background-color: #999999;;
 	color: white;
 }
 .messenger-color-1{
@@ -1716,12 +1659,16 @@ a:hover {
 }
 .display-messages{
 	height: 20px;
-	background-color: #322c3a;
+	background-color: #eb0310;
 	text-align: center;
+	width: 150px;
+	display: block;
+	margin: 0 auto;
+	color: #ffffff;
 }
 .display-messages:hover{
 	cursor: pointer;
-	background-color: #5d5469;
+	background-color: #dd4444;
 }
 .display-messages img{
 	height: 20px;
@@ -1730,11 +1677,14 @@ a:hover {
 	display: none;
 }
 .messenger-response {
-	width: 100%;
+	width: 150px;
 	background-color: #eb0310;
 	color: white;
 	border: none;
 	height: 30px;
+	display: block;
+	margin: 0 auto;
+	border-radius: 30px;
 }
 
 /* Page Dashboard New Boosté & Booster */
@@ -1948,6 +1898,7 @@ li.star-active i {
 }
 .avatar-messenger img{
 	width: 100%;
+	display: block;
 }
 
 /****** Charte ******/

@@ -172,19 +172,16 @@
                                         </div>
                                     </div>
 
-
                                     {% set index = index + 1 %}
                                     {# if subscription has been canceled #}
                                 {% elseif subscription.status == 'Canceled' %}
                                     <div class="sub-container row">
-                                        <div class="col-xs-8">
-                                            La collaboration à été annulée
+                                        <div class="col-xs-12">
+                                            <p>La collaboration avec <strong>{{ subscription.project.society.societyName }}</strong> à été annulée</p>
                                         </div>
                                     </div>
                                 {% endif %}
-
                             {% endif %}
-
                     {% endif %}
                 {% endfor %}
             </div>
