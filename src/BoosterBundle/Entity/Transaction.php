@@ -7,6 +7,11 @@ namespace BoosterBundle\Entity;
  */
 class Transaction
 {
+    public function __toString()
+    {
+        return 'Transaction';
+    }
+
     /**
      * @var integer
      */
