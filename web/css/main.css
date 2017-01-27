@@ -56,7 +56,8 @@ h1{
 
 .prelude {
 	background-color: #FAFAFA;
-	padding: 30px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 #ico-white-fb,
@@ -1066,7 +1067,10 @@ hr{
 	padding: 20px;
 	border: 2px solid #222222;
 	box-sizing: border-box;
+	margin-top: 25px;
+	margin-bottom: 25px;
 }
+
 #statistic-booster p{
 	margin-top: 15px;
 	font-size: 1.2em;
@@ -1607,11 +1611,14 @@ a:hover {
 .pager li > a{
 	background-color: #eb0310;
 	border: none;
+	text-decoration: none;
+	color : #FFFFFF;
 }
 
 .pager li > a:hover
 {
 	background-color: #860f27;
+	color : #FFFFFF;
 }
 
 /*messenger*/
@@ -1707,6 +1714,37 @@ a:hover {
 
 .btn_edit_booste {
 	margin-top: 20px;
+}
+
+.dashb_btn {
+	font-size:1.2em;
+	font-weight:900;
+	margin-bottom:6vh;
+	background-color: #eb0310;
+	color:white;
+	padding: 10px 30px;
+}
+
+.fieldfoto {
+	margin-bottom: 2vh;
+}
+
+.fieldbirthd {
+	margin-bottom: 2vh;
+}
+
+.block_hedit {
+	margin-top:10vh;
+	margin-bottom: 3vh;
+}
+
+.btn_ed {
+	text-align: center;
+	margin-top: 5vh;
+}
+
+.btn_ed_booste {
+	margin-top: 5vh;
 }
 
 /* Pages notes and comments Booster and Society */
@@ -1956,6 +1994,17 @@ li.star-active i {
 	width: 100%;
 }
 
+
+/* PAGE PARAMETERS ACCOUNT */
+.acc_btn{
+	font-size:1.2em;
+	font-weight:900;
+	background-color: #eb0310;
+	color:white;
+	padding: 10px 30px;
+}
+
+
 /* Here we manage the css of the h2 h3 and p */
 
 .all-team h2 {
@@ -2157,13 +2206,17 @@ li.star-active i {
 	color: #eb0310;
 }
 .sub-container{
-	border: 1px solid #696969;
+	/*border: 1px solid #696969;
 	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-bottom: 10px;*/
 	text-align: center;
 	margin:15px auto;
 	background-color: #363636;
 	color: white;
+}
+.sub-container div{
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .button-cancel-subscription:hover{
