@@ -1898,6 +1898,7 @@ li.star-active i {
 }
 .avatar-messenger img{
 	width: 100%;
+	display: block;
 }
 
 /****** Charte ******/
