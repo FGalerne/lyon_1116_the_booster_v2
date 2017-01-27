@@ -151,13 +151,12 @@
                             {# if project is in_progress #}
                             {% if subscription.status == 'In_progress' %}
                                 <div class="sub-container row">
-                                    <div class="col-xs-8">
-                                        Projet en cours de réalisation !
-                                    </div>
-                                    <div class="col-xs-4">
+                                    <div class="col-xs-12">
+                                        <p>Projet en cours de réalisation !</p>
                                         {# if booster have no terminated the project #}
                                         {% if not subscription.boosterValidation %}
-                                            <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardSlug': subscription.booster.slug, 'role': 'booster' }) }}" class="button-cancel-subscription"><i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                            <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardSlug': subscription.booster.slug, 'role': 'booster' }) }}" class="button-cancel-subscription">
+                                                <i class="fa fa-check-circle-o" aria-hidden="true"></i>
                                                 Ce projet est terminé !</a><br/>
 
                                         {# if booster have terminated the project and wait for society validation #}
@@ -172,7 +171,7 @@
 
                                 {#Collapse for cancelation confirmation#}
                                 <div id="collapseCancel" class="collapse">
-                                    <div><strong>Attention, en annulant cette collaboration, vous n'aurez plus la possibilité de terminer ce projet avec {{ subscription.project.society.user.firstName }}: </strong><br/>
+                                    <div><strong><p>Attention, en annulant cette collaboration, vous n'aurez plus la possibilité de terminer ce projet avec {{ subscription.project.society.user.firstName }}: </p></strong><br/>
                                         <a href="{{ path('subscription_cancel', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardId': subscription.booster.id, 'role': 'booster' }) }}">Je confirme l'annulation</a>
                                     </div>
                                 </div>
@@ -180,8 +179,8 @@
                                 {# if subscription has been canceled #}
                             {% elseif subscription.status == 'Canceled' %}
                                 <div class="sub-container row">
-                                    <div class="col-xs-8">
-                                        La collaboration à été annulée
+                                    <div class="col-xs-12">
+                                        <p>La collaboration avec <strong>{{ subscription.project.society.societyName }}</strong> à été annulée</p>
                                     </div>
                                 </div>
                             {% endif %}

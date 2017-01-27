@@ -16,9 +16,10 @@
             <div class="row messenger-title">
                 <div class="col-xs-12">
                     <p class="text-left"><strong id="subject{{ index }}">{{ title }}</strong>{{ newMessage }}</p>
+                    <i class="fa fa-arrow-circle-down" onclick="displayMessages({{ index }})" aria-hidden="true"></i>
                 </div>
             </div>
-            <div class="row display-messages" onclick="displayMessages({{ index }})"><img src="{{ asset( 'img/arrowdown.png' ) }}"/></div>
+            {#<div class="row display-messages" onclick="displayMessages({{ index }})"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></div>#}
             <div class="messenger-messages">
                 {% for messenger in group %}
                     <div class="messenger-row row {{ color }}">

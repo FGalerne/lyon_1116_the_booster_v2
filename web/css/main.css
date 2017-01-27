@@ -50,7 +50,6 @@ h1{
 	color: #ffd700
 }
 
-
 #myNavbar {
 	list-style: none;
 }
@@ -1546,6 +1545,7 @@ hr{
 	}
 }
 /** List Society **/
+
 .nombre-de-projet {
 	width: 100%;
 	background-color: #363636;
@@ -1615,6 +1615,16 @@ a:hover {
 }
 
 /*messenger*/
+
+.messenger-title {
+	text-align: center;
+}
+
+.messenger-title i {
+	font-size: 2em;
+	cursor: pointer;
+}
+
 .messenger-user2{
 	display:none;
 }
@@ -1623,7 +1633,7 @@ a:hover {
 }
 .messenger-title{
 	padding-top: 10px;
-	background-color: #eb0310;
+	background-color: #999999;;
 	color: white;
 }
 .messenger-color-1{
@@ -1641,13 +1651,17 @@ a:hover {
 	min-width: 100% ;
 }
 .display-messages{
-	height: 30px;
-	background-color: #322c3a;
+	height: 20px;
+	background-color: #eb0310;
 	text-align: center;
+	width: 150px;
+	display: block;
+	margin: 0 auto;
+	color: #ffffff;
 }
 .display-messages:hover{
 	cursor: pointer;
-	background-color: #5d5469;
+	background-color: #dd4444;
 }
 .display-messages img{
 	height: 20px;
@@ -1656,11 +1670,14 @@ a:hover {
 	display: none;
 }
 .messenger-response {
-	width: 100%;
+	width: 150px;
 	background-color: #eb0310;
 	color: white;
 	border: none;
 	height: 30px;
+	display: block;
+	margin: 0 auto;
+	border-radius: 30px;
 }
 
 /* Page Dashboard New Boosté & Booster */
