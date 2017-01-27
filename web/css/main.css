@@ -372,6 +372,10 @@ h1{
 	text-align: center;
 }
 
+.hvid {
+	margin-bottom: 7vh;
+}
+
 #sign-in p{
 	text-align: center;
 }
@@ -1749,6 +1753,12 @@ a:hover {
 
 /* Pages notes and comments Booster and Society */
 
+.h1_note {
+	margin-top: 10vh;
+	font-size: 37px;
+	letter-spacing: -2px;
+}
+
 .block_top {
 	text-align: center;
 	margin-top: 4vh;
@@ -1806,6 +1816,7 @@ li.star-active i {
 	background-color: #eb0310;
 	color:white;
 	margin-top: 5vh;
+	margin-bottom: 6vh;
 }
 
 .form_btn:hover {

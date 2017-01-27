@@ -36,7 +36,7 @@
     <link rel="icon" type="image/png" href="{{ asset('img/the-booster-favicon-16X16.png')}}" />
 
 
-    <title>{% block title %}The Booster | Le 1er site de Crowdhelping pour l'Entrepreneuriat {% endblock %}</title>
+    <title>{% block title %}The Booster | Le 1er site de CrowdHelping pour l'Entrepreneuriat {% endblock %}</title>
     <meta name="description" content="{% block pageDescription %}{% endblock %}"/>
 
     {% block stylesheets %}{% endblock %}
@@ -58,7 +58,7 @@
                         <li>{% if is_granted("ROLE_BOOSTE") %}{% if app.user.society %}<a href="{{ path('new_project') }}">Proposer un projet</a>{% endif %}</li>
                         {% endif %}
                         <li><a href="{{ path('list_society') }}">Découvrez les Boostés</a></li>
-                        <li><a href="{{ path('booster_how_it_works') }}">Comment ça marche</a></li>
+                        <li><a href="{{ path('booster_how_it_works') }}">Comment ça marche ?</a></li>
                     </ul>
 
                 {# DROP DOWN WHITH PROFILE / EDIT PROFILE / DISCONNECT #}
@@ -155,7 +155,7 @@
             </div>
             <div class="row foo_mention">
 
-                <p><a href="{{ path('booster_how_it_works') }}">Comment ça marche</a> |
+                <p><a href="{{ path('booster_how_it_works') }}">Comment ça marche ?</a> |
                 <a href="{{ path('booster_cgv') }}">CGV/CGU</a> |
                 <a href="{{ path('booster_f_a_q') }}">FAQ</a> |
                 <a href="{{ path('booster_charte') }}">La charte |</a>
