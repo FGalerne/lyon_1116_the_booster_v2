@@ -10,9 +10,8 @@ BoosterBundle\Entity\ProjectSubscription:
                 strategy: AUTO
     fields:
         message:
-            type: string
+            type: text
             nullable: false
-            length: 200
         status:
             type: string
             nullable: false
