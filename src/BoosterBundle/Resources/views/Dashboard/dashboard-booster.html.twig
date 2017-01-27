@@ -117,67 +117,6 @@
 
         {# The Project part "IN PROGRESS" #}
         <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
-{#
-            <div class="container project-in-progress">
-                {% for subscription in subscriptions %}
-                    {# If project has not been deleted #}
-    {#                {% if subscription.project.status != 'Delete'%}
-                            {# if project is opened (in this case it would be subrsiption canceled) or in-progress on in-progress part of the dashboard#}
-            {#                   {% if subscription.project.status != 'Done'%}
-
-                               <div class="row prelude">
-                                   <div class="col-xs-6 col-md-3">
-                                       <p>Nom de la société</p>
-                                       <p>{{ subscription.project.society.societyName }}</p>
-                                   </div>
-                                   <div class="col-xs-6 col-md-3">
-                                       <p>Nom du projet :</p>
-                                       <p>{{ subscription.project.projectName }}</p>
-                                   </div>
-                                   <div class="col-xs-6 col-md-2">
-                                       <p>Nombre d'heures:</p>
-                                       <p>{{ subscription.project.givenTime }}</p>
-                                   </div>
-                                   <div class="col-xs-6 col-md-2">
-                                       <p>Catégorie:</p>
-                                       <p>{{ subscription.project.category }}</p>
-                                   </div>
-                                   <div class="col-xs-6 col-md-2">
-                                       <p>Statut:</p>
-                                       <p>{{ subscription.project.status }}</p>
-                                   </div>
-                                   <div class="col-xs-12 ">
-                                       <p class="text-left">{{ subscription.project.description | raw }}</p>
-                                   </div>
-                               </div>
-
-                               {# if project is in_progress #}
-                       {#     {% if subscription.status == 'In_progress' %}
-                                <div class="sub-container row">
-                                    <div class="col-xs-12">
-                                        <p>Projet en cours de réalisation !</p>
-                                        {# if booster have no terminated the project #}
-                       {#                 {% if not subscription.boosterValidation %}
-                                            <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardSlug': subscription.booster.slug, 'role': 'booster' }) }}" class="button-cancel-subscription">
-                                                <i class="fa fa-check-circle-o" aria-hidden="true"></i>
-                                                Ce projet est terminé !</a><br/>
-
-                                        {# if booster have terminated the project and wait for society validation #}
-                       {#                 {% else %}
-                                            En attente de la validation de {{ subscription.project.society.user.firstname }}.<br/>
-                                        {% endif %}
-                                        {# open the collapse with confiramtion for cancel collaboration on click #}
-            {#                   <a data-toggle="collapse" data-target="#collapseCancel" class="button-cancel-subscription"><i class="fa fa-ban" aria-hidden="true"></i>
-                                   Annuler la collaboration</a>
-                           </div>
-                       </div>
-
-                       {#Collapse for cancelation confirmation#}
-            {#     <div id="collapseCancel" class="collapse">
-                     <div><strong><p>Attention, en annulant cette collaboration, vous n'aurez plus la possibilité de terminer ce projet avec {{ subscription.project.society.user.firstName }}: </p></strong><br/>
-                         <a href="{{ path('subscription_cancel', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardId': subscription.booster.id, 'role': 'booster' }) }}">Je confirme l'annulation</a>
-                         #}
-
             <div class="container project-in-progress prelude">
                 {% set index = 0 %}
                 {% for subscription in subscriptions %}
@@ -233,7 +172,6 @@
                                         </div>
                                     </div>
 
-
                                     {% set index = index + 1 %}
                                     {# if subscription has been canceled #}
                                 {% elseif subscription.status == 'Canceled' %}
@@ -243,7 +181,6 @@
                                         </div>
                                     </div>
                                 {% endif %}
-
                             {% endif %}
                     {% endif %}
                 {% endfor %}
