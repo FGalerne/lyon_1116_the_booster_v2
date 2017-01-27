@@ -50,12 +50,15 @@ class ProjectSubscriptionController extends Controller
     /**
      * @param Request $request
      * @param ProjectSubscription $projectId
+     * @param $subscriptionId
+     * @param $dashboardSlug
+     * @param $role
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function notesCommentsAction(Request $request, ProjectSubscription $projectId, $subscriptionId, $dashboardSlug, $role)
     {
         $em = $this->getDoctrine()->getManager();
-        $project = $em->getRepository('BoosterBundle:ProjectSubscription')->find($projectId);
+        $project = $em->getRepository('BoosterBundle:ProjectSubscription')->find($subscriptionId);
         $subscription = $em->getRepository('BoosterBundle:ProjectSubscription')->findOneById($subscriptionId);
 
         // Form that allows Society to vote and comment for a Booster at the end of the project
