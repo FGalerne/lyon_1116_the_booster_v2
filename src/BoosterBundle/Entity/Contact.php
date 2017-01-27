@@ -4,6 +4,11 @@ use EWZ\Bundle\RecaptchaBundle\Validator\Constraints as Recaptcha;
 
 class Contact
 {
+    public function __toString()
+    {
+        return 'Contact';
+    }
+
     private $name;
     private $surname;
     private $email;

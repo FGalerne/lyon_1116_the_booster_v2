@@ -7,6 +7,10 @@ namespace BoosterBundle\Entity;
  */
 class Messenger
 {
+    public function __toString()
+    {
+        return 'Messenger';
+    }
     /**
      * @var integer
      */
