@@ -31,13 +31,15 @@
                 <p>Note du boosté : {{ noteBooster }}</p>
                 <ul>
                     {% if noteBooster != 0 %}
-                    {% for i in 1..noteBooster %}
-                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    {% endfor %}
-                {% endif %}
-                    {% for i in 1..5 - noteBooster %}
-                        <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-                    {% endfor %}
+                        {% for i in 1..noteBooster %}
+                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        {% endfor %}
+                    {% endif %}
+                    {% if noteBooster != 5 %}
+                        {% for i in 1..5 - noteBooster %}
+                            <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                        {% endfor %}
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -74,34 +76,30 @@
         {# The Project part "IN PROGRESS" #}
 
         <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
-            {% for project in projects %}
-                {% set showSubscriptions = 1 %}
-                {% if project.status != 'Open' %}
-                    {% set showSubscriptions = 0 %}
-                {% endif %}
-                {% if project.status != 'Done' and project.creationStatus == true %}
-                    <div class="container project-in-progress prelude">
+            <div class="container project-in-progress prelude">
+                {% for project in projects %}
+                    {% set showSubscriptions = 1 %}
+                    {% if project.status != 'Open' %}
+                        {% set showSubscriptions = 0 %}
+                    {% endif %}
+                    {% if project.status != 'Done' and project.creationStatus == true %}
+
                         <div class="row">
-                            <div class="col-xs-6 col-md-3">
-                                <p><strong>Nom de la société :</strong></p>
-                                <p>{{ society.societyName }}</p>
-                            </div>
-                            <div class="col-xs-6 col-md-3">
-                                <p><strong>Nom du projet :</strong></p>
-                                <p>{{ project.projectName }}</p>
-                            </div>
-                            <div class="col-xs-6 col-md-3">
-                                <p><strong>Nombre d'heures :</strong></p>
-                                <p>{{ project.givenTime }}</p>
-                            </div>
-                            <div class="col-xs-6 col-md-3">
-                                <p><strong>Catégorie :</strong></p>
-                                <p>{{ project.category }}</p>
-                            </div>
                             <div class="col-xs-12">
-                                <p class="text-left">{{ project.description | raw }}</p>
+                                <p class="text-left"><strong>Projet: {{ project.projectName }}</strong>
+                                    ouvert depuis le {{ project.createTime|date('d/m/Y') }},
+                                    par <strong>{{ project.society.user.firstName }}</strong>,
+                                    dans la catégorie {{ project.category }}.
+                                    <br/>
+                                </p>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p class="text-left"><strong>Description du projet</strong>: {{ project.description | raw }}</p>
+                            </div>
+                        </div>
+
                         {% if showSubscriptions %}
                             {#BOOSTE#}
                             {% if is_granted("ROLE_BOOSTE") %}
@@ -141,46 +139,70 @@
                         {% else %}
                             <div class="sub-container row">
                                 <div class="col-xs-12">
-                                    Projet en cours de réalisation !
+                                    Projet en cours de réalisation.
                                 </div>
                             </div>
                         {% endif %}
-                    </div>
-                {% endif %}
-            {% endfor %}
+
+                    {% endif %}
+                {% endfor %}
+            </div>
         </section>
 
         {# The Project part "DONE" #}
 
         <section class="container-fluid presentation-booster" id="dashboard-booster-done">
-            {% for project in projects %}
-                {% for subscription in project.projectSubscriptions %}
-                    {% if subscription.status == 'Done' %}
-                    <div class="container prelude project-done">
-                        <div class="col-xs-6 col-md-3">
-                            <p><strong>Nom de la société</strong></p>
-                            <p>{{ society.societyName }}</p>
-                        </div>
-                        <div class="col-xs-6 col-md-3">
-                            <p><strong>Nom du projet :</strong></p>
-                            <p>{{ subscription.project.projectName }}</p>
-                        </div>
-                        <div class="col-xs-6 col-md-2">
-                            <p><strong>Catégorie:</strong></p>
-                            <p>{{ subscription.project.category }}</p>
-                        </div>
-                        <div class="col-xs-6 col-md-2">
-                            <p>Note reçue par le Boosté : </p>
-                            <p>{{subscription.societyNote}}</p>
-                        </div>
-                        <div class="col-xs-6 col-md-2">
-                            <p>Commentaire reçu par le Boosté : </p>
-                            <p>{{subscription.societyCommentaries}}</p>
-                        </div>
-                    </div>
-                    {% endif %}
+            <div class="container prelude project-done">
+                {% for project in projects %}
+                    {% for subscription in project.projectSubscriptions %}
+                        {% if subscription.status == 'Done' %}
+
+                            <div class="row">
+                                <p class="text-left"><strong>{{ project.projectName }}</strong>:
+                                    Projet terminé le {{ project.endTime|date('d/m/Y') }} grace à la collaboration de {{ subscription.booster.user.firstName }} en {{ subscription.GivenTime }}H.
+                                </p>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <strong>Note du Booster</strong> :
+                                    {% if subscription.boosterNote != 0 %}
+                                        {% for i in 1..subscription.boosterNote %}
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        {% endfor %}
+                                    {% endif %}
+                                    {% if subscription.boosterNote != 5 %}
+                                        {% for i in 1..5 - subscription.boosterNote %}
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-9">
+                                    <strong>Son commentaire</strong>: {{ subscription.boosterCommentaries }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <strong>Note du Boosté</strong> :&nbsp;
+                                    {% if subscription.boosterNote != 0 %}
+                                        {% for i in 1..subscription.societyNote %}
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        {% endfor %}
+                                    {% endif %}
+                                    {% if subscription.societyNote != 5 %}
+                                        {% for i in 1..5 - subscription.societyNote %}
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-9">
+                                    <strong>Son commentaire</strong>: {{ subscription.societyCommentaries }}
+                                </div>
+                            </div>
+
+                        {% endif %}
+                    {% endfor %}
                 {% endfor %}
-            {% endfor %}
+            </div>
         </section>
     </section>
 {% endblock %}

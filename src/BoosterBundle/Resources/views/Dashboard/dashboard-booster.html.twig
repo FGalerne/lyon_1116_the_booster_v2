@@ -39,9 +39,11 @@
                             <li><i class="fa fa-star" aria-hidden="true"></i></li>
                         {% endfor %}
                     {% endif %}
+                    {% if noteBooster != 5 %}
                         {% for i in 1..5 - noteBooster %}
                             <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
                         {% endfor %}
+                    {% endif %}
                     </ul>
                 </div>
             </div>
@@ -115,114 +117,133 @@
 
         {# The Project part "IN PROGRESS" #}
         <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
-            {% for subscription in subscriptions %}
+            <div class="container project-in-progress prelude">
+                {% set index = 0 %}
+                {% for subscription in subscriptions %}
 
-                {# If project has not been deleted #}
-                {% if subscription.project.status != 'Delete'%}
-                    <div class="container project-in-progress prelude">
-                        {# if project is opened (in this case it would be subrsiption canceled) or in-progress on in-progress part of the dashboard#}
-                        {% if subscription.project.status != 'Done'%}
+                    {# If project has not been deleted #}
+                    {% if subscription.project.status != 'Delete'%}
 
-                            <div class="row">
-                                <div class="col-xs-6 col-md-3">
-                                    <p>Nom de la société</p>
-                                    <p>{{ subscription.project.society.societyName }}</p>
-                                </div>
-                                <div class="col-xs-6 col-md-3">
-                                    <p>Nom du projet :</p>
-                                    <p>{{ subscription.project.projectName }}</p>
-                                </div>
-                                <div class="col-xs-6 col-md-2">
-                                    <p>Nombre d'heures:</p>
-                                    <p>{{ subscription.project.givenTime }}</p>
-                                </div>
-                                <div class="col-xs-6 col-md-2">
-                                    <p>Catégorie:</p>
-                                    <p>{{ subscription.project.category }}</p>
-                                </div>
-                                <div class="col-xs-6 col-md-2">
-                                    <p>Statut:</p>
-                                    <p>{{ subscription.project.status }}</p>
-                                </div>
-                                <div class="col-xs-12 ">
-                                    <p class="text-left">{{ subscription.project.description | raw }}</p>
-                                </div>
-                            </div>
-
-                            {# if project is in_progress #}
-                            {% if subscription.status == 'In_progress' %}
-                                <div class="sub-container row">
-                                    <div class="col-xs-8">
-                                        Projet en cours de réalisation !
+                            {# if project is opened (in this case it would be subrsiption canceled) or in-progress on in-progress part of the dashboard#}
+                            {% if subscription.project.status != 'Done'%}
+                                {% if subscription.status == 'In_progress' or subscription.status == 'Open' %}
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <p class="text-left"><strong>{{ subscription.booster.user.firstName }}</strong>
+                                                à offert {{ subscription.givenTime }}H
+                                                pour le projet {{ subscription.project.projectName }}
+                                                de la société <strong>{{ subscription.project.society.societyName }}</strong><br/>
+                                            </p>
+                                            <p class="text-left">
+                                                Le projet à été ouvert le {{ subscription.project.createTime|date('d/m/Y') }},
+                                                la collaboration à démarré le {{ subscription.createTime|date('d/m/Y') }}.
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="col-xs-4">
-                                        {# if booster have no terminated the project #}
-                                        {% if not subscription.boosterValidation %}
-                                            <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardSlug': subscription.booster.slug, 'role': 'booster' }) }}" class="button-cancel-subscription">Ce projet est terminé !</a><br/>
-
-                                        {# if booster have terminated the project and wait for society validation #}
-                                        {% else %}
-                                            En attente de la validation de {{ subscription.project.society.user.firstname }}.<br/>
-                                        {% endif %}
-                                        {# open the collapse with confiramtion for cancel collaboration on click #}
-                                        <a data-toggle="collapse" data-target="#collapseCancel" class="button-cancel-subscription">Annuler la collaboration</a>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <p class="text-left"><strong>Description du projet</strong>: {{ subscription.project.description | raw }}</p>
+                                        </div>
                                     </div>
-                                </div>
+                                {% endif %}
+                                {# if project is in_progress #}
+                                {% if subscription.status == 'In_progress' %}
+                                    <div class="sub-container row">
+                                        <div class="col-xs-8">
+                                            Projet en cours de réalisation !
+                                        </div>
+                                        <div class="col-xs-4">
+                                            {# if booster have no terminated the project #}
+                                            {% if not subscription.boosterValidation %}
+                                                <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardSlug': subscription.booster.slug, 'role': 'booster' }) }}" class="button-cancel-subscription">Ce projet est terminé !</a><br/>
 
-                                {#Collapse for cancelation confirmation#}
-                                <div id="collapseCancel" class="collapse">
-                                    <div> <strong>Attention, en annulant cette collaboration, vous n'aurez plus la possibilité de terminer ce projet avec {{ subscription.project.society.user.firstName }}: </strong><br/>
-                                        <a href="{{ path('subscription_cancel', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardId': subscription.booster.id, 'role': 'booster' }) }}">Je confirme l'annulation</a>
+                                            {# if booster have terminated the project and wait for society validation #}
+                                            {% else %}
+                                                En attente de la validation de {{ subscription.project.society.user.firstname }}.<br/>
+                                            {% endif %}
+                                            {# open the collapse with confiramtion for cancel collaboration on click #}
+                                            <a data-toggle="collapse" data-target="{{'#collapseCancel' ~ index }}" class="button-cancel-subscription">Annuler la collaboration</a>
+                                        </div>
+                                        {#Collapse for cancelation confirmation#}
+                                        <div id="{{'collapseCancel' ~ index }}" class="collapse">
+                                            <div> <strong>Attention, en annulant cette collaboration, vous n'aurez plus la possibilité de terminer ce projet avec {{ subscription.project.society.user.firstName }}: </strong><br/>
+                                                <a href="{{ path('subscription_cancel', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardId': subscription.booster.id, 'role': 'booster' }) }}">Je confirme l'annulation</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
 
-                                {# if subscription has been canceled #}
-                            {% elseif subscription.status == 'Canceled' %}
-                                <div class="sub-container row">
-                                    <div class="col-xs-8">
-                                        La collaboration à été annulée
+
+                                    {% set index = index + 1 %}
+                                    {# if subscription has been canceled #}
+                                {% elseif subscription.status == 'Canceled' %}
+                                    <div class="sub-container row">
+                                        <div class="col-xs-8">
+                                            La collaboration à été annulée
+                                        </div>
                                     </div>
-                                </div>
+                                {% endif %}
+
                             {% endif %}
-                        </div>
+
                     {% endif %}
-                {% endif %}
-            {% endfor %}
+                {% endfor %}
+            </div>
         </section>
 
         {# The Project part "DONE" #}
 
         <section class="container-fluid presentation-booster" id="dashboard-booster-done">
-            {% for subscription in subscriptions %}
+            <div class="container prelude project-done">
+                {% for subscription in subscriptions %}
 
-                {# if project is done #}
-                {% if subscription.status == 'Done' %}
+                    {# if project is done #}
+                    {% if subscription.status == 'Done' %}
 
-                    <div class="container project-done prelude">
-                        <div class="col-xs-6 col-md-3">
-                            <p>Nom de la société : </p>
-                            <p>{{ subscription.project.society.societyName }}</p>
+                        <div class="row">
+                            <p class="text-left"><strong>{{ subscription.project.projectName }}</strong>:
+                                Projet terminé le {{ subscription.project.endTime|date('d/m/Y') }} grace à la collaboration de {{ subscription.booster.user.firstName }} en {{ subscription.GivenTime }}H.
+                            </p>
                         </div>
-                        <div class="col-xs-6 col-md-3">
-                            <p>Nom du projet : </p>
-                            <p>{{ subscription.project.projectName }}</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <strong>Note du Booster</strong> :
+                                {% if subscription.boosterNote != 0 %}
+                                    {% for i in 1..subscription.boosterNote %}
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if subscription.boosterNote != 5 %}
+                                    {% for i in 1..5 - subscription.boosterNote %}
+                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-9">
+                                <strong>Son commentaire</strong>: {{ subscription.boosterCommentaries }}
+                            </div>
                         </div>
-                        <div class="col-xs-6 col-md-2">
-                            <p>Catégorie : </p>
-                            <p>{{ subscription.project.category }}</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <strong>Note du Boosté</strong> :&nbsp;
+                                {% if subscription.boosterNote != 0 %}
+                                    {% for i in 1..subscription.societyNote %}
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if subscription.societyNote != 5 %}
+                                    {% for i in 1..5 - subscription.societyNote %}
+                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-9">
+                                <strong>Son commentaire</strong>: {{ subscription.societyCommentaries }}
+                            </div>
                         </div>
-                        <div class="col-xs-6 col-md-2">
-                            <p>Note reçue par le Booster : </p>
-                            <p>{{ subscription.boosterNote}}</p>
-                        </div>
-                        <div class="col-xs-6 col-md-2">
-                            <p>Commentaire reçu par le Booster : </p>
-                            <p>{{ subscription.boosterCommentaries}}</p>
-                        </div>
-                    </div>
 
-                {% endif %}
-            {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </div>
         </section>
 
     {% endfor %}
