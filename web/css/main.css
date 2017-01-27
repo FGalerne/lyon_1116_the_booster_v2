@@ -1948,10 +1948,9 @@ li.star-active i {
 /*faq*/
 .faq-categories{
 	font-weight: bold;
-	font-size: 20px;
-	margin-top: 50px;
+	font-size: 15px;
 	margin-bottom: 10px;
-	background-color: #eb0310;
+	background-color: #727272;
 	color: white;
 }
 .hr-faq{
@@ -1960,7 +1959,7 @@ li.star-active i {
 	background-color: #5d5469;
 }
 .faq-categories:hover{
-	background-color: #fd262f;
+	background-color: #363636;
 	cursor: pointer;
 }
 .faq-height{
