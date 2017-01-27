@@ -112,8 +112,12 @@
                                 {#Verify if the user already subscribed to the project#}
                                 {% set subscribed = 0 %}
                                 {% for sub in project.projectSubscriptions %}
-                                    {% if sub.booster.id == app.user.booster.id %}
-                                        {% set subscribed = 1 %}
+                                    {% if sub.booster.id|default %}
+                                        {% if app.user.booster.id|default %}
+                                            {% if sub.booster.id == app.user.booster.id %}
+                                                {% set subscribed = 1 %}
+                                            {% endif %}
+                                        {% endif %}
                                     {% endif %}
                                 {% endfor %}
 
