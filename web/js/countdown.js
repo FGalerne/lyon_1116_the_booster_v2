@@ -1,8 +1,19 @@
 tinymce.PluginManager.add('charactercount', function (editor) {
     var self = this;
-
+    var tc;
     function update() {
         editor.theme.panel.find('#charactercount').text(['Caractères: {0}', self.getCount()]);
+
+        if(tc < minCount){
+            editor.theme.panel.find('#charactercount').text(["Caractères: {0}, votre texte doit contenir au moins "+ minCount +" caractères.", self.getCount()]);
+            editor.getContentAreaContainer().style.border = '1px solid red';
+        } else if(tc > maxCount){
+            editor.theme.panel.find('#charactercount').text(["Caractères: {0}, votre texte doit contenir moins de "+ maxCount +" caractères.", self.getCount()]);
+            editor.getContentAreaContainer().style.border = '1px solid red';
+        } else{
+            editor.theme.panel.find('#charactercount').text(['Caractères: {0}', self.getCount()]);
+            editor.getContentAreaContainer().style.border = '';
+        }
     }
 
     editor.on('init', function () {
@@ -34,12 +45,7 @@ tinymce.PluginManager.add('charactercount', function (editor) {
         var tx = editor.getContent({ format: 'raw' });
         var decoded = decodeHtml(tx);
         var decodedStripped = decoded.replace(/(<([^>]+)>)/ig, "").trim();
-        var tc = decodedStripped.length;
-
-        if (tc > maxCount || tc < minCount)
-            editor.contentDocument.body.style.borderBottom = '1px solid red';
-        else
-            editor.contentDocument.body.style.border = '';
+        tc = decodedStripped.length;
 
         return tc;
     };
@@ -54,6 +60,7 @@ tinymce.PluginManager.add('charactercount', function (editor) {
     function decodeHtml(html) {
         var txt = document.createElement("textarea");
         txt.innerHTML = html;
+
         return txt.value;
     }
 });
