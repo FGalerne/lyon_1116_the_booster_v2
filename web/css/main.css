@@ -1918,9 +1918,21 @@ li.star-active i {
 	max-height: 50px;
 	overflow: hidden;
 }
+
 .avatar-messenger img{
 	width: 100%;
 	display: block;
+}
+
+.avatar-messenger-dashboards{
+	max-height: 150px;
+	overflow: hidden;
+}
+
+.avatar-messenger-dashboards img{
+	width: 50%;
+	display: block;
+	margin: 0 auto;
 }
 
 /****** Charte ******/
