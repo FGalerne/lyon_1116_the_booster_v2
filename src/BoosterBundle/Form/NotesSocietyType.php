@@ -22,6 +22,7 @@ class NotesSocietyType extends AbstractType
                 'attr' => array(
                     'class' => 'form-control form-group',
                 ),
+                'data' => 3,
                 'required'    => true
             ))
 
