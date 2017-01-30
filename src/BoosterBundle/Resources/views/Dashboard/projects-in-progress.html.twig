@@ -3,11 +3,11 @@
         {# for collapse for project delete #}
         {% set index = 0 %}
         {% for project in projects %}
-        <div class="projects prelude row">
             {# if the project have not been deleted (status -> Delete)#}
             {% if project.status != 'Delete'%}
                 {# we display project if not blocked and if status is open or in_progress #}
                 {% if project.status != 'Done'%}
+                    <div class="projects prelude row">
 
                     <div class="row">
                         <div class="col-xs-12">
@@ -53,14 +53,18 @@
                                             </div>
                                             {% if subscription.status == 'Open' %}
                                             {# we allow society to contact and see subscribers if noone has been chosen yet #}
-                                            <div class="col-md-2">
-                                                <div class="col-xs-12 see-booster">
-                                                    <a href="{{ path('dashboard_booster', {'slug': subscription.booster.slug }) }}" title="Le voir"><i class="fa fa-user-circle" aria-hidden="true"></i>Profile du Booster
-                                                    </a>
+                                            <div class="col-xs-12 booster-contact">
+                                                <div class="col-xs-6 see-booster">
+                                                    <div class="col-xs-6 col-xs-offset-3">
+                                                        <a href="{{ path('dashboard_booster', {'slug': subscription.booster.slug }) }}" title="Le voir">
+                                                            <i class="fa fa-user-circle" aria-hidden="true"></i>Profile du Booster</a>
+                                                    </div>
                                                 </div>
-                                                <div class="col-xs-12 accept-booster">
-                                                    <a href="{{ path('dashboard_contact_booster', {'societyId': app.user.society.id, 'projectId': subscription.project.id, 'subscriptionId': subscription.id }) }}" title="Le contacter"><i class="fa fa-check" aria-hidden="true"></i>Accepter le coup de boost
-                                                    </a>
+                                                <div class="col-xs-6 accept-booster">
+                                                    <div class="col-xs-6 col-xs-offset-3">
+                                                        <a href="{{ path('dashboard_contact_booster', {'societyId': app.user.society.id, 'projectId': subscription.project.id, 'subscriptionId': subscription.id }) }}" title="Le contacter">
+                                                            <i class="fa fa-check" aria-hidden="true"></i>Accepter le coup de boost</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                             {% elseif subscription.status == 'In_progress' %}
@@ -132,13 +136,12 @@
                             </div>
                         </div>
                     </div>
-                {% endif %}
-
-                {# for collapse for project delete #}
-                {% set index = index + 1 %}
+                </div>
             {% endif %}
-        </div>
-        {% endfor %}
+            {# for collapse for project delete #}
+            {% set index = index + 1 %}
+        {% endif %}
+    {% endfor %}
 
     </div>
 </section>

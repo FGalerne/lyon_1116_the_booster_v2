@@ -1365,12 +1365,14 @@ hr{
 	font-size: 1.1em;
 	background-color: #008000;
 	color: #ffffff;
+	margin: 0;
 }
 
 .see-booster {
 	font-size: 1.1em;
 	background-color: #446AE4;
 	color: #ffffff;
+	margin: 0;
 }
 
 .see-booster a,
@@ -1382,6 +1384,22 @@ hr{
 .see-booster i,
 .accept-booster i {
 	padding-right: 10px;
+
+}
+
+.see-icon,
+.accept-icon {
+	font-size: 30px;
+}
+
+.see-icon i,
+.accept-icon i {
+	padding-top: 10px;
+	margin: 0;
+}
+
+.booster-contact {
+	margin: 0;
 }
 
 /* INSCRIPTION CHOIX */
