@@ -30,9 +30,7 @@
                 {% else %}
                     {% set noteBooster = 0 %}
                 {% endif %}
-                    {% if noteBooster > 5 %}
-                        {% set noteBooster = 5 %}
-                    {% endif %}
+
                     <p>Heures reçues : {{ booster.hoursGiven }}</p>
                     <p>Projets réalisés : {{ booster.projectDoneNumber }}</p>
                     <p>Note du booster : {{ noteBooster }}</p>
