@@ -1,9 +1,10 @@
 <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
-    <div class="container project-in-progress prelude">
+    <div class="container project-in-progress">
         {# for collapse for project delete #}
         {% set index = 0 %}
         {% for project in projects %}
-        {# if the project have not been deleted (status -> Delete)#}
+        <div class="projects prelude row">
+            {# if the project have not been deleted (status -> Delete)#}
             {% if project.status != 'Delete'%}
                 {# we display project if not blocked and if status is open or in_progress #}
                 {% if project.status != 'Done'%}
@@ -53,10 +54,12 @@
                                             {% if subscription.status == 'Open' %}
                                             {# we allow society to contact and see subscribers if noone has been chosen yet #}
                                             <div class="col-md-2">
-                                                <a href="{{ path('dashboard_booster', {'slug': subscription.booster.slug }) }}" title="Le voir">
-                                                    Le voir
+                                                <a href="{{ path('dashboard_booster', {'slug': subscription.booster.slug }) }}" title="Le voir"><i class="fa fa-user-circle" aria-hidden="true"></i>
+
+                                                    Profile du Booster
                                                 </a><br/>
-                                                <a href="{{ path('dashboard_contact_booster', {'societyId': app.user.society.id, 'projectId': subscription.project.id, 'subscriptionId': subscription.id }) }}" title="Le contacter">
+                                                <a href="{{ path('dashboard_contact_booster', {'societyId': app.user.society.id, 'projectId': subscription.project.id, 'subscriptionId': subscription.id }) }}" title="Le contacter"><i class="fa fa-check" aria-hidden="true"></i>
+
                                                     Accepter le coup de boost
                                                 </a><br/>
                                             </div>
@@ -112,14 +115,15 @@
                             {# project waiting for validation #}
                             <div class="sub-container row">
                                 <div class="col-xs-12">
-                                    <p>Projet en attente de validation !</p>
+                                    <p>Projet en cours de modération par l'équipe the Booster!</p>
                                 </div>
                             </div>
                         {% endif %}
                     {# on click, will display the collapse to confirm to delete #}
                     <div class="sub-container row">
                         <div class="col-xs-12">
-                            <a data-toggle="collapse" data-target="{{'#collapseDelete' ~ index }}" class="button-cancel-subscription">Supprimer le projet</a>
+                            <a data-toggle="collapse" data-target="{{'#collapseDelete' ~ index }}" class="button-cancel-subscription">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>Supprimer le projet</a>
                         </div>
                         {#Collapse for supperssion of the project #}
                         <div id="{{'collapseDelete' ~ index }}" class="collapse">
@@ -133,7 +137,7 @@
                 {# for collapse for project delete #}
                 {% set index = index + 1 %}
             {% endif %}
-
+        </div>
         {% endfor %}
 
     </div>

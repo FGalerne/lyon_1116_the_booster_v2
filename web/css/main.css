@@ -1355,6 +1355,13 @@ hr{
 	}
 }
 
+.projects {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	margin-bottom: 35px;
+
+}
+
 /* INSCRIPTION CHOIX */
 
 .title_subs {
