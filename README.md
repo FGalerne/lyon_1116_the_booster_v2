@@ -75,14 +75,18 @@ nano parameters.yml</pre>
 
 https://www.google.com/recaptcha/intro/comingsoon/invisiblebeta.html
 
+Paste keys private and public in parameters.yml (public_key_captcha and private_key_captcha )
+
 #####For secret_paypal
 
 <pre>
  php bin/console jms_payment_core:generate-key
 </pre>
-
+Paste secret key in parameters.yml (secret_paypal)
 #####For Paypal Api 
 https://developer.paypal.com/docs/classic/api/apiCredentials/
+
+Paste username, password and signature in parameters.yml(username_paypal_api ,  password_paypal_api, signature_paypal_api)
 
 #####Create your database
 <pre> php app/console database:create</pre>
