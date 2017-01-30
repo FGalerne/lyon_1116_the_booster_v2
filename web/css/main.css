@@ -102,12 +102,12 @@ h1{
 	background-color: white;
 	box-shadow: 0 3px 0 rgba(235,3,16,1);
 	font-size: 1.1em;
-	min-height: 10vh;
+	height: 100px;
 }
 
 .nav-no-user > li > a,
 .navbar-nav > li > a {
-	line-height: 7vh;
+	line-height: 70px;
 	color: black;
 	display: inline-block;
 	text-align: center;
