@@ -101,7 +101,7 @@ h1{
 .navbar {
 	background-color: white;
 	box-shadow: 0 3px 0 rgba(235,3,16,1);
-	font-size: 1.1em;
+	font-size: 1em;
 	height: 100px;
 }
 
@@ -284,9 +284,6 @@ h1{
 	text-decoration-color: rgba(255,255,255,0.7);
 }
 
-.navbar-social ul {
-	padding-top: 3vh;
-}
 
 .navbar-social ul li {
 	list-style: none;
@@ -313,7 +310,7 @@ h1{
 
 @media (min-width: 1075px) {
 	.navbar-social ul {
-		padding-top: 25px;
+		padding-top: 28px;
 		padding-right: 30px;
 		padding-left: 0;
 	}
@@ -921,64 +918,12 @@ hr{
 	margin-bottom:6vh;
 }
 
-/*.booster-formula h4 {
-	margin-top: 25px;
-}
-
-.booster-formula img {
-	width: 100px;
-	padding-top: 25px;
-}
-
-.booster-formula button {
-	margin-bottom: 25px;
-	font-size:1.2em;
-	font-weight:900;
-	background-color: #eb0310;
-	color:white;
-	padding: 10px 30px;
-	border: none;
-	border-radius: 5px;
-}
-
-
-.booster-formula button:hover {
-	background-color: rgb(255, 50, 80);
-	color: white;
-	text-decoration: none;
-}
-
-.height-price {
-	height: 49px;
-}
-
-.height-price p {
-	padding-top: 5px;
-}
-
-.booster-formula p {
-	text-align: center;
-}
-
-#number-of-projects {
-	width: 60px;
-	padding-left: 10px;
-}
-
-#limit-project p {
-	margin-top: 10px;
-	text-align: center;
-}*/
-
-/* CSS tempo */
-
 @media screen and (min-width: 1600px) {
 
 	#home_startup_list a {
 		margin-left: 7%;
 		margin-right: 7%;
 	}
-
 }
 
 @media screen and (max-width: 900px) {
