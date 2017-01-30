@@ -201,8 +201,8 @@ easy_admin:
                     - { property: 'answer', label: 'Réponse' }
 
 ewz_recaptcha:
-    public_key: "%public_key_captcha %"
-    private_key: "%private_key_captcha %"
+    public_key: "%public_key_captcha%"
+    private_key: "%private_key_captcha%"
     locale_from_request: true
     # Not needed as "%kernel.default_locale%" is the default value for the locale key
     locale_key:  %kernel.default_locale%
@@ -213,12 +213,12 @@ twig:
             - 'BoosterBundle:Form:fields.html.twig'
 
 jms_payment_core:
-    secret: "%secret_paypal %"
+    secret: "%%secret_paypal%"
 
 jms_payment_paypal:
-    username: "%username_paypal_api %"
-    password: "%password_paypal_api %"
-    signature: "%signature_paypal_api %"
+    username: "%username_paypal_api%"
+    password: "%password_paypal_api%"
+    signature: "%signature_paypal_api%"
 
 
 

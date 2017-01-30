@@ -15,6 +15,11 @@ use Doctrine\ORM\Mapping as ORM;
 class User extends BaseUser
 {
     /**
+     * @Recaptcha\IsTrue
+     */
+    public $recaptcha;
+
+    /**
      * @var integer
      */
     protected $id;
