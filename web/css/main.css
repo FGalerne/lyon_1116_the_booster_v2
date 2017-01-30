@@ -1364,6 +1364,8 @@ hr{
 .accept-booster {
 	font-size: 1.1em;
 	background-color: #008000;
+	padding-top: 15px;
+	padding-bottom: 15px;
 	color: #ffffff;
 	margin: 0;
 }
@@ -1371,16 +1373,33 @@ hr{
 .see-booster {
 	font-size: 1.1em;
 	background-color: #446AE4;
+	padding-top: 15px;
+	padding-bottom: 15px;
 	color: #ffffff;
 	margin: 0;
 }
 
+.see-booster a :hover {
+	background-color: #446AE9;
+}
+
+.delete-project-button {
+	background-color: #dd4444;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-top: 0;
+	margin-bottom: 0;
+
+}
+
+.delete-project-button a,
 .see-booster a,
 .accept-booster a {
 	text-decoration: none;
 	color: #ffffff;
 }
 
+.delete-project-button i,
 .see-booster i,
 .accept-booster i {
 	padding-right: 10px;
@@ -2221,10 +2240,7 @@ li.star-active i {
 	background-color: #363636;
 	color: white;
 }
-.sub-container div{
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
+
 
 .button-cancel-subscription:hover{
 	cursor: pointer;
