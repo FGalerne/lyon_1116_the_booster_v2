@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
-{% block title %}Proposer un coup de Boost | The Booster{% endblock %}
+{% block title %}Proposer un Coup de Boost | The Booster{% endblock %}
 {% block body %}
     <div class="container project-subscription-container">
-        <h1>Proposer un coup de boost !</h1>
+        <h1>Proposer un Coup de Boost !</h1>
         <div class="col-xs-12 col-md-8 col-md-offset-2">
             {{ form_start(form) }}
             {{ form_widget(form) }}
-            <input class="postulation-button col-xs-12" type="submit" value="Proposer mon coup de Boost !" />
+            <input class="postulation-button col-xs-12" type="submit" value="Proposer un Coup de Boost !" />
             {{ form_end(form) }}
 
             <a class="postulation-button col-xs-12" href="{{ path('public_dashboard', { 'id': societyId }) }}">Retourner au dashboard</a>

@@ -17,7 +17,7 @@ class ProjectSubscriptionType extends AbstractType
     {
         $builder
             ->add('message', TextareaType::class, array(
-                'label' => 'Message dédié au Boosté : (max 200 caractères)  ',
+                'label' => 'Message dédié au Boosté (max 200 caractères) :',
                 'attr' => array(
                     'class' => 'WYSIWYG form-control form-group',
                     'placeholder' => "Bonjour, je souhaite vous offrir un coup de boost !"

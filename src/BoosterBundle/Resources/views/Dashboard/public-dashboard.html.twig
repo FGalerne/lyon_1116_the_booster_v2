@@ -28,8 +28,8 @@
             {% endif %}
 
                 <p>Heures reçues : {{ society.hoursTaken }}</p>
-                <p>Projets réalisés : {{ society.projectDoneNumber }}</p>
-                <p>Note du boosté : {{ noteBooster }}</p>
+                <p>Coups de Boost reçus : {{ society.projectDoneNumber }}</p>
+                <p>Note du Boosté : {{ noteBooster }}</p>
                 <ul>
                     {% if noteBooster != 0 %}
                         {% for i in 1..noteBooster %}
@@ -55,8 +55,8 @@
                 <div class="col-xs-12" id="navbar-dashboard">
                     <ul class="nav nav-pills dashboard-nav">
                         <li><a id="project-home">Accueil</a></li>
-                        <li><a id="project-in-progress">Projets en cours</a></li>
-                        <li><a id="project-done">Projets réalisés</a></li>
+                        <li><a id="project-in-progress">Demandes de Coups de Boost</a></li>
+                        <li><a id="project-done">Coups de Boost reçus</a></li>
                     </ul>
                 </div>
             </div>
@@ -87,7 +87,7 @@
 
                         <div class="row">
                             <div class="col-xs-12">
-                                <p class="text-left"><strong>Projet: {{ project.projectName }}</strong>
+                                <p class="text-left"><strong>Demande de Coup de Boost: {{ project.projectName }}</strong>
                                     ouvert depuis le {{ project.createTime|date('d/m/Y') }},
                                     par <strong>{{ project.society.user.firstName }}</strong>,
                                     dans la catégorie {{ project.category }}.
@@ -97,7 +97,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <p class="text-left"><strong>Description du projet</strong>: {{ project.description | raw }}</p>
+                                <p class="text-left"><strong>Description du Coup de Boost :</strong>: {{ project.description | raw }}</p>
                             </div>
                         </div>
 
@@ -105,7 +105,7 @@
                             {#BOOSTE#}
                             {% if is_granted("ROLE_BOOSTE") %}
                                 <a class="postulation-button" href="{{ path('booster_inscription_choix') }}">
-                                    Créez un compte 'Booster' pour donner du temps à ce projet<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                    Créez un compte 'Booster' pour donner donner un Coup de Boost !<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a>
                                 {#BOOSTER#}
                             {% elseif is_granted("ROLE_BOOSTER") %}
@@ -126,7 +126,7 @@
                                     {#The booster have a 'booster' profile#}
                                     {% if app.user.booster %}
                                         <a class="postulation-button" href="{{ path('project_subscription', { 'boosterId': app.user.booster.id, 'societyId': society.id, 'projectId': project.id }) }}">
-                                            Je donne du temps à ce projet !
+                                            Je donne du temps à ce Coup de Boost !
                                             <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                                         {#The booster do not have completed is profile#}
                                     {% else %}
@@ -134,17 +134,17 @@
 
                                     {% endif %}
                                 {% else %}
-                                    <a class="postuled-button">Vous avez postulé pour ce projet !<i class="fa fa-thumbs-up" aria-hidden="true"></i>                                    </a>
+                                    <a class="postuled-button">Vous avez proposé votre aide pour ce Coup de Boost !<i class="fa fa-thumbs-up" aria-hidden="true"></i>                                    </a>
                                 {% endif %}
                                 {#GUEST#}
                             {% else %}
-                                <a class="postulation-button" href="{{ path('booster_inscription_choix') }}">Créez un compte pour donner du temps à ce projet<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                <a class="postulation-button" href="{{ path('booster_inscription_choix') }}">Créez un compte pour donner un Coup de Boost<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a>
                             {% endif %}
                         {% else %}
                             <div class="sub-container row">
                                 <div class="col-xs-12">
-                                    Projet en cours de réalisation.
+                                    Coup de Boost en cours
                                 </div>
                             </div>
                         {% endif %}
@@ -164,7 +164,7 @@
 
                             <div class="row">
                                 <p class="text-left"><strong>{{ project.projectName }}</strong>:
-                                    Projet terminé le {{ project.endTime|date('d/m/Y') }} grace à la collaboration de {{ subscription.booster.user.firstName }} en {{ subscription.GivenTime }}H.
+                                    Coup de Boost reçu le {{ project.endTime|date('d/m/Y') }} grâce à la collaboration de {{ subscription.booster.user.firstName }} en {{ subscription.GivenTime }} heures.
                                 </p>
                             </div>
                             <div class="row">
