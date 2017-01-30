@@ -69,12 +69,12 @@
                                             </div>
                                             {% elseif subscription.status == 'In_progress' %}
                                                 <div class="col-md-2">
-                                                    <a title="En cours">Projet en cours de réalisation</a>
+                                                    <a title="En cours"><p>Projet en cours de réalisation</p></a>
                                                 </div>
                                             {% elseif subscription.status == 'Canceled' %}
                                                 {# if subscription has been canceled #}
                                                 <div class="col-md-2">
-                                                    <a title="Annule">La collaboration a été annulée</a><br/>
+                                                    <a title="Annule"></a><p>La collaboration a été annulée</p>
                                                 </div>
                                             {% endif %}
                                         </div>
@@ -84,7 +84,7 @@
                                         {% if subscription.status == 'In_progress' %}
                                             <div class="row">
                                                 <div class="col-md-8">
-                                                    Projet en cours de réalisation !
+                                                    <p>Projet en cours de réalisation !</p>
                                                 </div>
 
                                                 <div class="col-md-4">
