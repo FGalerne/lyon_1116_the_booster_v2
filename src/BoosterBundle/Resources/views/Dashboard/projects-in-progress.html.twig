@@ -54,11 +54,11 @@
                                             {% if subscription.status == 'Open' %}
                                             {# we allow society to contact and see subscribers if noone has been chosen yet #}
                                             <div class="col-md-2">
-                                                <div class="col-xs-6">
+                                                <div class="col-xs-12 see-booster">
                                                     <a href="{{ path('dashboard_booster', {'slug': subscription.booster.slug }) }}" title="Le voir"><i class="fa fa-user-circle" aria-hidden="true"></i>Profile du Booster
                                                     </a>
                                                 </div>
-                                                <div class="col-xs-6">
+                                                <div class="col-xs-12 accept-booster">
                                                     <a href="{{ path('dashboard_contact_booster', {'societyId': app.user.society.id, 'projectId': subscription.project.id, 'subscriptionId': subscription.id }) }}" title="Le contacter"><i class="fa fa-check" aria-hidden="true"></i>Accepter le coup de boost
                                                     </a>
                                                 </div>

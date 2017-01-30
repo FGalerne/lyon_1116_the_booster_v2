@@ -1359,7 +1359,29 @@ hr{
 	padding-top: 25px;
 	padding-bottom: 25px;
 	margin-bottom: 35px;
+}
 
+.accept-booster {
+	font-size: 1.1em;
+	background-color: #008000;
+	color: #ffffff;
+}
+
+.see-booster {
+	font-size: 1.1em;
+	background-color: #446AE4;
+	color: #ffffff;
+}
+
+.see-booster a,
+.accept-booster a {
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.see-booster i,
+.accept-booster i {
+	padding-right: 10px;
 }
 
 /* INSCRIPTION CHOIX */
