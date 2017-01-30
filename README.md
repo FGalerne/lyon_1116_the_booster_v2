@@ -71,7 +71,10 @@ HTTPS :
 <pre>cd app/config/
 nano parameters.yml</pre>
 
+
 #####For the public and private key Google Recaptcha
+
+
 
 https://www.google.com/recaptcha/intro/comingsoon/invisiblebeta.html
 
