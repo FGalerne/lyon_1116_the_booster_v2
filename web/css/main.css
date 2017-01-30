@@ -1911,7 +1911,6 @@ li.star-active i {
 
 .dashboard-nav-container{
 	background-color: #363636;
-	margin-bottom: 35px;
 }
 
 .avatar-messenger{
@@ -1927,12 +1926,17 @@ li.star-active i {
 .avatar-messenger-dashboards{
 	max-height: 150px;
 	overflow: hidden;
+	margin-top: 15px;
 }
 
 .avatar-messenger-dashboards img{
 	width: 50%;
 	display: block;
 	margin: 0 auto;
+}
+
+.alert-text {
+	text-align: center;
 }
 
 /****** Charte ******/
@@ -2248,7 +2252,7 @@ li.star-active i {
 	padding-top: 10px;
 	padding-bottom: 10px;*/
 	text-align: center;
-	margin: 0 auto;
+	margin: 0 auto ;
 	background-color: #363636;
 	color: white;
 }
