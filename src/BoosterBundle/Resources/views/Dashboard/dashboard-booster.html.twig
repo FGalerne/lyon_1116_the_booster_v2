@@ -30,20 +30,21 @@
                 {% else %}
                     {% set noteBooster = 0 %}
                 {% endif %}
+
                     <p>Heures reçues : {{ booster.hoursGiven }}</p>
                     <p>Projets réalisés : {{ booster.projectDoneNumber }}</p>
                     <p>Note du booster : {{ noteBooster }}</p>
                     <ul>
-                    {% if noteBooster != 0 %}
-                        {% for i in 1..noteBooster %}
-                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                        {% endfor %}
-                    {% endif %}
-                    {% if noteBooster != 5 %}
-                        {% for i in 1..5 - noteBooster %}
-                            <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-                        {% endfor %}
-                    {% endif %}
+                        {% if noteBooster != 0 %}
+                            {% for i in 1..noteBooster %}
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                            {% endfor %}
+                        {% endif %}
+                        {% if noteBooster != 5 %}
+                            {% for i in 1..5 - noteBooster %}
+                                <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                            {% endfor %}
+                        {% endif %}
                     </ul>
                 </div>
             </div>

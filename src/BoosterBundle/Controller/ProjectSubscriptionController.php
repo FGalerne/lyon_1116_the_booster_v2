@@ -50,12 +50,15 @@ class ProjectSubscriptionController extends Controller
     /**
      * @param Request $request
      * @param ProjectSubscription $projectId
+     * @param $subscriptionId
+     * @param $dashboardSlug
+     * @param $role
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function notesCommentsAction(Request $request, ProjectSubscription $projectId, $subscriptionId, $dashboardSlug, $role)
+    public function notesCommentsAction(Request $request, $projectId, $subscriptionId, $dashboardSlug, $role)
     {
         $em = $this->getDoctrine()->getManager();
-        $project = $em->getRepository('BoosterBundle:ProjectSubscription')->find($projectId);
+        $project = $em->getRepository('BoosterBundle:ProjectSubscription')->find($subscriptionId);
         $subscription = $em->getRepository('BoosterBundle:ProjectSubscription')->findOneById($subscriptionId);
 
         // Form that allows Society to vote and comment for a Booster at the end of the project
@@ -72,11 +75,6 @@ class ProjectSubscriptionController extends Controller
 
             $booster = $subscription->getBooster();
             $society = $subscription->getProject()->getSociety();
-            //Update total notation into average notation for vote for Booster
-            $currentNote = $subscription->getBooster()->getAverageNotation();
-            $currentNote += $form1->get('boosterNote')->getData();
-            $booster->setAverageNotation($currentNote);
-
 
             //validationMatch will be true if both booster and society have validated the project
             $validationMatch = $em->getRepository('BoosterBundle:ProjectSubscription')->validationMatch($subscriptionId);
@@ -97,6 +95,15 @@ class ProjectSubscriptionController extends Controller
                 $hoursTaken = $society->getHoursTaken();
                 $hoursTaken += $subscription->getGivenTime() ;
                 $society->setHoursTaken($hoursTaken);
+
+                //Update total notation into average notation for vote for Booster
+                $noteBooster = $booster->getAverageNotation();
+                $noteBooster += $form1->get('boosterNote')->getData();
+                $booster->setAverageNotation($noteBooster);
+                //society note
+                $noteSociety = $society->getAverageNotation();
+                $noteSociety += $subscription->getSocietyNote();
+                $society->setAverageNotation($noteSociety);
 
                 //change the status of project and projectSubscription to 'Done'
                 $em->getRepository('BoosterBundle:Project')->projectDone($projectId);
@@ -122,13 +129,8 @@ class ProjectSubscriptionController extends Controller
             $em->persist($project);
             $em->flush();
 
-            //Update total notation into average notation for vote for Society
-            $currentNote = $subscription->getProject()->getSociety()->getAverageNotation();
-            $currentNote += $form2->get('societyNote')->getData();
             $society = $subscription->getProject()->getSociety();
             $booster = $subscription->getBooster();
-            $society->setAverageNotation($currentNote);
-
 
             //validationMatch will be true if both booster and society have validated the project
             $validationMatch = $em->getRepository('BoosterBundle:ProjectSubscription')->validationMatch($subscriptionId);
@@ -150,6 +152,15 @@ class ProjectSubscriptionController extends Controller
                 $hoursGiven = $booster->getHoursGiven();
                 $hoursGiven += $subscription->getGivenTime() ;
                 $booster->setHoursGiven($hoursGiven);
+
+                //Update total notation into average notation for vote for Society
+                $currentNote = $subscription->getProject()->getSociety()->getAverageNotation();
+                $currentNote += $form2->get('societyNote')->getData();
+                $society->setAverageNotation($currentNote);
+                //booster note
+                $noteBooster = $booster->getAverageNotation();
+                $noteBooster += $subscription->getBoosterNote();
+                $booster->setAverageNotation($noteBooster);
 
                 //change the status of project and projectSubscription to 'Done'
                 $em->getRepository('BoosterBundle:Project')->projectDone($projectId);

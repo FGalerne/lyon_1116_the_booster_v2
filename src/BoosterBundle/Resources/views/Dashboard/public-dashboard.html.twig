@@ -26,6 +26,7 @@
             {% else %}
                 {% set noteBooster = 0 %}
             {% endif %}
+
                 <p>Heures reçues : {{ society.hoursTaken }}</p>
                 <p>Projets réalisés : {{ society.projectDoneNumber }}</p>
                 <p>Note du boosté : {{ noteBooster }}</p>
@@ -187,7 +188,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-3">
                                     <strong>Note du Boosté</strong> :&nbsp;
-                                    {% if subscription.boosterNote != 0 %}
+                                    {% if subscription.societyNote != 0 %}
                                         {% for i in 1..subscription.societyNote %}
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                         {% endfor %}

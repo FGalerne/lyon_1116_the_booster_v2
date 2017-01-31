@@ -434,7 +434,7 @@ class Society
      */
     public function __toString()
     {
-    	return strval($this->id);
+    	return 'Société';
     }
 
     /**

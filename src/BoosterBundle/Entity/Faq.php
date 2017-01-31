@@ -7,6 +7,11 @@ namespace BoosterBundle\Entity;
  */
 class Faq
 {
+    public function __toString()
+    {
+        return 'FAQ';
+    }
+
     /**
      * @var integer
      */

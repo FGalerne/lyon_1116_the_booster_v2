@@ -79,6 +79,7 @@
                                                 <div class="col-md-8">
                                                     Projet en cours de réalisation !
                                                 </div>
+
                                                 <div class="col-md-4">
                                                     {# if project has not been put to done by the society #}
                                                     {% if not subscription.societyValidation %}
@@ -116,21 +117,20 @@
                                 </div>
                             </div>
                         {% endif %}
-
-                {% endif %}
-                {# on click, will display the collapse to confirm to delete #}
-                <div class="sub-container row">
-                    <div class="col-xs-12">
-                        <a data-toggle="collapse" data-target="{{'#collapseDelete' ~ index }}" class="button-cancel-subscription">Supprimer le projet</a>
-                    </div>
-                    {#Collapse for supperssion of the project #}
-                    <div id="{{'collapseDelete' ~ index }}" class="collapse">
-                        <div> <strong>Attention, après sa suppression, le projet ne pourra pas être récupéré: </strong><br/>
-                            <a href="{{ path('project_delete', {'projectId': project.id}) }}">Je confirme la suppression du projet</a>
+                    {# on click, will display the collapse to confirm to delete #}
+                    <div class="sub-container row">
+                        <div class="col-xs-12">
+                            <a data-toggle="collapse" data-target="{{'#collapseDelete' ~ index }}" class="button-cancel-subscription">Supprimer le projet</a>
                         </div>
-
+                        {#Collapse for supperssion of the project #}
+                        <div id="{{'collapseDelete' ~ index }}" class="collapse">
+                            <div> <strong>Attention, après sa suppression, le projet ne pourra pas être récupéré: </strong><br/>
+                                <a href="{{ path('project_delete', {'projectId': project.id}) }}">Je confirme la suppression du projet</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                {% endif %}
+
                 {# for collapse for project delete #}
                 {% set index = index + 1 %}
             {% endif %}

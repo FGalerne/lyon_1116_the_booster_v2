@@ -22,11 +22,12 @@ class NotesBoosterType extends AbstractType
                 'attr' => array(
                     'class' => 'form-control form-group',
                 ),
+                'data' => 3,
                 'required'    => true
             ))
 
             ->add('boosterCommentaries', TextareaType::class, array(
-                'label' => 'Écrivez un commentaire à propos du Booster : ',
+                'label' => "Écrivez un commentaire à propos du Booster (Attention, ce commentaire sera public) : ",
                 'attr' => array(
                     'class' => 'form-control form-group',
                     'placeholder' => 'Écrivez votre commentaire'

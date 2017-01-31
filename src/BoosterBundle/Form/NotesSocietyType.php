@@ -22,11 +22,12 @@ class NotesSocietyType extends AbstractType
                 'attr' => array(
                     'class' => 'form-control form-group',
                 ),
+                'data' => 3,
                 'required'    => true
             ))
 
             ->add('societyCommentaries', TextareaType::class, array(
-                'label' => 'Écrivez un commentaire à propos du Boosté : ',
+                'label' => "Écrivez un commentaire à propos du Boosté (Attention, ce commentaire sera public) :",
                 'attr' => array(
                     'class' => 'form-control form-group',
                     'placeholder' => 'Écrivez votre commentaire'
