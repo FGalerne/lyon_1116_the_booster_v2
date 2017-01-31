@@ -2,7 +2,7 @@
 # Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
 # http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
 parameters:
-    database_host:     127.0.0.1
+    database_host:     localhost
     database_port:     ~
     database_name:     symfony
     database_user:     root
@@ -15,6 +15,16 @@ parameters:
     mailer_to:         ~
     mailer_user:       ~
     mailer_password:   ~
+
+    public_key_captcha : ~
+    private_key_captcha : ~
+
+    secret_paypal : ~
+
+    username_paypal_api : ~
+    password_paypal_api : ~
+    signature_paypal_api : ~
+
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
