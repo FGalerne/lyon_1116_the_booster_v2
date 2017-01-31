@@ -17,16 +17,16 @@ class ProjectSubscriptionType extends AbstractType
     {
         $builder
             ->add('message', TextareaType::class, array(
-                'label' => 'Message: (max 200 caractères)  ',
+                'label' => 'Message dédié au Boosté (max 200 caractères) :',
                 'attr' => array(
                     'class' => 'WYSIWYG form-control form-group',
-                    'placeholder' => "Bonjour, je souhaite vous offrir un coup de boost !"
+                    'placeholder' => "Bonjour, je souhaite vous offrir un Coup de Boost !"
                 ),
                 'required'    => false,
-                'empty_data'  => "Bonjour, je souhaite vous offrir un coup de boost !"
+                'empty_data'  => "Bonjour, je souhaite vous offrir un Coup de Boost !"
             ))
             ->add('givenTime', IntegerType::class, array(
-                'label' => 'Heures données: ',
+                'label' => 'Heures que je souhaite donner : ',
                 'attr' => array(
                     'class' => 'form-control form-group',
                     'min' => 1,

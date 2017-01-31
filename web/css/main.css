@@ -1012,6 +1012,7 @@ hr{
 
 .global-presentation {
 	padding: 35px 0 0 0;
+	margin-bottom: 10vh;
 }
 
 #statistic-society,
@@ -1277,6 +1278,12 @@ hr{
 		color: #ffffff;
 	}
 }
+
+#btn_car_h{
+	padding: 20px 40px;
+	font-size:1.6em;
+}
+
 .home_carousel_btn_lien {
 	font-size:1.2em;
 	font-weight:900;
@@ -1342,6 +1349,7 @@ hr{
 @media screen and (min-width : 976px) and (min-height: 550px) {
 	.home_carousel_inscription {
 		margin-top: -15px;
+		margin-bottom: 8vh;
 	}
 	.home_carousel_jedonne-over p, .home_carousel_jepropose-over p {
 		margin: 0;
@@ -1966,6 +1974,7 @@ li.star-active i {
 /*payment*/
 .title-transaction{
 	font-weight: bold;
+	margin-bottom:2vh;
 }
 .form-transaction{
 	margin-top: 80px;

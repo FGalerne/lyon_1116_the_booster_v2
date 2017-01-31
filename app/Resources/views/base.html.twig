@@ -56,7 +56,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li>{% if is_granted("ROLE_BOOSTE") %}{% if app.user.society %}<a href="{{ path('new_project') }}">Proposer un projet</a>{% endif %}</li>
+                        <li>{% if is_granted("ROLE_BOOSTE") %}{% if app.user.society %}<a href="{{ path('new_project') }}">Déposer un besoin</a>{% endif %}</li>
                         {% endif %}
                         <li><a href="{{ path('list_society') }}">Découvrez les Boostés</a></li>
                         <li><a href="{{ path('booster_how_it_works') }}">Comment ça marche ?</a></li>

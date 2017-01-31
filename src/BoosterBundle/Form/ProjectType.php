@@ -18,11 +18,11 @@ class ProjectType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('projectName', TextType::class, array(
-            'label' => 'Titre du projet: ', 'label_attr' => array('class' => 'project-label'),
+            'label' => 'Titre : ', 'label_attr' => array('class' => 'project-label'),
             'attr' => array('class' => 'form-group project-form')
             )
         )->add('category', ChoiceType::class, array(
-            'label' => 'Catégorie: ', 'label_attr' => array('class' => 'project-label'),
+            'label' => 'Catégorie : ', 'label_attr' => array('class' => 'project-label'),
             'attr' => array('class' => 'form-group project-form'),
                 'choices'  => array(
                     'category_1'  => 'Marketing',
@@ -44,7 +44,7 @@ class ProjectType extends AbstractType
                 },
             )
         )->add('description', TextareaType::class, array(
-                'label' => 'Décrivez votre projet (200 caractères max)', 'label_attr' => array('class' => 'project-label-description'),
+                'label' => 'Décrivez en quelques mots votre Coup de Boost (400 caractères maximum) :', 'label_attr' => array('class' => 'project-label-description'),
                 'attr' => array(
                     'class' => 'WYSIWYG form-control form-group',
                 ),

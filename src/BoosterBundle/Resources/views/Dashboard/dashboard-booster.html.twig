@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}Dashboard Booster | The Booster{% endblock %}
+{% block title %}Espace Booster | The Booster{% endblock %}
 {% block body %}
 <div class="blueHour">
     {% for booster in boosters %}
@@ -31,9 +31,9 @@
                     {% set noteBooster = 0 %}
                 {% endif %}
 
-                    <p>Heures reçues : {{ booster.hoursGiven }}</p>
-                    <p>Projets réalisés : {{ booster.projectDoneNumber }}</p>
-                    <p>Note du booster : {{ noteBooster }}</p>
+                    <p>Heures données : {{ booster.hoursGiven }}</p>
+                    <p>Boosts donnés : {{ booster.projectDoneNumber }}</p>
+                    <p>Note du Booster : {{ noteBooster }}</p>
                     <ul>
                         {% if noteBooster != 0 %}
                             {% for i in 1..noteBooster %}
@@ -59,8 +59,8 @@
                 <div class="col-xs-12" id="navbar-dashboard">
                     <ul class="nav nav-pills dashboard-nav">
                         <li><a id="project-home">Accueil</a></li>
-                        <li><a id="project-in-progress">Projets en cours</a></li>
-                        <li><a id="project-done">Projets réalisés</a></li>
+                        <li><a id="project-in-progress">Boosts en cours</a></li>
+                        <li><a id="project-done">Boosts reçus</a></li>
 
                         {# we hide this for visitors #}
                         {% if app.user.booster %}
@@ -79,12 +79,9 @@
                     <div class="col-xs-12 col-md-4">
                         <h3 class="text-left">Mes coordonnées :</h3>
 
-                        {# we hide this for visitors #}
-                        {% if app.user.booster %}
-                            <p><strong>Lieu de résidence</strong> : {{ booster.city }} </p>
-                        {% endif %}
 
-                        <p><strong>Code Postal</strong> : {{ booster.zipCode }}</p>
+                            <p><strong>Ville</strong> : {{ booster.city }} </p>
+
 
                         {# we hide this for visitors #}
                         {% if app.user.booster %}
@@ -95,10 +92,9 @@
                     </div>
 
                     <div class="col-xs-12 col-md-8 booster-skill">
-                        <h3 class="text-left">Mes principales compétences :</h3>
-                        <p><strong>Compétence principale</strong> : {{ booster.competence1 }}</p>
-                        <p><strong>Mes autres compétences</strong> : </p>
+                        <h3 class="text-left">Mes compétences :</h3>
                         <ul>
+                            {% if booster.competence1 %}<li>{{ booster.competence1 }}</li>{% endif %}
                             {% if booster.competence2 %}<li>{{ booster.competence2 }}</li>{% endif %}
                             {% if booster.competence3 %}<li>{{ booster.competence3 }}</li>{% endif %}
                             {% if booster.competence4 %}<li>{{ booster.competence4 }}</li>{% endif %}
@@ -109,7 +105,7 @@
                 </div>
                 {# The presentation text of the booster #}
 
-                <h3 class="text-left">Ma présentation:</h3>
+                <h3 class="text-left">Ma présentation :</h3>
                 <div class="col-xs-12 presentation-text">
                     <p>{{ booster.presentation | raw }}</p>
                 </div>
@@ -131,19 +127,19 @@
                                     <div class="row">
                                         <div class="col-xs-12">
                                             <p class="text-left"><strong>{{ subscription.booster.user.firstName }}</strong>
-                                                à offert {{ subscription.givenTime }}H
-                                                pour le projet {{ subscription.project.projectName }}
+                                                a donné {{ subscription.givenTime }}H
+                                                pour le Coup de Boost {{ subscription.project.projectName }}
                                                 de la société <strong>{{ subscription.project.society.societyName }}</strong><br/>
                                             </p>
                                             <p class="text-left">
-                                                Le projet à été ouvert le {{ subscription.project.createTime|date('d/m/Y') }},
-                                                la collaboration à démarré le {{ subscription.createTime|date('d/m/Y') }}.
+                                                Le Coup de Boost a été ouvert le {{ subscription.project.createTime|date('d/m/Y') }},
+                                                la mise en relation a démarré le {{ subscription.createTime|date('d/m/Y') }}.
                                             </p>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-xs-12">
-                                            <p class="text-left"><strong>Description du projet</strong>: {{ subscription.project.description | raw }}</p>
+                                            <p class="text-left"><strong>Description du Coup de Boost</strong> : {{ subscription.project.description | raw }}</p>
                                         </div>
                                     </div>
                                 {% endif %}
@@ -151,23 +147,23 @@
                                 {% if subscription.status == 'In_progress' %}
                                     <div class="sub-container row">
                                         <div class="col-xs-8">
-                                            Projet en cours de réalisation !
+                                            Coups de Boost en cours de réalisation !
                                         </div>
                                         <div class="col-xs-4">
                                             {# if booster have no terminated the project #}
                                             {% if not subscription.boosterValidation %}
-                                                <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardSlug': subscription.booster.slug, 'role': 'booster' }) }}" class="button-cancel-subscription">Ce projet est terminé !</a><br/>
+                                                <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardSlug': subscription.booster.slug, 'role': 'booster' }) }}" class="button-cancel-subscription">Ce Coup de Boost est terminé !</a><br/>
 
                                             {# if booster have terminated the project and wait for society validation #}
                                             {% else %}
                                                 En attente de la validation de {{ subscription.project.society.user.firstname }}.<br/>
                                             {% endif %}
                                             {# open the collapse with confiramtion for cancel collaboration on click #}
-                                            <a data-toggle="collapse" data-target="{{'#collapseCancel' ~ index }}" class="button-cancel-subscription">Annuler la collaboration</a>
+                                            <a data-toggle="collapse" data-target="{{'#collapseCancel' ~ index }}" class="button-cancel-subscription">Annuler la mise en relation</a>
                                         </div>
                                         {#Collapse for cancelation confirmation#}
                                         <div id="{{'collapseCancel' ~ index }}" class="collapse">
-                                            <div> <strong>Attention, en annulant cette collaboration, vous n'aurez plus la possibilité de terminer ce projet avec {{ subscription.project.society.user.firstName }}: </strong><br/>
+                                            <div> <strong>Attention, en annulant cette mise en relation, vous n'aurez plus la possibilité de terminer ce Coup de Boost avec {{ subscription.project.society.user.firstName }}: </strong><br/>
                                                 <a href="{{ path('subscription_cancel', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardId': subscription.booster.id, 'role': 'booster' }) }}">Je confirme l'annulation</a>
                                             </div>
                                         </div>
@@ -178,7 +174,7 @@
                                 {% elseif subscription.status == 'Canceled' %}
                                     <div class="sub-container row">
                                         <div class="col-xs-12">
-                                            <p>La collaboration avec <strong>{{ subscription.project.society.societyName }}</strong> à été annulée</p>
+                                            <p>La mise en relation avec <strong>{{ subscription.project.society.societyName }}</strong> à été annulée</p>
                                         </div>
                                     </div>
                                 {% endif %}
@@ -199,7 +195,7 @@
 
                         <div class="row">
                             <p class="text-left"><strong>{{ subscription.project.projectName }}</strong>:
-                                Projet terminé le {{ subscription.project.endTime|date('d/m/Y') }} grace à la collaboration de {{ subscription.booster.user.firstName }} en {{ subscription.GivenTime }}H.
+                                Coup de Boost terminé le {{ subscription.project.endTime|date('d/m/Y') }} grâce à {{ subscription.booster.user.firstName }} et ses {{ subscription.GivenTime }}H.
                             </p>
                         </div>
                         <div class="row">
@@ -217,7 +213,7 @@
                                 {% endif %}
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-9">
-                                <strong>Son commentaire</strong>: {{ subscription.boosterCommentaries }}
+                                <strong>Son commentaire</strong> : {{ subscription.boosterCommentaries }}
                             </div>
                         </div>
                         <div class="row">
@@ -235,7 +231,7 @@
                                 {% endif %}
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-9">
-                                <strong>Son commentaire</strong>: {{ subscription.societyCommentaries }}
+                                <strong>Son commentaire</strong> : {{ subscription.societyCommentaries }}
                             </div>
                         </div>
 
