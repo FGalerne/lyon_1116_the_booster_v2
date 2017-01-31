@@ -10,7 +10,7 @@
 
                     <div class="row">
                         <div class="col-xs-12">
-                            <p class="text-left"><strong>Coup de Boost : {{ project.projectName }}</strong>
+                            <p class="text-left"><strong>Coup de Boost {{ project.projectName }}</strong>
                                 ouvert depuis le {{ project.createTime|date('d/m/Y') }},
                                 par <strong>{{ project.society.user.firstName }}</strong>,
                                 dans la catégorie {{ project.category }}.
@@ -62,12 +62,12 @@
                                             </div>
                                             {% elseif subscription.status == 'In_progress' %}
                                                 <div class="col-md-2">
-                                                    <a title="En cours">Projet en cours de réalisation</a>
+                                                    <a title="En cours">Coup de Boost en cours de réalisation</a>
                                                 </div>
                                             {% elseif subscription.status == 'Canceled' %}
                                                 {# if subscription has been canceled #}
                                                 <div class="col-md-2">
-                                                    <a title="Annule">La collaboration a été annulée</a><br/>
+                                                    <a title="Annule">La mise en relation a été annulée</a><br/>
                                                 </div>
                                             {% endif %}
                                         </div>
@@ -77,7 +77,7 @@
                                         {% if subscription.status == 'In_progress' %}
                                             <div class="row">
                                                 <div class="col-md-8">
-                                                    Projet en cours de réalisation !
+                                                    Coup de Boost en cours de réalisation !
                                                 </div>
 
                                                 <div class="col-md-4">
@@ -90,13 +90,13 @@
                                                         En attente de la validation de {{ subscription.booster.user.firstname }}.<br/>
                                                     {% endif %}
                                                     {# on click, will display the collapse to confirm to cancel #}
-                                                    <a data-toggle="collapse" data-target="{{'#collapseCancel' ~ index }}" class="button-cancel-subscription">Annuler la collaboration</a><br/>
+                                                    <a data-toggle="collapse" data-target="{{'#collapseCancel' ~ index }}" class="button-cancel-subscription">Annuler la mise en relation</a><br/>
                                                 </div>
                                             </div>
 
                                             {#Collapse for cancelation confirmation#}
                                             <div id="{{'collapseCancel' ~ index }}" class="collapse">
-                                                <div> <strong>Attention, en annulant cette collaboration, vous n'aurez plus la possibilité de terminer ce projet avec {{ subscription.booster.user.firstName }}: </strong><br/>
+                                                <div> <strong>Attention, en annulant cette mise en relation, vous n'aurez plus la possibilité de terminer ce Coup de Boost avec {{ subscription.booster.user.firstName }} : </strong><br/>
                                                     <a href="{{ path('subscription_cancel', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'role': 'society' }) }}">Je confirme l'annulation</a>
                                                 </div>
                                             </div>
