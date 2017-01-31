@@ -126,7 +126,7 @@
                                     {#The booster have a 'booster' profile#}
                                     {% if app.user.booster %}
                                         <a class="postulation-button" href="{{ path('project_subscription', { 'boosterId': app.user.booster.id, 'societyId': society.id, 'projectId': project.id }) }}">
-                                            Je donne du temps à ce Coup de Boost !
+                                            Je donne un Coup de Boost !
                                             <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                                         {#The booster do not have completed is profile#}
                                     {% else %}
@@ -134,7 +134,7 @@
 
                                     {% endif %}
                                 {% else %}
-                                    <a class="postuled-button">Vous avez proposé votre aide pour ce Coup de Boost !<i class="fa fa-thumbs-up" aria-hidden="true"></i>                                    </a>
+                                    <a class="postuled-button">Vous avez proposé un Coup de Boost !<i class="fa fa-thumbs-up" aria-hidden="true"></i>                                    </a>
                                 {% endif %}
                                 {#GUEST#}
                             {% else %}
