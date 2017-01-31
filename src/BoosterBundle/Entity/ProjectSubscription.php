@@ -9,7 +9,7 @@ class ProjectSubscription
 {
     public function __toString()
     {
-        return 'Candidature';
+        return $this->getProject()->getProjectName().' - '.$this->getBooster()->getUser()->getUsername();
     }
     /**
      * @var integer

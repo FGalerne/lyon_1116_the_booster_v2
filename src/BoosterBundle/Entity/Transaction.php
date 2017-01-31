@@ -9,7 +9,7 @@ class Transaction
 {
     public function __toString()
     {
-        return 'Transaction';
+        return $this->getSociety()->getSocietyName();
     }
 
     /**

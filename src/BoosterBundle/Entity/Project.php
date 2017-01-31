@@ -9,7 +9,7 @@ class Project
 {
     public function __toString()
     {
-        return 'Project';
+        return $this->getProjectName();
     }
     /**
      * @var integer
