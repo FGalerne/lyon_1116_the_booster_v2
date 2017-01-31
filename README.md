@@ -52,7 +52,7 @@ HTTPS :
       mailer_transport : gmail (If it's gmail) (default : smtp)
       mailer_host : smtp.gmail.com (If it's gmail) (default : 127.0.0.1)
       mailer_to : (your email)
-      mailer_user : (your email)
+      mailer_user : (your email server)
       mailer_password : (your password)
       
       public_key_captcha : (public key Google Recaptcha)
