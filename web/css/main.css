@@ -1110,6 +1110,8 @@ hr{
 .project-done {
 	margin-bottom: 30px;
 	margin-top: 30px;
+	padding-top: 30px;
+	padding-bottom: 30px;
 }
 
 .project-in-progress p,
@@ -2217,26 +2219,27 @@ li.star-active i {
 	margin-left: 10px;
 }
 
-.postulation-button, .postuled-button{
+.postulation-button,
+.postuled-button{
 	text-align: center;
-	font-size: 1.2em;
-	font-weight: 900;
-	background-color: #363636;
+	font-size: 1em;
+	background-color: #008000;
 	padding: 10px 30px;
 	border: none;
-	border-radius: 30px;
+	border-radius: 35px;
 	color: white;
 	width: 50%;
 	margin: 7px auto;
 	display: block;
 }
+
 .postuled-button:hover{
 	background-color: #696969;
 	color:white;
 }
 .postulation-button:hover{
 	cursor: pointer;
-	background-color: #eb0310;
+	background-color: #008909;
 	color:white;
 }
 

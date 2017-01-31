@@ -77,14 +77,14 @@
         {# The Project part "IN PROGRESS" #}
 
         <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
-            <div class="container project-in-progress prelude">
+            <div class="container project-in-progress">
                 {% for project in projects %}
                     {% set showSubscriptions = 1 %}
                     {% if project.status != 'Open' %}
                         {% set showSubscriptions = 0 %}
                     {% endif %}
                     {% if project.status != 'Done' and project.creationStatus == true %}
-
+                    <div class="projects prelude row">
                         <div class="row">
                             <div class="col-xs-12">
                                 <p class="text-left"><strong>Projet: {{ project.projectName }}</strong>
@@ -138,17 +138,15 @@
                                 {% endif %}
                                 {#GUEST#}
                             {% else %}
-                                <a class="postulation-button" href="{{ path('booster_inscription_choix') }}">Créez un compte pour donner du temps à ce projet<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                <a class="postulation-button" href="{{ path('booster_inscription_choix') }}"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Créez un compte pour donner du temps à ce projet
                                 </a>
                             {% endif %}
                         {% else %}
                             <div class="sub-container row">
-                                <div class="col-xs-12">
-                                    Projet en cours de réalisation.
-                                </div>
+                                    <p>Projet en cours de réalisation.</p>
                             </div>
                         {% endif %}
-
+                    </div>
                     {% endif %}
                 {% endfor %}
             </div>
