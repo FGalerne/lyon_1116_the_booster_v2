@@ -10,7 +10,7 @@
 
                     <div class="row">
                         <div class="col-xs-12">
-                            <p class="text-left"><strong>Projet: {{ project.projectName }}</strong>
+                            <p class="text-left"><strong>Coup de Boost {{ project.projectName }}</strong>
                                 ouvert depuis le {{ project.createTime|date('d/m/Y') }},
                                 par <strong>{{ project.society.user.firstName }}</strong>,
                                 dans la catégorie {{ project.category }}.
@@ -20,7 +20,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <p class="text-left"><strong>Description du projet</strong>: {{ project.description | raw }}</p>
+                            <p class="text-left"><strong>Description du Coup de Boost</strong> : {{ project.description | raw }}</p>
                         </div>
                     </div>
 
@@ -57,17 +57,17 @@
                                                     Le voir
                                                 </a><br/>
                                                 <a href="{{ path('dashboard_contact_booster', {'societyId': app.user.society.id, 'projectId': subscription.project.id, 'subscriptionId': subscription.id }) }}" title="Le contacter">
-                                                    Accepter le coup de boost
+                                                    Accepter le Coup de Boost
                                                 </a><br/>
                                             </div>
                                             {% elseif subscription.status == 'In_progress' %}
                                                 <div class="col-md-2">
-                                                    <a title="En cours">Projet en cours de réalisation</a>
+                                                    <a title="En cours">Coup de Boost en cours de réalisation</a>
                                                 </div>
                                             {% elseif subscription.status == 'Canceled' %}
                                                 {# if subscription has been canceled #}
                                                 <div class="col-md-2">
-                                                    <a title="Annule">La collaboration a été annulée</a><br/>
+                                                    <a title="Annule">La mise en relation a été annulée</a><br/>
                                                 </div>
                                             {% endif %}
                                         </div>
@@ -77,26 +77,26 @@
                                         {% if subscription.status == 'In_progress' %}
                                             <div class="row">
                                                 <div class="col-md-8">
-                                                    Projet en cours de réalisation !
+                                                    Coup de Boost en cours de réalisation !
                                                 </div>
 
                                                 <div class="col-md-4">
                                                     {# if project has not been put to done by the society #}
                                                     {% if not subscription.societyValidation %}
-                                                    <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardSlug': app.user.society.slug, 'role': 'society' }) }}" class="button-cancel-subscription">Ce projet est terminé !</a><br/>
+                                                    <a href="{{ path('project_done', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'dashboardSlug': app.user.society.slug, 'role': 'society' }) }}" class="button-cancel-subscription">Ce Coup de Boost est terminé !</a><br/>
 
                                                         {# if project has been put to done by the society and not by booster project status would be Done #}
                                                     {% else %}
                                                         En attente de la validation de {{ subscription.booster.user.firstname }}.<br/>
                                                     {% endif %}
                                                     {# on click, will display the collapse to confirm to cancel #}
-                                                    <a data-toggle="collapse" data-target="{{'#collapseCancel' ~ index }}" class="button-cancel-subscription">Annuler la collaboration</a><br/>
+                                                    <a data-toggle="collapse" data-target="{{'#collapseCancel' ~ index }}" class="button-cancel-subscription">Annuler la mise en relation</a><br/>
                                                 </div>
                                             </div>
 
                                             {#Collapse for cancelation confirmation#}
                                             <div id="{{'collapseCancel' ~ index }}" class="collapse">
-                                                <div> <strong>Attention, en annulant cette collaboration, vous n'aurez plus la possibilité de terminer ce projet avec {{ subscription.booster.user.firstName }}: </strong><br/>
+                                                <div> <strong>Attention, en annulant cette mise en relation, {{ subscription.booster.user.firstName }} ne pourra plus vous aider pour ce Coup de Boost </strong><br/>
                                                     <a href="{{ path('subscription_cancel', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'role': 'society' }) }}">Je confirme l'annulation</a>
                                                 </div>
                                             </div>
@@ -113,19 +113,19 @@
                             {# project waiting for validation #}
                             <div class="sub-container row">
                                 <div class="col-xs-12">
-                                    Projet en attente de validation !
+                                    Coup de Boost en cours de modération !
                                 </div>
                             </div>
                         {% endif %}
                     {# on click, will display the collapse to confirm to delete #}
                     <div class="sub-container row">
                         <div class="col-xs-12">
-                            <a data-toggle="collapse" data-target="{{'#collapseDelete' ~ index }}" class="button-cancel-subscription">Supprimer le projet</a>
+                            <a data-toggle="collapse" data-target="{{'#collapseDelete' ~ index }}" class="button-cancel-subscription">Supprimer le Coup de Boost</a>
                         </div>
                         {#Collapse for supperssion of the project #}
                         <div id="{{'collapseDelete' ~ index }}" class="collapse">
-                            <div> <strong>Attention, après sa suppression, le projet ne pourra pas être récupéré: </strong><br/>
-                                <a href="{{ path('project_delete', {'projectId': project.id}) }}">Je confirme la suppression du projet</a>
+                            <div> <strong>Attention, après sa suppression, le Coup de Boost ne pourra pas être récupéré: </strong><br/>
+                                <a href="{{ path('project_delete', {'projectId': project.id}) }}">Je confirme la suppression du Coup de Boost</a>
                             </div>
                         </div>
                     </div>
