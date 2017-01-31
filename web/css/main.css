@@ -43,6 +43,11 @@ h1{
 	font-weight: 900;
 }
 
+#beta-test {
+	margin-top: 65px;
+	margin-left: 10px;
+}
+
 /**** Gold color for stars rate system ****/
 
 .fa-star-o,
