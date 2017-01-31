@@ -39,7 +39,7 @@
                                             <div class="col-xs-12 col-md-3 avatar-messenger-dashboards">
                                                 <img src="{{ subscription.booster.photo|default ? asset('img/uploads/boosters/' ~ subscription.booster.photo) : asset('img/photo-couverture-profile-societe.png') }}" alt="photo-avatar"/>
                                             </div>
-                                            <div class="col-xs-12 col-md-9">
+                                            <div class="col-xs-12 col-md-9 messenger-content">
                                                 <p class="text-left">Temps proposé : {{ subscription.givenTime }} H</p>
                                                 <p class="text-left"><strong>{{ subscription.booster.user.firstName }}</strong> : {{ subscription.message | raw }}</p>
                                             </div>

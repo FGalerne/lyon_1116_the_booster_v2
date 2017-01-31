@@ -1931,6 +1931,16 @@ li.star-active i {
 	margin-top: 15px;
 }
 
+@media (max-width: 991px){
+	.avatar-messenger-dashboards {
+		max-height: 350px;
+	}
+	.messenger-content {
+		padding-left : 30px;
+		padding-right : 30px;
+	}
+}
+
 .avatar-messenger-dashboards img{
 	width: 50%;
 	display: block;
