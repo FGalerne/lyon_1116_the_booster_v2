@@ -96,7 +96,7 @@
 
                                             {#Collapse for cancelation confirmation#}
                                             <div id="{{'collapseCancel' ~ index }}" class="collapse">
-                                                <div> <strong>Attention, en annulant cette mise en relation, vous n'aurez plus la possibilité de terminer ce Coup de Boost avec {{ subscription.booster.user.firstName }} : </strong><br/>
+                                                <div> <strong>Attention, en annulant cette mise en relation, {{ subscription.booster.user.firstName }} ne pourra plus vous aider pour ce Coup de Boost </strong><br/>
                                                     <a href="{{ path('subscription_cancel', {'projectId': subscription.project.id, 'subscriptionId': subscription.id, 'role': 'society' }) }}">Je confirme l'annulation</a>
                                                 </div>
                                             </div>
