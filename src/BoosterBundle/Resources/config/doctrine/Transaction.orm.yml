@@ -13,12 +13,10 @@ BoosterBundle\Entity\Transaction:
         createTime:
             type: datetime
             nullable: false
-            options:
-                default: CURRENT_TIMESTAMP
             column: create_time
         endTime:
             type: datetime
-            nullable: true
+            nullable: false
             column: end_time
 
     oneToOne:

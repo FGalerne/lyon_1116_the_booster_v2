@@ -9,7 +9,7 @@ class Booster
 {
     public function __toString()
     {
-        return 'Booster';
+        return $this->getUser()->getUsername();
     }
 
     /**

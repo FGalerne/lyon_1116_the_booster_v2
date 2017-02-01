@@ -9,7 +9,7 @@ class Messenger
 {
     public function __toString()
     {
-        return 'Messenger';
+        return $this->getMessage();
     }
     /**
      * @var integer
