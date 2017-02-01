@@ -9,7 +9,7 @@ class Transaction
 {
     public function __toString()
     {
-        return 'Transaction';
+        return $this->getSociety()->getSocietyName();
     }
 
     /**
@@ -20,7 +20,7 @@ class Transaction
     /**
      * @var \DateTime
      */
-    private $createTime = 'CURRENT_TIMESTAMP';
+    private $createTime;
 
     /**
      * @var \DateTime

@@ -9,7 +9,7 @@ class Faq
 {
     public function __toString()
     {
-        return 'FAQ';
+        return $this->getQuestion();
     }
 
     /**

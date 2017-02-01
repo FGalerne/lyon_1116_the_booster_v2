@@ -6,7 +6,7 @@ class Contact
 {
     public function __toString()
     {
-        return 'Contact';
+        return $this->getSubject();
     }
 
     private $name;

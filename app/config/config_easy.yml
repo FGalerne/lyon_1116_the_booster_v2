@@ -1,0 +1,278 @@
+easy_admin:
+    site_name: The booster
+    design:
+        brand_color: 'rgba(230,15,51,1)'
+    entities:
+        User:
+            class: BoosterBundle\Entity\User
+            label: "Utilisateurs"
+            list:
+                fields:
+                    - firstName
+                    - { property: 'firstName', label: 'Prénom' }
+                    - lastName
+                    - { property: 'lastName', label: 'Nom' }
+                    - createTime
+                    - { property: 'createTime', label: 'Création' }
+                    - username
+                    - { property: 'username', label: 'Identifiant' }
+                    - nameProject
+                    - { property: 'nameProject', label: 'Projet' }
+                    - siretNumber
+                    - { property: 'siretNumber', label: 'Siret' }
+                    - validationSociety
+                    - { property: 'validationSociety', label: 'Activation Société',  type: 'toggle' }
+                    - enabled
+                    - { property: 'enabled', label: 'Activation du compte',  type: 'toggle' }
+            form:
+                fields:
+                    - title
+                    - { property: 'Title', label: 'Civilité' }
+                    - roles
+                    - { property: 'roles', label: 'Role' }
+                    #type:'choice', type_options: {choices: { booster:{ROLE_USER: 'user', ROLE_BOOSTER: 'booster'}, booste:{ROLE_USER: 'user', ROLE_BOOSTER: 'booste'}}} }
+                    - firstName
+                    - { property: 'firstName', label: 'Prénom' }
+                    - lastName
+                    - { property: 'lastName', label: 'Nom' }
+                    - createTime
+                    - { property: 'createTime', label: 'Création', type: 'datetime' }
+                    - username
+                    - { property: 'username', label: 'Identifiant' }
+                    - nameProject
+                    - { property: 'nameProject', label: 'Projet' }
+                    - siretNumber
+                    - { property: 'siretNumber', label: 'Siret' }
+                    - professionalFunction
+                    - { property: 'professionalFunction', label: 'Fonction' }
+
+        Booster:
+            class: BoosterBundle\Entity\Booster
+            label: "Booster"
+            list:
+                fields:
+                    - photo
+                    - { property: 'photo', type: 'image', base_path: 'img/uploads/boosters' }
+                    - user.firstName
+                    - { property: 'user.firstName', label: 'Prénom' }
+                    - user.lastName
+                    - { property: 'user.lastName', label: 'Nom' }
+                    - user.createTime
+                    - { property: 'user.createTime', type: 'date', label: 'Création' }
+                    - user.username
+                    - { property: 'user.username', label: 'Identifiant' }
+                    - user.enabled
+                    - { property: 'user.enabled', label: 'Activation du compte',  type: 'toggle' }
+                    - competence1
+                    - { property: 'competence1', label: 'Competence principale' }
+                    - competence2
+                    - { property: 'competence2', label: 'Competence 2' }
+                    - competence3
+                    - { property: 'competence3', label: 'Competence 3' }
+                    - competence4
+                    - { property: 'competence4', label: 'Competence 4' }
+                    - competence5
+                    - { property: 'competence5', label: 'Competence 5' }
+                    - competence6
+                    - { property: 'competence6', label: 'Competence 6' }
+                    - averageNotation
+                    - { property: 'averageNotation', label: 'Note' }
+                    - city
+                    - { property: 'city', label: 'Ville' }
+                    - hoursGiven
+                    - { property: 'hoursGiven', label: 'Temps offert' }
+                    - projectDoneNumber
+                    - { property: 'projectDoneNumber', label: 'Projets réalisés' }
+            form:
+                fields:
+                    - user
+                    - { property: 'user', label: 'Utilisateur' }
+                    - competence1
+                    - { property: 'competence1', label: 'Competence principale' }
+                    - competence2
+                    - { property: 'competence2', label: 'Competence 2' }
+                    - competence3
+                    - { property: 'competence3', label: 'Competence 3' }
+                    - competence4
+                    - { property: 'competence4', label: 'Competence 4' }
+                    - competence5
+                    - { property: 'competence5', label: 'Competence 5' }
+                    - competence6
+                    - { property: 'competence6', label: 'Competence 6' }
+                    - averageNotation
+                    - { property: 'averageNotation', label: 'Note' }
+                    - city
+                    - { property: 'city', label: 'Ville' }
+                    - hoursGiven
+                    - { property: 'hoursGiven', label: 'Temps offert' }
+                    - projectDoneNumber
+                    - { property: 'projectDoneNumber', label: 'Projets réalisés' }
+
+        Booste:
+            class: BoosterBundle\Entity\Society
+            label: "Booste"
+            list:
+                fields:
+                    - photo
+                    - { property: 'photo', type: 'image', base_path: 'img/uploads/societies' }
+                    - user.firstName
+                    - { property: 'user.firstName', label: 'Prénom' }
+                    - user.lastName
+                    - { property: 'user.lastName', label: 'Nom' }
+                    - user.createTime
+                    - { property: 'user.createTime', type: 'date', label: 'Création' }
+                    - user.username
+                    - { property: 'user.username', label: 'Identifiant' }
+                    - user.enabled
+                    - { property: 'user.enabled', label: 'Activation du compte',  type: 'toggle' }
+                    - user.nameProject
+                    - { property: 'user.nameProject', label: 'Projet' }
+                    - user.siretNumber
+                    - { property: 'user.siretNumber', label: 'Siret' }
+                    - user.validationSociety
+                    - { property: 'user.validationSociety', label: 'Activation Société',  type: 'toggle' }
+                    - societyName
+                    - { property: 'societyName', label: 'Societé' }
+                    - averageNotation
+                    - { property: 'averageNotation', label: 'Note' }
+                    - hoursTaken
+                    - { property: 'hoursTaken', label: 'Temps reçu' }
+                    - projectDoneNumber
+                    - { property: 'projectDoneNumber', label: 'Projets réalisés' }
+            form:
+                 fields:
+                     - user
+                     - { property: 'user', label: 'Utilisateur' }
+                     - societyName
+                     - { property: 'societyName', label: 'Societé' }
+                     - averageNotation
+                     - { property: 'averageNotation', label: 'Note' }
+                     - hoursTaken
+                     - { property: 'hoursTaken', label: 'Temps reçu' }
+                     - projectDoneNumber
+                     - { property: 'projectDoneNumber', label: 'Projets réalisés' }
+                     - websiteLink
+                     - { property: 'websiteLink', label: 'Site internet' }
+                     - punchLine
+                     - { property: 'punchLine', label: "Phrase d'accorche" }
+                     - presentation
+                     - { property: 'presentation', label: 'Présentation' }
+                     - linkedin
+                     - { property: 'linkedin', label: 'Linkedin' }
+                     - twitter
+                     - { property: 'twitter', label: 'Twitter' }
+                     - youtube
+                     - { property: 'youtube', label: 'Youtube' }
+
+        Project:
+            class: BoosterBundle\Entity\Project
+            label: "Projet"
+            list:
+                fields:
+                    - projectName
+                    - { property: 'projectName', label: 'Projet' }
+                    - category
+                    - { property: 'category', label: 'Catégorie' }
+                    - description
+                    - { property: 'description', label: 'Description' }
+                    - creationStatus
+                    - { property: 'creationStatus', label: 'Activation Projet',  type: 'toggle' }
+                    - status
+                    - { property: 'status', label: 'Status' }
+                    - givenTime
+                    - { property: 'givenTime', label: 'Temps reçu' }
+                    - createTime
+                    - { property: 'createTime', label: 'Création' }
+                    - endTime
+                    - { property: 'endTime', label: 'Fin' }
+
+            form:
+                fields:
+                    - society
+                    - { property: 'society', label: 'Société' }
+                    - projectName
+                    - { property: 'projectName', label: 'Projet' }
+                    - category
+                    - { property: 'category', label: 'Catégorie' }
+                    - description
+                    - { property: 'description', label: 'Description' }
+                    - status
+                    - { property: 'status', type: 'choice', type_options: {choices: {'Open':'Ouvert', 'In_progress':'En cours', 'Delete':'Supprimé'}}}
+                    - givenTime
+                    - { property: 'givenTime', label: 'Temps reçu' }
+
+        FAQ:
+            class: BoosterBundle\Entity\Faq
+            label: "FAQ"
+            list:
+                fields:
+                    - category
+                    - { property: 'category', label: 'Catégorie' }
+                    - question
+                    - { property: 'question', label: 'Questions' }
+                    - answer
+                    - { property: 'answer', label: 'Réponse' }
+            form:
+                fields:
+                    - category
+                    - { property: 'category', label: 'Catégorie' }
+                    - question
+                    - { property: 'question', label: 'Questions' }
+                    - answer
+                    - { property: 'answer', label: 'Réponse' }
+
+        Subscriptions:
+            class: BoosterBundle\Entity\ProjectSubscription
+            label: "Candidatures"
+            list:
+                fields:
+                    - booster.user.username
+                    - { property: 'booster.user.username', label: 'Booster' }
+                    - project.projectName
+                    - { property: 'project.projectName', label: 'Projet' }
+                    - status
+                    - { property: 'status', label: 'Status' }
+                    - createTime
+                    - { property: 'createTime', label: 'Création' }
+            form:
+                fields:
+                    - booster
+                    - { property: 'booster', label: 'Booster' }
+                    - project
+                    - { property: 'project', label: 'Projet' }
+                    - message
+                    - { property: 'message', label: 'Message' }
+                    - givenTime
+                    - { property: 'givenTime', label: 'Temps offert' }
+                    - boosterCommentaries
+                    - { property: 'boosterCommentaries', label: 'Commentaire pour le Booster' }
+                    - societyCommentaries
+                    - { property: 'societyCommentaries', label: 'Commentaire pour la Societé' }
+                    - boosterNote
+                    - { property: 'boosterNote', label: 'Note pour le booster' }
+                    - societyCommentaries
+                    - { property: 'societyNote', label: 'Note pour la society' }
+                    - status
+                    - { property: 'status', label: 'Status', type: 'choice', type_options: {choices: {'Open':'Ouvert', 'In_progress':'En cours', 'Closed':'Fermé'}} }
+
+        Transactions:
+            class: BoosterBundle\Entity\Transaction
+            label: "Transactions"
+            list:
+                fields:
+                    - society.societyName
+                    - { property: 'society.societyName', label: 'Societé' }
+                    - society.user.username
+                    - { property: 'society.user.username', label: 'Référent' }
+                    - createTime
+                    - { property: 'createTime', label: 'Date de paiement', type: 'datetime' }
+                    - endTime
+                    - { property: 'endTime', label: 'Date de fin de mise en avant', type: 'datetime' }
+            form:
+                fields:
+                    - society
+                    - { property: 'society', label: 'Societé' }
+                    - createTime
+                    - { property: 'createTime', label: 'Date de paiement' }
+                    - endTime
+                    - { property: 'endTime', label: 'Date de fin de mise en avant' }
