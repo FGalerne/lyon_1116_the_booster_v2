@@ -3,8 +3,8 @@ var dashboardNavColor = '#ffffff';
 
 
 $( document ).ready(function() {
-    dashHome();
-    colorFocus('#project-home');
+    dashProject();
+    colorFocus('#project-in-progress');
 });
 $('#project-home').click(function() {
     dashHome();

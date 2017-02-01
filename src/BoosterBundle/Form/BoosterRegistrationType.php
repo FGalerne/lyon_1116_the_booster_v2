@@ -9,6 +9,7 @@
 namespace BoosterBundle\Form;
 
 
+use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
 use FOS\UserBundle\Form\Type\RegistrationFormType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -39,6 +40,16 @@ class BoosterRegistrationType extends RegistrationFormType
                 'label' => false,
                 'attr'=>array('style'=>'display:none;'),
                 'data' => new \DateTime()
+            ))
+            ->add('recaptcha', EWZRecaptchaType::class, array(
+                'label' => ' ',
+                'attr' => array(
+                    'options' => array(
+                        'theme' => 'clean',
+                        'type'  => 'image',
+                        'size'  => 'normal'
+                    )
+                ),
             ))
             ->remove('username');
 

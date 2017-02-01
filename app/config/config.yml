@@ -94,8 +94,8 @@ fos_user:
         sender_name:    the booster
 
 ewz_recaptcha:
-    public_key: 6LenAQsUAAAAADIzPqfQyen9j7GbLkVEXJ0gzBAj
-    private_key: 6LenAQsUAAAAAJyrhrOPHuTt0GBVQqpVFrWwYRwn
+    public_key: "%public_key_captcha%"
+    private_key: "%private_key_captcha%"
     locale_from_request: true
     # Not needed as "%kernel.default_locale%" is the default value for the locale key
     locale_key:  %kernel.default_locale%
@@ -104,13 +104,14 @@ twig:
     form:
         resources:
             - 'BoosterBundle:Form:fields.html.twig'
+
 jms_payment_core:
-    secret: 009fe4cfe3d62a1559c6a6a519477fc3
+    secret: "%%secret_paypal%"
 
 jms_payment_paypal:
-    username: teamthebooster_api1.gmail.com
-    password: EDHLEQXXBJN6R4LN
-    signature: AFcWxV21C7fd0v3bYYYRCpSSRl31Afl5RKAVs1nefl18qJaPaaganNf3
+    username: "%username_paypal_api%"
+    password: "%password_paypal_api%"
+    signature: "%signature_paypal_api%"
 
 
 
