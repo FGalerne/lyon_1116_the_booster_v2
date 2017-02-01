@@ -6,8 +6,7 @@ security:
 
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     role_hierarchy:
-        ROLE_SUPER_ADMIN: ROLE_ADMIN, ROLE_USER, ROLE_BOOSTER, ROLE_BOOSTE
-        ROLE_SUPER_MODERATEUR: ROLE_USER, ROLE_BOOSTER, ROLE_BOOSTE
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
         ROLE_BOOSTER: ROLE_BOOSTER, ROLE_USER
         ROLE_BOOSTE: ROLE_BOOSTE, ROLE_USER
 
@@ -43,11 +42,6 @@ security:
     - {path: ^/dashboard-booster-edit/, role: ROLE_BOOSTER}
     - {path: ^/dashboard-booste-edit/, role: ROLE_BOOSTE}
     - {path: ^/deposer-un-projet/, role: ROLE_BOOSTE}
-
-    #- {path: ^/booste, role: ROLE_BOOSTE}
-    #- {path: ^/booster, role: ROLE_BOOSTER}
-    #- {path: ^/booste/dashboard/deposer-un-projet, role: ROLE_BOOSTE}
-    #- {path: ^/admin, role: ROLE_ADMIN}
 
 
 

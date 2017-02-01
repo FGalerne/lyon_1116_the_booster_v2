@@ -20,7 +20,7 @@ class Transaction
     /**
      * @var \DateTime
      */
-    private $createTime = 'CURRENT_TIMESTAMP';
+    private $createTime;
 
     /**
      * @var \DateTime
