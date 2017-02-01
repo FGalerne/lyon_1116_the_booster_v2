@@ -2071,7 +2071,6 @@ li.star-active i {
 	padding: 10px 30px;
 }
 
-
 /* Here we manage the css of the h2 h3 and p */
 
 .all-team h2 {
@@ -2108,6 +2107,7 @@ li.star-active i {
 .all-team ul li:hover {
 	background-color: #363636;
 }
+
 .all-team a {
 	text-decoration: none;
 	color: #FFFFFF;
