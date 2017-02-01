@@ -86,7 +86,15 @@
                                         <img src="{{ transaction.society.photo|default ? asset('img/uploads/societies/' ~ transaction.society.photo) : asset('img/photo-couverture-profile-societe.png') }}">
                                     </div>
                                     <h5 class="name-list-society">{{ transaction.society.societyName }}</h5>
-                                    <p class="nombre-de-projet">Nombre de projets : 100</p>
+                                    {% set projectCount = 0 %}
+                                    {% for project in transaction.society.projectNames %}
+                                        {% if project.creationStatus %}
+                                            {% if project.status == "Open" or project.status == "In_progress" %}
+                                                {% set projectCount = projectCount + 1 %}
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
+                                    <p class="nombre-de-projet">Nombre de projets : {{ projectCount }}</p>
                                 </div>
                             </a>
                         </div>
