@@ -77,18 +77,19 @@
         {# The Project part "IN PROGRESS" #}
 
         <section class="container-fluid presentation-booster" id="dashboard-booster-inProgress">
-            <div class="container project-in-progress prelude">
+            <div class="container project-in-progress">
                 {% for project in projects %}
                     {% set showSubscriptions = 1 %}
                     {% if project.status != 'Open' %}
                         {% set showSubscriptions = 0 %}
                     {% endif %}
                     {% if project.status != 'Done' and project.creationStatus == true %}
-
+                    <div class="projects prelude row">
                         <div class="row">
                             <div class="col-xs-12">
-                                <p class="text-left"><strong>Demande de Coup de Boost : {{ project.projectName }}</strong>
-                                    ouverte depuis le {{ project.createTime|date('d/m/Y') }},
+                                <h3><strong>Projet: {{ project.projectName }}</strong></h3>
+                                <p class="text-left">
+                                    ouvert depuis le {{ project.createTime|date('d/m/Y') }},
                                     par <strong>{{ project.society.user.firstName }}</strong>,
                                     dans la catégorie {{ project.category }}.
                                     <br/>
@@ -138,17 +139,15 @@
                                 {% endif %}
                                 {#GUEST#}
                             {% else %}
-                                <a class="postulation-button" href="{{ path('booster_inscription_choix') }}">Créez un compte pour donner un Coup de Boost<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                <a class="postulation-button" href="{{ path('booster_inscription_choix') }}"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Créez un compte pour donner un Coup de Boost
                                 </a>
                             {% endif %}
                         {% else %}
                             <div class="sub-container row">
-                                <div class="col-xs-12">
-                                    Coup de Boost en cours
-                                </div>
+                                    <p>Coup de Boost en cours.</p>
                             </div>
                         {% endif %}
-
+                    </div>
                     {% endif %}
                 {% endfor %}
             </div>

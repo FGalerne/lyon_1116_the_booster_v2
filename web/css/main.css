@@ -5,17 +5,17 @@
 /* ALL */
 
 body {
-    padding-top: 10vh;
+	padding-top: 10vh;
 
 }
 html{
 
 }
 p {
- 	text-align:justify;
- 	font-family: 'Source Sans Pro', sans-serif;
+	text-align:justify;
+	font-family: 'Source Sans Pro', sans-serif;
 	font-size:1.35em;
- }
+}
 
 ul {
 	text-align:justify;
@@ -23,8 +23,8 @@ ul {
 }
 
 footer {
- 	height:auto;
- 	background-color: black;
+	height:auto;
+	background-color: black;
 	padding-top:30px;
 	padding-bottom: 35px;
 }
@@ -34,13 +34,17 @@ span {
 }
 
 h1, h2, h3, h4, h5 {
-	 font-family: 'Roboto', sans-serif;
-	 text-align:center;
-	 margin-bottom:3vh;
+	font-family: 'Roboto', sans-serif;
+	text-align:center;
+	margin-bottom:3vh;
 }
 
 h1{
-	 font-weight: 900;
+	font-weight: 900;
+}
+
+#beta-test {
+	margin-top: 65px;
 }
 
 /**** Gold color for stars rate system ****/
@@ -101,18 +105,18 @@ h1{
 .navbar {
 	background-color: white;
 	box-shadow: 0 3px 0 rgba(235,3,16,1);
-	font-size: 1.1em;
-	min-height: 10vh;
+	font-size: 1em;
+	height: 100px;
 }
 
 .nav-no-user > li > a,
 .navbar-nav > li > a {
-	line-height: 7vh;
+	line-height: 70px;
 	color: black;
 	display: inline-block;
 	text-align: center;
 	font-size: 1.35em;
- }
+}
 
 
 .navbar-brand img {
@@ -284,9 +288,6 @@ h1{
 	text-decoration-color: rgba(255,255,255,0.7);
 }
 
-.navbar-social ul {
-	padding-top: 3vh;
-}
 
 .navbar-social ul li {
 	list-style: none;
@@ -313,7 +314,7 @@ h1{
 
 @media (min-width: 1075px) {
 	.navbar-social ul {
-		padding-top: 25px;
+		padding-top: 28px;
 		padding-right: 30px;
 		padding-left: 0;
 	}
@@ -699,14 +700,14 @@ hr{
 }
 
 .who_blocimg {
-    text-align: center;
-    margin-top: 60px;
-    margin-bottom: 30px;
+	text-align: center;
+	margin-top: 60px;
+	margin-bottom: 30px;
 }
 
 .who_blocimg h2 {
-    font-size: 20px;
-    font-weight: bold;
+	font-size: 20px;
+	font-weight: bold;
 }
 
 .who_bltxt {
@@ -714,8 +715,8 @@ hr{
 }
 
 .who_blocsoc{
-    margin-top: 20px;
-    margin-bottom: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .who_blocsoc img {
@@ -728,7 +729,7 @@ hr{
 }
 
 #who_bltxt_ext {
-    margin-bottom: 50px;
+	margin-bottom: 50px;
 }
 
 #who_form_title {
@@ -740,7 +741,7 @@ hr{
 }
 
 #who_form{
-    margin-bottom: 30px;
+	margin-bottom: 30px;
 }
 
 .who_img_portrait{
@@ -820,7 +821,7 @@ hr{
 .how_blocimg_int img {
 	width: 85%;
 	height:auto;
-    margin: 0 7.5%;
+	margin: 0 7.5%;
 	-moz-box-shadow: 3px 3px 5px 0 #000000;
 	-webkit-box-shadow: 3px 3px 5px 0 #000000;
 	-o-box-shadow: 3px 3px 5px 0 #000000;
@@ -864,8 +865,8 @@ hr{
 }
 
 .how_btn_inscript a:hover {
-    background-color: rgba(230, 15, 51, 0.51);
-    color:white;
+	background-color: rgba(230, 15, 51, 0.51);
+	color:white;
 }
 
 .how_btn_inscript p {
@@ -921,64 +922,12 @@ hr{
 	margin-bottom:6vh;
 }
 
-/*.booster-formula h4 {
-	margin-top: 25px;
-}
-
-.booster-formula img {
-	width: 100px;
-	padding-top: 25px;
-}
-
-.booster-formula button {
-	margin-bottom: 25px;
-	font-size:1.2em;
-	font-weight:900;
-	background-color: #eb0310;
-	color:white;
-	padding: 10px 30px;
-	border: none;
-	border-radius: 5px;
-}
-
-
-.booster-formula button:hover {
-	background-color: rgb(255, 50, 80);
-	color: white;
-	text-decoration: none;
-}
-
-.height-price {
-	height: 49px;
-}
-
-.height-price p {
-	padding-top: 5px;
-}
-
-.booster-formula p {
-	text-align: center;
-}
-
-#number-of-projects {
-	width: 60px;
-	padding-left: 10px;
-}
-
-#limit-project p {
-	margin-top: 10px;
-	text-align: center;
-}*/
-
-/* CSS tempo */
-
 @media screen and (min-width: 1600px) {
 
 	#home_startup_list a {
 		margin-left: 7%;
 		margin-right: 7%;
 	}
-
 }
 
 @media screen and (max-width: 900px) {
@@ -1166,6 +1115,8 @@ hr{
 .project-done {
 	margin-bottom: 30px;
 	margin-top: 30px;
+	padding-top: 30px;
+	padding-bottom: 30px;
 }
 
 .project-in-progress p,
@@ -1418,6 +1369,72 @@ hr{
 	}
 }
 
+.projects {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	margin-bottom: 35px;
+}
+
+.accept-booster {
+	font-size: 1.1em;
+	background-color: #008000;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	color: #ffffff;
+	margin: 0;
+}
+
+.see-booster {
+	font-size: 1.1em;
+	background-color: #446AE4;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	color: #ffffff;
+	margin: 0;
+}
+
+.see-booster a :hover {
+	background-color: #446AE9;
+}
+
+.delete-project-button {
+	background-color: #dd4444;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-top: 0;
+	margin-bottom: 0;
+
+}
+
+.delete-project-button a,
+.see-booster a,
+.accept-booster a {
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.delete-project-button i,
+.see-booster i,
+.accept-booster i {
+	padding-right: 10px;
+
+}
+
+.see-icon,
+.accept-icon {
+	font-size: 30px;
+}
+
+.see-icon i,
+.accept-icon i {
+	padding-top: 10px;
+	margin: 0;
+}
+
+.booster-contact {
+	margin: 0;
+}
+
 /* INSCRIPTION CHOIX */
 
 .title_subs {
@@ -1455,55 +1472,55 @@ hr{
 }
 /* MENTIONS LÉGALES */
 
-	.ml_title{
-		text-align: center;
-	}
+.ml_title{
+	text-align: center;
+}
 
-	.body_ml{
-		margin-top: 40px;
-		margin-bottom: 40px;
-	}
+.body_ml{
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
 
 
 /* PLAN DU SITE */
 
-	.list_sm{
-		line-height: 35px;
-	}
+.list_sm{
+	line-height: 35px;
+}
 
-	.menu a{
-		color: black;
-		text-decoration: none;
-	}
+.menu a{
+	color: black;
+	text-decoration: none;
+}
 
-	.body_sm{
-		margin-top: 80px;
-		margin-bottom: 40px;
+.body_sm{
+	margin-top: 80px;
+	margin-bottom: 40px;
 
-	}
-    .row_lw{
-        margin-bottom: 9vh;
-    }
+}
+.row_lw{
+	margin-bottom: 9vh;
+}
 
 /* INSCRIPTION VALIDE */
-	.block_title_subs{
-		text-align: center;
-	}
-	
-	.link_subs{
-		color: dimgrey;
-	}
+.block_title_subs{
+	text-align: center;
+}
 
-    .link_subs_block{
-        text-align: center;
-		margin-top: 10vh;
-		margin-bottom: 15vh;
-    }
+.link_subs{
+	color: dimgrey;
+}
+
+.link_subs_block{
+	text-align: center;
+	margin-top: 10vh;
+	margin-bottom: 15vh;
+}
 
 /* ERROR 404 */
-    .block_error{
-        text-align: center;
-    }
+.block_error{
+	text-align: center;
+}
 
 /* Video */
 #background-thebooster{
@@ -1908,16 +1925,42 @@ li.star-active i {
 
 .dashboard-nav-container{
 	background-color: #363636;
-	margin-bottom: 35px;
 }
 
 .avatar-messenger{
 	max-height: 50px;
 	overflow: hidden;
 }
+
 .avatar-messenger img{
 	width: 100%;
 	display: block;
+}
+
+.avatar-messenger-dashboards{
+	max-height: 150px;
+	overflow: hidden;
+	margin-top: 15px;
+}
+
+@media (max-width: 991px){
+	.avatar-messenger-dashboards {
+		max-height: 350px;
+	}
+	.messenger-content {
+		padding-left : 30px;
+		padding-right : 30px;
+	}
+}
+
+.avatar-messenger-dashboards img{
+	width: 50%;
+	display: block;
+	margin: 0 auto;
+}
+
+.alert-text {
+	text-align: center;
 }
 
 /****** Charte ******/
@@ -1968,10 +2011,9 @@ li.star-active i {
 /*faq*/
 .faq-categories{
 	font-weight: bold;
-	font-size: 20px;
-	margin-top: 50px;
+	font-size: 15px;
 	margin-bottom: 10px;
-	background-color: #eb0310;
+	background-color: #727272;
 	color: white;
 }
 .hr-faq{
@@ -1980,7 +2022,7 @@ li.star-active i {
 	background-color: #5d5469;
 }
 .faq-categories:hover{
-	background-color: #fd262f;
+	background-color: #363636;
 	cursor: pointer;
 }
 .faq-height{
@@ -2015,6 +2057,10 @@ li.star-active i {
 	width: 100%;
 }
 
+.social-team {
+	font-size: 20px;
+	padding-top: 4px;
+}
 
 /* PAGE PARAMETERS ACCOUNT */
 .acc_btn{
@@ -2024,7 +2070,6 @@ li.star-active i {
 	color:white;
 	padding: 10px 30px;
 }
-
 
 /* Here we manage the css of the h2 h3 and p */
 
@@ -2062,6 +2107,7 @@ li.star-active i {
 .all-team ul li:hover {
 	background-color: #363636;
 }
+
 .all-team a {
 	text-decoration: none;
 	color: #FFFFFF;
@@ -2196,26 +2242,27 @@ li.star-active i {
 	margin-left: 10px;
 }
 
-.postulation-button, .postuled-button{
+.postulation-button,
+.postuled-button{
 	text-align: center;
-	font-size: 1.2em;
-	font-weight: 900;
-	background-color: #363636;
+	font-size: 1em;
+	background-color: #008000;
 	padding: 10px 30px;
 	border: none;
-	border-radius: 30px;
+	border-radius: 35px;
 	color: white;
 	width: 50%;
 	margin: 7px auto;
 	display: block;
 }
+
 .postuled-button:hover{
 	background-color: #696969;
 	color:white;
 }
 .postulation-button:hover{
 	cursor: pointer;
-	background-color: #eb0310;
+	background-color: #008909;
 	color:white;
 }
 
@@ -2231,14 +2278,11 @@ li.star-active i {
 	padding-top: 10px;
 	padding-bottom: 10px;*/
 	text-align: center;
-	margin:15px auto;
+	margin: 0 auto ;
 	background-color: #363636;
 	color: white;
 }
-.sub-container div{
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
+
 
 .button-cancel-subscription:hover{
 	cursor: pointer;
