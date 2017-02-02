@@ -8,14 +8,13 @@
 
 namespace BoosterBundle\Form;
 
-
 use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
 use FOS\UserBundle\Form\Type\RegistrationFormType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Validator\Constraints\DateTime;
+
 
 class BoosterRegistrationType extends RegistrationFormType
 {
