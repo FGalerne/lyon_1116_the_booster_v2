@@ -2311,6 +2311,16 @@ li.star-active i {
 #boosterbundle_booster_birthDate_day {
 	order: 1;
 }
+.error-page-container{
+	margin-top: 10vh;
+	margin-bottom: 10vh;
+}
+.error-margin{
+	margin-top: 50px;
+}
 .error-page-image{
 	width: 100%;
+}
+.text-error{
+	font-size: 30px;
 }
