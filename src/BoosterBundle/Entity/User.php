@@ -5,9 +5,13 @@
  * Date: 22/11/2016
  * Time: 5:22 PM
  */
+
 namespace BoosterBundle\Entity;
+
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use EWZ\Bundle\RecaptchaBundle\Validator\Constraints as Recaptcha;
+
 /**
  * Class User
  * @package BoosterBundle\Entity
